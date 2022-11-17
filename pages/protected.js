@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Auth } from 'aws-amplify'
-import '../configureAmplify'
 import { useRouter } from 'next/router'
 
 export default function Protected () {

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Auth } from 'aws-amplify'
-import '../configureAmplify'
+
 import SignIn from '../components/auth/signIn'
 import SignUp from '../components/auth/signUp'
 import ConfirmSignUp from '../components/auth/confirmSignUp'
@@ -22,7 +21,7 @@ function Profile () {
 
     async function checkUser() {
         try{
-            const user = await Auth.currentAuthenticatedUser()
+            //const user = await Auth.currentAuthenticatedUser()
             setUser(user)
             setUiState('signedIn')
         } catch(err) {
