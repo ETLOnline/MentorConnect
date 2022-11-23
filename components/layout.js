@@ -1,4 +1,4 @@
-import Navbar from './navbar.js'
+import Navbar from "./nav/navbar.js";
 //import Footer from './footer'
 
 export default function Layout({ children }) {
@@ -6,7 +6,7 @@ export default function Layout({ children }) {
     <>
       <Navbar />
       <main>{children}</main>
-      { /* <Footer /> */ }
+      {/* <Footer /> */}
     </>
-  )
+  );
 }

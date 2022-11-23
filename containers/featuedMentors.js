@@ -5,6 +5,6 @@ export default featuredMentors() {
     
 
     useEffect({
-        //var m = userProxy.featuredMentors();
+        // var m = userProxy.featuredMentors();
     },[]);
 }

@@ -108,6 +108,20 @@
   margin-left: 0.5rem;
 }
 
+.marginx_flex_div {
+  margin: 0px 60px;
+}
+.align-cot {
+  margin: 22px;
+}
+.custom-margin-align-items {
+  margin-left: auto;
+  align-items: center;
+}
+.margin-auto {
+  margin: auto;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
