@@ -1,5 +1,5 @@
 
-export default function Mentor()) {
+export default function Mentor(){
     return ({
 
     })
