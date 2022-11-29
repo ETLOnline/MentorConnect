@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
   const index = () => {
   return (
@@ -41,7 +42,7 @@ import React from 'react'
 
 
                 <div className='mx-auto w-[13.88%] bg-[#1C2D56] h-[36px] rounded-[4px] py-[5px] px-[18px] mt-[32px]'>
-                    <button className='bg-[#1C2D56] text-[white]'>Sign Up</button>
+                    <Link className='bg-[#1C2D56] text-[white]' href='/signupPage/1'>Sign Up</Link>
                 </div>
 
                 <div className='mt-[16px]'>
