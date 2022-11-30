@@ -58,7 +58,8 @@ const OwlCarousel = dynamic(() => import("react-owl-carousel"), {
 //   },
 // ];
 
-const FeatureMentor = () => {
+const FeatureMentor = ({ mentor }) => {
+  console.log(mentor, "fesddsd");
   // get the mentors here
 
   const Mentors = getAllMentors();
