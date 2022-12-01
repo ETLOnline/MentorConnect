@@ -1,9 +1,10 @@
 import Link from "next/link";
 import React from "react";
 import { useRef, useState } from "react";
+import { LoginWithEmailPassword } from "../../utils_firebase/users";
 
 const index = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   const inputFirstName = useRef();
   const inputLastName = useRef();
@@ -16,6 +17,7 @@ const index = () => {
   }
 
   function submitHandler(event) {
+    LoginWithEmailPassword();
     event.preventDefault();
 
     const enteredFirstName = inputFirstName.current.value;
