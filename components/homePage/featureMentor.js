@@ -2,8 +2,9 @@ import React, { Fragment } from "react";
 import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import { getAllMentors } from "../../proxyLayer/api-util";
 import Card from "./card";
+import { getUsers } from "../../utils_firebase/users";
+import { useEffect, useState } from "react";
 
 var $ = require("jquery");
 if (typeof window !== "undefined") {
@@ -15,54 +16,20 @@ const OwlCarousel = dynamic(() => import("react-owl-carousel"), {
   ssr: false,
 });
 
-// let productsp = [
-//   {
-//     id: 1,
-//     name: "Casy Martha",
-//     brand: "Brand Name",
-//     url: "products-number-1",
-//     price: 100,
-//     img: "./img/Image (13).png",
-//   },
-//   {
-//     id: 2,
-//     name: "Jay jom",
-//     brand: "Brand Name",
-//     url: "products-number-1",
-//     price: 100,
-//     img: "./img/Image (14).png",
-//   },
-//   {
-//     id: 3,
-//     name: "Lily olsan",
-//     brand: "Brand Name",
-//     url: "products-number-1",
-//     price: 100,
-//     img: "./img/Image (8).png",
-//   },
-//   {
-//     id: 4,
-//     name: "Casy Martha",
-//     brand: "Brand Name",
-//     url: "products-number-1",
-//     price: 100,
-//     img: "./img/Image (7).png",
-//   },
-//   {
-//     id: 5,
-//     name: "Product Number 1",
-//     brand: "Brand Name",
-//     url: "products-number-1",
-//     price: 100,
-//     img: "./img/Image (4).png",
-//   },
-// ];
+const FeatureMentor = () => {
+  const [Mentors, setMentors] = useState(false);
+  // const Mentors = getAllMentors();
+  useEffect(() => {
+    async function name() {
+      const users = await getUsers();
+      setMentors(users);
+    }
+    name();
+  }, []);
 
-const FeatureMentor = ({ mentor }) => {
-  console.log(mentor, "fesddsd");
-  // get the mentors here
-
-  const Mentors = getAllMentors();
+  if (!Mentors) {
+    return <p>loading </p>;
+  }
 
   const options = {
     margin: 10,
@@ -71,11 +38,11 @@ const FeatureMentor = ({ mentor }) => {
     // dots: true,
     autoplay: true,
     smartSpeed: 1000,
-    navClass: ["owl-prev", "owl-next"],
-    // navText: [
-    //   '<i class="fas fa-angle-left"></i>',
-    //   '<i class="fas fa-angle-right"></i>',
-    // ],
+    // navClass: ["owl-prev", "owl-next"],
+    // // navText: [
+    // //   '<i class="fas fa-angle-left"></i>',
+    // //   '<i class="fas fa-angle-right"></i>',
+    // // ],
     responsive: {
       0: {
         items: 1,
@@ -100,12 +67,11 @@ const FeatureMentor = ({ mentor }) => {
       <OwlCarousel
         className="owl-theme"
         loop
-        // margin={4}
         dots={false}
         animateIn={true}
         {...options}
       >
-        <Card Mentors={Mentors} />
+        <Card mentors={Mentors} />
       </OwlCarousel>
     </Fragment>
   );

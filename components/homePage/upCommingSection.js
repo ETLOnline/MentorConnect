@@ -3,7 +3,7 @@ import { getAllMentorSeasions } from "../../proxyLayer/api-util";
 
 const UpCommingSection = () => {
   const seasions = getAllMentorSeasions();
-  console.log(seasions, "=========");
+  // console.log(seasions, "=========");
   return (
     <Fragment>
       <div className="flex flex-col gap-6 mt-40">

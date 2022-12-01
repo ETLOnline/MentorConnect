@@ -5,12 +5,12 @@ import FindMentor from "./findMentor";
 import SkillCard from "./skillCard";
 import UpCommingSection from "./upCommingSection";
 
-const HomePage = ({ mentor }) => {
-  console.log(mentor);
+const HomePage = () => {
+
   return (
     <Fragment>
       <Header />
-      <FeatureMentor mentor={mentor} />
+      <FeatureMentor />
       <FindMentor />
       <SkillCard />
       <UpCommingSection />
