@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { useRef, useState } from "react";
+import { LoginWithEmailPassword } from "../../utils_firebase/users";
 
 export let switchAuthModeHandler;
 
@@ -47,7 +48,7 @@ const index = () => {
         confirmPassword: enteredConfirmPassword,
       };
     }
-
+    LoginWithEmailPassword();
     console.log(formData);
   }
 

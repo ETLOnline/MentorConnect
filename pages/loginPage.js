@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { useRef, useState } from "react";
 
+
 export let switchAuthModeHandler;
 
 const index = () => {
@@ -47,8 +48,6 @@ const index = () => {
         confirmPassword: enteredConfirmPassword,
       };
     }
-
-    console.log(formData);
   }
 
   return (
