@@ -9,3 +9,9 @@ export const getUsers = async () => {
   });
   return resualt;
 };
+
+const collection = {
+  name: "sajid",
+  age: 23,
+  skills: "react developer",
+};
