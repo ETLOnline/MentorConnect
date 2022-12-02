@@ -14,7 +14,7 @@ export const LoginWithEmailPassword = () => {
     ">>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
   );
   auth
-    .createUserWithEmailAndPassword("negoke3973@ceoshub.com", "password")
+    .createUserWithEmailAndPassword("15aliraza786@gmail.com", "password")
     .then((userCredential) => {
       console.log(userCredential, "create user");
       userCredential.user.sendEmailVerification().then(() => {

@@ -1,10 +1,12 @@
 import Link from "next/link";
 import React from "react";
 import { useRef, useState } from "react";
-import { LoginWithEmailPassword } from "../../utils_firebase/users";
+import { LoginWithEmailPassword } from "../utils_firebase/users";
+
+export let switchAuthModeHandler;
 
 const index = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
 
   const inputFirstName = useRef();
   const inputLastName = useRef();
@@ -14,10 +16,10 @@ const index = () => {
 
   let formData;
 
-  function switchAuthModeHandler() {
+  switchAuthModeHandler = function () {
     setIsLogin((prevState) => !prevState);
     return "toggle";
-  }
+  };
 
   function submitHandler(event) {
     event.preventDefault();
@@ -47,7 +49,6 @@ const index = () => {
       };
     }
     LoginWithEmailPassword();
-    console.log(formData);
   }
 
   return (
@@ -135,14 +136,14 @@ const index = () => {
               </div>
             </div>
 
-            <div className="mx-auto w-[13.88%] bg-[#1C2D56] h-[36px] rounded-[4px] py-[5px] px-[18px] mt-[32px]">
+            <div className="mx-auto mb-1 w-[13.88%] bg-[#1C2D56] h-[36px] rounded-[4px] py-[5px] px-[18px] mt-[32px]">
               <button className="bg-[#1C2D56] ml-3 text-[white]">
                 {isLogin ? "Login" : "Signup"}
               </button>
             </div>
 
-            <div className="mt-[16px]">
-              <h1 className="leading-[28px] text-[16px] font-medium text-center">
+            <div className="  ">
+              <h1 className="leading-[28px]  text-[16px] font-medium text-center">
                 <button type="button" onClick={switchAuthModeHandler}>
                   {isLogin
                     ? "Create new account"

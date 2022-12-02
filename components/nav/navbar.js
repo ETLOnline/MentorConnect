@@ -37,7 +37,10 @@ export default function NavBar() {
               </a>
             </div>
             <button className=" h-[36px] w-24 bg-[#1C2D56] rounded  hover:bg-[#fff]">
-              <a className="text-[#fff] font-['Raleway'] hover:text-[#1C2D56]">
+              <a
+                className="text-[#fff] font-['Raleway'] hover:text-[#1C2D56]"
+                href="/loginPage"
+              >
                 Log In
               </a>
             </button>
