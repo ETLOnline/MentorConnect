@@ -20,12 +20,12 @@ const UpCommingSection = () => {
       </div>
       {/* <!-- Footer Cards --> */}
       <div className="mx-[4.44%]">
-        <div className="md:flex my-[24px] gap-6 ">
+        <div className="md:flex  my-[24px] gap-6 ">
           {seasions.map((seasion) => {
             return (
               <Fragment key={Math.random()}>
                 <div
-                  className="flex flex-col gap-3  ml-3 bg-[#F4F4F4] rounded-[12px] 
+                  className="flex flex-col gap-3  ml-11 bg-[#F4F4F4] rounded-[12px] 
                 "
                 >
                   <img src={seasion.topic_img} alt="img" />

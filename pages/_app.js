@@ -1,10 +1,10 @@
 import "../styles/globals.css";
 import Layout from "../components/layout";
+import Footer from "../components/footer";
 
 function MyApp({ Component, pageProps }) {
   return (
     <Layout>
-      
       {/* <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -16,6 +16,7 @@ function MyApp({ Component, pageProps }) {
       />
 
       <Component {...pageProps} />
+      <Footer />
     </Layout>
   );
 }
