@@ -1,7 +1,10 @@
 import Link from "next/link";
 import React from "react";
 import { useRef, useState } from "react";
-import { LoginWithEmailPassword } from "../../utils_firebase/users";
+import {
+  SignupWithEmailPassword,
+  LoginWithEmailPassword,
+} from "../../utils_firebase/users";
 
 const index = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -29,6 +32,7 @@ const index = () => {
         gmail: enteredGmail,
         password: enteredPassword,
       };
+      LoginWithEmailPassword(formData);
     }
 
     if (!isLogin) {
@@ -45,8 +49,8 @@ const index = () => {
         password: enteredPassword,
         confirmPassword: enteredConfirmPassword,
       };
+      SignupWithEmailPassword(formData);
     }
-    LoginWithEmailPassword();
     console.log(formData);
   }
 
