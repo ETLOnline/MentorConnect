@@ -18,7 +18,7 @@ const Card = ({ mentors }) => {
                     <div className="relative group rounded-[12px]">
                       <div className="h-[352px] rounded-[12px]">
                         <img
-                          src={mentor.summry.image}
+                          src={mentor.summry?.image}
                           alt="IMG"
                           className="w-[21.11%] h-[100%]"
                         />
@@ -28,7 +28,7 @@ const Card = ({ mentors }) => {
                       <div className="flex flex-col w-[90%] ml-4 absolute group-hover:-translate-y-10 group-hover:duration-1000 transition-all duration-1000 top-[286px]  transition-all hover:duration-1000">
                         <div className="flex justify-between mt-10 ">
                           <p className="text-[20px] text-[#FFFFFF] leading-[23px] font-normal font-['Raleway']">
-                            {mentor.summry.displayName}
+                            {mentor.summry?.displayName}
                           </p>
                           <p className="text-[20px] text-[#FFFFFF] leading-[23px] font-['Raleway']">
                             {200}

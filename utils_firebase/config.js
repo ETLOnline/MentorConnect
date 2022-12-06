@@ -17,4 +17,5 @@ const fireStore = firebase.firestore();
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = firebase.auth();
-export { fireStore, auth };
+const googleProvider = new firebase.auth.GoogleAuthProvider();
+export { fireStore, auth, googleProvider};
