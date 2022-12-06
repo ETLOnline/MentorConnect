@@ -4,9 +4,12 @@ import { useRef, useState } from "react";
 import {
   SignupWithEmailPassword,
   LoginWithEmailPassword,
+  loginWithGoogle,
 } from "../../utils_firebase/users";
+import { useRouter } from "next/router";
 
 const index = () => {
+  const router = useRouter();
   const [isLogin, setIsLogin] = useState(false);
 
   const inputFirstName = useRef();
@@ -32,7 +35,7 @@ const index = () => {
         gmail: enteredGmail,
         password: enteredPassword,
       };
-      LoginWithEmailPassword(formData);
+      LoginWithEmailPassword(formData, router);
     }
 
     if (!isLogin) {
@@ -49,7 +52,7 @@ const index = () => {
         password: enteredPassword,
         confirmPassword: enteredConfirmPassword,
       };
-      SignupWithEmailPassword(formData);
+      SignupWithEmailPassword(formData, router);
     }
     console.log(formData);
   }
@@ -156,7 +159,10 @@ const index = () => {
             </div>
 
             <div className="w-[32.22%] flex justify-between mx-auto mb-[15.57%] mt-[64px]">
-              <img src="./img/Frame 77.png" />
+              <img
+                onClick={() => loginWithGoogle(router)}
+                src="./img/Frame 77.png"
+              />
               <img src="./img/Frame 78.png" />
               <img src="./img/Frame 79.png" />
             </div>
