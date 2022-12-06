@@ -4,6 +4,7 @@ import React, { Fragment } from "react";
 
 const Card = ({ mentors }) => {
   console.log(mentors, "card");
+
   // const Mentors = getAllMentors();
 
   return (
