@@ -36,9 +36,9 @@ export default function NavBar() {
                 Sign Up
               </a>
             </div>
-            <button className=" h-[36px] w-24 bg-[#1C2D56] rounded  hover:bg-[#fff]">
+            <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group  hover:bg-[#fff]">
               <a
-                className="text-[#fff] font-['Raleway'] hover:text-[#1C2D56]"
+                className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"
                 href="/loginPage"
               >
                 Log In

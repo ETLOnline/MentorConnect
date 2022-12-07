@@ -20,7 +20,7 @@ const Card = ({ mentors }) => {
                         <img
                           src={mentor.summry?.image}
                           alt="IMG"
-                          className="w-[21.11%] h-[100%]"
+                          className="w-[21.11%] h-[100%] rounded-[12px]"
                         />
                       </div>
 
