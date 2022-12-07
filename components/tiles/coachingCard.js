@@ -16,7 +16,7 @@ const CoachingCard = ()=>{
             <p className="text-[12px] leading-[14px] font-medium text-[#8B8B8B] group-hover:text-green-800">6/11/2022 - 3PM</p>
             </div>
             <div className=" h-[30px]">
-                <p className="text-[24px] leading-[28px] font-medium text-[#000000] group-hover:text-[#1C2D56]">Everything Design</p>
+                <p className="text-[24px] leading-[28px] font-medium text-[#000000] group-hover:text-[#1C2D56]">Making Billionare</p>
             </div>
           </div>
            
