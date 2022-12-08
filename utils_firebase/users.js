@@ -58,7 +58,8 @@ export const SignupWithEmailPassword = (data, router) => {
 
 // login with email password
 
-export const LoginWithEmailPassword = (data) => {
+export const LoginWithEmailPassword = (data, router) => {
+  console.log(data);
   auth
     .signInWithEmailAndPassword(data.gmail, data.password)
     .then((userCredential) => {
@@ -121,3 +122,22 @@ export const loginWithGoogle = (router) => {
       // ...
     });
 };
+
+//  update profile image
+
+export default function updateImage(image) {
+  var Ref = fireStore.collection("users").doc("pSkpYdJuDpubniZvPTtl");
+
+  // Set the "capital" field of the city 'DC'
+  return Ref.update({
+    "summry.image": image,
+    
+  })
+    .then(() => {
+      console.log("Document successfully updated!");
+    })
+    .catch((error) => {
+      // The document probably doesn't exist.
+      console.error("Error updating document: ", error);
+    });
+}

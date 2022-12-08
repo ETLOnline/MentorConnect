@@ -22,6 +22,8 @@ const Index = () => {
   const [reward, setreward] = useState(false);
   const [schdule, setschdule] = useState(false);
 
+ 
+
   function abouthandler() {
     console.log("about");
     setabout(true);
