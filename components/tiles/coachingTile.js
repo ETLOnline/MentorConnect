@@ -1,7 +1,6 @@
 import React from "react";
 
-const LearningTile = ()=>{
- 
+const CoachingTile = ()=>{
     return(
         <>
             <div className="w-[10.13%] h-auto rounded-[12px] border-[#1C2D56] border-[1px] flex">
@@ -9,6 +8,5 @@ const LearningTile = ()=>{
             </div>
         </>
     )
-
 }
-export default LearningTile;
+export default CoachingTile;

@@ -4,7 +4,7 @@ const ReviewsCard = ()=>{
 
     return(
         <>
-        <div className="w-[51.45%] h-auto bg-[#F4F4F4] flex flex-col rounded-[12px]">
+        <div className="w-[100%] h-auto bg-[#F4F4F4] flex flex-col rounded-[12px]">
         <div className="flex justify-between mx-4 mt-4">
             <div className="w-[40.2%] flex gap-2 items-center">
                 <div className="w-[15.61%]">

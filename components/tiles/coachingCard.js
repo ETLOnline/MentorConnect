@@ -3,7 +3,7 @@ import React from "react";
 const CoachingCard = ()=>{
     return(
         <>
-         <div className="w-[51.45%] h-auto rounded-[12px] flex group hover:bg-[#F4F4F4]">
+         <div className="w-[100%] h-auto rounded-[12px] flex group hover:bg-[#F4F4F4]">
           <div className="flex w-[82.93%] gap-4 ml-[12px] my-[12px]">
           <div className="w-[31.8%] h-[96px]  my-auto ">
             <img src="/img/Image (21).png" className="w-full h-[96px]" />
