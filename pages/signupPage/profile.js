@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function Profile() {
   const inputAbout = useRef();

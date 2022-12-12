@@ -5,7 +5,7 @@ import { LoginWithEmailPassword } from "../utils_firebase/users";
 
 export let switchAuthModeHandler;
 
-const index = () => {
+const Index = () => {
   const [isLogin, setIsLogin] = useState(true);
 
   const inputFirstName = useRef();
@@ -163,4 +163,4 @@ const index = () => {
     </>
   );
 };
-export default index;
+export default Index;
