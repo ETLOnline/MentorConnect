@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import { fireStore } from "./config";
-import { updatePoint } from "./users";
+import { getSingleUser, updatePoint } from "./users";
 // create Sesssion
 export const createSession = (data) => {
   // Add a new document with a generated id.
@@ -46,17 +46,18 @@ export const registorSession = (data) => {
   }
 };
 // get all sessions
-export const getAllSessions = () => {
+export const getAllSessions = async () => {
   const allSessions = [];
-  fireStore
-    .collection("sessions")
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-        console.log(doc.data());
-        allSessions.push({ id: doc.id, ...doc.data() });
-      });
-      console.log("object>>>>><<<<<>>>>>>><<<<<>>>>><<<<>><>", allSessions);
+
+  const session = await fireStore.collection("sessions").get();
+  // console.log(session.docs);
+  for (const doc of session.docs) {
+    const user = await getSingleUser(doc.data().instructor);
+    allSessions.push({
+      id: doc.id,
+      ...doc.data(),
+      instructor: user,
     });
+  }
+  return allSessions;
 };

@@ -5,7 +5,7 @@ import {
   getAllSessions,
   registorSession,
 } from "../../utils_firebase/sessions";
-import updateImage from "../../utils_firebase/users";
+import updateImage, { getSingleUser } from "../../utils_firebase/users";
 const IntroCard = () => {
   //upload file
   const [file, setFile] = useState(null);
@@ -67,6 +67,7 @@ const IntroCard = () => {
           <button
             // onClick={registorSession}
             onClick={getAllSessions}
+            // onClick={getSingleUser}
             className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl"
           >
             Follow

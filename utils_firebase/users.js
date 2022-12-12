@@ -162,3 +162,22 @@ export const updatePoint = (params) => {
       console.error("Error updating document: ", error);
     });
 };
+
+export const getSingleUser = (id) => {
+  return fireStore
+    .collection("users")
+    .doc(id)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        return doc.data();
+      } else {
+        // doc.data() will be undefined in this case
+        // console.log("No such document!");
+        return "No such document!";
+      }
+    })
+    .catch((error) => {
+      console.log("Error getting document:", error);
+    });
+};
