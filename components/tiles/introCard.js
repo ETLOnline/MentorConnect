@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { storage } from "../../utils_firebase/config";
+import {
+  createSession,
+  getAllSessions,
+  registorSession,
+} from "../../utils_firebase/sessions";
 import updateImage from "../../utils_firebase/users";
 const IntroCard = () => {
   //upload file
@@ -57,6 +62,13 @@ const IntroCard = () => {
         <div className="w-[84.61%] mx-auto flex justify-between mb-[32px]">
           <p className="text-[24px] leading-[28px] font-semibold">Elon Musk</p>
           <button className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
+            Follow
+          </button>
+          <button
+            // onClick={registorSession}
+            onClick={getAllSessions}
+            className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl"
+          >
             Follow
           </button>
         </div>
