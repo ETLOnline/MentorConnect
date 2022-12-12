@@ -35,6 +35,7 @@ const index = () => {
         gmail: enteredGmail,
         password: enteredPassword,
       };
+      console.log(formData);
       LoginWithEmailPassword(formData, router);
     }
 
