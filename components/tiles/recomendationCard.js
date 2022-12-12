@@ -4,7 +4,7 @@ const RecomendationCard = ()=>{
 
     return(
         <>
-           <div className="w-full flex justify-between hover:translate-x-6">
+           <div className="w-full flex justify-between hover:translate-x-6 py-[24px] border-b-[#D7D6D6] border-b-[1px]">
             <div className="w-[52.9%] flex justify-between">
                <div className="w-[23.36%]">
                 <img src="/img/Image (16).png" className="rounded-[8px]"/>

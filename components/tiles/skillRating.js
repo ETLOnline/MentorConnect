@@ -3,7 +3,7 @@ import React from "react";
 const SkillRating= ()=>{
     return(
         <>
-          <div className="w-[23.76%] h-auto flex flex-col items-center border-[1px] border-[#D6D6D6] rounded-[8px]" >
+          <div className="w-[100%] h-auto flex flex-col items-center border-[1px] border-[#D6D6D6] rounded-[8px]" >
              <div className="w-[52.7%]  my-[16px] bordr">
                 <img src="/img/Frame 123.png"/>
              </div>
