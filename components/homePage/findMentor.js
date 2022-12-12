@@ -18,7 +18,7 @@ const FindMentor = () => {
       </div>
       <div className="mx-auto py-[45px] ">
         <button className="border-[#1C2D56] rounded-[5px] border-[1.5px] text-[#1C2D56] px-4 text-[20px] hover:bg-[#1C2D56] hover:text-white">
-          Let's Find a Mentor
+          Lets Find a Mentor
         </button>
       </div>
     </div>

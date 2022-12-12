@@ -8,7 +8,7 @@ import {
 } from "../../utils_firebase/users";
 import { useRouter } from "next/router";
 
-const index = () => {
+const Index = () => {
   const router = useRouter();
   const [isLogin, setIsLogin] = useState(false);
 
@@ -173,4 +173,4 @@ const index = () => {
     </>
   );
 };
-export default index;
+export default Index;
