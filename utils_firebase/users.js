@@ -35,6 +35,10 @@ export const SignupWithEmailPassword = (data, router) => {
               email: data.gmail,
               image: image,
             },
+            points: {
+              learningPoint: 100,
+              coachingPoint: 100,
+            },
           })
           .then(() => {
             console.log("Document successfully written!");
@@ -102,6 +106,10 @@ export const loginWithGoogle = (router) => {
             email: user.email,
             image: user.photoURL,
           },
+          points: {
+            learningPoint: 100,
+            coachingPoint: 100,
+          },
         })
         .then(() => {
           console.log("Document successfully written!");
@@ -131,7 +139,6 @@ export default function updateImage(image) {
   // Set the "capital" field of the city 'DC'
   return Ref.update({
     "summry.image": image,
-    
   })
     .then(() => {
       console.log("Document successfully updated!");
@@ -141,3 +148,17 @@ export default function updateImage(image) {
       console.error("Error updating document: ", error);
     });
 }
+export const updatePoint = (params) => {
+  var Ref = fireStore.collection("users").doc("99iQxqVi3gc7ppU7Yvq8cSd26Wr1");
+  return Ref.update({
+    // "points.learningPoint": learningPoint-sessionPoins,
+    "points.learningPoint": 100 - 100,
+  })
+    .then(() => {
+      console.log("Document successfully updated!");
+    })
+    .catch((error) => {
+      // The document probably doesn't exist.
+      console.error("Error updating document: ", error);
+    });
+};
