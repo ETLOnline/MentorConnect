@@ -17,7 +17,6 @@ const BadgesBlock = () => {
           <BadgesCircle />
           <BadgesCircle />
           <BadgesCircle />
-          <BadgesCircle />
         </div>
       </div>
     </>

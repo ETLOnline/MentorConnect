@@ -10,7 +10,7 @@ const InterestsBlock = () => {
             Interests
           </h1>
         </div>
-        <div className="flex  gap-[16px]">
+        <div className="grid grid-cols-6  gap-[16px]">
           <IntrestsTile />
           <IntrestsTile />
           <IntrestsTile />
