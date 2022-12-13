@@ -33,18 +33,24 @@ const UpCommingSection = () => {
         </div>
       </div>
       {/* <!-- Footer Cards --> */}
-      <div className="mx-[4.44%]">
-        <div className="md:flex  my-[24px] gap-6 ">
+      <div className="mx-[4.44%] ">
+        <div className="grid grid-cols-4  gap-[2.22%] my-[24px]  ">
           {sessions.map((seasion) => {
             return (
               <Fragment key={Math.random()}>
                 <div
-                  className="flex flex-col gap-3  ml-11 bg-[#F4F4F4] rounded-[12px]
+                  className="flex flex-col gap-4   bg-[#F4F4F4] rounded-[12px]
                 "
                 >
-                  <img src={seasion?.image} alt="img" />
-                  <div className="flex flex-col gap-3 mx-3">
-                    <div className="flex flex-row justify-between">
+                  <div>
+                    <img
+                      src={seasion?.image}
+                      alt="img"
+                      className="w-full rounded-b-[30px]"
+                    />
+                  </div>
+                  <div className="flex flex-col  mx-3">
+                    <div className="flex flex-row mb-3 justify-between">
                       <p className="text-[16px] font-medium leading-[19px] font-['Raleway'] text-[#8B8B8B]">
                         {seasion?.students.length} +Attendees
                       </p>
@@ -52,16 +58,16 @@ const UpCommingSection = () => {
                         {/* {seasion?.startTime} */}
                       </p>
                     </div>
-                    <div className="">
+                    <div className=" mb-4">
                       <p className="text-[24px] leading-[28px] font-normal font-['Raleway'] text-black">
                         {seasion?.title}
                       </p>
                     </div>
-                    <div className="flex pb-2 gap-2">
+                    <div className="flex pb-2 gap-2 mb-4">
                       <img
                         src={seasion?.instructor?.summry?.image}
                         alt=""
-                        className="rounded-[12px]"
+                        className="rounded-[50px] w-[10.52%]"
                       />
                       <p className="text-[16px] font-['Raleway'] leading-[19px] font-medium text-[#8B8B8B] pt-2">
                         {seasion?.instructor?.summry?.displayName}
