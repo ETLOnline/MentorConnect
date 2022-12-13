@@ -11,7 +11,7 @@ const LearningBlock = () => {
           </h1>
         </div>
 
-        <div className="grid grid-cols-8 gap-[16px] mr-[37px]">
+        <div className="grid xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-4 gap-[16px] mr-[37px]">
           <LearningTile />
           <LearningTile />
           <LearningTile />
