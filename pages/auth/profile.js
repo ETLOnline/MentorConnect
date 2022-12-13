@@ -2,7 +2,12 @@ import { Fragment } from "react";
 import { useRef } from "react";
 import Image from "next/image";
 
+import { updateProfile } from "../../utils_firebase/users";
+import { useRouter } from "next/router";
+
 export default function Profile() {
+  const router = useRouter();
+
   const inputAbout = useRef();
   const inputInterest = useRef();
   const inputLearning = useRef();
@@ -25,14 +30,18 @@ export default function Profile() {
     const learning = enteredLearning.split(",");
 
     formData = {
+      links: {
+        linkln: enteredLinkln,
+        github: enteredGihub,
+        twitter: enteredTwitter,
+      },
       about: enteredAbout,
       interest: interests,
       learning: learning,
-      linkln: enteredLinkln,
-      github: enteredGihub,
-      twitter: enteredTwitter,
     };
     console.log(formData);
+    updateProfile(formData);
+    router.push("/auth/userId");
   }
 
   return (

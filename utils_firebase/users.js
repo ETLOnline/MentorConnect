@@ -181,3 +181,18 @@ export const getSingleUser = (id) => {
       console.log("Error getting document:", error);
     });
 };
+
+export const updateProfile = (data) => {
+  console.log(data, "update data");
+  var Ref = fireStore.collection("users").doc("99iQxqVi3gc7ppU7Yvq8cSd26Wr1");
+  return Ref.update({
+    ...data,
+  })
+    .then(() => {
+      console.log("Document successfully updated!");
+    })
+    .catch((error) => {
+      // The document probably doesn't exist.
+      console.error("Error updating document: ", error);
+    });
+};

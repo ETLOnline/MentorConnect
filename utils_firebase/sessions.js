@@ -2,26 +2,30 @@ import firebase from "firebase/app";
 import { fireStore } from "./config";
 import { getSingleUser, updatePoint } from "./users";
 // create Sesssion
-export const createSession = (data) => {
+export const createSession = (data, router) => {
   // Add a new document with a generated id.
   fireStore
     .collection("sessions")
     .add({
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjGL4VXH0n3EwUSR7VGx38Dtj4_TCcnFJTVfijNiqeiQ&s",
+      image: data.Image,
       instructor: "HID06ysBc8cYx2rtsxvOAtOJT9o1",
       students: [
         "HID06ysBc8cYx2rtsxvOAtOJT9o1",
         "HID06ysBc8cYx2rtsxvOAtOJT9o1",
       ],
-      tags: ["JS", "React JS"],
-      title: "Learning JS & React JS",
-      startTime: new firebase.firestore.Timestamp.fromDate(new Date()),
-      endTime: new firebase.firestore.Timestamp.fromDate(new Date()),
-      poins: 100,
+      tags: data.Tags,
+      title: data.Title,
+      startTime: new firebase.firestore.Timestamp.fromDate(
+        new Date(data.StartTime)
+      ),
+      endTime: new firebase.firestore.Timestamp.fromDate(
+        new Date(data.EndTime)
+      ),
+      poins: data.Points,
     })
     .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
+      router.push("/");
     })
     .catch((error) => {
       console.error("Error adding document: ", error);
@@ -48,7 +52,6 @@ export const registorSession = (data) => {
 // get all sessions
 export const getAllSessions = async () => {
   const allSessions = [];
-
   const session = await fireStore.collection("sessions").get();
   // console.log(session.docs);
   for (const doc of session.docs) {

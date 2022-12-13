@@ -1,14 +1,35 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { useRef } from "react";
-import Image from "next/image";
-
+import { storage } from "../../utils_firebase/config";
+import { createSession } from "../../utils_firebase/sessions";
+import { useRouter } from "next/router";
 export default function Profile() {
+  const router = useRouter();
+
+  const [file, setFile] = useState(null);
+  const [fileSelect, setFileSelect] = useState(false);
+  const [Url, setURL] = useState("");
   const inputStartTime = useRef();
   const inputEndTime = useRef();
   const inputTags = useRef();
   const inputPoints = useRef();
-  const inputImage = useRef();
   const inputTitle = useRef();
+  function handleChange(e) {
+    console.log(e.target.files[0]);
+    const file = e.target.files[0];
+    setFile(file);
+    setFileSelect(true);
+  }
+  async function handleUpload() {
+    if (file) {
+      const path = `/images/${file.name}`;
+      const ref = storage.ref(path);
+      await ref.put(file);
+      const url = await ref.getDownloadURL();
+      setURL(url);
+      console.log(url, "sasasa", Url);
+    }
+  }
 
   let formData;
   function submitHandler(event) {
@@ -17,7 +38,6 @@ export default function Profile() {
     const enteredEndTime = inputEndTime.current.value;
     const enteredTags = inputTags.current.value;
     const enteredPoints = inputPoints.current.value;
-    const enteredImage = inputImage.current.value;
     const enteredTiltle = inputTitle.current.value;
 
     // Spliting by comma...
@@ -29,9 +49,10 @@ export default function Profile() {
       EndTime: enteredEndTime,
       Tags: Tags,
       Points: enteredPoints,
-      Image: enteredImage,
+      Image: Url,
     };
     console.log(formData);
+    createSession(formData,router);
   }
 
   return (
@@ -165,53 +186,69 @@ export default function Profile() {
                           Upload photo
                         </label>
                         <div className="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
-                          <div className="space-y-1 text-center">
-                            <svg
-                              className="mx-auto h-12 w-12 text-gray-400"
-                              stroke="currentColor"
-                              fill="none"
-                              viewBox="0 0 48 48"
-                              aria-hidden="true"
-                            >
-                              <path
-                                d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                                strokeWidth={2}
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                            <div className="flex text-sm text-gray-600">
-                              <label
-                                htmlFor="file-upload"
-                                className="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
+                          {!Url ? (
+                            <div className="space-y-1 text-center">
+                              <svg
+                                className="mx-auto h-12 w-12 text-gray-400"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 48 48"
+                                aria-hidden="true"
                               >
-                                <span>Upload a file</span>
-                                <input
-                                  id="file-upload"
-                                  name="file-upload"
-                                  type="file"
-                                  className="sr-only"
-                                  ref={inputImage}
+                                <path
+                                  d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                                  strokeWidth={2}
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                 />
-                              </label>
-                              <p className="pl-1">or drag and drop</p>
+                              </svg>
+                              <div className="flex text-sm text-gray-600">
+                                <label
+                                  htmlFor="file-upload"
+                                  className="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
+                                >
+                                  {fileSelect ? (
+                                    <span onClick={handleUpload}>
+                                      Click to Upload file
+                                    </span>
+                                  ) : (
+                                    <>
+                                      <span>Select a file</span>
+                                      <input
+                                        id="file-upload"
+                                        name="file-upload"
+                                        type="file"
+                                        className="sr-only"
+                                        onChange={handleChange}
+                                      />
+                                    </>
+                                  )}
+                                </label>
+                                <p className="pl-1">or drag and drop</p>
+                              </div>
+                              <p className="text-xs text-gray-500">
+                                PNG, JPG, GIF up to 10MB
+                              </p>
                             </div>
-                            <p className="text-xs text-gray-500">
-                              PNG, JPG, GIF up to 10MB
-                            </p>
-                          </div>
+                          ) : (
+                            <img src={Url}></img>
+                          )}
                         </div>
                       </div>
 
                       {/*  Here is photo and coverphoto End */}
                     </div>
                     <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                      <button
-                        type="submit"
-                        className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                      >
-                        Save
-                      </button>
+                      {Url ? (
+                        <button
+                          type="submit"
+                          className="inline-flex justify-center rounded-md  border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        >
+                          Create Session
+                        </button>
+                      ) : (
+                        <p>Please Upload file First</p>
+                      )}
                     </div>
                   </div>
                 </div>

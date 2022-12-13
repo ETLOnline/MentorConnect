@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 import { storage } from "../../utils_firebase/config";
 import {
@@ -9,14 +10,14 @@ import updateImage, { getSingleUser } from "../../utils_firebase/users";
 const IntroCard = () => {
   //upload file
   const [file, setFile] = useState(null);
+  const [fileSelect, setFileSelect] = useState(false);
   const [Url, setURL] = useState("");
 
   function handleChange(e) {
     console.log(e.target.files[0]);
-    if (e.target.files[0]) {
-      setFile(e.target.files[0]);
-      handleUpload();
-    }
+    const file = e.target.files[0];
+    setFile(file);
+    setFileSelect(true);
   }
 
   async function handleUpload() {
@@ -30,6 +31,7 @@ const IntroCard = () => {
       console.log(url, "sasasa", Url);
       updateImage(url);
       setFile(null);
+      setFileSelect(false);
     }
   }
 
@@ -39,39 +41,54 @@ const IntroCard = () => {
     <>
       <div className=" bg-white w-[81.25%] flex flex-col  m-auto justify-between rounded-[12px] shadow-lg border-[1px] ">
         <div className="w-[37.5%] mt-[40px] mx-auto ">
-          <img src="/img/Image (7).png" className="rounded-[96%]" />
+          <img
+            src={Url ? Url : "/img/Image (7).png"}
+            className="rounded-[96%]"
+          />
 
           <div className="relative bottom-[50px] left-[115px] w-[25px] rounded-[15px]">
-            <label type="file">
-              <img
-                src="/img/editIcon.png"
-                className="bg-[#646464] rounded-[15px] opacity-[0.3]"
-              ></img>
-              <input type="file" onChange={handleChange} className="hidden" />
-            </label>
+            {!fileSelect ? (
+              <label type="file">
+                <img
+                  src="/img/editIcon.png"
+                  className="bg-[#646464] rounded-[15px] opacity-[0.3]"
+                ></img>
+                <input
+                  type="file"
+                  onChangeCapture={handleChange}
+                  className="hidden"
+                />
+              </label>
+            ) : (
+              <p onClick={handleUpload}>
+                <img src="/img/upload.svg" className="rounded-[6px]"></img>
+              </p>
+            )}
           </div>
         </div>
-        <div className="w-[37%] h-[24px] mx-auto flex justify-between mb-8">
-          <button>
-            <img src="/img/2ndPath.png" />
-          </button>
-          <p className="text-[12px] mt-[5px] leading-[14px] font-semibold text-[#646464]">
-            Play My Video Message
-          </p>
+        <div className="">
+          <Link
+            className="w-[37%] h-[24px] flex mx-auto justify-evenly mb-8"
+            href="/auth/profile"
+          >
+            <button>
+              <img src="/img/2ndPath.png" />
+            </button>
+            <p className="text-[12px] mt-[5px] leading-[14px] font-semibold text-[#646464]">
+              Update Profile
+            </p>
+          </Link>
         </div>
         <div className="w-[84.61%] mx-auto flex justify-between mb-[32px]">
           <p className="text-[24px] leading-[28px] font-semibold">Elon Musk</p>
           <button className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
             Follow
           </button>
-          <button
-            // onClick={registorSession}
-            onClick={getAllSessions}
-            // onClick={getSingleUser}
-            className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl"
-          >
-            Follow
-          </button>
+          <Link href="/auth/sessionForm">
+            <button className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[10px] font-medium rounded-xl">
+              Create Session
+            </button>
+          </Link>
         </div>
         <div className="flex flex-col gap-3">
           <div className="flex mx-auto w-[69.5%] justify-between">
