@@ -32,7 +32,7 @@ export default function NavBar() {
           </div>
           <div className=" flex ml-auto items-center">
             <div className="font-['Raleway'] font-medium leading-7 text-[#919191] ">
-              <Link className="hover:text-[#1C2D56] px-3" href="/signupPage">
+              <Link className="hover:text-[#1C2D56] px-3" href="/auth">
                 Sign Up
               </Link>
             </div>
