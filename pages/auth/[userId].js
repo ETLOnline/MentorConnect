@@ -22,8 +22,6 @@ const Index = () => {
   const [reward, setreward] = useState(false);
   const [schdule, setschdule] = useState(false);
 
- 
-
   function abouthandler() {
     console.log("about");
     setabout(true);
@@ -61,7 +59,7 @@ const Index = () => {
     <>
       <div className="relative">
         <img src="/img/Frame 83.png" className="w-full" />
-        <div className="fixed bottom-0  w-[37.20%]">
+        <div className="fixed bottom-[10%] w-[35.56%]">
           <IntroCard />
         </div>
       </div>
@@ -127,7 +125,6 @@ const Index = () => {
               <SkillRating />
               <br></br>
               <SkillRating2 /> */}
-              
             </div>
           </div>
         </div>

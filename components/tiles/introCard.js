@@ -40,10 +40,10 @@ const IntroCard = () => {
   return (
     <>
       <div className=" bg-white w-[81.25%] flex flex-col  m-auto justify-between rounded-[12px] shadow-lg border-[1px] ">
-        <div className="w-[37.5%] mt-[40px] mx-auto ">
+        <div className="w-[46.5%] mt-[40px] mx-[112px] ">
           <img
             src={Url ? Url : "/img/Image (7).png"}
-            className="rounded-[96%]"
+            className="rounded-[96%] h-[192px] w-full"
           />
 
           <div className="relative bottom-[50px] left-[115px] w-[25px] rounded-[15px]">
