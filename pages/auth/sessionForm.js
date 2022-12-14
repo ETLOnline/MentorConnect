@@ -52,7 +52,7 @@ export default function Profile() {
       Image: Url,
     };
     console.log(formData);
-    createSession(formData,router);
+    createSession(formData, router);
   }
 
   return (

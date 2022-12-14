@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { getAllMentorSeasions } from "../../proxyLayer/api-util";
 import { getAllSessions } from "../../utils_firebase/sessions";
+import Spinner from "../spinner";
 
 const UpCommingSection = () => {
   // const seasions = getAllMentorSeasions();
@@ -15,7 +16,7 @@ const UpCommingSection = () => {
     name();
   }, []);
   if (!sessions) {
-    return <p>loading </p>;
+    return <Spinner />;
   }
   console.log(sessions, "=========");
   return (

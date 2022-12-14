@@ -5,6 +5,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import Card from "./card";
 import { getUsers } from "../../utils_firebase/users";
 import { useEffect, useState } from "react";
+import Spinner from "../spinner";
 
 var $ = require("jquery");
 if (typeof window !== "undefined") {
@@ -29,7 +30,7 @@ const FeatureMentor = () => {
   }, []);
 
   if (!Mentors) {
-    return <p>loading </p>;
+    return <Spinner />;
   }
 
   const options = {
