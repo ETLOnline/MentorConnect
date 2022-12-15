@@ -143,8 +143,8 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="mx-auto w-[13.88%] bg-[#1C2D56] h-[36px] rounded-[4px] py-[5px] px-[18px] mt-[32px]">
-              <button className="bg-[#1C2D56] ml-3 text-[white]">
+            <div className="mx-auto w-[14.85%] bg-[#1C2D56]  rounded-[4px] py-[5px] flex mt-[32px]">
+              <button className="bg-[#1C2D56] m-auto text-center text-[white]">
                 {isLogin ? "Login" : "Signup"}
               </button>
             </div>
