@@ -10,80 +10,31 @@ export const getUsers = async () => {
   return resualt;
 };
 
-// Sign Up create user
-export const SignupWithEmailPassword = (data, router) => {
-  console.log(
-    data,
-    ">>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-  );
-  const image = data.image
-    ? data.image
-    : "https://www.iconpacks.net/icons/1/free-user-icon-295-thumb.png";
-  auth
-    .createUserWithEmailAndPassword(data.gmail, data.password)
-    .then((userCredential) => {
-      console.log(userCredential, "create user");
-      userCredential.user.sendEmailVerification().then(() => {
-        // Email verification sent!
-        fireStore
-          .collection("users")
-          .doc(userCredential.user.uid)
-          .set({
-            uid: userCredential.user.uid,
-            summry: {
-              displayName: data.firstName + data.lastName,
-              email: data.gmail,
-              image: image,
-            },
-            points: {
-              learningPoint: 100,
-              coachingPoint: 100,
-            },
-          })
-          .then(() => {
-            console.log("Document successfully written!");
-            router.push("/");
-          });
-
-        console.log("Email send");
-      });
-      // Signed in
-      var user = userCredential.user;
-      console.log(user, "Signed in");
-      // ...
-    })
-    .catch((error) => {
-      console.log(error);
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ..
-    });
-};
-
 // login with email password
 
-export const LoginWithEmailPassword = (data, router) => {
-  console.log(data);
-  auth
-    .signInWithEmailAndPassword(data.gmail, data.password)
-    .then((userCredential) => {
-      // Signed in
+// export const LoginWithEmailPassword = (data, router) => {
+//   console.log(data);
+//   auth
+//     .signInWithEmailAndPassword(data.gmail, data.password)
+//     .then((userCredential) => {
+//       // Signed in
 
-      var user = userCredential.user;
-      console.log(user, "login");
-      router.push("/");
-      // ...
-    })
-    .catch((error) => {
-      console.log(error);
-      var errorCode = error.code;
-      var errorMessage = error.message;
-    });
-};
+//       var user = userCredential.user;
+//       console.log(user, "login");
+
+//       router.push("/");
+//       // ...
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//       var errorCode = error.code;
+//       var errorMessage = error.message;
+//     });
+// };
 
 //  login with google
 
-export const loginWithGoogle = (router) => {
+export const loginWithGoogle = (router, setUser) => {
   auth
     .signInWithPopup(googleProvider)
     .then((result) => {
@@ -95,6 +46,9 @@ export const loginWithGoogle = (router) => {
       // The signed-in user info.
       const user = result.user;
       console.log(user);
+      setUser((prev) => {
+        return { ...prev, user };
+      });
 
       fireStore
         .collection("users")

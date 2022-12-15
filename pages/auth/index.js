@@ -1,14 +1,15 @@
 import Link from "next/link";
 import React from "react";
-import { useRef, useState } from "react";
-import {
-  SignupWithEmailPassword,
-  LoginWithEmailPassword,
-  loginWithGoogle,
-} from "../../utils_firebase/users";
-import { useRouter } from "next/router";
+import { useRef, useState, useContext } from "react";
 
+import { loginWithGoogle } from "../../utils_firebase/users";
+import { useRouter } from "next/router";
+import { useSinup } from "../../hooks/useSignup";
+import { useSinin } from "../../hooks/useSignin";
+import { AuthContext } from "../../contexts/auth_context";
 const Index = () => {
+  const { setUser } = useContext(AuthContext);
+
   const router = useRouter();
   const [isLogin, setIsLogin] = useState(false);
 
@@ -18,6 +19,8 @@ const Index = () => {
   const inputPassword = useRef();
   const inputConfirmPassword = useRef();
 
+  const { signup, error, isPanding } = useSinup();
+  const { signin, errors } = useSinin();
   let formData;
 
   function switchAuthModeHandler() {
@@ -36,7 +39,8 @@ const Index = () => {
         password: enteredPassword,
       };
       console.log(formData);
-      LoginWithEmailPassword(formData, router);
+      // LoginWithEmailPassword(formData, router);
+      signin(formData, router);
     }
 
     if (!isLogin) {
@@ -53,7 +57,8 @@ const Index = () => {
         password: enteredPassword,
         confirmPassword: enteredConfirmPassword,
       };
-      SignupWithEmailPassword(formData, router);
+      // SignupWithEmailPassword(formData, router);
+      signup(formData, router);
     }
     console.log(formData);
   }
@@ -144,10 +149,19 @@ const Index = () => {
             </div>
 
             <div className="mx-auto w-[13.88%] bg-[#1C2D56] h-[36px] rounded-[4px] py-[5px] px-[18px] mt-[32px]">
-              <button className="bg-[#1C2D56] ml-3 text-[white]">
-                {isLogin ? "Login" : "Signup"}
-              </button>
+              {!isPanding && (
+                <button className="bg-[#1C2D56] ml-3 text-[white]">
+                  {isLogin ? "Login" : "Signup"}
+                </button>
+              )}
+              {isPanding && (
+                <button className="bg-[#1C2D56] ml-3 text-[white] disabled">
+                  {/* {isLogin ? "Login" : "Signup"} */}loading
+                </button>
+              )}
             </div>
+            {error && <p>{error}</p>}
+            {errors && <p>{errors}</p>}
 
             <div className="mt-[16px]">
               <h1 className="leading-[28px] text-[16px] font-medium text-center">
@@ -161,7 +175,7 @@ const Index = () => {
 
             <div className="w-[32.22%] flex justify-between mx-auto mb-[15.57%] mt-[64px]">
               <img
-                onClick={() => loginWithGoogle(router)}
+                onClick={() => loginWithGoogle(router, setUser)}
                 src="./img/Frame 77.png"
               />
               <img src="./img/Frame 78.png" />

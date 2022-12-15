@@ -1,46 +1,35 @@
-import React ,{createContext, useState, useEffect} from "react";
-
+import React, { createContext, useState, useEffect } from "react";
+import { auth } from "../utils_firebase/config";
 
 export const AuthContext = createContext();
 
-export const AuthProvider = ({children}) => {
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState({ user: null, authIsValide: false });
 
-    const [userToken , setUserToken] = useState('');
-    const [userId ,  setUserId] =  useState('');
-    const [userName, setUserName]= useState('');
-    const [userImage, setImage] = useState();
-    const [trigger, setTrigger] = useState(true);
+  const triggerAuthEffect = () => {
+    // if (trigger == true) {
+    //   setTrigger(false);
+    // } else if (trigger == false) {
+    //   setTrigger(true);
+    // }
+  };
 
-    const triggerAuthEffect = () => {
-        if (trigger == true) {
-          setTrigger(false);
-        } else if (trigger == false) {
-          setTrigger(true);
-        }
-    }
+  useEffect(() => {
+    const unSub = auth.onAuthStateChanged((userCredential) => {
+      console.log(userCredential, "on auth state change");
+      setUser((prev) => {
+        return { ...prev, user: userCredential, authIsValide: true };
+      });
+      unSub();
+    });
+  }, []);
+  console.log(user, "auth user");
 
-    const checkTokenExist = async() =>{
-        const token = await getData("jwt");
-        const idtoken = await getData("userId");
-        const nameToken = await getData("userName");
-        const phoneToken = await getData("phoneNumber");
-        setUserToken(token);
-        setUserId(idtoken);
-        setUserName(nameToken);
-        setPhoneNumber(phoneToken);
-    }
-
-    useEffect(()=> { 
-        checkTokenExist();
-    },[trigger]);
-
-    
-
-    return (
-        <AuthContext.Provider value={{ userToken , userId , userName,userImage , checkTokenExist , triggerAuthEffect }}>
-            {children}
-        </AuthContext.Provider>
-    )
-}
+  return (
+    <AuthContext.Provider value={{ user, setUser }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
 export default AuthProvider;
