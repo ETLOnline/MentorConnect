@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
 import { getAllMentorSeasions } from "../../proxyLayer/api-util";
 import { getAllSessions } from "../../utils_firebase/sessions";
@@ -87,7 +88,7 @@ const UpCommingSection = () => {
         `
         <div className="m-auto bg-[#F3F3F4] rounded-[7px]">
           <button className="text-[20px] font-medium text-[#1C2D56] leading-[24px] font-['Raleway'] px-5 py-1 hover:bg-[#1C2D56] hover:text-white">
-            Load More
+            <Link href="/calender">Calender</Link>
           </button>
         </div>
       </div>

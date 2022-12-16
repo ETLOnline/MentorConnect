@@ -1,7 +1,7 @@
 import React from "react";
 import LearningTile from "../tiles/learningTile";
 
-const LearningBlock = () => {
+const LearningBlock = ({ data }) => {
   return (
     <>
       <div className="mt-[64px]">
@@ -12,14 +12,9 @@ const LearningBlock = () => {
         </div>
 
         <div className="grid xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-4 gap-[16px] mr-[37px]">
-          <LearningTile />
-          <LearningTile />
-          <LearningTile />
-          <LearningTile />
-          <LearningTile />
-          <LearningTile />
-          <LearningTile />
-          <LearningTile />
+          {data?data?.map((elemant) => (
+            <LearningTile key={elemant} data={elemant} />
+          )):"Please Update Profile"}
         </div>
       </div>
     </>

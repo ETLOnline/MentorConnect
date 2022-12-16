@@ -1,13 +1,9 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { storage } from "../../utils_firebase/config";
-import {
-  createSession,
-  getAllSessions,
-  registorSession,
-} from "../../utils_firebase/sessions";
+
 import updateImage, { getSingleUser } from "../../utils_firebase/users";
-const IntroCard = () => {
+const IntroCard = ({ data }) => {
   //upload file
   const [file, setFile] = useState(null);
   const [fileSelect, setFileSelect] = useState(false);
@@ -29,7 +25,7 @@ const IntroCard = () => {
       const url = await ref.getDownloadURL();
       setURL(url);
       console.log(url, "sasasa", Url);
-      updateImage(url);
+      updateImage(url, data.uid);
       setFile(null);
       setFileSelect(false);
     }
@@ -42,7 +38,7 @@ const IntroCard = () => {
       <div className=" bg-white w-[81.25%] flex flex-col  m-auto justify-between rounded-[12px] shadow-lg border-[1px] ">
         <div className="w-[46.5%] mt-[40px] mx-auto ">
           <img
-            src={Url ? Url : "/img/Image (7).png"}
+            src={Url ? Url : data?.summry.image}
             className="rounded-[96%] h-[192px] w-full"
           />
 
@@ -80,7 +76,9 @@ const IntroCard = () => {
           </Link>
         </div>
         <div className="w-[84.61%] mx-auto flex justify-between mb-[32px]">
-          <p className="text-[24px] leading-[28px] font-semibold">Elon Musk</p>
+          <p className="text-[24px] leading-[28px] font-semibold">
+            {data?.summry.displayName}
+          </p>
           <button className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
             Follow
           </button>
@@ -93,10 +91,12 @@ const IntroCard = () => {
         <div className="flex flex-col gap-3">
           <div className="flex mx-auto w-[69.5%] justify-between">
             <p className="text-[32px] font-semibold leading-[38px] text-[#1C2D56] text-center">
-              120
+              {data?.followers.length}
             </p>
             <p className="text-[32px] leading-[38px] font-semibold text-[#1C2D56] text-center">
-              4000
+              {data
+                ? data?.points?.coachingPoint + data?.points?.learningPoint
+                : ""}
             </p>
           </div>
 

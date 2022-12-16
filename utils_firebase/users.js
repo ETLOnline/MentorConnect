@@ -37,39 +37,49 @@ export const getUsers = async () => {
 export const loginWithGoogle = (router, setUser) => {
   auth
     .signInWithPopup(googleProvider)
-    .then((result) => {
+    .then(async (result) => {
       const credential = result.credential;
-      console.log(credential);
+      // console.log(credential);
 
       // This gives you a Google Access Token. You can use it to access the Google API.
-      const token = credential.accessToken;
+      // const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-      console.log(user);
+      // console.log(user, "user><><><><");
       setUser((prev) => {
         return { ...prev, user };
       });
 
-      fireStore
-        .collection("users")
-        .doc(user.uid)
-        .set({
-          uid: user.uid,
-          summry: {
-            displayName: user.displayName,
-            email: user.email,
-            image: user.photoURL,
-          },
-          points: {
-            learningPoint: 100,
-            coachingPoint: 100,
-          },
-        })
-        .then(() => {
-          console.log("Document successfully written!");
-          router.push("/");
-        });
-
+      const userData = await getSingleUser(user.uid);
+      console.log(userData, "userdata");
+      if (!userData.uid) {
+        fireStore
+          .collection("users")
+          .doc(user.uid)
+          .set(
+            {
+              uid: user.uid,
+              summry: {
+                displayName: user.displayName,
+                email: user.email,
+                image: user.photoURL,
+              },
+              points: {
+                learningPoint: 100,
+                coachingPoint: 100,
+              },
+              followers: [""],
+              following: [""],
+            },
+            { merge: true }
+          )
+          .then(() => {
+            console.log("Document successfully written!");
+            router.push("/");
+          });
+      } else {
+        router.push("/");
+      }
       // ...
     })
     .catch((error) => {
@@ -87,8 +97,8 @@ export const loginWithGoogle = (router, setUser) => {
 
 //  update profile image
 
-export default function updateImage(image) {
-  var Ref = fireStore.collection("users").doc("pSkpYdJuDpubniZvPTtl");
+export default function updateImage(image, uid) {
+  var Ref = fireStore.collection("users").doc(uid);
 
   // Set the "capital" field of the city 'DC'
   return Ref.update({
@@ -136,9 +146,9 @@ export const getSingleUser = (id) => {
     });
 };
 
-export const updateProfile = (data) => {
+export const updateProfile = (data, uid) => {
   console.log(data, "update data");
-  var Ref = fireStore.collection("users").doc("99iQxqVi3gc7ppU7Yvq8cSd26Wr1");
+  var Ref = fireStore.collection("users").doc(uid);
   return Ref.update({
     ...data,
   })

@@ -35,10 +35,10 @@ export const useSignout = () => {
     }
   };
 
-  useEffect(() => {
-    return () => {
-      setCancelled(true);
-    };
-  }, []);
+  // useEffect(() => {
+  //   return () => {
+  //     setCancelled(true);
+  //   };
+  // }, []);
   return { signout, error, isPanding };
 };
