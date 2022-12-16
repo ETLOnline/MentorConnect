@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import About from "./about";
 import Activity from "./activity";
 import Rewards from "./rewards";
 import Schdule from "./schdule";
 import { useState } from "react";
 import IntroCard from "../../components/tiles/introCard";
-import IntrestsTile from "../../components/tiles/intrestsTile";
-import LearningTile from "../../components/tiles/learningTile";
-import BadgesCircle from "../../components/tiles/badgesCircle";
-import RecomendationCard from "../../components/tiles/recomendationCard";
-import LearningCard from "../../components/tiles/learningCard";
-import CoachingCard from "../../components/tiles/coachingCard";
-import ReviewsCard from "../../components/tiles/reviewsCard";
-import FeedbackCard from "../../components/tiles/feedbackCard";
-import SkillRating from "../../components/tiles/skillRating";
-import SkillRating2 from "../../components/tiles/skillRating2";
+import { getSingleUser } from "../../utils_firebase/users";
+import { AuthContext } from "../../contexts/auth_context";
 
 const Index = () => {
+  const { user } = useContext(AuthContext);
+  const [User, setUser] = useState();
+
+  useEffect(() => {
+    console.log(user.user);
+    getSingleUser(user.user.uid).then((users) => {
+      console.log(users, "useeffect");
+      setUser(users);
+    });
+  }, []);
+
   const [about, setabout] = useState(true);
   const [activity, setactivity] = useState(false);
   const [reward, setreward] = useState(false);
@@ -60,7 +63,7 @@ const Index = () => {
       <div className="relative">
         <img src="/img/Frame 83.png" className="w-full" />
         <div className="fixed bottom-[10%] w-[35.56%]">
-          <IntroCard />
+          <IntroCard data={User} />
         </div>
       </div>
 
@@ -101,7 +104,7 @@ const Index = () => {
           <div className="w-full flex">
             <div className="w-[37.20%]"></div>
             <div className="w-[62.8%]">
-              {about && <About />}
+              {about && <About data={User} />}
               {activity && <Activity />}
               {reward && <Rewards />}
               {schdule && <Schdule />}

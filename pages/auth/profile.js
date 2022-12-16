@@ -1,11 +1,14 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { useRef } from "react";
 import Image from "next/image";
+import { AuthContext } from "../../contexts/auth_context";
 
 import { updateProfile } from "../../utils_firebase/users";
 import { useRouter } from "next/router";
 
 export default function Profile() {
+  const { user } = useContext(AuthContext);
+
   const router = useRouter();
 
   const inputAbout = useRef();
@@ -40,7 +43,7 @@ export default function Profile() {
       learning: learning,
     };
     console.log(formData);
-    updateProfile(formData);
+    updateProfile(formData, user.user.uid);
     router.push("/auth/userId");
   }
 

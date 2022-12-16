@@ -1,7 +1,7 @@
 import React from "react";
 import IntrestsTile from "../tiles/intrestsTile";
 
-const InterestsBlock = () => {
+const InterestsBlock = ({ data }) => {
   return (
     <>
       <div className="mt-[64px]">
@@ -11,12 +11,9 @@ const InterestsBlock = () => {
           </h1>
         </div>
         <div className="grid  xl:grid-cols-6  lg:grid-cols-4   md:grid-cols-3 sm:grid-cols-2   gap-[16px]">
-          <IntrestsTile />
-          <IntrestsTile />
-          <IntrestsTile />
-          <IntrestsTile />
-          <IntrestsTile />
-          <IntrestsTile />
+          {data?data?.map((elemant) => (
+            <IntrestsTile key={elemant} data={elemant} />
+          )):"Please Update Profile"}
         </div>
       </div>
     </>

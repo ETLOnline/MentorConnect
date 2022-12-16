@@ -1,9 +1,13 @@
-import { Fragment, useState } from "react";
+import { Fragment, useContext, useState } from "react";
 import { useRef } from "react";
 import { storage } from "../../utils_firebase/config";
 import { createSession } from "../../utils_firebase/sessions";
 import { useRouter } from "next/router";
+import { AuthContext } from "../../contexts/auth_context";
+
 export default function Profile() {
+  const { user } = useContext(AuthContext);
+
   const router = useRouter();
 
   const [file, setFile] = useState(null);
@@ -52,7 +56,7 @@ export default function Profile() {
       Image: Url,
     };
     console.log(formData);
-    createSession(formData, router);
+    createSession(formData, router, user?.user.uid);
   }
 
   return (

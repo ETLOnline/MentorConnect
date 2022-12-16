@@ -9,19 +9,16 @@ import CoachingBlock from "../../components/about/coachingComp";
 import BadgesBlock from "../../components/about/badgesComp";
 import MyRecomendationBlock from "../../components/about/myRecomendationComp";
 
-
-const About = () => {
+const About = ({ data }) => {
   return (
-
     <>
-      <AboutBlock></AboutBlock>
-      <InterestsBlock></InterestsBlock>
-      <LearningBlock></LearningBlock>
-      <CoachingBlock></CoachingBlock>
+      <AboutBlock data={data?.about}></AboutBlock>
+      <InterestsBlock data={data?.interest}></InterestsBlock>
+      <LearningBlock data={data?.learning}></LearningBlock>
+      <CoachingBlock data={data?.learning}></CoachingBlock>
       <BadgesBlock></BadgesBlock>
       <MyRecomendationBlock></MyRecomendationBlock>
     </>
-    
   );
 };
 

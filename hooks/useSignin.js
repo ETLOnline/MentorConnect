@@ -36,10 +36,10 @@ export const useSinin = () => {
       }
     }
   };
-  useEffect(() => {
-    return () => {
-      setCancelled(true);
-    };
-  }, []);
+  // useEffect(() => {
+  //   return () => {
+  //     setCancelled(true);
+  //   };
+  // }, []);
   return { signin, errors, isPandings };
 };
