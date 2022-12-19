@@ -47,7 +47,7 @@ const UpCommingSection = () => {
                     <img
                       src={seasion?.image}
                       alt="img"
-                      className="w-full rounded-b-[30px] h-[204px] w-full"
+                      className="w-full rounded-[20px] h-[204px] w-full"
                     />
                   </div>
                   <div className="flex flex-col  mx-3">
