@@ -1,7 +1,7 @@
 import React from "react";
 import CoachingTile from "../tiles/coachingTile";
 
-const CoachingBlock = () => {
+const CoachingBlock = ({ data }) => {
   return (
     <>
       <div className="mt-[64px]">
@@ -12,14 +12,11 @@ const CoachingBlock = () => {
         </div>
 
         <div className="grid xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-4  gap-[16px] mr-[37px]">
-          <CoachingTile />
-          <CoachingTile />
-          <CoachingTile />
-          <CoachingTile />
-          <CoachingTile />
-          <CoachingTile />
-          <CoachingTile />
-          <CoachingTile />
+          {data
+            ? data?.map((elemant) => (
+                <CoachingTile key={elemant} data={elemant} />
+              ))
+            : "Please Update Profile"}
         </div>
       </div>
     </>

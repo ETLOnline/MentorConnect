@@ -45,6 +45,8 @@ export const useSinup = () => {
             learningPoint: 100,
             coachingPoint: 100,
           },
+          followers: [""],
+          following: [""],
         });
       console.log("Document successfully written!");
       if (!cancelled) {
@@ -65,11 +67,11 @@ export const useSinup = () => {
     }
   };
 
-  useEffect(() => {
-    return () => {
-      setCancelled(true);
-    };
-  }, []);
+  // useEffect(() => {
+  //   return () => {
+  //     setCancelled(true);
+  //   };
+  // }, []);
 
   return { signup, error, isPanding };
 };

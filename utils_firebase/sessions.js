@@ -2,13 +2,13 @@ import firebase from "firebase/app";
 import { fireStore } from "./config";
 import { getSingleUser, updatePoint } from "./users";
 // create Sesssion
-export const createSession = (data, router) => {
+export const createSession = (data, router, id) => {
   // Add a new document with a generated id.
   fireStore
     .collection("sessions")
     .add({
       image: data.Image,
-      instructor: "HID06ysBc8cYx2rtsxvOAtOJT9o1",
+      instructor: id,
       students: [
         "HID06ysBc8cYx2rtsxvOAtOJT9o1",
         "HID06ysBc8cYx2rtsxvOAtOJT9o1",

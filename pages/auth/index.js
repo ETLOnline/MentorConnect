@@ -104,7 +104,7 @@ const Index = () => {
                   ) : (
                     <input
                       type="text"
-                      placeholder="LastName"
+                      placeholder="Last Name"
                       className=" placeholder:pl-[10px] border-[1px]  rounded-[8px] w-full h-[48px] border-[#1C2D56]"
                       ref={inputLastName}
                     />
@@ -123,8 +123,8 @@ const Index = () => {
                   ""
                 ) : (
                   <input
-                    type=" Password"
-                    placeholder="  Password"
+                    type="Password"
+                    placeholder="Password"
                     className="border-[1px]  placeholder:pl-[10px] rounded-[8px]  w-[46.52%] h-[48px] border-[#1C2D56]"
                     ref={inputPassword}
                   />
@@ -132,14 +132,14 @@ const Index = () => {
 
                 {isLogin ? (
                   <input
-                    type="text"
-                    placeholder=" Password"
+                    type="Password"
+                    placeholder="Password"
                     className="border-[1px] mb-10 placeholder:pl-[10px] border-[#1C2D56] h-[48px] rounded-[8px] w-full "
                     ref={inputPassword}
                   />
                 ) : (
                   <input
-                    type=" Password"
+                    type="Password"
                     placeholder="confirm Password"
                     className="border-[1px]  placeholder:pl-[10px] rounded-[8px]  w-[46.52%] h-[48px] border-[#1C2D56]"
                     ref={inputConfirmPassword}
@@ -160,8 +160,16 @@ const Index = () => {
                 </button>
               )}
             </div>
-            {error && <p>{error}</p>}
-            {errors && <p>{errors}</p>}
+            {error && (
+              <p className="leading-[28px] text-[16px] font-medium text-center">
+                {error}
+              </p>
+            )}
+            {errors && (
+              <p className="leading-[28px] text-[16px] font-medium text-center">
+                {errors}
+              </p>
+            )}
 
             <div className="mt-[16px]">
               <h1 className="leading-[28px] text-[16px] font-medium text-center">
