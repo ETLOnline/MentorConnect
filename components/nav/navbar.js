@@ -46,7 +46,7 @@ export default function NavBar() {
                 <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group  hover:bg-[#fff]">
                   <Link
                     className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"
-                    href="/auth/sessionDetail"
+                    href="/auth/"
                   >
                     Sign Up
                   </Link>

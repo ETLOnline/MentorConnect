@@ -1,11 +1,15 @@
-import React, { Fragment, use, useEffect } from "react";
+import React, { Fragment, use, useContext, useEffect } from "react";
 import IntrestsTile from "../../components/tiles/intrestsTile";
-import { getSessionById } from "../../utils_firebase/sessions";
+import { getSessionById, registorSession } from "../../utils_firebase/sessions";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Students from "../../components/sessionDetail/students";
+import Spinner from "../../components/spinner";
+import { AuthContext } from "../../contexts/auth_context";
 
 const SessionDetail = () => {
+  const { user } = useContext(AuthContext);
+
   const [isLoaded, setIsLoaded] = useState([]);
   const router = useRouter();
   const id = router.query.sessionDetail;
@@ -19,12 +23,12 @@ const SessionDetail = () => {
   }, []);
 
   if (isLoaded.length === 0) {
-    return <p> loading ...</p>;
+    return <Spinner />;
   }
 
   // const [A, B] =
   // console.log(A, B, "data");
-  console.log(isLoaded, "loaded.....");
+  // console.log(isLoaded, "loaded.....", id);
 
   return (
     <>
@@ -56,6 +60,7 @@ const SessionDetail = () => {
             </div>
 
             <div className="border-b-[2px]">
+              Instructor
               <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
                 <div className="flex">
                   <img src={isLoaded.instructor.summry.image} />
@@ -87,16 +92,19 @@ const SessionDetail = () => {
               <p>Timing</p>
               <div className="flex justify-between ">
                 <p className="text-[12px] leading-[14px] font-medium text-[#8B8B8B] group-hover:text-green-800">
-                  {isLoaded.endTime.seconds / 60}
+                  Start: {isLoaded.endTime.seconds / 60}
                 </p>
                 <p className="text-[12px] leading-[14px] font-medium text-[#8B8B8B] group-hover:text-green-800">
-                  {isLoaded.startTime.seconds / 60}
+                  End: {isLoaded.startTime.seconds / 60}
                 </p>
               </div>
             </div>
 
             <div className="p-5">
-              <div className="w-[63.63%]  bg-[#E6E5E5] p-[30px]  mx-auto  flex justify-center">
+              <div
+                onClick={() => registorSession(id, user.user.uid)}
+                className="w-[63.63%] bg-[#E6E5E5] p-[30px]  mx-auto  flex justify-center"
+              >
                 <p className="text-[40px] leading-[18px] text-[#1C2D56] m-auto">
                   Register Now
                 </p>
