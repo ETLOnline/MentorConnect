@@ -2427,6 +2427,11 @@
   "resolved" "https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz"
   "version" "5.1.1"
 
+"raleway-webfont@^3.0.1":
+  "integrity" "sha512-lLzuLgbBz+hbUBUfbr1NyqyKti0/u0dVS2PULZh1drgNJbqI9ePOfz4KBxKg8zYUnFivR9PlWeqKM+xgMoTdPw=="
+  "resolved" "https://registry.npmjs.org/raleway-webfont/-/raleway-webfont-3.0.1.tgz"
+  "version" "3.0.1"
+
 "react-dom@^16.7.0 || ^17 || ^18", "react-dom@^18.2.0", "react-dom@18.2.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
