@@ -33,16 +33,14 @@ export const createSession = (data, router, id) => {
 };
 
 // students register session
-export const registorSession = (data) => {
-  var Ref = fireStore.collection("sessions").doc("7DtzbUdeAYcfRX6Z5dRX");
+export const registorSession = (sessionId, uid) => {
+  var Ref = fireStore.collection("sessions").doc(sessionId);
 
   // if(userPoins>sessionPoins){
   if (true) {
     updatePoint();
     Ref.update({
-      students: firebase.firestore.FieldValue.arrayUnion(
-        "new usersss id added in to session"
-      ),
+      students: firebase.firestore.FieldValue.arrayUnion(uid),
     });
     console.log("update ho gya he");
   } else {
