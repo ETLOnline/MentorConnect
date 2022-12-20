@@ -41,18 +41,18 @@ export default function NavBar() {
               </div>
             </div>
             <div className=" flex ml-auto items-center">
-            {!user.user && (
+              {!user.user && (
                 <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group  hover:bg-[#fff]">
                   <Link
-                  className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"
-                  href="/auth"
-                >
+                    className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"
+                    href="/auth/sessionDetail"
+                  >
                     Sign Up
                   </Link>
                 </button>
               )}
 
-            {/* <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group  hover:bg-[#fff]">
+              {/* <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group  hover:bg-[#fff]">
                 <Link
                   className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"
                   href="/loginPage"
@@ -60,29 +60,29 @@ export default function NavBar() {
                   Log In
                 </Link>
             </button> */}
-            {user.user && (
-              <>
-                <div className="font-medium leading-7 text-[#919191]">
-                  <Link
-                    href={`/auth/${user.user.uid}`}
-                    className="hover:text-[#1C2D56] px-3"
+              {user.user && (
+                <>
+                  <div className="font-medium leading-7 text-[#919191]">
+                    <Link
+                      href={`/auth/${user.user.uid}`}
+                      className="hover:text-[#1C2D56] px-3"
+                    >
+                      Porfile
+                    </Link>
+                  </div>
+                  <button
+                    onClick={() => signout(router)}
+                    className=" h-[36px] w-24 bg-[#1C2D56] rounded group  hover:bg-[#fff]"
                   >
-                    Porfile
-                  </Link>
-                </div>
-                <button
-                  onClick={() => signout(router)}
-                  className=" h-[36px] w-24 bg-[#1C2D56] rounded group  hover:bg-[#fff]"
-                >
-                  <Link
-                    className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"
-                    href="/loginPage"
-                  >
-                    Log Out
-                  </Link>
+                    <Link
+                      className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"
+                      href="/loginPage"
+                    >
+                      Log Out
+                    </Link>
                   </button>
-              </>
-            )}
+                </>
+              )}
             </div>
           </div>
         </div>
