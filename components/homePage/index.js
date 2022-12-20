@@ -7,14 +7,12 @@ import UpCommingSection from "./upCommingSection";
 import {
   filterSessionByTag,
   getAllSessions,
-  getSessionById,
 } from "../../utils_firebase/sessions";
 
 const HomePage = () => {
   const [sessions, setSessions] = useState([]);
   useEffect(() => {
     async function name() {
-      console.log(await getSessionById(), "LKJKJKJKJKJKJK");
       const seasion = await getAllSessions();
       console.log(seasion, ">>>>>>>>>>><<<LLLLLLLLKKKKKKKKKKK");
       setSessions(seasion);
