@@ -7,10 +7,14 @@ const Footer = () => {
         <div className="w-full h-[254px] flex flex-col bg-[#1C2D56]">
           <div className="w-full h-[81.88%]  flex">
             <div className="w-[24.44%]">
-              <div className="w-[63.63%] h-[30.76%] bg-[#E6E5E5]  my-[72px] mx-auto  flex justify-center">
-                <p className="text-[16px] leading-[18px] text-[#1C2D56] m-auto">
+              <div className="w-[63.63%] h-[30.76%] bg-[#E6E5E5] rounded-[50px]  my-[72px] mx-auto  flex justify-center">
+                {/* <p className="text-[16px] leading-[18px] text-[#1C2D56] m-auto">
                   Logo
-                </p>
+                </p> */}
+                <div className="w-56  h-16 flex">
+                  {/* <div className="m-auto">Logo</div> */}
+                  <img src="/img/logo.png" className="mx-auto"></img>
+                </div>
               </div>
             </div>
             <div className="w-[56.12%] flex ">
