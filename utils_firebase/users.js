@@ -1,8 +1,11 @@
 import { auth, fireStore, googleProvider } from "./config";
-
+// get feature mentors
 export const getUsers = async () => {
   const resualt = [];
-  const data = await fireStore.collection("users").get();
+  const data = await fireStore
+    .collection("users")
+    .where("feature", "==", true)
+    .get();
 
   data.docs.forEach((doc) => {
     resualt.push({ id: doc.id, ...doc.data() });

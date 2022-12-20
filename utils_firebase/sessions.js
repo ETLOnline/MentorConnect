@@ -64,3 +64,47 @@ export const getAllSessions = async () => {
   }
   return allSessions;
 };
+// filter session by tags
+export const filterSessionByTag = async (tag) => {
+  console.log("filterSessionByTag");
+  const allSessions = [];
+  const session = await fireStore
+    .collection("sessions")
+    .where("tags", "array-contains", tag)
+    .get();
+  // console.log(session.docs);
+  for (const doc of session.docs) {
+    const user = await getSingleUser(doc.data().instructor);
+    allSessions.push({
+      id: doc.id,
+      ...doc.data(),
+      instructor: user,
+    });
+  }
+  return allSessions;
+};
+
+//  get session by id
+export const getSessionById = async (id) => {
+  const allStudents = [];
+
+  const doc = await fireStore
+    .collection("sessions")
+    .doc("4KsoYYdJvPGiR3diV2oz")
+    .get();
+  console.log(doc);
+  if (doc.exists) {
+    console.log("datasasas", doc.data());
+    const instructor = await getSingleUser(doc.data().instructor);
+    for (const element of doc.data().students) {
+      const user = await getSingleUser(element);
+      allStudents.push(user);
+    }
+    return { ...doc.data(), students: allStudents, instructor };
+    // return doc.data();
+  } else {
+    // doc.data() will be undefined in this case
+    // console.log("No such document!");
+    return "No such document!";
+  }
+};

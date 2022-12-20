@@ -1,21 +1,8 @@
 import Link from "next/link";
-import React, { Fragment, useEffect, useState } from "react";
-import { getAllMentorSeasions } from "../../proxyLayer/api-util";
-import { getAllSessions } from "../../utils_firebase/sessions";
+import React, { Fragment } from "react";
 import Spinner from "../spinner";
 
-const UpCommingSection = () => {
-  // const seasions = getAllMentorSeasions();
-  const [sessions, setSessions] = useState([]);
-  // const Mentors = getAllMentors();
-  useEffect(() => {
-    async function name() {
-      const seasion = await getAllSessions();
-      console.log(seasion, ">>>>>>>>>>><<<LLLLLLLLKKKKKKKKKKK");
-      setSessions(seasion);
-    }
-    name();
-  }, []);
+const UpCommingSection = ({ sessions }) => {
   if (!sessions) {
     return <Spinner />;
   }

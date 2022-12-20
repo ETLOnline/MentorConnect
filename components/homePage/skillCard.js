@@ -1,7 +1,7 @@
 import React from "react";
 import { getAllSkills } from "../../proxyLayer/api-util";
 
-const SkillCard = () => {
+const SkillCard = ({ onClickSkills }) => {
   const [Skills] = getAllSkills();
   const { skills } = Skills;
   // console.log(skills);
@@ -16,7 +16,12 @@ const SkillCard = () => {
         </div>
         <div className="flex flex-col mx-[11%] gap-10 my-10">
           <div className="flex flex-row  justify-between">
-            <div className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg">
+            <div
+              onClick={() => {
+                onClickSkills(skills[0]);
+              }}
+              className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
+            >
               <div className="flex m-auto">
                 <img src="./img/React-icon 1.png" alt="img" />
                 <p className="text-[24px] font-bold font['Raleway'] leading-[28px]">
@@ -24,7 +29,12 @@ const SkillCard = () => {
                 </p>
               </div>
             </div>
-            <div className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg">
+            <div
+              onClick={() => {
+                onClickSkills(skills[1]);
+              }}
+              className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
+            >
               <div className="flex m-auto">
                 <img src="./img/Vector.png" alt="img" />
                 <img
@@ -37,7 +47,12 @@ const SkillCard = () => {
                 </p>
               </div>
             </div>
-            <div className="w-[299px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg">
+            <div
+              onClick={() => {
+                onClickSkills(skills[2]);
+              }}
+              className="w-[299px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
+            >
               <div className="flex m-auto">
                 <img src="./img/Vector (2).png" alt="img" />
                 <img
@@ -51,7 +66,12 @@ const SkillCard = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-row justify-evenly">
+          <div
+            onClick={() => {
+              onClickSkills(skills[4]);
+            }}
+            className="flex flex-row justify-evenly"
+          >
             <div className="w-[244px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg">
               <div className="flex m-auto gap-3">
                 <img
@@ -64,7 +84,12 @@ const SkillCard = () => {
                 </p>
               </div>
             </div>
-            <div className="w-[244px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg">
+            <div
+              onClick={() => {
+                onClickSkills(skills[3]);
+              }}
+              className="w-[244px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
+            >
               <div className="flex m-auto">
                 <img src="./img/Vector (9).png" alt="" />
                 <img
@@ -90,7 +115,12 @@ const SkillCard = () => {
           </div>
           <div className="flex flex-row justify-between">
             <div className="md:flex gap-10 ">
-              <div className="w-[299px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg ">
+              <div
+                onClick={() => {
+                  onClickSkills(skills[2]);
+                }}
+                className="w-[299px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
+              >
                 <div className="flex m-auto">
                   <img src="./img/Vector (2).png" alt="img" />
                   <img
@@ -105,7 +135,12 @@ const SkillCard = () => {
               </div>
             </div>
 
-            <div className="w-48 h-24 mr-10 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg">
+            <div
+              onClick={() => {
+                onClickSkills(skills[0]);
+              }}
+              className="w-48 h-24 mr-10 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
+            >
               <div className="flex m-auto ">
                 <img src="./img/React-icon 1.png" alt="img" />
                 <p className="text-[24px] font-bold font['Raleway'] leading-[28px]">
@@ -114,7 +149,12 @@ const SkillCard = () => {
               </div>
             </div>
 
-            <div className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg ">
+            <div
+              onClick={() => {
+                onClickSkills(skills[1]);
+              }}
+              className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
+            >
               <div className="flex m-auto">
                 <img src="./img/Vector.png" alt="img" />
                 <img
