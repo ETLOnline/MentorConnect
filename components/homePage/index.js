@@ -8,6 +8,7 @@ import {
   filterSessionByTag,
   getAllSessions,
 } from "../../utils_firebase/sessions";
+import Link from "next/link";
 
 const HomePage = () => {
   const [sessions, setSessions] = useState([]);

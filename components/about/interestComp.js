@@ -10,10 +10,14 @@ const InterestsBlock = ({ data }) => {
             Interests
           </h1>
         </div>
-        <div className="grid  xl:grid-cols-6  lg:grid-cols-4   md:grid-cols-3 sm:grid-cols-2   gap-[16px]">
-          {data?data?.map((elemant) => (
-            <IntrestsTile key={elemant} data={elemant} />
-          )):"Please Update Profile"}
+        <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-[16px]">
+          {data
+            
+            ?  data?.map((elemant) => (
+                    <IntrestsTile key={elemant} data={elemant} />
+                  ))
+            
+            :  "Please Update Profile"}
         </div>
       </div>
     </>

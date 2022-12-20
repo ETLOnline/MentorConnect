@@ -15,8 +15,9 @@ export default function NavBar() {
       <div>
         <div className="bg-[#fff] ">
           <div className="sm:flex mx-[60px] py-1  gap-[10px]  ">
-            <div className="w-56 bg-[#E6E5E5] h-16 flex">
-              <div className="m-auto">Logo</div>
+            <div className="w-56  h-16 flex">
+              {/* <div className="m-auto">Logo</div> */}
+              <img src="/img/logo.png" className="mx-auto"></img>
             </div>
             <div className="flex  left-11  ">
               <div className="">

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { Fragment } from "react";
 import Spinner from "../spinner";
+import SessionItem from "./upCommingSessionItem";
 
 const UpCommingSection = ({ sessions }) => {
   if (!sessions) {
@@ -64,6 +65,7 @@ const UpCommingSection = ({ sessions }) => {
                     </div>
                   </div>
                 </div>
+                <SessionItem seasion={seasion} />
               </Fragment>
             );
           })}
