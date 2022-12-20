@@ -36,7 +36,9 @@ const HomePage = () => {
       {sessions.length > 0 ? (
         <UpCommingSection sessions={sessions} />
       ) : (
-        <h2>No Upcoming Sessions On this Skill</h2>
+        <h2 className="flex justify-center text-[50px]">
+          No Upcoming Sessions On this Skill
+        </h2>
       )}
     </Fragment>
   );
