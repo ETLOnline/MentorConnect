@@ -88,13 +88,10 @@ export const filterSessionByTag = async (tag) => {
 export const getSessionById = async (id) => {
   const allStudents = [];
 
-  const doc = await fireStore
-    .collection("sessions")
-    .doc("4KsoYYdJvPGiR3diV2oz")
-    .get();
-  console.log(doc);
+  const doc = await fireStore.collection("sessions").doc(id).get();
+  // console.log(doc);
   if (doc.exists) {
-    console.log("datasasas", doc.data());
+    // console.log("datasasas", doc.data());
     const instructor = await getSingleUser(doc.data().instructor);
     for (const element of doc.data().students) {
       const user = await getSingleUser(element);
