@@ -7,7 +7,10 @@ const Students = ({ student }) => {
         <div className="">
           <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
             <div className="flex">
-              <img src={student.summry.image} />
+              <img
+                src={student.summry.image}
+                className="w-[32px] rounded-[50px]"
+              />
               <h1 className="font-bold ml-[15px] text-[#1C2D56]">
                 {student.summry.displayName}
               </h1>
