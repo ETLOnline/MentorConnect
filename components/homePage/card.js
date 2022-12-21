@@ -20,7 +20,7 @@ const Card = ({ mentors }) => {
                         <img
                           src={mentor.summry?.image}
                           alt="IMG"
-                          className="w-[21.11%] h-[100%] rounded-[12px]"
+                          className="w-[21.11%] h-[100%] rounded-[12px] object-cover"
                         />
                       </div>
 
@@ -36,13 +36,13 @@ const Card = ({ mentors }) => {
                         </div>
                         <div className=" flex text-[16px] text-[#FFFFFF] leading-[19px]  font-['Raleway'] mt-3">
                           <div className="h-5 w-5">
-                            <img src="./img/icons8-speech-24_1.png" alt="img" />
+                            <img src="./img/icons8-speech-24_1.png" alt="img" className="object-cover" />
                           </div>
                           <p>{mentor.headline}</p>
                         </div>
                       </div>
                       <div className="absolute w-[12.96%] h-[9%] top-[9px] right-[6%]  ">
-                        <img src="./img/Path.png" alt="img" />
+                        <img src="./img/Path.png" alt="img" className="object-cover" />
                       </div>
                     </div>
                   </div>

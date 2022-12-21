@@ -27,36 +27,36 @@ const Header = () => {
             <img
               src="./img/Ellipse 5.png"
               alt="img"
-              className="ml-auto mr-[5.5%] mt-[6.23%] border-[#FFB66A] border-[12px] rounded-[70px]"
+              className="ml-auto mr-[5.5%] mt-[6.23%] border-[#FFB66A] border-[12px] rounded-[70px] object-cover"
             />
             <img
               src="./img/Ellipse 4.png"
               alt=""
-              className=" ml-auto mr-[50.5%]  mt-[-13%] border-[#70C3F9] border-[12px] rounded-[70px] "
+              className=" ml-auto mr-[50.5%]  mt-[-13%] border-[#70C3F9] border-[12px] rounded-[70px] object-cover "
             />
             <img
               src="./img/Image (2).png"
               alt=""
-              className=" border-[#6BFFAB] border-[12px] rounded-[95px]  ml-auto mr-[25.5%]  mt-[3%]"
+              className=" border-[#6BFFAB] border-[12px] rounded-[95px]  ml-auto mr-[25.5%]  mt-[3%] object-cover"
             />
             <img
               src="./img/Ellipse 6.png"
               alt=""
-              className=" border-[#DC8CFF] border-[12px] rounded-[85px]  ml-auto mr-[70.5%]  mt-[-4%]"
+              className=" border-[#DC8CFF] border-[12px] rounded-[85px]  ml-auto mr-[70.5%]  mt-[-4%] object-cover"
             />
             <img
               src="./img/Ellipse 7.png"
               alt=""
-              className=" border-[#ACB0B5] border-[12px] rounded-[85px]  ml-auto mr-[35.5%]  mt-[-3%]"
+              className=" border-[#ACB0B5] border-[12px] rounded-[85px]  ml-auto mr-[35.5%]  mt-[-3%] object-cover"
             />
             <img
               src="./img/Ellipse 8.png"
               alt=""
-              className=" border-[#FFE36A] border-[12px] rounded-[85px]  ml-auto mr-[5.5%]  mt-[-30%]"
+              className=" border-[#FFE36A] border-[12px] rounded-[85px]  ml-auto mr-[5.5%]  mt-[-30%] object-cover"
             />
           </div>
         </div>
-        <img src="./img/Vector 1.png" alt="img" className="h-[140.99px] w-full" />
+        <img src="./img/Vector 1.png" alt="img" className="h-[140.99px] w-full object-cover" />
       </div>
     </Fragment>
   );

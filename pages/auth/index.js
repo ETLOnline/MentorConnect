@@ -68,11 +68,11 @@ const Index = () => {
       <form onSubmit={submitHandler}>
         <div className="flex">
           <div className="w-[50%] h-[764px]">
-            <img src="./img/Image (15).png" />
+            <img src="./img/Image (15).png" className="object-cover" />
           </div>
           <div className="flex flex-col w-[50%]">
             <Link className="ml-[auto] mr-[6.198%]" href="/">
-              <img src="./img/X.png" />
+              <img src="./img/X.png" className="object-cover" />
             </Link>
 
             <h1 className="font-semibold text-[36px] text-[#357A7B] mx-auto font-[Raleway] leading-[38px]">
@@ -185,6 +185,7 @@ const Index = () => {
               <img
                 onClick={() => loginWithGoogle(router, setUser)}
                 src="./img/Frame 77.png"
+                className="object-cover"
               />
               <img src="./img/Frame 78.png" />
               <img src="./img/Frame 79.png" />

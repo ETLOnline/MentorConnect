@@ -23,7 +23,7 @@ const SkillCard = ({ onClickSkills }) => {
               className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex m-auto">
-                <img src="./img/React-icon 1.png" alt="img" />
+                <img src="./img/React-icon 1.png" alt="img"  className="object-cover"/>
                 <p className="text-[24px] font-bold font['Raleway'] leading-[28px]">
                   {skills[0]}
                 </p>
@@ -36,11 +36,11 @@ const SkillCard = ({ onClickSkills }) => {
               className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex m-auto">
-                <img src="./img/Vector.png" alt="img" />
+                <img src="./img/Vector.png" alt="img"  className="object-cover" />
                 <img
                   src="./img/Vector (1).png"
                   alt=""
-                  className="relative w-[10px] h-[22px] right-[20px] top-[8px]"
+                  className="relative w-[10px] h-[22px] right-[20px] top-[8px] object-cover"
                 />
                 <p className="text-[24px] font-bold font-['Raleway'] leading-[28px]">
                   {skills[1]}
@@ -54,11 +54,11 @@ const SkillCard = ({ onClickSkills }) => {
               className="w-[299px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex m-auto">
-                <img src="./img/Vector (2).png" alt="img" />
+                <img src="./img/Vector (2).png" alt="img" className="object-cover" />
                 <img
                   src="./img/Vector (3).png"
                   alt=""
-                  className="relative w-[10px] h-[22px] right-[20px] top-[8px]"
+                  className="relative w-[10px] h-[22px] right-[20px] top-[8px] object-cover"
                 />
                 <p className="text-[24px] font-bold font-['Raleway'] leading-[28px]">
                   {skills[2]}
@@ -77,7 +77,7 @@ const SkillCard = ({ onClickSkills }) => {
                 <img
                   src="./img/logo-javascript 1.png"
                   alt=""
-                  className="bg-[#FFF49F] rounded-[20px]"
+                  className="bg-[#FFF49F] rounded-[20px] object-cover"
                 />
                 <p className="text-[24px] font-bold font-['Raleway'] leading-[30.18px] mt-1">
                   {skills[4]}
@@ -91,21 +91,21 @@ const SkillCard = ({ onClickSkills }) => {
               className="w-[244px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex m-auto">
-                <img src="./img/Vector (9).png" alt="" />
+                <img src="./img/Vector (9).png" alt="" className="object-cover" />
                 <img
                   src="./img/Vector (6).png"
                   alt=""
-                  className="relative h-[13px] w-[17.8] right-[22px] top-1"
+                  className="relative h-[13px] w-[17.8] right-[22px] top-1 object-cover"
                 />
                 <img
                   src="./img/Vector (7).png"
                   alt=""
-                  className="relative w-[17.28px] h-[1.38px] top-5 right-[39px]"
+                  className="relative w-[17.28px] h-[1.38px] top-5 right-[39px] object-cover"
                 />
                 <img
                   src="./img/Vector (8).png"
                   alt=""
-                  className="relative w-[11.18px] h-[1.38px] top-[24.38px] right-[55px]"
+                  className="relative w-[11.18px] h-[1.38px] top-[24.38px] right-[55px] object-cover"
                 />
                 <p className="text-[24px] font-bold font-['Raleway'] leading-[30.18px]">
                   {skills[3]}
@@ -122,11 +122,11 @@ const SkillCard = ({ onClickSkills }) => {
                 className="w-[299px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
               >
                 <div className="flex m-auto">
-                  <img src="./img/Vector (2).png" alt="img" />
+                  <img src="./img/Vector (2).png" alt="img" className="object-cover" />
                   <img
                     src="./img/Vector (3).png"
                     alt=""
-                    className="relative w-[10px] h-[22px] right-[20px] top-[8px]"
+                    className="relative w-[10px] h-[22px] right-[20px] top-[8px] object-cover"
                   />
                   <p className="text-[24px] font-bold font-['Raleway'] leading-[28px]">
                     {skills[2]}
@@ -142,7 +142,7 @@ const SkillCard = ({ onClickSkills }) => {
               className="w-48 h-24 mr-10 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex m-auto ">
-                <img src="./img/React-icon 1.png" alt="img" />
+                <img src="./img/React-icon 1.png" alt="img"  className="object-cover" />
                 <p className="text-[24px] font-bold font['Raleway'] leading-[28px]">
                   {skills[0]}
                 </p>
@@ -156,11 +156,11 @@ const SkillCard = ({ onClickSkills }) => {
               className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
             >
               <div className="flex m-auto">
-                <img src="./img/Vector.png" alt="img" />
+                <img src="./img/Vector.png" alt="img"  className="object-cover" />
                 <img
                   src="./img/Vector (1).png"
                   alt=""
-                  className="relative w-[10px] h-[22px] right-[20px] top-[8px]"
+                  className="relative w-[10px] h-[22px] right-[20px] top-[8px] object-cover"
                 />
                 <p className="text-[24px] font-bold font-['Raleway'] leading-[28px]">
                   {skills[1]}

@@ -6,7 +6,10 @@ const LearningCard = () => {
       <div className="w-[100%] h-auto rounded-[12px] flex group hover:bg-[#F4F4F4]">
         <div className="flex w-[82.93%] gap-4 ml-[12px] my-[12px]">
           <div className="w-[31.8%] h-[96px]  my-auto ">
-            <img src="/img/Image (20).png" className="w-full h-[96px]" />
+            <img
+              src="/img/Image (20).png"
+              className="w-full h-[96px] object-cover"
+            />
           </div>
 
           <div className="w-[76.93%] flex flex-col gap-4 my-auto">
@@ -24,7 +27,7 @@ const LearningCard = () => {
             </div>
 
             <div className="w-[65%] h-auto flex gap-2">
-              <img src="/img/Ellipse 15.png" className="w-[16%]" />
+              <img src="/img/Ellipse 15.png" className="w-[16%] object-cover" />
 
               <p className="text-[16px] md:text-[11px] leading-[19px] font-medium text-[#8B8B8B] group-hover:text-[#1C2D56]">
                 Jones Dean

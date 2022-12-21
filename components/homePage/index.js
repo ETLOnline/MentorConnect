@@ -35,7 +35,9 @@ const HomePage = () => {
       <FindMentor />
       <SkillCard onClickSkills={onClickSkills} />
       {sessions.length > 0 ? (
-        <UpCommingSection sessions={sessions} />
+        <div>
+          <UpCommingSection sessions={sessions} />
+        </div>
       ) : (
         <h2 className="flex justify-center text-[50px]">
           No Upcoming Sessions On this Skill
