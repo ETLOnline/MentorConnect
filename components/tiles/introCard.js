@@ -39,7 +39,7 @@ const IntroCard = ({ data }) => {
         <div className="w-[46.5%] mt-[40px] mx-auto ">
           <img
             src={Url ? Url : data?.summry.image}
-            className="rounded-[96%] h-[192px] w-full"
+            className="rounded-[96%] h-[192px] w-full object-cover"
           />
 
           <div className="relative bottom-[50px] left-[115px] w-[25px] rounded-[15px]">
@@ -47,7 +47,7 @@ const IntroCard = ({ data }) => {
               <label type="file">
                 <img
                   src="/img/editIcon.png"
-                  className="bg-[#646464] rounded-[15px] opacity-[0.3]"
+                  className="bg-[#646464] rounded-[15px] opacity-[0.3] object-cover"
                 ></img>
                 <input
                   type="file"
@@ -57,7 +57,10 @@ const IntroCard = ({ data }) => {
               </label>
             ) : (
               <p onClick={handleUpload}>
-                <img src="/img/upload.svg" className="rounded-[6px]"></img>
+                <img
+                  src="/img/upload.svg"
+                  className="rounded-[6px] object-cover"
+                ></img>
               </p>
             )}
           </div>
@@ -68,7 +71,7 @@ const IntroCard = ({ data }) => {
             href="/auth/profile"
           >
             <button>
-              <img src="/img/2ndPath.png" />
+              <img src="/img/2ndPath.png" className="object-cover" />
             </button>
             <p className="text-[12px] mt-[5px] leading-[14px] font-semibold text-[#646464]">
               Update Profile
@@ -111,10 +114,10 @@ const IntroCard = ({ data }) => {
         </div>
 
         <div className="w-[48.07%] flex mx-auto justify-between mb-[32px] mt-[40px]">
-          <img src="/img/LinkedIn.png" />
-          <img src="/img/Discord.png" />
-          <img src="/img/Github.png" />
-          <img src="/img/Twitter (1).png" />
+          <img src="/img/LinkedIn.png" className="object-cover" />
+          <img src="/img/Discord.png" className="object-cover" />
+          <img src="/img/Github.png" className="object-cover" />
+          <img src="/img/Twitter (1).png" className="object-cover" />
         </div>
       </div>
     </>

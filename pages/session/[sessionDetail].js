@@ -37,7 +37,7 @@ const SessionDetail = () => {
           <div className="border-[2px] m-[40px] rounded-[20px]">
             <img
               src={isLoaded.image}
-              className="h-[80vh] w-[80%] mx-auto my-[20px] "
+              className="h-[80vh] w-[80%] mx-auto my-[20px] object-cover "
             />
           </div>
         </div>
@@ -63,7 +63,7 @@ const SessionDetail = () => {
               Instructor
               <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
                 <div className="flex">
-                  <img src={isLoaded.instructor.summry.image} />
+                  <img src={isLoaded.instructor.summry.image}  className="object-cover" />
                   <h1 className="font-bold ml-[15px] text-[#1C2D56]">
                     {isLoaded.instructor.summry.displayName}
                   </h1>

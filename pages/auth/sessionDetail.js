@@ -9,7 +9,7 @@ const SessionDetail = () => {
           <div className="border-[2px] m-[40px] rounded-[20px]">
             <img
               src="/img/Image (11).png"
-              className="h-[80vh] w-[80%] mx-auto my-[20px] "
+              className="h-[80vh] w-[80%] mx-auto my-[20px]  object-cover"
             />
           </div>
         </div>
@@ -36,7 +36,7 @@ const SessionDetail = () => {
             <div className="border-b-[2px]">
               <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
                 <div className="flex">
-                  <img src="/img/Ellipse 15.png" />
+                  <img src="/img/Ellipse 15.png" className="object-cover" />
                   <h1 className="font-bold ml-[15px] text-[#1C2D56]">
                     James Dean
                   </h1>
@@ -90,7 +90,7 @@ const SessionDetail = () => {
             <div className="">
               <div className="flex justify-between border-[2px] rounded-[10px] my-[20px] p-[10px]">
                 <div className="flex ">
-                  <img src="/img/Ellipse 15.png" />
+                  <img src="/img/Ellipse 15.png" className="object-cover" />
                   <h1 className="font-bold ml-[15px] text-[#1C2D56]">
                     James Dean
                   </h1>
@@ -103,7 +103,7 @@ const SessionDetail = () => {
             <div className="">
               <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
                 <div className="flex">
-                  <img src="/img/Ellipse 15.png" />
+                  <img src="/img/Ellipse 15.png" className="object-cover" />
                   <h1 className="font-bold ml-[15px] text-[#1C2D56]">
                     James Dean
                   </h1>
@@ -116,7 +116,7 @@ const SessionDetail = () => {
             <div className="">
               <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
                 <div className="flex">
-                  <img src="/img/Ellipse 15.png" />
+                  <img src="/img/Ellipse 15.png" className="object-cover" />
                   <h1 className="font-bold ml-[15px] text-[#1C2D56]">
                     James Dean
                   </h1>

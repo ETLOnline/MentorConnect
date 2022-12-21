@@ -9,7 +9,7 @@ const Students = ({ student }) => {
             <div className="flex">
               <img
                 src={student.summry.image}
-                className="w-[32px] rounded-[50px]"
+                className="w-[32px] rounded-[50px] object-cover"
               />
               <h1 className="font-bold ml-[15px] text-[#1C2D56]">
                 {student.summry.displayName}

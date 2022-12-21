@@ -15,7 +15,7 @@ const SessionItem = ({ seasion }) => {
             <img
               src={seasion?.image}
               alt="img"
-              className="w-full rounded-[20px] h-[206px] w-full"
+              className="w-full rounded-[20px] h-[26.9vh] w-full object-cover"
             />
           </div>
           <div className="flex flex-col  mx-3">
@@ -27,16 +27,16 @@ const SessionItem = ({ seasion }) => {
                 {/* {seasion?.startTime} */}
               </p>
             </div>
-            <div className=" mb-4 h-[30px] overflow-y-clip">
+            <div className=" mb-4 h-[4vh] overflow-y-clip">
               <p className="text-[24px] leading-[28px] font-normal font-['Raleway'] text-black">
                 {seasion?.title}
               </p>
             </div>
-            <div className="flex  gap-2 mb-4 h-[32px]">
+            <div className="flex  gap-2 mb-4 h-[4.2vh]">
               <img
                 src={seasion?.instructor?.summry?.image}
                 alt=""
-                className="rounded-[50px] w-[10.52%]"
+                className="rounded-[50px] w-[10.52%] object-cover"
               />
               <p className="text-[16px] font-['Raleway'] leading-[19px] font-medium text-[#8B8B8B] pt-2">
                 {seasion?.instructor?.summry?.displayName}
