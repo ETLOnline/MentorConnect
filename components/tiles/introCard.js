@@ -77,7 +77,7 @@ const IntroCard = ({ data }) => {
         </div>
         <div className="w-[84.61%] mx-auto flex justify-between mb-[32px]">
           <p className="text-[24px] leading-[28px] font-semibold">
-            {data?.summry.displayName}
+            {data?.summry?.displayName}
           </p>
           <button className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
             Follow
@@ -91,7 +91,7 @@ const IntroCard = ({ data }) => {
         <div className="flex flex-col gap-3">
           <div className="flex mx-auto w-[69.5%] justify-between">
             <p className="text-[32px] font-semibold leading-[38px] text-[#1C2D56] text-center">
-              {data?.followers.length}
+              {data?.followers?.length}
             </p>
             <p className="text-[32px] leading-[38px] font-semibold text-[#1C2D56] text-center">
               {data

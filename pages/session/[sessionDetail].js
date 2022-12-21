@@ -103,7 +103,7 @@ const SessionDetail = () => {
             <div className="p-5">
               <div
                 onClick={() => registorSession(id, user.user.uid)}
-                className="w-[63.63%] bg-[#E6E5E5] p-[30px]  mx-auto  flex justify-center"
+                className="w-[63.63%] cursor-pointer bg-[#E6E5E5] p-[30px]  mx-auto  flex justify-center"
               >
                 <p className="text-[40px] leading-[18px] text-[#1C2D56] m-auto">
                   Register Now
