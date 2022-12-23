@@ -22,11 +22,14 @@ const SkillCard = ({ onClickSkills }) => {
               }}
               className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
-              <div className="flex m-auto">
-                <img src="./img/React-icon 1.png" alt="img"  className="object-cover"/>
-                <p className="text-[24px] font-bold font['Raleway'] leading-[28px]">
-                  {skills[0]}
-                </p>
+              <div className="flex m-auto gap-3">
+                <img src="./img/Image (28).png" alt="img" />
+
+                <div className="flex items-center">
+                  <p className="text-[24px] font-bold font['Raleway'] leading-[28px]">
+                    {skills[0]}
+                  </p>
+                </div>
               </div>
             </div>
             <div
@@ -35,16 +38,14 @@ const SkillCard = ({ onClickSkills }) => {
               }}
               className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
-              <div className="flex m-auto">
-                <img src="./img/Vector.png" alt="img"  className="object-cover" />
-                <img
-                  src="./img/Vector (1).png"
-                  alt=""
-                  className="relative w-[10px] h-[22px] right-[20px] top-[8px] object-cover"
-                />
-                <p className="text-[24px] font-bold font-['Raleway'] leading-[28px]">
-                  {skills[1]}
-                </p>
+              <div className="flex m-auto gap-3">
+                <img src="./img/Image (23).png" alt="img" />
+
+                <div className="flex items-center">
+                  <p className="text-[24px] font-bold font-['Raleway'] leading-[28px]">
+                    {skills[1]}
+                  </p>
+                </div>
               </div>
             </div>
             <div
@@ -53,16 +54,14 @@ const SkillCard = ({ onClickSkills }) => {
               }}
               className="w-[299px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
-              <div className="flex m-auto">
-                <img src="./img/Vector (2).png" alt="img" className="object-cover" />
-                <img
-                  src="./img/Vector (3).png"
-                  alt=""
-                  className="relative w-[10px] h-[22px] right-[20px] top-[8px] object-cover"
-                />
-                <p className="text-[24px] font-bold font-['Raleway'] leading-[28px]">
-                  {skills[2]}
-                </p>
+              <div className="flex m-auto gap-3">
+                <img src="./img/Image (24).png" alt="img" />
+
+                <div className="flex items-center">
+                  <p className="text-[24px] font-bold font-['Raleway'] leading-[28px]">
+                    {skills[2]}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -74,14 +73,12 @@ const SkillCard = ({ onClickSkills }) => {
           >
             <div className="w-[244px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg">
               <div className="flex m-auto gap-3">
-                <img
-                  src="./img/logo-javascript 1.png"
-                  alt=""
-                  className="bg-[#FFF49F] rounded-[20px] object-cover"
-                />
-                <p className="text-[24px] font-bold font-['Raleway'] leading-[30.18px] mt-1">
-                  {skills[4]}
-                </p>
+                <img src="./img/Image (26).png" alt="" />
+                <div className="flex items-center">
+                  <p className="text-[24px] font-bold font-['Raleway'] leading-[30.18px] mt-1">
+                    {skills[4]}
+                  </p>
+                </div>
               </div>
             </div>
             <div
@@ -90,26 +87,14 @@ const SkillCard = ({ onClickSkills }) => {
               }}
               className="w-[244px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
-              <div className="flex m-auto">
-                <img src="./img/Vector (9).png" alt="" className="object-cover" />
-                <img
-                  src="./img/Vector (6).png"
-                  alt=""
-                  className="relative h-[13px] w-[17.8] right-[22px] top-1 object-cover"
-                />
-                <img
-                  src="./img/Vector (7).png"
-                  alt=""
-                  className="relative w-[17.28px] h-[1.38px] top-5 right-[39px] object-cover"
-                />
-                <img
-                  src="./img/Vector (8).png"
-                  alt=""
-                  className="relative w-[11.18px] h-[1.38px] top-[24.38px] right-[55px] object-cover"
-                />
-                <p className="text-[24px] font-bold font-['Raleway'] leading-[30.18px]">
-                  {skills[3]}
-                </p>
+              <div className="flex m-auto gap-3">
+                <img src="./img/Image (25).png" alt="" />
+
+                <div className="flex items-center">
+                  <p className="text-[24px] font-bold font-['Raleway'] leading-[30.18px]">
+                    {skills[3]}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -121,16 +106,14 @@ const SkillCard = ({ onClickSkills }) => {
                 }}
                 className="w-[299px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
               >
-                <div className="flex m-auto">
-                  <img src="./img/Vector (2).png" alt="img" className="object-cover" />
-                  <img
-                    src="./img/Vector (3).png"
-                    alt=""
-                    className="relative w-[10px] h-[22px] right-[20px] top-[8px] object-cover"
-                  />
-                  <p className="text-[24px] font-bold font-['Raleway'] leading-[28px]">
-                    {skills[2]}
-                  </p>
+                <div className="flex m-auto gap-3">
+                  <img src="./img/Image (24).png" alt="img" />
+
+                  <div className="flex items-center">
+                    <p className="text-[24px] font-bold font-['Raleway'] leading-[28px]">
+                      {skills[2]}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -141,11 +124,14 @@ const SkillCard = ({ onClickSkills }) => {
               }}
               className="w-48 h-24 mr-10 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
-              <div className="flex m-auto ">
-                <img src="./img/React-icon 1.png" alt="img"  className="object-cover" />
-                <p className="text-[24px] font-bold font['Raleway'] leading-[28px]">
-                  {skills[0]}
-                </p>
+              <div className="flex m-auto gap-3">
+                <img src="./img/Image (28).png" alt="img" />
+
+                <div className="flex items-center">
+                  <p className="text-[24px] font-bold font['Raleway'] leading-[28px]">
+                    {skills[0]}
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -155,16 +141,14 @@ const SkillCard = ({ onClickSkills }) => {
               }}
               className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
             >
-              <div className="flex m-auto">
-                <img src="./img/Vector.png" alt="img"  className="object-cover" />
-                <img
-                  src="./img/Vector (1).png"
-                  alt=""
-                  className="relative w-[10px] h-[22px] right-[20px] top-[8px] object-cover"
-                />
-                <p className="text-[24px] font-bold font-['Raleway'] leading-[28px]">
-                  {skills[1]}
-                </p>
+              <div className="flex m-auto gap-3">
+                <img src="./img/Image (23).png" alt="img" />
+
+                <div className="flex items-center">
+                  <p className="text-[24px] font-bold font-['Raleway'] leading-[28px]">
+                    {skills[1]}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

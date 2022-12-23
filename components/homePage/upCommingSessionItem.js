@@ -15,7 +15,7 @@ const SessionItem = ({ seasion }) => {
             <img
               src={seasion?.image}
               alt="img"
-              className="w-full rounded-[20px] h-[26.9vh] w-full object-cover"
+              className="w-full rounded-[20px] h-[206px]  w-full object-cover"
             />
           </div>
           <div className="flex flex-col  mx-3">

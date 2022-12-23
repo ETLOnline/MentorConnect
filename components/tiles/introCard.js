@@ -67,7 +67,7 @@ const IntroCard = ({ data }) => {
         </div>
         <div className="">
           <Link
-            className="w-[37%] h-[24px] flex mx-auto justify-evenly mb-8"
+            className="w-[37%] h-[24px] flex mx-auto justify-evenly mb-[27px]"
             href="/auth/profile"
           >
             <button>

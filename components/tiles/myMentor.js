@@ -2,10 +2,11 @@ import React, { Fragment } from "react";
 import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import Card from "./card";
+
 import { getUsers } from "../../utils_firebase/users";
 import { useEffect, useState } from "react";
 import Spinner from "../spinner";
+import MyMentorsCard from "./myMentorsCard";
 
 var $ = require("jquery");
 if (typeof window !== "undefined") {
@@ -17,22 +18,7 @@ const OwlCarousel = dynamic(() => import("react-owl-carousel"), {
   ssr: false,
 });
 
-const FeatureMentor = () => {
-  const [Mentors, setMentors] = useState(false);
-  // const Mentors = getAllMentors();
-  useEffect(() => {
-    async function name() {
-      const users = await getUsers();
-      console.log(users);
-      setMentors(users);
-    }
-    name();
-  }, []);
-
-  if (!Mentors) {
-    return <Spinner />;
-  }
-
+const MyMentor = () => {
   const options = {
     margin: 10,
     responsiveClass: true,
@@ -56,18 +42,18 @@ const FeatureMentor = () => {
         items: 2,
       },
       700: {
-        items: 3,
+        items: 2,
       },
       1000: {
-        items: 4,
+        items: 2,
       },
     },
   };
   return (
-    <Fragment>
-      <div className="ml-[62px] mt-[64px]">
-        <div className="flex justify-between ml-6 mr-[64px]">
-          <h2 className="text-3xl   font-bold"> FeatureMentor</h2>
+    <>
+      <div className="ml-[62px] my-[64px]">
+        <div className="flex justify-between ml-6 mb-[30px] mr-[64px]">
+          <h2 className="text-3xl   font-bold"> MyMentors</h2>
           <div className="flex gap-2 justify-between items-center ">
             <p className="text-[20px] text-[#909090] leading-[23px] ">
               Explore
@@ -86,11 +72,18 @@ const FeatureMentor = () => {
           animateIn={true}
           {...options}
         >
-          <Card mentors={Mentors} />
+          <MyMentorsCard />
+          <MyMentorsCard />
+          <MyMentorsCard />
+          <MyMentorsCard />
+          <MyMentorsCard />
+          <MyMentorsCard />
+          <MyMentorsCard />
+          <MyMentorsCard />
         </OwlCarousel>
       </div>
-    </Fragment>
+    </>
   );
 };
 
-export default FeatureMentor;
+export default MyMentor;
