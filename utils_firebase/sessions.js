@@ -103,3 +103,44 @@ export const getSessionById = async (id) => {
     return "No such document!";
   }
 };
+//  filter session by user intrest
+export const getSessionByUserSkills = async (data) => {
+  try {
+    const allfilterSession = [];
+    const doc = await fireStore
+      .collection("sessions")
+      .where("tags", "array-contains-any", data)
+      .get();
+    for (const element of doc.docs) {
+      const user = await getSingleUser(element.data().instructor);
+      allfilterSession.push({ ...element.data(), instructor: user });
+    }
+    console.log(allfilterSession);
+    return allfilterSession;
+  } catch (error) {
+    console.log(error);
+  }
+};
+//  get all session in which user register
+export const getSessionInUserRegister = async (id) => {
+  try {
+    const allfilterSession = [];
+    const doc = await fireStore
+      .collection("sessions")
+      .where("students", "array-contains", id )
+      .get();
+    console.log(doc);
+    if (!doc.empty) {
+      for (const element of doc.docs) {
+        const user = await getSingleUser(element.data().instructor);
+        allfilterSession.push({ ...element.data(), instructor: user });
+      }
+      console.log(allfilterSession);
+      return allfilterSession;
+    } else {
+      return "You are not register any Sessions";
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};

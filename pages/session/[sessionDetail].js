@@ -1,6 +1,10 @@
 import React, { Fragment, use, useContext, useEffect } from "react";
 import IntrestsTile from "../../components/tiles/intrestsTile";
-import { getSessionById, registorSession } from "../../utils_firebase/sessions";
+import {
+  getSessionById,
+  getSessionInUserRegister,
+  registorSession,
+} from "../../utils_firebase/sessions";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Students from "../../components/sessionDetail/students";
@@ -63,7 +67,10 @@ const SessionDetail = () => {
               Instructor
               <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
                 <div className="flex">
-                  <img src={isLoaded.instructor.summry.image}  className="object-cover" />
+                  <img
+                    src={isLoaded.instructor.summry.image}
+                    className="object-cover"
+                  />
                   <h1 className="font-bold ml-[15px] text-[#1C2D56]">
                     {isLoaded.instructor.summry.displayName}
                   </h1>

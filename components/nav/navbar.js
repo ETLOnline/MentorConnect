@@ -45,21 +45,48 @@ export default function NavBar() {
                     Find a Mentor
                   </p>
                 </div>
-                <div className=" text-[16px] md:w-auto mx-auto  md:border-0">
-                  <p className="text-center hover:font-medium font-['Raleway'] text-[16px] md:text-[15px] lg:text-[16px] leading-5 md:m-[10px] m-[16px] cursor-pointer">
-                    About us
-                  </p>
-                </div>
-                <div className=" text-[16px] md:w-auto mx-auto  md:border-0">
-                  <p className="text-center hover:font-medium font-['Raleway'] text-[16px] md:text-[15px] lg:text-[16px] leading-5 md:m-[10px] m-[16px] cursor-pointer">
-                    Pricing
-                  </p>
-                </div>
-                <div className=" text-[16px] md:w-auto mx-auto  md:border-0">
-                  <p className="text-center hover:font-medium font-['Raleway'] text-[16px] md:text-[15px] lg:text-[16px] leading-5 md:m-[10px] m-[16px] cursor-pointer">
-                    Become a Mentor
-                  </p>
-                </div>
+                {user.user ? (
+                  <>
+                    <div className=" text-[16px] md:w-auto mx-auto  md:border-0">
+                      <p className="text-center hover:font-medium font-['Raleway'] text-[16px] md:text-[15px] lg:text-[16px] leading-5 md:m-[10px] m-[16px] cursor-pointer">
+                        Recommendations
+                      </p>
+                    </div>
+                    <div className=" text-[16px] md:w-auto mx-auto  md:border-0">
+                      <p className="text-center hover:font-medium font-['Raleway'] text-[16px] md:text-[15px] lg:text-[16px] leading-5 md:m-[10px] m-[16px] cursor-pointer">
+                        Find Learning
+                      </p>
+                    </div>
+                    <div className=" text-[16px] md:w-auto mx-auto  md:border-0">
+                      <p className="text-center hover:font-medium font-['Raleway'] text-[16px] md:text-[15px] lg:text-[16px] leading-5 md:m-[10px] m-[16px] cursor-pointer">
+                        Request a Session
+                      </p>
+                    </div>
+                    <div className=" text-[16px] md:w-auto mx-auto  md:border-0">
+                      <p className="text-center hover:font-medium font-['Raleway'] text-[16px] md:text-[15px] lg:text-[16px] leading-5 md:m-[10px] m-[16px] cursor-pointer">
+                        Invite
+                      </p>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className=" text-[16px] md:w-auto mx-auto  md:border-0">
+                      <p className="text-center hover:font-medium font-['Raleway'] text-[16px] md:text-[15px] lg:text-[16px] leading-5 md:m-[10px] m-[16px] cursor-pointer">
+                        About us
+                      </p>
+                    </div>
+                    <div className=" text-[16px] md:w-auto mx-auto  md:border-0">
+                      <p className="text-center hover:font-medium font-['Raleway'] text-[16px] md:text-[15px] lg:text-[16px] leading-5 md:m-[10px] m-[16px] cursor-pointer">
+                        Pricing
+                      </p>
+                    </div>
+                    <div className=" text-[16px] md:w-auto mx-auto  md:border-0">
+                      <p className="text-center hover:font-medium font-['Raleway'] text-[16px] md:text-[15px] lg:text-[16px] leading-5 md:m-[10px] m-[16px] cursor-pointer">
+                        Become a Mentor
+                      </p>
+                    </div>
+                  </>
+                )}
               </div>
               {!user.user && (
                 <div className="">
