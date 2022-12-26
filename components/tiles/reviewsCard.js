@@ -15,26 +15,11 @@ const ReviewsCard = () => {
             </p>
           </div>
           <div className="w-[31.27%] flex gap-[9.33px] h-[70.3%]">
-            <img
-              src="/img/Star 1 (Stroke).png"
-              className="w-[12.225%] object-cover  "
-            />
-            <img
-              src="/img/Star 1 (Stroke).png"
-              className="w-[12.225%] object-cover"
-            />
-            <img
-              src="/img/Star 1 (Stroke).png"
-              className="w-[12.225%] object-cover"
-            />
-            <img
-              src="/img/Star 1 (Stroke).png"
-              className="w-[12.225%] object-cover"
-            />
-            <img
-              src="/img/Star 1 (Stroke).png"
-              className="w-[12.225%] object-cover"
-            />
+            <img src="/img/Star 1 (Stroke).png" className="w-[12.225%]   " />
+            <img src="/img/Star 1 (Stroke).png" className="w-[12.225%] " />
+            <img src="/img/Star 1 (Stroke).png" className="w-[12.225%] " />
+            <img src="/img/Star 1 (Stroke).png" className="w-[12.225%] " />
+            <img src="/img/Star 1 (Stroke).png" className="w-[12.225%] " />
           </div>
         </div>
         <div className="text-[112.5%] leading[23px] font-medium text-[#000000] w-[84.13%] h-auto mt-[24px]   mr-[40px] ml-[26px]">

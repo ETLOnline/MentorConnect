@@ -39,7 +39,7 @@ const IntroCard = ({ data }) => {
         <div className="w-[46.5%] mt-[40px] mx-auto ">
           <img
             src={Url ? Url : data?.summry.image}
-            className="rounded-[96%] h-[192px] w-full object-cover"
+            className="rounded-[96%] h-[25vh] w-full object-cover"
           />
 
           <div className="relative bottom-[50px] left-[115px] w-[25px] rounded-[15px]">
@@ -67,7 +67,7 @@ const IntroCard = ({ data }) => {
         </div>
         <div className="">
           <Link
-            className="w-[37%] h-[24px] flex mx-auto justify-evenly mb-[27px]"
+            className="w-[37%] h-[3.13vh] flex mx-auto justify-evenly mb-[27px]"
             href="/auth/profile"
           >
             <button>
@@ -82,7 +82,7 @@ const IntroCard = ({ data }) => {
           <p className="text-[24px] leading-[28px] font-semibold">
             {data?.summry?.displayName}
           </p>
-          <button className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
+          <button className="w-[74px] h-[3.39vh] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
             Follow
           </button>
           <Link href="/auth/sessionForm">
