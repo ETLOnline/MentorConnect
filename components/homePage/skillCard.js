@@ -20,7 +20,7 @@ const SkillCard = ({ onClickSkills }) => {
               onClick={() => {
                 onClickSkills(skills[0]);
               }}
-              className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
+              className="w-[191px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex m-auto gap-3">
                 <img src="./img/Image (28).png" alt="img" />
@@ -36,7 +36,7 @@ const SkillCard = ({ onClickSkills }) => {
               onClick={() => {
                 onClickSkills(skills[1]);
               }}
-              className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
+              className="w-[205px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex m-auto gap-3">
                 <img src="./img/Image (23).png" alt="img" />
@@ -122,7 +122,7 @@ const SkillCard = ({ onClickSkills }) => {
               onClick={() => {
                 onClickSkills(skills[0]);
               }}
-              className="w-48 h-24 mr-10 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
+              className="w-[191px] h-24 mr-10 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex m-auto gap-3">
                 <img src="./img/Image (28).png" alt="img" />
@@ -139,7 +139,7 @@ const SkillCard = ({ onClickSkills }) => {
               onClick={() => {
                 onClickSkills(skills[1]);
               }}
-              className="w-48 h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
+              className="w-[205px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
             >
               <div className="flex m-auto gap-3">
                 <img src="./img/Image (23).png" alt="img" />
