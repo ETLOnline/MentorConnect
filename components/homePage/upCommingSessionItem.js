@@ -6,7 +6,10 @@ const SessionItem = ({ seasion }) => {
 
   return (
     <>
-      <Link href={`/session/${id}`} className="w-[23.2%]">
+      <Link
+        href={`/session/${id}`}
+        className="w-[90%] xs:w-[80%] sm:w-[45%]  lg:w-[30.2%] xl:w-[23%]"
+      >
         <div
           className="flex flex-col gap-4 mb-8  bg-[#F4F4F4] rounded-[12px]
                 "
@@ -15,7 +18,7 @@ const SessionItem = ({ seasion }) => {
             <img
               src={seasion?.image}
               alt="img"
-              className="w-full rounded-[20px] h-[206px]  w-full object-cover"
+              className="w-full rounded-[20px] h-[26.9vh] w-full object-cover"
             />
           </div>
           <div className="flex flex-col  mx-3">
@@ -28,7 +31,7 @@ const SessionItem = ({ seasion }) => {
               </p>
             </div>
             <div className=" mb-4 h-[4vh] overflow-y-clip">
-              <p className="text-[24px] leading-[28px] font-normal font-['Raleway'] text-black">
+              <p className="text-[20px] xs:text-[24px] leading-[28px] font-normal font-['Raleway'] text-black">
                 {seasion?.title}
               </p>
             </div>

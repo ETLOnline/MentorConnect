@@ -5,7 +5,7 @@ const InterestAndRecomendedSkillsCard = ({ Interests }) => {
 
   return (
     <>
-      <div className="w-[25.8%] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg gap-1">
+      <div className="w-[90%] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg gap-1">
         <div className="flex  w-[30%] ">
           <img
             src="./img/Image (28).png"

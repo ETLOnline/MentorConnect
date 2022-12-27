@@ -8,6 +8,7 @@ import LearningBlock from "../../components/about/learningComp";
 import CoachingBlock from "../../components/about/coachingComp";
 import BadgesBlock from "../../components/about/badgesComp";
 import MyRecomendationBlock from "../../components/about/myRecomendationComp";
+import MyEndorsmentComp from "../../components/about/myEndorsmentComp";
 
 const About = ({ data }) => {
   return (
@@ -18,6 +19,7 @@ const About = ({ data }) => {
       <CoachingBlock data={data?.learning}></CoachingBlock>
       <BadgesBlock></BadgesBlock>
       <MyRecomendationBlock></MyRecomendationBlock>
+      <MyEndorsmentComp />
     </>
   );
 };
