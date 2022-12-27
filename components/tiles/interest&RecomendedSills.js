@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import InterestAndRecomendedSkillsCard from "./interest&RecomendedSkillsCard";
 
-const InterestAndRecomendedSkills = () => {
+const InterestAndRecomendedSkills = ({ Interests }) => {
   return (
     <>
       <div className="flex pt-16">
@@ -11,18 +11,23 @@ const InterestAndRecomendedSkills = () => {
       </div>
       <div className="m-[64px] flex flex-col gap-10">
         <div className="flex justify-evenly">
-          <InterestAndRecomendedSkillsCard />
-          <InterestAndRecomendedSkillsCard />
-          <InterestAndRecomendedSkillsCard />
+          {Interests.map((Interests) => (
+            <Fragment key={Math.random()}>
+              <InterestAndRecomendedSkillsCard Interests={Interests} />
+            </Fragment>
+          ))}
+
+          {/* <InterestAndRecomendedSkillsCard /> */}
+          {/* <InterestAndRecomendedSkillsCard /> */}
         </div>
         <div className="flex justify-evenly">
-          <InterestAndRecomendedSkillsCard />
-          <InterestAndRecomendedSkillsCard />
+          {/* <InterestAndRecomendedSkillsCard /> */}
+          {/* <InterestAndRecomendedSkillsCard /> */}
         </div>
         <div className="flex justify-around">
+          {/* <InterestAndRecomendedSkillsCard />
           <InterestAndRecomendedSkillsCard />
-          <InterestAndRecomendedSkillsCard />
-          <InterestAndRecomendedSkillsCard />
+          <InterestAndRecomendedSkillsCard /> */}
         </div>
       </div>
     </>
