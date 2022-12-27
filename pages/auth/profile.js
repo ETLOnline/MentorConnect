@@ -1,13 +1,24 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { useRef } from "react";
-import Image from "next/image";
 import { AuthContext } from "../../contexts/auth_context";
 
-import { updateProfile } from "../../utils_firebase/users";
+import { getSingleUser, updateProfile } from "../../utils_firebase/users";
 import { useRouter } from "next/router";
 
 export default function Profile() {
+  const [User, setUser] = useState(null);
   const { user } = useContext(AuthContext);
+  useEffect(() => {
+    getSingleUser(user.user.uid).then((data) => {
+      inputAbout.current.value = data.about;
+      inputInterest.current.value = data.interest.toString();
+      inputLearning.current.value = data.learning.toString();
+      inputLinkln.current.value = data.links.linkln;
+      inputGithub.current.value = data.links.github;
+      inputTwitter.current.value = data.links.twitter;
+    
+    });
+  }, []);
 
   const router = useRouter();
 

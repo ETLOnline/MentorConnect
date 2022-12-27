@@ -1,4 +1,6 @@
 import { auth, fireStore, googleProvider } from "./config";
+import firebase from "firebase/app";
+
 // get feature mentors
 export const getUsers = async () => {
   const resualt = [];
@@ -12,28 +14,6 @@ export const getUsers = async () => {
   });
   return resualt;
 };
-
-// login with email password
-
-// export const LoginWithEmailPassword = (data, router) => {
-//   console.log(data);
-//   auth
-//     .signInWithEmailAndPassword(data.gmail, data.password)
-//     .then((userCredential) => {
-//       // Signed in
-
-//       var user = userCredential.user;
-//       console.log(user, "login");
-
-//       router.push("/");
-//       // ...
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//       var errorCode = error.code;
-//       var errorMessage = error.message;
-//     });
-// };
 
 //  login with google
 
@@ -162,4 +142,27 @@ export const updateProfile = (data, uid) => {
       // The document probably doesn't exist.
       console.error("Error updating document: ", error);
     });
+};
+
+// follow a user
+export const followUser = async (followingId, userId) => {
+  try {
+    // add id in following table of login user
+    await fireStore
+      .collection("users")
+      .doc(userId)
+      .update({
+        following: firebase.firestore.FieldValue.arrayUnion(followingId),
+      });
+    // add id in follower table
+
+    await fireStore
+      .collection("users")
+      .doc(followingId)
+      .update({
+        followers: firebase.firestore.FieldValue.arrayUnion(userId),
+      });
+  } catch (error) {
+    console.log(error);
+  }
 };
