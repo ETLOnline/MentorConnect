@@ -1,6 +1,8 @@
 import React from "react";
 
-const InterestAndRecomendedSkillsCard = () => {
+const InterestAndRecomendedSkillsCard = ({ Interests }) => {
+  // console.log(Interests, "interesttttSkillscard");
+
   return (
     <>
       <div className="w-[25.8%] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg gap-1">
@@ -13,7 +15,7 @@ const InterestAndRecomendedSkillsCard = () => {
         </div>
         <div className="flex flex-col gap-2 self-start w-[70%] mt-5">
           <p className="text-[24px] font-bold font['Raleway'] leading-[28px]">
-            React
+            {Interests}
           </p>
           <div className="flex  gap-1 mr-[5px]">
             <div className="flex gap-[5px]">
