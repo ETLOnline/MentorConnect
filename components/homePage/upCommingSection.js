@@ -1,38 +1,42 @@
 import Link from "next/link";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
+import { getSessionByUserSkills } from "../../utils_firebase/sessions";
 import Spinner from "../spinner";
 import SessionItem from "./upCommingSessionItem";
 
-const UpCommingSection = ({ sessions }) => {
+const UpCommingSection = ({ sessions, title, dis }) => {
+  console.log(sessions, " UpCommingSection");
   if (!sessions) {
     return <Spinner />;
   }
-  console.log(sessions, "=========");
+
   return (
     <Fragment>
       <div className="flex flex-col gap-6 mt-40">
         <div className="m-auto">
           <p className="text-[32px] font-semibold font-['Raleway'] leading-[38px] text-[#242424]">
-            Upcoming Sessions
+            {title}
           </p>
         </div>
         <div className="m-auto">
           <p className="text-[20px] font-medium leading-[23px] text-[#242424] font-['Raleway']">
-            Sign Up to one of our sessions and start your journey
+            {dis}
           </p>
         </div>
       </div>
-      {/* <!-- Footer Cards --> */}
+
       <div className="mx-[64px] ">
         <div>
-          <div className="flex flex-wrap  gap-[2.22%] my-[24px]  ">
-            {sessions.map((seasion) => {
-              return (
-                <Fragment key={Math.random()}>
-                  <SessionItem seasion={seasion} />
-                </Fragment>
-              );
-            })}
+          <div className="flex flex-wrap  gap-[2.22%] my-[24px] ml-[450px]  ">
+            {sessions.length === 0
+              ? "We have no Recommended sessions for you"
+              : sessions.map((session) => {
+                  return (
+                    <Fragment key={Math.random()}>
+                      <SessionItem session={session} />
+                    </Fragment>
+                  );
+                })}
           </div>
         </div>
       </div>

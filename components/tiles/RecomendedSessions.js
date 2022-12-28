@@ -15,6 +15,7 @@ const RecomendedSessions = ({ Skills }) => {
     return <Spinner />;
   }
 
+  console.log(session, "Hello from session");
   return (
     <>
       <div className="flex flex-col gap-6 mt-40">

@@ -14,12 +14,10 @@ const RegisteredSession = () => {
     getSessionInUserRegister(user.user.uid).then((data) => setSession(data));
   }, []);
 
-  console.log(session, "RegisteredSession........");
-
   if (!session) {
     return <Spinner />;
   }
-
+  // console.log(session, "registeredSession11111");
   return (
     <>
       <div className="flex flex-col gap-6 mt-40">
@@ -34,10 +32,16 @@ const RegisteredSession = () => {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-3 m-[64px]">
-        {session.length > 0
-          ? session.map((data) => <RegisteredSessionCard data={data} />)
-          : "This user have no session"}
+      <div className="grid grid-cols-3 ml-[564px] mt-10   ">
+        {session === "You are not register any Sessions"
+          ? "You are not register any Sessions"
+          : session.map((data) => {
+              return (
+                <Fragment key={Math.random()}>
+                  <RegisteredSessionCard data={data} />
+                </Fragment>
+              );
+            })}
       </div>
     </>
   );

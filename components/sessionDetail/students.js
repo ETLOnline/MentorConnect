@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const Students = ({ student }) => {
+const Students = ({ student, onFollowHenddler }) => {
   return (
     <Fragment>
       <div className="flex flex-col w-[90%] mx-auto my-[10px] px-[10px] border-[2px] rounded-[10px]  ">
@@ -15,7 +15,10 @@ const Students = ({ student }) => {
                 {student.summry.displayName}
               </h1>
             </div>
-            <button className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
+            <button
+              onClick={() => onFollowHenddler(student.uid)}
+              className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl"
+            >
               Follow
             </button>
           </div>

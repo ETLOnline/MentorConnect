@@ -1,19 +1,15 @@
 import React, { Fragment, use, useContext, useEffect } from "react";
 import IntrestsTile from "../../components/tiles/intrestsTile";
-import {
-  getSessionById,
-  getSessionInUserRegister,
-  registorSession,
-} from "../../utils_firebase/sessions";
+import { getSessionById, registorSession } from "../../utils_firebase/sessions";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Students from "../../components/sessionDetail/students";
 import Spinner from "../../components/spinner";
 import { AuthContext } from "../../contexts/auth_context";
+import { followUser } from "../../utils_firebase/users";
 
 const SessionDetail = () => {
   const { user } = useContext(AuthContext);
-
   const [isLoaded, setIsLoaded] = useState([]);
   const router = useRouter();
   const id = router.query.sessionDetail;
@@ -26,6 +22,10 @@ const SessionDetail = () => {
     // declare the async data fetching function
   }, []);
 
+  const onFollowHenddler = (id) => {
+    console.log(id, "foll", user.user.uid);
+    followUser(id,user.user.uid)
+  };
   if (isLoaded.length === 0) {
     return <Spinner />;
   }
@@ -67,10 +67,12 @@ const SessionDetail = () => {
               Instructor
               <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
                 <div className="flex">
-                  <img
-                    src={isLoaded.instructor.summry.image}
-                    className="object-cover"
-                  />
+                  <div className="h-[32px] w-[32px]">
+                    <img
+                      src={isLoaded.instructor.summry.image}
+                      className="object-cover rounded-[30px]"
+                    />
+                  </div>
                   <h1 className="font-bold ml-[15px] text-[#1C2D56]">
                     {isLoaded.instructor.summry.displayName}
                   </h1>
@@ -99,10 +101,12 @@ const SessionDetail = () => {
               <p>Timing</p>
               <div className="flex justify-between ">
                 <p className="text-[12px] leading-[14px] font-medium text-[#8B8B8B] group-hover:text-green-800">
-                  Start: {isLoaded.endTime.seconds / 60}
+                  Start:
+                  {new Date(isLoaded.startTime.seconds * 1000).toLocaleString()}
                 </p>
                 <p className="text-[12px] leading-[14px] font-medium text-[#8B8B8B] group-hover:text-green-800">
-                  End: {isLoaded.startTime.seconds / 60}
+                  End:
+                  {new Date(isLoaded.endTime.seconds * 1000).toLocaleString()}
                 </p>
               </div>
             </div>
@@ -130,7 +134,10 @@ const SessionDetail = () => {
           {isLoaded.students.map((student) => {
             return (
               <Fragment key={Math.random()}>
-                <Students student={student} />
+                <Students
+                  onFollowHenddler={onFollowHenddler}
+                  student={student}
+                />
               </Fragment>
             );
           })}
