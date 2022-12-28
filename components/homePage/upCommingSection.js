@@ -27,7 +27,7 @@ const UpCommingSection = ({ sessions, title, dis }) => {
 
       <div className="mx-[64px] ">
         <div>
-          <div className="flex flex-wrap  gap-[2.22%] my-[24px] ml-[450px]  ">
+          <div className="flex flex-wrap  gap-[2.22%] my-[24px]  ">
             {sessions.length === 0
               ? "We have no Recommended sessions for you"
               : sessions.map((session) => {
