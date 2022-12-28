@@ -24,7 +24,7 @@ const SessionDetail = () => {
 
   const onFollowHenddler = (id) => {
     console.log(id, "foll", user.user.uid);
-    followUser(id,user.user.uid)
+    followUser(id, user.user.uid);
   };
   if (isLoaded.length === 0) {
     return <Spinner />;
@@ -67,12 +67,10 @@ const SessionDetail = () => {
               Instructor
               <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
                 <div className="flex">
-                  <div className="h-[32px] w-[32px]">
-                    <img
-                      src={isLoaded.instructor.summry.image}
-                      className="object-cover rounded-[30px]"
-                    />
-                  </div>
+                  <img
+                    src={isLoaded.instructor.summry.image}
+                    className="object-cover"
+                  />
                   <h1 className="font-bold ml-[15px] text-[#1C2D56]">
                     {isLoaded.instructor.summry.displayName}
                   </h1>
@@ -131,16 +129,18 @@ const SessionDetail = () => {
               Attendees
             </h1>
           </div>
-          {isLoaded.students.map((student) => {
-            return (
-              <Fragment key={Math.random()}>
-                <Students
-                  onFollowHenddler={onFollowHenddler}
-                  student={student}
-                />
-              </Fragment>
-            );
-          })}
+          <div className="flex flex-col w-[90%] mx-auto my-[10px] px-[10px] border-[2px] rounded-[10px] pt-4 ">
+            {isLoaded.students.map((student) => {
+              return (
+                <Fragment key={Math.random()}>
+                  <Students
+                    onFollowHenddler={onFollowHenddler}
+                    student={student}
+                  />
+                </Fragment>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

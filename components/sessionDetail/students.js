@@ -3,7 +3,6 @@ import React, { Fragment } from "react";
 const Students = ({ student, onFollowHenddler }) => {
   return (
     <Fragment>
-      <div className="flex flex-col w-[90%] mx-auto my-[10px] px-[10px] border-[2px] rounded-[10px]  ">
         <div className="">
           <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
             <div className="flex">
@@ -23,7 +22,7 @@ const Students = ({ student, onFollowHenddler }) => {
             </button>
           </div>
         </div>
-      </div>
+      
     </Fragment>
   );
 };
