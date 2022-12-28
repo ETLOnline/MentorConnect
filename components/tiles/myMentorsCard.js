@@ -1,7 +1,4 @@
 import React from "react";
-import Card from "../homePage/card";
-import SessionItem from "../homePage/upCommingSessionItem";
-import RecomendedSessionsCard from "./RecomendedSectionCard";
 const MyMentorsCard = () => {
   return (
     <>

@@ -54,7 +54,7 @@ export const useSinup = () => {
         setIsPanding(false);
       }
 
-      router.push("/");
+      router.push("/home");
       // Signed in
       var user = userCredential.user;
       console.log(user, "Signed in");

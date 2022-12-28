@@ -1,7 +1,7 @@
 import React from "react";
 
 const RegisteredSessionCard = ({ data }) => {
-  console.log(data, "registeredCard");
+  // console.log(data, "registeredCard");
 
   return (
     <>
