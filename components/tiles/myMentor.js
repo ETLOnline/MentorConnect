@@ -73,13 +73,7 @@ const MyMentor = () => {
           {...options}
         >
           <MyMentorsCard />
-          {/* <MyMentorsCard />
-          <MyMentorsCard />
-          <MyMentorsCard />
-          <MyMentorsCard />
-          <MyMentorsCard />
-          <MyMentorsCard />
-          <MyMentorsCard /> */}
+          
         </OwlCarousel>
       </div>
     </>

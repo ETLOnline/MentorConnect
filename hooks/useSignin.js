@@ -24,7 +24,7 @@ export const useSinin = () => {
         setError(null);
         setIsPanding(false);
       }
-      router.push("/");
+      router.push("/home");
       // Signed in
       var user = userCredential.user;
       console.log(user, "login");

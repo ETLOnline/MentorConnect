@@ -58,10 +58,10 @@ export const loginWithGoogle = (router, setUser) => {
           )
           .then(() => {
             console.log("Document successfully written!");
-            router.push("/");
+            router.push("/home");
           });
       } else {
-        router.push("/");
+        router.push("/home");
       }
       // ...
     })

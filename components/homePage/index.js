@@ -36,7 +36,11 @@ const HomePage = () => {
       <SkillCard onClickSkills={onClickSkills} />
       {sessions.length > 0 ? (
         <div>
-          <UpCommingSection sessions={sessions} />
+          <UpCommingSection
+            sessions={sessions}
+            title="UpCommingSession"
+            dis=" Sign Up to one of our sessions and start your journey"
+          />
         </div>
       ) : (
         <h2 className="flex justify-center text-[50px]">
