@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -8,9 +9,12 @@ const Footer = () => {
           <div className="w-full flex-col flex md:flex-row ">
             <div className="md:w-[24.44%] w-[50%] mx-auto md:flex md:items-center">
               <div className="w-[63.63%] py-5 bg-[#E6E5E5] my-[18px] md:my-[72px] mx-auto flex items-center justify-center">
-                <p className="text-[16px] leading-[18px] text-[#1C2D56] m-auto cursor-pointer">
+                <Link
+                  href="/"
+                  className="text-[16px] leading-[18px] text-[#1C2D56] m-auto cursor-pointer"
+                >
                   Logo
-                </p>
+                </Link>
               </div>
             </div>
 
