@@ -8,7 +8,7 @@ const Header = () => {
           <div className="text-center xs:text-left">
             <div className=" ">
               <div className="xs:w-[88.52%] mt-[16.03%]">
-                <p className="text-[40px] xs:text-[48px] sm:text-[58px] text-[#1C2D56] leading-[50px] sm:leading-[60px] md:leading-[75px] font-[600] sm:font-[700]">
+                <p className="text-[40px] xs:text-[48px] sm:text-[64px] font-['Raleway'] text-[#1C2D56] leading-[75px] sm:leading-[60px] md:leading-[75px] font-bold sm:font-[700]">
                   Find and Book a Mentor for your 1:1 help today!
                 </p>
               </div>

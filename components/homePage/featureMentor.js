@@ -67,16 +67,17 @@ const FeatureMentor = () => {
     <Fragment>
       <div className="ml-[62px] mt-[64px]">
         <div className="flex justify-between ml-6 mr-[64px]">
-          <h2 className="text-3xl   font-bold"> FeatureMentor</h2>
+          <h2 className="text-3xl   font-bold"> Featured Mentor</h2>
           <div className="flex gap-2 justify-between items-center ">
             <p className="text-[20px] text-[#909090] leading-[23px] ">
               Explore
             </p>
-            <img
+            <div className="bg-[url('/img/Arrow.png')] w-6 h-6 bg-no-repeat hover:bg-[url('/img/Group.svg')] bg-center hover:transition-all hover:translate-x-1 hover:duration-200"></div>
+            {/* <img
               src="/img/Arrow.png"
               alt="Arrow Image"
-              className="object-cover mt-[6px]"
-            />
+              className="object-cover "
+            /> */}
           </div>
         </div>
         <OwlCarousel

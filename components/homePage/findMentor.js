@@ -4,7 +4,7 @@ const FindMentor = () => {
   return (
     <div className="text-center flex flex-col bg-gradient-to-l from-[#F8FBFE] to-[rgba(157,213,200,0.9)] w-full ">
       <div className="mx-auto pt-[32px] xs:pt-[64px]">
-        <h1 className="text-[32px] xs:text-[40px] leading-[47px] text-[#1C2D56] font-bold ">
+        <h1 className="text-[32px] xs:text-[40px] leading-[47px] text-[#1C2D56] font-bold font-['Raleway']">
           Helping the world one Mentor at a time
         </h1>
       </div>

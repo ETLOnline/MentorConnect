@@ -32,7 +32,7 @@ const RegisteredSession = () => {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-3 ml-[564px] mt-10   ">
+      <div className="grid grid-cols-3  mt-10   ">
         {session === "You are not register any Sessions"
           ? "You are not register any Sessions"
           : session.map((data) => {
