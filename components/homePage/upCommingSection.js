@@ -12,22 +12,22 @@ const UpCommingSection = ({ sessions, title, dis }) => {
 
   return (
     <Fragment>
-      <div className="flex flex-col gap-6 mt-40">
+      <div className="flex flex-col gap-6 mt-40 ">
         <div className="m-auto">
-          <p className="text-[32px] font-semibold font-['Raleway'] leading-[38px] text-[#242424]">
+          <p className="text-[32px] text-center font-semibold font-['Raleway'] leading-[38px] text-[#242424]">
             {title}
           </p>
         </div>
         <div className="m-auto">
-          <p className="text-[20px] font-medium leading-[23px] text-[#242424] font-['Raleway']">
+          <p className="text-[20px] px-2 text-center font-medium leading-[23px] text-[#242424] font-['Raleway']">
             {dis}
           </p>
         </div>
       </div>
 
-      <div className="mx-[64px] ">
+      <div className="mx-[16px] xs:mx-[64px] ">
         <div>
-          <div className="flex flex-wrap  gap-[2.22%] my-[24px]  ">
+          <div className="flex flex-wrap justify-center  gap-[2.22%] my-[24px]  ">
             {sessions.length === 0
               ? "We have no Recommended sessions for you"
               : sessions.map((session) => {
