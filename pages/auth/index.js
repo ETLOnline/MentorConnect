@@ -83,67 +83,90 @@ const Index = () => {
               For All Your Mentoring Needs
             </h1>
 
-            <div className="w-[63.88%] mx-auto h-[26%] flex flex-col justify-between">
+            <div className="w-[63.88%] mx-auto h-[26%] flex flex-col ">
               <div className="flex justify-between ">
                 <div className="w-[46.52%] group ">
                   {isLogin ? (
                     ""
                   ) : (
-                    <input
-                      type="text"
-                      className="border-[1px] rounded-[8px] w-full  h-[48px] border-[#1C2D56] placeholder:pl-[10px] "
-                      placeholder="First Name"
-                      ref={inputFirstName}
-                    />
+                    <div>
+                      <input
+                        type="text"
+                        className="border-[1px] rounded-[8px] w-full  h-[48px] border-[black]  group group-focus-within:border-[#1C2D56] outline-none pl-[16px] text-[16px] font-semibold "
+                        ref={inputFirstName}
+                      />
+                      <label className="relative px-[4px] bottom-[35px] left-[12px] text-[black] group-focus-within:bottom-[60px] bg-[white] group-focus-within:text-[#1C2D56] group text-[16px] font-medium">
+                        First Name
+                      </label>
+                    </div>
                   )}
                 </div>
-
-                <div className="w-[46.52%]">
+                <div className="w-[46.52%] group ">
                   {isLogin ? (
                     ""
                   ) : (
-                    <input
-                      type="text"
-                      placeholder="Last Name"
-                      className=" placeholder:pl-[10px] border-[1px]  rounded-[8px] w-full h-[48px] border-[#1C2D56]"
-                      ref={inputLastName}
-                    />
+                    <div>
+                      <input
+                        type="text"
+                        className="border-[1px] rounded-[8px] w-full  h-[48px] border-[black]  group group-focus-within:border-[#1C2D56] outline-none pl-[16px] text-[16px] font-semibold "
+                        ref={inputFirstName}
+                      />
+                      <label className="relative px-[4px] bottom-[35px] left-[12px] text-[black] group-focus-within:bottom-[60px] bg-[white] group-focus-within:text-[#1C2D56] group text-[16px] font-medium">
+                        Last Name
+                      </label>
+                    </div>
                   )}
                 </div>
               </div>
-              <input
-                type="text"
-                placeholder="Enter your Email"
-                className="border-[1px] placeholder:pl-[10px] border-[#1C2D56] h-[48px] rounded-[8px] w-full "
-                ref={inputGamil}
-              />
+              <div className="group">
+                <input
+                  type="text"
+                  className="border-[1px]  border-[black] h-[48px] rounded-[8px] w-full group group-focus-within:border-[#1C2D56] outline-none pl-[16px] text-[16px] font-semibold "
+                  ref={inputGamil}
+                />
+                <label className="relative px-[4px] bottom-[35px] left-[12px] text-[black] group-focus-within:bottom-[60px] bg-[white] group-focus-within:text-[#1C2D56] group text-[16px] font-medium">
+                  Enter Your Email
+                </label>
+              </div>
 
               <div className="flex justify-between">
                 {isLogin ? (
                   ""
                 ) : (
-                  <input
-                    type="Password"
-                    placeholder="Password"
-                    className="border-[1px]  placeholder:pl-[10px] rounded-[8px]  w-[46.52%] h-[48px] border-[#1C2D56]"
-                    ref={inputPassword}
-                  />
+                  <div className="w-[46.52%] group">
+                    <input
+                      type="Password"
+                      className="border-[1px]  border-[black] h-[48px] rounded-[8px] w-full group group-focus-within:border-[#1C2D56] outline-none pl-[16px] text-[16px] font-semibold"
+                      ref={inputPassword}
+                    />
+                    <label className="relative px-[4px] bottom-[35px] left-[12px] text-[black] group-focus-within:bottom-[60px] bg-[white] group-focus-within:text-[#1C2D56] group text-[16px] font-medium">
+                      Password
+                    </label>
+                  </div>
                 )}
 
                 {isLogin ? (
-                  <input
-                    type="Password"
-                    placeholder="Password"
-                    className="border-[1px] mb-10 placeholder:pl-[10px] border-[#1C2D56] h-[48px] rounded-[8px] w-full "
-                    ref={inputPassword}
-                  />
+                  <div className="w-full group">
+                    <input
+                      type="Password"
+                      className="border-[1px]  border-[black] h-[48px] rounded-[8px] w-full group group-focus-within:border-[#1C2D56] outline-none pl-[16px] text-[16px] font-semibold"
+                      ref={inputPassword}
+                    />
+                    <label className="relative px-[4px] bottom-[35px] left-[12px] text-[black] group-focus-within:bottom-[60px] bg-[white] group-focus-within:text-[#1C2D56] group text-[16px] font-medium">
+                      Password
+                    </label>
+                  </div>
                 ) : (
-                  <input
-                    type="Password"
-                    placeholder="confirm Password"
-                    className="border-[1px]  placeholder:pl-[10px] rounded-[8px]  w-[46.52%] h-[48px] border-[#1C2D56]"
-                    ref={inputConfirmPassword}
-                  />
+                  <div className="w-[46.52%] group">
+                    <input
+                      type="Password"
+                      className="border-[1px]  border-[black] h-[48px] rounded-[8px] w-full group group-focus-within:border-[#1C2D56] outline-none pl-[16px] text-[16px] font-semibold"
+                      ref={inputConfirmPassword}
+                    />
+                    <label className="relative px-[4px] bottom-[35px] left-[12px] text-[black] group-focus-within:bottom-[60px] bg-[white] group-focus-within:text-[#1C2D56] group text-[16px] font-medium">
+                      Password
+                    </label>
+                  </div>
                 )}
               </div>
             </div>

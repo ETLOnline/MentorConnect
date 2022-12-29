@@ -34,7 +34,7 @@ const RegisteredSessionCard = ({ data }) => {
             <div className="w-[65%] h-auto flex gap-2">
               <img
                 src={data.instructor.summry.image}
-                className="w-[16%] object-cover"
+                className="w-[16%] object-cover rounded-[20px]"
               />
 
               <p className="text-[16px] md:text-[11px] leading-[19px] font-medium text-[#8B8B8B] group-hover:text-[#1C2D56]">

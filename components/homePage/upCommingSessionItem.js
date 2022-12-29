@@ -32,9 +32,7 @@ const SessionItem = ({ session }) => {
             </div>
             <div className=" mb-4 h-[4vh] overflow-y-clip">
               <p className="text-[20px] xs:text-[24px] leading-[28px] font-normal font-['Raleway'] text-black">
-
                 {session?.title}
-
               </p>
             </div>
             <div className="flex  gap-2 mb-4 h-[4.2vh]">

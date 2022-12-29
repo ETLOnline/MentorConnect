@@ -38,7 +38,7 @@ const HomePage = () => {
         <div>
           <UpCommingSection
             sessions={sessions}
-            title="UpCommingSession"
+            title="Upcomming Session"
             dis=" Sign Up to one of our sessions and start your journey"
           />
         </div>

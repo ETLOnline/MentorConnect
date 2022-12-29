@@ -20,7 +20,7 @@ const SkillCard = ({ onClickSkills }) => {
               onClick={() => {
                 onClickSkills(skills[0]);
               }}
-              className="w-[191px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
+              className="w-[191px] cursor-pointer h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex m-auto gap-3">
                 <img src="./img/Image (28).png" alt="img" />
@@ -36,7 +36,7 @@ const SkillCard = ({ onClickSkills }) => {
               onClick={() => {
                 onClickSkills(skills[1]);
               }}
-              className="w-[205px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
+              className="w-[205px] h-24 cursor-pointer border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex m-auto gap-3">
                 <img src="./img/Image (23).png" alt="img" />
@@ -52,7 +52,7 @@ const SkillCard = ({ onClickSkills }) => {
               onClick={() => {
                 onClickSkills(skills[2]);
               }}
-              className="w-[299px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
+              className="w-[299px] h-24 cursor-pointer border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex m-auto gap-3">
                 <img src="./img/Image (24).png" alt="img" />
@@ -71,7 +71,7 @@ const SkillCard = ({ onClickSkills }) => {
             }}
             className="flex flex-row justify-evenly"
           >
-            <div className="w-[244px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg">
+            <div className="w-[244px] cursor-pointer h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg">
               <div className="flex m-auto gap-3">
                 <img src="./img/Image (26).png" alt="" />
                 <div className="flex items-center">
@@ -85,7 +85,7 @@ const SkillCard = ({ onClickSkills }) => {
               onClick={() => {
                 onClickSkills(skills[3]);
               }}
-              className="w-[244px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
+              className="w-[244px] h-24 border-[1px] cursor-pointer border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex m-auto gap-3">
                 <img src="./img/Image (25).png" alt="" />
@@ -104,7 +104,7 @@ const SkillCard = ({ onClickSkills }) => {
                 onClick={() => {
                   onClickSkills(skills[2]);
                 }}
-                className="w-[299px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
+                className="w-[299px] h-24 cursor-pointer border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
               >
                 <div className="flex m-auto gap-3">
                   <img src="./img/Image (24).png" alt="img" />
@@ -122,7 +122,7 @@ const SkillCard = ({ onClickSkills }) => {
               onClick={() => {
                 onClickSkills(skills[0]);
               }}
-              className="w-[191px] h-24 mr-10 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
+              className="w-[191px] h-24 mr-10 border-[1px] cursor-pointer border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex m-auto gap-3">
                 <img src="./img/Image (28).png" alt="img" />
@@ -139,7 +139,7 @@ const SkillCard = ({ onClickSkills }) => {
               onClick={() => {
                 onClickSkills(skills[1]);
               }}
-              className="w-[205px] h-24 border-[1px] border-[#1C2D56] rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
+              className="w-[205px] h-24 border-[1px] border-[#1C2D56] cursor-pointer rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
             >
               <div className="flex m-auto gap-3">
                 <img src="./img/Image (23).png" alt="img" />
