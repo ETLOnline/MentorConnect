@@ -9,10 +9,7 @@ export const createSession = (data, router, id) => {
     .add({
       image: data.Image,
       instructor: id,
-      students: [
-        "HID06ysBc8cYx2rtsxvOAtOJT9o1",
-        "HID06ysBc8cYx2rtsxvOAtOJT9o1",
-      ],
+      students: ["HID06ysBc8cYx2rtsxvOAtOJT9o1"],
       tags: data.Tags,
       title: data.Title,
       startTime: new firebase.firestore.Timestamp.fromDate(
@@ -121,13 +118,14 @@ export const getSessionByUserSkills = async (data) => {
     console.log(error);
   }
 };
+
 //  get all session in which user register
 export const getSessionInUserRegister = async (id) => {
   try {
     const allfilterSession = [];
     const doc = await fireStore
       .collection("sessions")
-      .where("students", "array-contains", id )
+      .where("students", "array-contains", id)
       .get();
     console.log(doc);
     if (!doc.empty) {

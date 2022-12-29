@@ -36,7 +36,7 @@ export const loginWithGoogle = (router, setUser) => {
       const userData = await getSingleUser(user.uid);
       console.log(userData, "userdata");
       if (!userData.uid) {
-        fireStore
+        await fireStore
           .collection("users")
           .doc(user.uid)
           .set(
@@ -55,12 +55,18 @@ export const loginWithGoogle = (router, setUser) => {
               following: [""],
             },
             { merge: true }
-          )
-          .then(() => {
-            console.log("Document successfully written!");
-            router.push("/home");
-          });
+          );
+
+        const userData = await getSingleUser(user.uid);
+        setUser((prev) => {
+          return { ...prev, user: userData };
+        });
+        console.log("Document successfully written!");
+        router.push("/home");
       } else {
+        setUser((prev) => {
+          return { ...prev, user: userData };
+        });
         router.push("/home");
       }
       // ...
