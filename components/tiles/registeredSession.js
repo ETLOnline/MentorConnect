@@ -1,9 +1,9 @@
-import { data } from "jquery";
 import React, { Fragment, useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/auth_context";
 import { getSessionInUserRegister } from "../../utils_firebase/sessions";
 import Spinner from "../spinner";
-import RegisteredSessionCard from "./registeredSessionCard";
+// import RegisteredSessionCard from "./registeredSessionCard";
+import LearningCard from "./learningCard";
 
 const RegisteredSession = () => {
   const { user } = useContext(AuthContext);
@@ -38,7 +38,8 @@ const RegisteredSession = () => {
           : session.map((data) => {
               return (
                 <Fragment key={Math.random()}>
-                  <RegisteredSessionCard data={data} />
+                  <LearningCard data={data} />
+                  {/* <RegisteredSessionCard data={data} /> */}
                 </Fragment>
               );
             })}

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { auth, fireStore } from "../utils_firebase/config";
 import { AuthContext } from "../contexts/auth_context";
+import { getSingleUser } from "../utils_firebase/users";
 
 export const useSinup = () => {
   const { setUser } = useContext(AuthContext);
@@ -27,9 +28,6 @@ export const useSinup = () => {
       });
       // Email verification sent!
       console.log("Email send");
-      setUser((prev) => {
-        return { ...prev, user: userCredential.user };
-      });
 
       await fireStore
         .collection("users")
@@ -45,9 +43,15 @@ export const useSinup = () => {
             learningPoint: 100,
             coachingPoint: 100,
           },
-          followers: [""],
-          following: [""],
+          followers: [],
+          following: [],
         });
+
+      const userData = await getSingleUser(userCredential.user.uid);
+      setUser((prev) => {
+        return { ...prev, user: userData };
+      });
+
       console.log("Document successfully written!");
       if (!cancelled) {
         setError(null);

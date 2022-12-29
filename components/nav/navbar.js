@@ -16,10 +16,11 @@ export default function NavBar() {
       <div>
         <div className="bg-[#fff] ">
           <div className="md:flex mx-[60px] py-1  gap-[10px]  ">
-            <div className="w-40 sm:w-40 md:w-56  h-16 flex">
-              {/* <div className="m-auto">Logo</div> */}
-              <img src="/img/logo.png" className="mx-auto object-cover"></img>
-            </div>
+            <Link href="/">
+              <div className="w-40 sm:w-40 md:w-56  h-16 flex">
+                <img src="/img/logo.png" className="mx-auto object-cover"></img>
+              </div>
+            </Link>
             <div
               onClick={() => {
                 setOpen(!open);
