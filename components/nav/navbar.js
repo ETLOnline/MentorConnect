@@ -104,20 +104,21 @@ export default function NavBar() {
                     </div>
                   </div>
                 )}
-
-                <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group  hover:bg-[#E6E5E5]">
-                  <Link
-                    className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"
-                    href="/loginPage"
-                  >
-                    Log In
-                  </Link>
-                </button>
+                {!user.user && (
+                  <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group  hover:bg-[#E6E5E5]">
+                    <Link
+                      className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"
+                      href="/loginPage"
+                    >
+                      Log In
+                    </Link>
+                  </button>
+                )}
               </div>
 
               {user.user && (
                 <div className="flex justify-center gap-[10px] items-center">
-                  <div className="font-medium leading-7 hover:border text-[#919191]">
+                  <div className="font-medium leading-7  text-[#919191]">
                     <Link
                       href={`/auth/${user.user.uid}`}
                       className="hover:text-[#1C2D56] px-3"
@@ -127,7 +128,7 @@ export default function NavBar() {
                   </div>
                   <button
                     onClick={() => signout(router)}
-                    className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:border hover:bg-[#fff]"
+                    className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:border hover:bg-#E6E5E5]"
                   >
                     <Link
                       className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"

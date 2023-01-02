@@ -7,7 +7,7 @@ const InterestAndRecomendedSkills = ({ Interests }) => {
     <>
       <div className="flex pt-16">
         <p className="m-auto text-[32px] font-semibold leading-[38px] font-[Raleway]">
-          Interested And Recomended-Skills
+          Interested Skills
         </p>
       </div>
       <div className="m-[64px] flex flex-col  gap-10">
