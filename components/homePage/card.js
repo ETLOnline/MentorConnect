@@ -30,11 +30,11 @@ const Card = ({ mentors }) => {
                           <p className="text-[20px]  text-[#FFFFFF] leading-[23px]  font-['Raleway']">
                             {mentor.summry?.displayName}
                           </p>
-                          <p className="text-[20px] font-semibold text-[#FFFFFF] leading-[23px] font-['Raleway']">
+                          <p className="text-[20px]  text-[#FFFFFF] leading-[23px] ">
                             {200} <span>+Hrs</span>{" "}
                           </p>
                         </div>
-                        <div className=" flex text-[16px] font-semibold text-[#FFFFFF] leading-[19px]  font-['Raleway'] mt-3">
+                        <div className=" flex text-[16px]  text-[#FFFFFF] leading-[19px]   mt-3">
                           <div className="h-5 w-5">
                             <img
                               src="./img/icons8-speech-24_1.png"
@@ -42,7 +42,7 @@ const Card = ({ mentors }) => {
                               className="object-cover"
                             />
                           </div>
-                          <p>{mentor.headline}</p>
+                          <p className="ml-3  ">{mentor.about}</p>
                         </div>
                       </div>
                       <div className="absolute w-[12.96%] h-[9%] top-[9px] right-[6%] bg-[url('/img/Path.png')] bg-no-repeat hover:bg-[url('/img/redPath.svg')] ">
