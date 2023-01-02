@@ -24,10 +24,12 @@ const SessionItem = ({ session }) => {
           <div className="flex flex-col  mx-3">
             <div className="flex flex-row mb-3 justify-between">
               <p className="text-[16px] font-medium leading-[20px] font-['Raleway'] text-[#8B8B8B]">
-                {/* {session?.students.length} +Attendees */}
+                {session?.students.length} +Attendees
               </p>
               <p className="text-[16px] font-medium leading-[20px] font-['Raleway'] text-[#8B8B8B]">
-                {/* {session?.startTime} */}
+                {new Date(
+                  session.startTime.seconds * 1000
+                ).toLocaleDateString()}
               </p>
             </div>
             <div className=" mb-4 h-[4vh] overflow-y-clip">
