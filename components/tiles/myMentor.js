@@ -42,17 +42,17 @@ const MyMentor = () => {
         items: 2,
       },
       700: {
-        items: 2,
+        items: 3,
       },
       1000: {
-        items: 2,
+        items: 3,
       },
     },
   };
   return (
     <>
-      <div className="ml-[62px] my-[64px]">
-        <div className="flex justify-between ml-6 mb-[30px] mr-[64px]">
+      <div className="my-[64px]">
+        <div className="flex justify-between  mb-[30px] mx-[210px]">
           <h2 className="text-3xl   font-bold"> MyMentors</h2>
           <div className="flex gap-2 justify-between items-center ">
             <p className="text-[20px] text-[#909090] leading-[23px] ">
@@ -65,16 +65,22 @@ const MyMentor = () => {
             />
           </div>
         </div>
-        <OwlCarousel
-          className="owl-theme"
-          loop
-          dots={false}
-          animateIn={true}
-          {...options}
-        >
+        <div className="flex mx-[210px]  gap-8">
           <MyMentorsCard />
-          
-        </OwlCarousel>
+          <MyMentorsCard />
+          <MyMentorsCard />
+        </div>
+        {/* <div>
+          <OwlCarousel
+            className="owl-theme"
+            loop
+            dots={false}
+            animateIn={true}
+            {...options}
+          >
+            <MyMentorsCard />
+          </OwlCarousel>
+        </div> */}
       </div>
     </>
   );

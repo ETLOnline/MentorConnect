@@ -39,10 +39,12 @@ const SessionDetail = () => {
       <div className="flex">
         <div className="w-[40%] h-[110vh] ">
           <div className="border-[2px] m-[40px] rounded-[20px]">
-            <img
-              src={isLoaded.image}
-              className="h-[80vh] w-[80%] mx-auto my-[20px] object-cover "
-            />
+            <div className="h-[80vh] w-[80%] m-auto ">
+              <img
+                src={isLoaded.image}
+                className=" w-full  p-3 object-inherit h-full  rounded-[30px]"
+              />
+            </div>
           </div>
         </div>
         <div className="w-[55%] mx-4 py-5">
@@ -53,7 +55,7 @@ const SessionDetail = () => {
                 {isLoaded.title}
               </h1>
             </div>
-            <div className="grid grid-cols-7 gap-5 my-4 pb-5 border-b-[2px]">
+            <div className="flex flex-wrap gap-5 my-4 pb-5 border-b-[2px]">
               {isLoaded.tags.map((tag) => {
                 return (
                   <Fragment key={Math.random()}>
@@ -67,10 +69,10 @@ const SessionDetail = () => {
               Instructor
               <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
                 <div className="flex items-center">
-                  <div className="w-[32px] ">
+                  <div className="w-[32px] max-h-[32px]">
                     <img
                       src={isLoaded.instructor.summry.image}
-                      className="object-cover rounded-[50px]"
+                      className="object-cover w-full max-h-[32px] rounded-[50px]"
                     />
                   </div>
                   <h1 className="font-bold ml-[15px] text-[#1C2D56]">

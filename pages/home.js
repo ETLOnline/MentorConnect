@@ -32,11 +32,12 @@ const Home = () => {
   console.log(RecommendedSession, "RecommendedSession....");
   return (
     <>
-      <Header />
-      <FeatureMentor />
-      <InterestAndRecomendedSkills Interests={Interests} />
-      <MyMentor />
+      {/* <Header /> */}
       <RegisteredSession />
+      <MyMentor />
+      {/* <FeatureMentor /> */}
+      <InterestAndRecomendedSkills Interests={Interests} />
+
       <UpCommingSection
         sessions={RecommendedSession}
         title="Recommended Sessions"

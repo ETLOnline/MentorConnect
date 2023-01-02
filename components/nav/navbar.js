@@ -89,29 +89,32 @@ export default function NavBar() {
                   </>
                 )}
               </div>
-              {!user.user && (
-                <div className="">
-                  <div className=" flex justify-center items-center">
-                    <button className="mt-[10px] mt-0 hover:border hover:font-bold text-center h-[36px] w-32 md:w-24 bg-[#1C2D56] rounded group  hover:bg-[#fff]">
-                      <Link
-                        className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"
-                        href="/auth"
-                      >
-                        Sign Up
-                      </Link>
-                    </button>
+              <div className="flex gap-9 ">
+                {!user.user && (
+                  <div className="">
+                    <div className=" flex justify-center items-center">
+                      <button className=" hover:font-bold text-center h-[36px] w-32 md:w-24  rounded group  hover:bg-[#fff]">
+                        <Link
+                          className="text-[#909090] font-['Raleway'] group-hover:text-[#1C2D56]"
+                          href="/auth"
+                        >
+                          Sign Up
+                        </Link>
+                      </button>
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group  hover:bg-[#fff]">
-                <Link
-                  className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"
-                  href="/loginPage"
-                >
-                  Log In
-                </Link>
-              </button> */}
+                <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group  hover:bg-[#E6E5E5]">
+                  <Link
+                    className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"
+                    href="/loginPage"
+                  >
+                    Log In
+                  </Link>
+                </button>
+              </div>
+
               {user.user && (
                 <div className="flex justify-center gap-[10px] items-center">
                   <div className="font-medium leading-7 hover:border text-[#919191]">

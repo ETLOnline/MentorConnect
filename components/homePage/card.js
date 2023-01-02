@@ -31,7 +31,7 @@ const Card = ({ mentors }) => {
                             {mentor.summry?.displayName}
                           </p>
                           <p className="text-[20px] font-semibold text-[#FFFFFF] leading-[23px] font-['Raleway']">
-                            {200}
+                            {200} <span>+Hrs</span>{" "}
                           </p>
                         </div>
                         <div className=" flex text-[16px] font-semibold text-[#FFFFFF] leading-[19px]  font-['Raleway'] mt-3">
