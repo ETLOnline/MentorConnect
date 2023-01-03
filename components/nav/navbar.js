@@ -128,7 +128,7 @@ export default function NavBar() {
                   </div>
                   <button
                     onClick={() => signout(router)}
-                    className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:border hover:bg-#E6E5E5]"
+                    className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:border hover:bg-[#E6E5E5]"
                   >
                     <Link
                       className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"

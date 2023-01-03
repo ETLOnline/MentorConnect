@@ -8,11 +8,11 @@ const LearningCard = ({ data }) => {
   return (
     <>
       <div className="w-[100%] h-auto rounded-[12px] flex group hover:bg-[#F4F4F4]">
-        <div className="flex w-[82.93%] gap-4 ml-[12px] my-[12px]">
-          <div className="w-[31.8%] h-[96px]  my-auto ">
+        <div className="flex w-[100%] gap-4 ml-[12px] my-[12px]">
+          <div className="max-w-[96px]  my-auto ">
             <img
               src={data.image}
-              className="w-full h-full object-fill rounded-[12px]"
+              className="w-full min-h-[96px] object-fill rounded-[12px]"
             />
           </div>
 
@@ -31,7 +31,7 @@ const LearningCard = ({ data }) => {
             </div>
 
             <div className="w-[65%] h-auto flex gap-2">
-              <div className="max-h-[24px] w-[14.7%]">
+              <div className="max-h-[24px] min-w-[24px]">
                 <img
                   src={data.instructor.summry.image}
                   className="w-full  object-cover rounded-[20px] h-6"

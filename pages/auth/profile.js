@@ -4,10 +4,13 @@ import { AuthContext } from "../../contexts/auth_context";
 
 import { getSingleUser, updateProfile } from "../../utils_firebase/users";
 import { useRouter } from "next/router";
+import TagTypeAhead from "../../components/tiles/tagTypeahead";
 
 export default function Profile() {
   const [User, setUser] = useState(null);
   const { user } = useContext(AuthContext);
+  const [tags, setTags] = useState([]);
+
   useEffect(() => {
     getSingleUser(user.user.uid).then((data) => {
       inputAbout.current.value = data.about;
@@ -16,7 +19,6 @@ export default function Profile() {
       inputLinkln.current.value = data.links.linkln;
       inputGithub.current.value = data.links.github;
       inputTwitter.current.value = data.links.twitter;
-    
     });
   }, []);
 
@@ -58,6 +60,9 @@ export default function Profile() {
     router.push("/auth/userId");
   }
 
+  const handleChange = (tags) => {
+    setTags(tags);
+  };
   return (
     <Fragment>
       <div className=" mt-5 bg-slate-50  ">
@@ -111,6 +116,7 @@ export default function Profile() {
                           Interest
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
+                          <TagTypeAhead />
                           <input
                             type="text"
                             name="company-website"

@@ -1,7 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import Header from "../components/homePage/header";
-import FeatureMentor from "../components/homePage/featureMentor";
-import InterestAndRecomendedSkills from "../components/tiles/interest&RecomendedSills";
 import MyMentor from "../components/tiles/myMentor";
 import RegisteredSession from "../components/tiles/registeredSession";
 import { getSingleUser } from "../utils_firebase/users";
@@ -9,6 +6,8 @@ import { AuthContext } from "../contexts/auth_context";
 import Spinner from "../components/spinner";
 import UpCommingSection from "../components/homePage/upCommingSection";
 import { getSessionByUserSkills } from "../utils_firebase/sessions";
+import InterestSkills from "../components/tiles/interestSkills";
+import RecomendedSkills from "../components/tiles/recomendedSkills";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
@@ -36,7 +35,8 @@ const Home = () => {
       <RegisteredSession />
       <MyMentor />
       {/* <FeatureMentor /> */}
-      <InterestAndRecomendedSkills Interests={Interests} />
+      <InterestSkills Interests={Interests} />
+      <RecomendedSkills Interests={Interests} />
 
       <UpCommingSection
         sessions={RecommendedSession}

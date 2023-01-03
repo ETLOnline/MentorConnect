@@ -39,7 +39,7 @@ const IntroCard = ({ data }) => {
         <div className="w-[46.5%] mt-[40px] mx-auto ">
           <img
             src={Url ? Url : data?.summry.image}
-            className="rounded-[96%] h-[25vh] w-full object-cover"
+            className="rounded-[96%] h-[25vh] w-[86.67%] object-cover"
           />
 
           <div className="relative bottom-[50px] left-[115px] w-[25px] rounded-[15px]">
