@@ -9,3 +9,9 @@ body {
   margin: 0;
   font-family: "Raleway", sans-serif;
 }
+.fc-day-past {
+  background-color: rgb(227, 83, 83);
+}
+.fc-day-future {
+  background-color: azure;
+}
