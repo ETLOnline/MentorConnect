@@ -62,8 +62,8 @@ const Home = () => {
       <RegisteredSession />
       <MyMentor />
       {/* <FeatureMentor /> */}
-      <InterestSkills Interests={Interests} />
-      <RecomendedSkills Interests={Interests} />
+      <InterestSkills Interests={user.user.interest} />
+      <RecomendedSkills Interests={user.user.interest} />
 
       <UpCommingSection
         sessions={RecommendedSession}

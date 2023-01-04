@@ -1,7 +1,6 @@
 import { Fragment, useContext, useEffect, useState } from "react";
 import { useRef } from "react";
 import { AuthContext } from "../../contexts/auth_context";
-
 import { getSingleUser, updateProfile } from "../../utils_firebase/users";
 import { useRouter } from "next/router";
 import SkillTag from "../../components/tiles/skillTag";
@@ -116,7 +115,6 @@ export default function Profile() {
                           Interest
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
-                          <TagTypeAhead />
                           <input
                             type="text"
                             name="company-website"
