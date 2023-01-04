@@ -22,17 +22,17 @@ const RegisteredSession = () => {
     <>
       <div className="flex flex-col gap-6 bg-[#8B8B8B]">
         <div className="m-auto">
-          <p className="text-[32px] font-semibold font-['Raleway'] leading-[38px] text-[#242424]">
+          <p className="text-[32px] font-semibold font-['Raleway'] leading-[38px] text-[#1C2D56]">
             Registered Sessions
           </p>
         </div>
         <div className="m-auto">
-          <p className="text-[20px] font-medium leading-[23px] text-[#242424] font-['Raleway']">
+          <p className="text-[20px] font-medium leading-[23px] text-[#1C2D56] font-['Raleway']">
             Sessions that you have Registered
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-3  mt-10   ">
+      <div className="grid grid-cols-2  mt-10  mx-[210px] ">
         {session === "You are not register any Sessions"
           ? "You are not register any Sessions"
           : session.map((data) => {

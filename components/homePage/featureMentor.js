@@ -81,7 +81,7 @@ const FeatureMentor = () => {
           </div>
         </div>
         <OwlCarousel
-          className="owl-theme"
+          className="owl-theme m-0"
           loop
           dots={false}
           animateIn={true}

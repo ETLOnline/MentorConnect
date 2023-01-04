@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import InterestAndRecomendedSkills from "../components/tiles/interest&RecomendedSills";
+
 import MyMentor from "../components/tiles/myMentor";
 import RegisteredSession from "../components/tiles/registeredSession";
 import { getSingleUser } from "../utils_firebase/users";
@@ -8,7 +8,8 @@ import Spinner from "../components/spinner";
 import UpCommingSection from "../components/homePage/upCommingSection";
 import { getSessionByUserSkills } from "../utils_firebase/sessions";
 import { useRouter } from "next/router";
-import Image from "next/image";
+import InterestSkills from "../components/tiles/interestSkills";
+import RecomendedSkills from "../components/tiles/recomendedSkills";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
@@ -17,6 +18,17 @@ const Home = () => {
   const [auth, setAuth] = useState();
   const router = useRouter();
   // console.log(user.user.uid, "homeeeeeeeeeeeeeeeeee");
+
+  console.log(user, "userHome");
+
+  // if (user.authIsValide) {
+  //   // router.push("/");
+  //   return (
+  //     <div className=" text-center  items-center  text-5xl pb-20 pt-20">
+  //       <p> Firts login please</p>
+  //     </div>
+  //   );
+  // }
 
   console.log(user.user, "userHome");
 
@@ -50,7 +62,8 @@ const Home = () => {
       <RegisteredSession />
       <MyMentor />
       {/* <FeatureMentor /> */}
-      <InterestAndRecomendedSkills Interests={user.user.interest} />
+      <InterestSkills Interests={Interests} />
+      <RecomendedSkills Interests={Interests} />
 
       <UpCommingSection
         sessions={RecommendedSession}

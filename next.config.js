@@ -3,6 +3,16 @@
 
 const nextConfig = {
   reactStrictMode: true,
+  swcMinify: true,
+  optimizeFonts: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+      },
+    ],
+  },
   // // webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
   // //   config.plugins.push(
   // //     new webpack.ProvidePlugin({
@@ -13,11 +23,6 @@ const nextConfig = {
   // //   );
   //   return config;
   // },
-
-  swcMinify: true,
-  eslint:{
-    ignoreDuringBuilds: true
-  }
 };
 
 module.exports = nextConfig;

@@ -9,6 +9,8 @@ import SkillTag from "../../components/tiles/skillTag";
 export default function Profile() {
   const [User, setUser] = useState(null);
   const { user } = useContext(AuthContext);
+  const [tags, setTags] = useState([]);
+
   useEffect(() => {
     getSingleUser(user.user.uid).then((data) => {
       inputAbout.current.value = data.about;
@@ -58,6 +60,9 @@ export default function Profile() {
     router.push("/auth/userId");
   }
 
+  const handleChange = (tags) => {
+    setTags(tags);
+  };
   return (
     <Fragment>
       <div className=" mt-5 bg-slate-50  ">
@@ -111,6 +116,7 @@ export default function Profile() {
                           Interest
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
+                          <TagTypeAhead />
                           <input
                             type="text"
                             name="company-website"
