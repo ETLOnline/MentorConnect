@@ -1,10 +1,11 @@
 import React, { createContext, useState, useEffect } from "react";
 import { auth } from "../utils_firebase/config";
+import { getSingleUser } from "../utils_firebase/users";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({ user: null, authIsValide: false });
+  const [user, setUser] = useState({ user: false, authIsValide: false });
 
   const triggerAuthEffect = () => {
     // if (trigger == true) {
@@ -17,9 +18,16 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSub = auth.onAuthStateChanged((userCredential) => {
       console.log(userCredential, "on auth state change");
-      setUser((prev) => {
-        return { ...prev, user: userCredential, authIsValide: true };
+      getSingleUser(userCredential?.uid).then((userData) => {
+        setUser((prev) => {
+          return {
+            ...prev,
+            user: !(userData == "No such document!") ? userData : false,
+            authIsValide: true,
+          };
+        });
       });
+
       unSub();
     });
   }, []);

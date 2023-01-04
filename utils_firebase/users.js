@@ -29,9 +29,9 @@ export const loginWithGoogle = (router, setUser) => {
       // The signed-in user info.
       const user = result.user;
       // console.log(user, "user><><><><");
-      setUser((prev) => {
-        return { ...prev, user };
-      });
+      // setUser((prev) => {
+      //   return { ...prev, user };
+      // });
 
       const userData = await getSingleUser(user.uid);
       console.log(userData, "userdata");
@@ -59,7 +59,7 @@ export const loginWithGoogle = (router, setUser) => {
 
         const userData = await getSingleUser(user.uid);
         setUser((prev) => {
-          return { ...prev, user: userData };
+          return { ...prev, user: userData, authIsValide: true };
         });
         console.log("Document successfully written!");
         router.push("/home");

@@ -16,7 +16,7 @@ export const useSignout = () => {
       // Sign Up create user
       const userCredential = await auth.signOut();
       setUser((prev) => {
-        return { ...prev, user: null };
+        return { ...prev, user: false, authIsValide: false };
       });
 
       if (!cancelled) {
