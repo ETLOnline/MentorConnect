@@ -1,10 +1,11 @@
 import React, { Fragment } from "react";
-
+import Image from "next/image";
 // import { getAllMentors } from "../../proxyLayer/api-util";
 
 const Card = ({ mentors }) => {
   console.log(mentors, "card");
 
+  console.log("Check");
   // const Mentors = getAllMentors();
 
   return (
@@ -15,13 +16,24 @@ const Card = ({ mentors }) => {
               <Fragment key={mentor.id}>
                 <div id="featuredProducts" className=" mb-8 m-2 w-100">
                   <div className=" px-2 py-11  w-full  ">
-                    <div className="relative group rounded-[12px] w-[107.71%]">
-                      <div className="h-[330px] rounded-[12px]">
-                        <img
+                    <div className="relative group rounded-[12px] w-[304px]">
+                      <div
+                        className="h-[330px] w-[304px] rounded-[12px] bg-no-repeat bg-cover"
+                        style={{
+                          backgroundImage: "url(" + mentor.summry?.image + ")",
+                        }}
+                      >
+                        {/* <Image
+                          src={mentor.summry?.image}
+                          alt="img"
+                          fill
+                          className="rounded-[12px] object-cover"
+                        /> */}
+                        {/* <img
                           src={mentor.summry?.image}
                           alt="IMG"
                           className=" h-[100%] rounded-[12px] object-cover"
-                        />
+                        /> */}
                       </div>
 
                       <div className="absolute w-full rounded-[12px] top-0 right-0 bottom-0 left-0 h-full overflow-hidden bg-fixed bg-gradient-to-t from-[rgba(0,0,0,0.8)] to-[rgba(36,36,36,0)] rounded-xl opacity-50 "></div>
@@ -30,19 +42,26 @@ const Card = ({ mentors }) => {
                           <p className="text-[20px]  text-[#FFFFFF] leading-[23px]  font-['Raleway']">
                             {mentor.summry?.displayName}
                           </p>
-                          <p className="text-[20px] font-semibold text-[#FFFFFF] leading-[23px] font-['Raleway']">
+                          <p className="text-[20px]  text-[#FFFFFF] leading-[23px] ">
                             {200} <span>+Hrs</span>{" "}
                           </p>
                         </div>
-                        <div className=" flex text-[16px] font-semibold text-[#FFFFFF] leading-[19px]  font-['Raleway'] mt-3">
-                          <div className="h-5 w-5">
-                            <img
+                        <div className=" flex text-[16px]  text-[#FFFFFF] leading-[19px]   mt-3">
+                          <div className="">
+                            <Image
+                              src="/img/icons8-speech-24_1.png"
+                              alt=""
+                              height={20}
+                              width={20}
+                              className="object-cover"
+                            />
+                            {/* <img
                               src="./img/icons8-speech-24_1.png"
                               alt="img"
                               className="object-cover"
-                            />
+                            /> */}
                           </div>
-                          <p>{mentor.headline}</p>
+                          <p className="ml-3  ">{mentor.about}</p>
                         </div>
                       </div>
                       <div className="absolute w-[12.96%] h-[9%] top-[9px] right-[6%] bg-[url('/img/Path.png')] bg-no-repeat hover:bg-[url('/img/redPath.svg')] ">

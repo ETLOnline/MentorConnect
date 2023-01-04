@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const FeedbackCard = () => {
   return (
@@ -7,7 +8,12 @@ const FeedbackCard = () => {
         <div className="flex justify-between mx-4 mt-4">
           <div className="w-[40.2%] flex gap-2 items-center">
             <div className="w-[7.71%]">
-              <img src="/img/Image (22).png" className="object-cover " />
+              <Image
+                src={"/img/Image (22).png"}
+                width={24}
+                height={24}
+                alt="img"
+              />
             </div>
 
             <p className=" w-[42.73%] overflow-hidden text-[87.5%] flex leading-[16px] font-bold text-center text-[#1C2D56]">
@@ -15,25 +21,35 @@ const FeedbackCard = () => {
             </p>
           </div>
           <div className="w-[15.47%] flex gap-[9.33px] h-[70.3%]">
-            <img
-              src="/img/Star 1 (Stroke).png"
-              className="w-[12.225%] object-cover  "
+            <Image
+              src={"/img/Star 1 (Stroke).png"}
+              width={14.703}
+              height={13.781}
+              alt="img"
             />
-            <img
-              src="/img/Star 1 (Stroke).png"
-              className="w-[12.225%] object-cover"
+            <Image
+              src={"/img/Star 1 (Stroke).png"}
+              width={14.703}
+              height={13.781}
+              alt="img"
             />
-            <img
-              src="/img/Star 1 (Stroke).png"
-              className="w-[12.225%] object-cover"
+            <Image
+              src={"/img/Star 1 (Stroke).png"}
+              width={14.703}
+              height={13.781}
+              alt="img"
             />
-            <img
-              src="/img/Star 1 (Stroke).png"
-              className="w-[12.225%] object-cover"
+            <Image
+              src={"/img/Star 1 (Stroke).png"}
+              width={14.703}
+              height={13.781}
+              alt="img"
             />
-            <img
-              src="/img/Star 1 (Stroke).png"
-              className="w-[12.225%] object-cover"
+            <Image
+              src={"/img/Star 1 (Stroke).png"}
+              width={14.703}
+              height={13.781}
+              alt="img"
             />
           </div>
         </div>

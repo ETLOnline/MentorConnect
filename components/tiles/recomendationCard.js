@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const RecomendationCard = () => {
   return (
@@ -6,9 +7,11 @@ const RecomendationCard = () => {
       <div className="w-full flex justify-between hover:translate-x-6 py-[24px] border-b-[#D7D6D6] border-b-[1px]">
         <div className="w-[52.9%] flex justify-between">
           <div className="w-[23.36%]">
-            <img
-              src="/img/Image (16).png"
-              className="rounded-[8px] object-cover"
+            <Image
+              src={"/img/Image (16).png"}
+              width={100}
+              height={100}
+              alt="img"
             />
           </div>
           <div className="w-[69.15%] flex items-center">
@@ -18,7 +21,7 @@ const RecomendationCard = () => {
           </div>
         </div>
         <div className="w-[5.55%]">
-          <img src="/img/Group.png" className="w-[58.33%] object-cover" />
+          <Image src="/img/Group.png" width={26} height={26} alt="img" />
         </div>
       </div>
     </>

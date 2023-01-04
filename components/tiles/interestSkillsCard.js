@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const InterestSkillsCard = ({ Interests }) => {
   // console.log(Interests, "interesttttSkillscard");
@@ -34,7 +35,14 @@ const InterestSkillsCard = ({ Interests }) => {
       </div> */}
       <div className="min-w-[21.53%] rounded-[12px] flex items-center  shadow-md border-t-2 border-[#1C2D56] gap-2 px-2">
         <div className="flex  max-w-[42px] m-2 ">
-          <img src="./img/Image (28).png" alt="img" className="w-full m-auto" />
+          <Image
+            src="/img/Image (28).png "
+            alt="img"
+            height={42}
+            width={42}
+            className="m-auto"
+          />
+          {/* <img src="./img/Image (28).png" alt="img" className="w-full m-auto" /> */}
         </div>
         <div className="flex">
           <p className="text-[24px] font-bold text-[#1C2D56] font['Raleway'] leading-[28px]">

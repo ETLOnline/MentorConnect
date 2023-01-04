@@ -3,7 +3,7 @@ import { TagsInput } from "react-tag-input-component";
 import { useState } from "react";
 
 const TagTypeAhead = () => {
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState(["papaya"]);
   return (
     <>
       <div>

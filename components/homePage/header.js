@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import Image from "next/image";
 
 const Header = () => {
   return (
@@ -24,43 +25,49 @@ const Header = () => {
             </div>
           </div>
           <div className="hidden md:block">
-            <img
-              src="./img/Ellipse 5.png"
-              alt="img"
-              className="ml-auto mr-[5.5%] mt-[6.23%] border-[#FFB66A] border-[12px] rounded-[70px] object-cover"
-            />
-            <img
-              src="./img/Ellipse 4.png"
-              alt=""
-              className=" ml-auto mr-[50.5%]  mt-[-13%] border-[#70C3F9] border-[12px] rounded-[70px] object-cover "
-            />
-            <img
-              src="./img/Image (2).png"
-              alt=""
-              className=" border-[#6BFFAB] border-[12px] rounded-[95px]  ml-auto mr-[25.5%]  mt-[3%] object-cover"
-            />
-            <img
-              src="./img/Ellipse 6.png"
-              alt=""
-              className=" border-[#DC8CFF] border-[12px] rounded-[85px]  ml-auto mr-[70.5%]  mt-[-4%] object-cover"
-            />
-            <img
-              src="./img/Ellipse 7.png"
-              alt=""
-              className=" border-[#ACB0B5] border-[12px] rounded-[85px]  ml-auto mr-[35.5%]  mt-[-3%] object-cover"
-            />
-            <img
-              src="./img/Ellipse 8.png"
-              alt=""
-              className=" border-[#FFE36A] border-[12px] rounded-[85px]  ml-auto mr-[5.5%]  md:mt-[-55%] lg:mt-[-30%] object-cover"
-            />
+            <div className="relative max-w-[124px] max-h-[124px] ml-auto mr-[5.5%] mt-[6.23%] border-[#FFB66A] border-[12px] rounded-[70px] ">
+              <Image
+                src="/img/Ellipse 5.png"
+                width={100}
+                height={100}
+                alt="Image glimpse"
+              />
+            </div>
+
+            <div className=" max-w-[144px] max-h-{144px} ml-auto mr-[50.5%]  mt-[-13%] border-[#70C3F9] border-[12px] rounded-[70px]  ">
+              <Image
+                src="/img/Ellipse 4.png"
+                alt="Img Glimpse"
+                width={120}
+                height={120}
+              />
+            </div>
+
+            <div className=" max-w-[174px] max-h-[174px] border-[#6BFFAB] border-[12px] rounded-[95px]  ml-auto mr-[25.5%]  mt-[3%] object-cover">
+              <Image
+                src="/img/Image (2).png"
+                alt="Image"
+                width={150}
+                height={150}
+              />
+            </div>
+
+            <div className="max-w-[124px] max-h-[124px] border-[#DC8CFF] border-[12px] rounded-[85px]  ml-auto mr-[70.5%]  mt-[-4%] object-cover">
+              <Image src="/img/Ellipse 6.png" alt="" width={100} height={100} />
+            </div>
+
+            <div className="max-w-[124px] max-h-[124px] border-[#ACB0B5] border-[12px] rounded-[85px]  ml-auto mr-[35.5%]  mt-[-3%] ">
+              <Image src="/img/Ellipse 7.png" alt="" width={100} height={100} />
+            </div>
+
+            <div className="max-w-[124px] max-h-[124px] border-[#FFE36A] border-[12px] rounded-[85px]  ml-auto mr-[5.5%]  md:mt-[-55%] lg:mt-[-30%] ">
+              <Image src="/img/Ellipse 8.png" alt="" width={100} height={100} />
+            </div>
           </div>
         </div>
-        <img
-          src="./img/Vector 1.png"
-          alt="img"
-          className="h-[140.99px] w-full object-cover"
-        />
+        <div className="min-h-[140.99px] relative w-full">
+          <Image src="/img/Vector 1.png" alt="img" fill />
+        </div>
       </div>
     </Fragment>
   );

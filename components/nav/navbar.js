@@ -3,6 +3,7 @@ import { useSignout } from "../../hooks/useSignout";
 import { useRouter } from "next/router";
 import { AuthContext } from "../../contexts/auth_context";
 import { useContext, useState } from "react";
+import Image from "next/image";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -17,8 +18,14 @@ export default function NavBar() {
         <div className="bg-[#fff] ">
           <div className="md:flex mx-[60px] py-1  gap-[10px]  ">
             <Link href="/">
-              <div className="w-40 sm:w-40 md:w-56  h-16 flex">
-                <img src="/img/logo.png" className="mx-auto object-cover"></img>
+              <div className=" relative w-40 sm:w-40 md:w-56  h-16 flex">
+                {/* <img src="/img/logo.png" className="mx-auto object-cover"></img> */}
+                <Image
+                  src="/img/logo.png"
+                  alt="logo image"
+                  width={100}
+                  height={100}
+                />
               </div>
             </Link>
             <div

@@ -58,11 +58,7 @@ const MyMentor = () => {
             <p className="text-[20px] text-[#909090] leading-[23px] ">
               Explore
             </p>
-            <img
-              src="/img/Arrow.png"
-              alt="Arrow Image"
-              className="object-cover mt-[6px]"
-            />
+            <div className="bg-[url('/img/Arrow.png')] w-6 h-6 bg-no-repeat hover:bg-[url('/img/Group.svg')] bg-center hover:transition-all hover:translate-x-1 hover:duration-200"></div>
           </div>
         </div>
         <div className="flex mx-[210px]  gap-8">
