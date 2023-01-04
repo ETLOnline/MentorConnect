@@ -62,7 +62,6 @@ const Card = ({ mentors }) => {
                             /> */}
                           </div>
                           <p className="ml-3  ">{mentor.about}</p>
-                          <p className="ml-3  ">{mentor.about}</p>
                         </div>
                       </div>
                       <div className="absolute w-[12.96%] h-[9%] top-[9px] right-[6%] bg-[url('/img/Path.png')] bg-no-repeat hover:bg-[url('/img/redPath.svg')] ">
