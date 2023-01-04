@@ -33,7 +33,7 @@ const CoachingActivityBlock = () => {
         <div className="grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
           {session.map((session) => {
             return (
-              <Fragment>
+              <Fragment key={Math.random() + 10}>
                 <CoachingCard data={session} />
               </Fragment>
             );
