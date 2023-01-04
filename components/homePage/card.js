@@ -18,7 +18,7 @@ const Card = ({ mentors }) => {
                   <div className=" px-2 py-11  w-full  ">
                     <div className="relative group rounded-[12px] w-[100%]">
                       <div
-                        className="h-[330px] w-[100%] rounded-[12px] bg-no-repeat  bg-cover"
+                        className="h-[330px] w-[100%] rounded-[12px] bg-no-repeat   bg-cover"
                         style={{
                           backgroundImage: "url(" + mentor.summry?.image + ")",
                         }}
@@ -64,7 +64,7 @@ const Card = ({ mentors }) => {
                           <p className="ml-3  ">{mentor.about}</p>
                         </div>
                       </div>
-                      <div className="absolute w-[12.96%] h-[9%] top-[9px] right-[6%] bg-[url('/img/Path.png')] bg-no-repeat hover:bg-[url('/img/redPath.svg')] ">
+                      <div className="absolute w-[36px] h-[9%] top-[9px] right-[6%] bg-[url('/img/Path.png')] bg-no-repeat hover:bg-[url('/img/redPath.svg')] ">
                         {/* <img
                           src="./img/Path.png"
                           alt="img"

@@ -37,7 +37,7 @@ const IntroCard = ({ data }) => {
   return (
     <>
       <div className=" bg-white w-[81.25%]  flex flex-col  m-auto justify-between rounded-[12px] shadow-lg border-[1px] ">
-        <div className="relative w-[46.5%] h-[28.8vh] mt-[40px] mx-auto ">
+        <div className="relative w-[46.5%] h-[24.5vh] mt-[40px] mx-auto ">
           <Image
             src={Url ? Url : data?.summry.image}
             alt="img"
@@ -49,7 +49,7 @@ const IntroCard = ({ data }) => {
             className="rounded-[96%] h-[25vh] w-[86.67%] object-cover"
           /> */}
 
-          <div className="relative top-[150px] left-14 w-[25px] rounded-[15px]">
+          <div className="relative top-[120px] left-[130px] w-[25px] rounded-[15px]">
             {!fileSelect ? (
               <label type="file">
                 <Image

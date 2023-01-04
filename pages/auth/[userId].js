@@ -66,7 +66,7 @@ const Index = () => {
           <Image src="/img/Frame 83.png" alt="img" fill />
         </div>
 
-        <div className="fixed bottom-[10%] w-[35.56%]">
+        <div className="fixed bottom-[10%] w-[35.56%] max-w-[512px]">
           <IntroCard data={User} />
         </div>
       </div>
