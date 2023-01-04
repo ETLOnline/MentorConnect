@@ -49,7 +49,11 @@ export const useSinup = () => {
 
       const userData = await getSingleUser(userCredential.user.uid);
       setUser((prev) => {
-        return { ...prev, user: userData };
+        return {
+          ...prev,
+          user: !(userData == "No such document!") ? userData : false,
+          authIsValide: true,
+        };
       });
 
       console.log("Document successfully written!");

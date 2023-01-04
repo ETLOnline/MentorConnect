@@ -16,6 +16,7 @@
     "@fullcalendar/react": "^6.0.0",
     "@fullcalendar/timegrid": "^6.0.0",
     "autoprefixer": "^10.4.13",
+    "chakra-ui-autocomplete": "^1.4.5",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
     "firebase": "8.5",

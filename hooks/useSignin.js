@@ -17,8 +17,13 @@ export const useSinin = () => {
         data.gmail,
         data.password
       );
+      const userData = await getSingleUser(userCredential.user.uid);
       setUser((prev) => {
-        return { ...prev, user: userCredential.user };
+        return {
+          ...prev,
+          user: !(userData == "No such document!") ? userData : false,
+          authIsValide: true,
+        };
       });
       if (!cancelled) {
         setError(null);
