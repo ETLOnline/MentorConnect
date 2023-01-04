@@ -43,7 +43,6 @@ const Card = ({ mentors }) => {
                             {mentor.summry?.displayName}
                           </p>
                           <p className="text-[20px]  text-[#FFFFFF] leading-[23px] ">
-                          <p className="text-[20px]  text-[#FFFFFF] leading-[23px] ">
                             {200} <span>+Hrs</span>{" "}
                           </p>
                         </div>
