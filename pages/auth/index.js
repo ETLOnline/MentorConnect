@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { useRef, useState, useContext } from "react";
+import Image from "next/image";
 
 import { loginWithGoogle } from "../../utils_firebase/users";
 import { useRouter } from "next/router";
@@ -67,12 +68,23 @@ const Index = () => {
     <>
       <form onSubmit={submitHandler}>
         <div className="flex">
-          <div className="w-[50%] h-[764px]">
-            <img src="./img/Image (15).png" className="object-cover" />
+          <div className="relative w-[50%] h-[764px]">
+            <Image
+              src="/img/Image (15).png"
+              alt=""
+              fill
+              className="object-cover"
+            />
           </div>
           <div className="flex flex-col w-[50%]">
             <Link className="ml-[auto] mr-[6.198%]" href="/">
-              <img src="./img/X.png" className="object-cover" />
+              <Image
+                src="/img/X.png"
+                alt=""
+                width={48}
+                height={48}
+                className="object-cover"
+              />
             </Link>
 
             <h1 className="font-semibold text-[36px] text-[#357A7B] mx-auto font-[Raleway] leading-[38px]">
@@ -205,13 +217,34 @@ const Index = () => {
             </div>
 
             <div className="w-[32.22%] flex justify-between mx-auto mb-[15.57%] mt-[64px]">
-              <img
+              <div
                 onClick={() => loginWithGoogle(router, setUser)}
-                src="./img/Frame 77.png"
-                className="object-cover"
-              />
-              <img src="./img/Frame 78.png" />
-              <img src="./img/Frame 79.png" />
+                className="relative h-[52px] w-[52px]"
+              >
+                <Image
+                  src="/img/Frame 77.png"
+                  alt="img"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="relative h-[52px] w-[52px]">
+                <Image
+                  src="/img/Frame 78.png"
+                  alt="img"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative h-[52px] w-[52px]">
+                <Image
+                  src="/img/Frame 79.png"
+                  alt="img"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>

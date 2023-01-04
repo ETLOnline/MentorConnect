@@ -16,9 +16,9 @@ const Card = ({ mentors }) => {
               <Fragment key={mentor.id}>
                 <div id="featuredProducts" className=" mb-8 m-2 w-100">
                   <div className=" px-2 py-11  w-full  ">
-                    <div className="relative group rounded-[12px] w-[304px]">
+                    <div className="relative group rounded-[12px] w-[100%]">
                       <div
-                        className="h-[330px] w-[304px] rounded-[12px] bg-no-repeat bg-cover"
+                        className="h-[330px] w-[100%] rounded-[12px] bg-no-repeat  bg-cover"
                         style={{
                           backgroundImage: "url(" + mentor.summry?.image + ")",
                         }}

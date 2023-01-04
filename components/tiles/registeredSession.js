@@ -38,7 +38,7 @@ const RegisteredSession = () => {
           : session.map((data) => {
               return (
                 <Fragment key={Math.random()}>
-                  <LearningCard data={data} />
+                  <LearningCard key={Math.random()} data={data} />
                   {/* <RegisteredSessionCard data={data} /> */}
                 </Fragment>
               );

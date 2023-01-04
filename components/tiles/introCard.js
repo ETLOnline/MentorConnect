@@ -73,6 +73,7 @@ const IntroCard = ({ data }) => {
               <p onClick={handleUpload}>
                 <Image
                   src="/img/upload.svg"
+                  alt="img"
                   height={24}
                   width={24}
                   className="rounded-[6px] object-cover"

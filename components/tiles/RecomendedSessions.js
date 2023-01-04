@@ -33,7 +33,9 @@ const RecomendedSessions = ({ Skills }) => {
 
       <div className="grid grid-cols-4 gap-8  m-[64px]">
         {session.length > 0
-          ? session.map((data) => <RecomendedSessionsCard data={data} />)
+          ? session.map((data) => <RecomendedSessionsCard  key={ Math.random()}
+          
+           data={data} />)
           : "For this user have no Recomended sessions"}
       </div>
     </>

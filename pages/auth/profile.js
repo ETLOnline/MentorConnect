@@ -116,7 +116,6 @@ export default function Profile() {
                           Interest
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
-                          <TagTypeAhead />
                           <input
                             type="text"
                             name="company-website"

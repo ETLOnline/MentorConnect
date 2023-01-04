@@ -34,10 +34,11 @@ export default function NavBar() {
               }}
               className="absolute text-3xl right-8 top-6 cursor-pointer md:hidden"
             >
-              <img
+              <Image
                 src={open ? "/img/X.png" : "/img/menu.png"}
-                heigh="30px"
-                width="30px"
+                alt="img"
+                height={30}
+                width={30}
               />
             </div>
             <div
