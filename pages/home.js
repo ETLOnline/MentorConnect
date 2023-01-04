@@ -13,7 +13,7 @@ import RecomendedSkills from "../components/tiles/recomendedSkills";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
-  const [Interests, setInterest] = useState(null);
+  // const [Interests, setInterest] = useState(null);
   const [RecommendedSession, setRecommendedSession] = useState();
   const [auth, setAuth] = useState();
   const router = useRouter();
@@ -30,18 +30,29 @@ const Home = () => {
   //   );
   // }
 
+  console.log(user.user, "userHome");
+
   useEffect(() => {
-    getSingleUser(user.user.uid).then((userData) => {
-      console.log(userData.interest, "????????????????????????????/");
-      getSessionByUserSkills(userData.interest).then((data) => {
-        setRecommendedSession(data);
-        setInterest(userData.interest);
-      });
+    // if (!user.authIsValide) {
+    //   // router.push("/");
+    //   return (
+    //     <div className=" text-center  items-center  text-5xl pb-20 pt-20">
+    //       <p> Firts login please</p>
+    //     </div>
+    //   );
+    // }
+
+    getSessionByUserSkills(user.user.interest).then((data) => {
+      setRecommendedSession(data);
     });
   }, []);
 
-  if (!Interests) {
-    return <Spinner />;
+  if (!RecommendedSession) {
+    return (
+      <div className=" text-center  items-center  text-5xl pb-20 pt-20">
+        <p> Firts login please</p>
+      </div>
+    );
   }
 
   console.log(RecommendedSession, "RecommendedSession....");

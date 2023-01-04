@@ -4,7 +4,7 @@ import { AuthContext } from "../../contexts/auth_context";
 
 import { getSingleUser, updateProfile } from "../../utils_firebase/users";
 import { useRouter } from "next/router";
-import TagTypeAhead from "../../components/tiles/tagTypeahead";
+import SkillTag from "../../components/tiles/skillTag";
 
 export default function Profile() {
   const [User, setUser] = useState(null);
@@ -171,6 +171,7 @@ export default function Profile() {
                             placeholder="www.example.com"
                           />
                         </div>
+                        <SkillTag />
                       </div>
                     </div>
                     <div className="grid grid-cols-3 gap-6">
