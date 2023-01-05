@@ -17,7 +17,7 @@ const SessionItem = ({ session }) => {
                 "
         >
           <div
-            className=" h-[206px] w-full bg-[length:304px_206px]  bg-no-repeat rounded-xl "
+            className=" h-[206px] w-full bg-[length:100%_206px]  bg-no-repeat rounded-xl "
             style={{
               backgroundImage: "url(" + session?.image + ")",
             }}

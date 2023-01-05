@@ -4,6 +4,7 @@ import { storage } from "../../utils_firebase/config";
 import { createSession } from "../../utils_firebase/sessions";
 import { useRouter } from "next/router";
 import { AuthContext } from "../../contexts/auth_context";
+import Image from "next/image";
 
 export default function Profile() {
   const { user } = useContext(AuthContext);
@@ -235,7 +236,7 @@ export default function Profile() {
                               </p>
                             </div>
                           ) : (
-                            <img src={Url}></img>
+                            <Image src={Url} alt="" height={48} width={48} />
                           )}
                         </div>
                       </div>

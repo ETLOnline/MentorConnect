@@ -7,6 +7,7 @@ import { useState } from "react";
 import IntroCard from "../../components/tiles/introCard";
 import { getSingleUser } from "../../utils_firebase/users";
 import { AuthContext } from "../../contexts/auth_context";
+import Image from "next/image";
 
 const Index = () => {
   const { user } = useContext(AuthContext);
@@ -61,8 +62,11 @@ const Index = () => {
   return (
     <>
       <div className="relative">
-        <img src="/img/Frame 83.png" className="w-full" />
-        <div className="fixed bottom-[10%] w-[35.56%]">
+        <div className="min-w-full h-[350px] ">
+          <Image src="/img/Frame 83.png" alt="img" fill />
+        </div>
+
+        <div className="fixed bottom-[10%] w-[35.56%] max-w-[512px]">
           <IntroCard data={User} />
         </div>
       </div>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { useRef, useState, useContext } from "react";
+import Image from "next/image";
 
 import { loginWithGoogle } from "../../utils_firebase/users";
 import { useRouter } from "next/router";
@@ -58,21 +59,32 @@ const Index = () => {
         confirmPassword: enteredConfirmPassword,
       };
       // SignupWithEmailPassword(formData, router);
+      console.log(formData);
       signup(formData, router);
     }
-    console.log(formData);
   }
 
   return (
     <>
       <form onSubmit={submitHandler}>
         <div className="flex">
-          <div className="w-[50%] h-[764px]">
-            <img src="./img/Image (15).png" className="object-cover" />
+          <div className="relative w-[50%] h-[764px]">
+            <Image
+              src="/img/Image (15).png"
+              alt=""
+              fill
+              className="object-cover"
+            />
           </div>
           <div className="flex flex-col w-[50%]">
             <Link className="ml-[auto] mr-[6.198%]" href="/">
-              <img src="./img/X.png" className="object-cover" />
+              <Image
+                src="/img/X.png"
+                alt=""
+                width={48}
+                height={48}
+                className="object-cover"
+              />
             </Link>
 
             <h1 className="font-semibold text-[36px] text-[#357A7B] mx-auto font-[Raleway] leading-[38px]">
@@ -83,9 +95,9 @@ const Index = () => {
               For All Your Mentoring Needs
             </h1>
 
-            <div className="w-[63.88%] mx-auto h-[26%] flex flex-col ">
+            <div className="w-[63.88%] mx-auto h-[26%] flex flex-col group ">
               <div className="flex justify-between ">
-                <div className="w-[46.52%] group ">
+                <div className="w-[46.52%]  ">
                   {isLogin ? (
                     ""
                   ) : (
@@ -109,7 +121,7 @@ const Index = () => {
                       <input
                         type="text"
                         className="border-[1px] rounded-[8px] w-full  h-[48px] border-[black]  group group-focus-within:border-[#1C2D56] outline-none pl-[16px] text-[16px] font-semibold "
-                        ref={inputFirstName}
+                        ref={inputLastName}
                       />
                       <label className="relative px-[4px] bottom-[35px] left-[12px] text-[black] group-focus-within:bottom-[60px] bg-[white] group-focus-within:text-[#1C2D56] group text-[16px] font-medium">
                         Last Name
@@ -205,13 +217,34 @@ const Index = () => {
             </div>
 
             <div className="w-[32.22%] flex justify-between mx-auto mb-[15.57%] mt-[64px]">
-              <img
+              <div
                 onClick={() => loginWithGoogle(router, setUser)}
-                src="./img/Frame 77.png"
-                className="object-cover"
-              />
-              <img src="./img/Frame 78.png" />
-              <img src="./img/Frame 79.png" />
+                className="relative h-[52px] w-[52px]"
+              >
+                <Image
+                  src="/img/Frame 77.png"
+                  alt="img"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="relative h-[52px] w-[52px]">
+                <Image
+                  src="/img/Frame 78.png"
+                  alt="img"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative h-[52px] w-[52px]">
+                <Image
+                  src="/img/Frame 79.png"
+                  alt="img"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>

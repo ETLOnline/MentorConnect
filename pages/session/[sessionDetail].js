@@ -7,6 +7,7 @@ import Students from "../../components/sessionDetail/students";
 import Spinner from "../../components/spinner";
 import { AuthContext } from "../../contexts/auth_context";
 import { followUser } from "../../utils_firebase/users";
+import Image from "next/image";
 
 const SessionDetail = () => {
   const { user } = useContext(AuthContext);
@@ -39,10 +40,12 @@ const SessionDetail = () => {
       <div className="flex">
         <div className="w-[40%] h-[110vh] ">
           <div className="border-[2px] m-[40px] rounded-[20px]">
-            <div className="h-[80vh] w-[80%] m-auto ">
-              <img
+            <div className="relative h-[80vh] w-[80%] m-auto ">
+              <Image
                 src={isLoaded.image}
-                className=" w-full  p-3 object-inherit h-full  rounded-[30px]"
+                alt="img"
+                fill
+                className="p-3 object-inherit rounded-[30px]"
               />
             </div>
           </div>
@@ -70,9 +73,12 @@ const SessionDetail = () => {
               <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
                 <div className="flex items-center">
                   <div className="w-[32px] max-h-[32px]">
-                    <img
+                    <Image
                       src={isLoaded.instructor.summry.image}
-                      className="object-cover w-full max-h-[32px] rounded-[50px]"
+                      alt=""
+                      height={32}
+                      width={32}
+                      className="object-cover rounded-[50px]"
                     />
                   </div>
                   <h1 className="font-bold ml-[15px] text-[#1C2D56]">

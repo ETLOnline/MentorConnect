@@ -15,10 +15,10 @@ export default function NavBar() {
   return (
     <header>
       <div>
-        <div className="bg-[#fff] ">
+        <div className="bg-[#fff]  w-full">
           <div className="md:flex mx-[60px] py-1  gap-[10px]  ">
-            <Link href="/">
-              <div className=" relative w-40 sm:w-40 md:w-56  h-16 flex">
+            <Link href="/" className="w-[20.63%] min-w-[100px]">
+              <div className=" relative   h-16 flex">
                 {/* <img src="/img/logo.png" className="mx-auto object-cover"></img> */}
                 <Image
                   src="/img/logo.png"
@@ -34,14 +34,15 @@ export default function NavBar() {
               }}
               className="absolute text-3xl right-8 top-6 cursor-pointer md:hidden"
             >
-              <img
+              <Image
                 src={open ? "/img/X.png" : "/img/menu.png"}
-                heigh="30px"
-                width="30px"
+                alt="img"
+                height={30}
+                width={30}
               />
             </div>
             <div
-              className={` md:flex md:items-center md:w-full md:justify-between left-0 md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[1] left-0 w-full  md:pl-0 pl-9 transition-all duration-500 ease-in ${
+              className={` md:flex md:items-center md:w-full md:justify-between left-0 md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[1]  w-full  md:pl-0 pl-9 transition-all duration-500 ease-in ${
                 open
                   ? "top-15 sm:visible left-0 ml-0 opacity-100"
                   : "top-[-490px] sm:invisible md:visible"
