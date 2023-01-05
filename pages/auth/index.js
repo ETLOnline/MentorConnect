@@ -59,9 +59,9 @@ const Index = () => {
         confirmPassword: enteredConfirmPassword,
       };
       // SignupWithEmailPassword(formData, router);
+      console.log(formData);
       signup(formData, router);
     }
-    console.log(formData);
   }
 
   return (

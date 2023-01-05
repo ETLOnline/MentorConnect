@@ -12,12 +12,18 @@ export default function Profile() {
 
   useEffect(() => {
     getSingleUser(user.user.uid).then((data) => {
-      inputAbout.current.value = data.about;
-      inputInterest.current.value = data.interest.toString();
-      inputLearning.current.value = data.learning.toString();
-      inputLinkln.current.value = data.links.linkln;
-      inputGithub.current.value = data.links.github;
-      inputTwitter.current.value = data.links.twitter;
+      inputAbout.current.value = data.about ? data.about : "";
+      inputInterest.current.value = data.interest
+        ? data.interest.toString()
+        : "";
+      inputLearning.current.value = data.learning
+        ? data.learning.toString()
+        : "";
+      inputLinkln.current.value = data?.links?.linkln ? data.links.linkln : "";
+      inputGithub.current.value = data?.links?.github ? data.links.github : "";
+      inputTwitter.current.value = data?.links?.twitter
+        ? data?.links.twitter
+        : "";
     });
   }, []);
 

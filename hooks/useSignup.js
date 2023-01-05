@@ -45,6 +45,8 @@ export const useSinup = () => {
           },
           followers: [],
           following: [],
+          interest: [],
+          learning: [],
         });
 
       const userData = await getSingleUser(userCredential.user.uid);
