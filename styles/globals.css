@@ -17,3 +17,9 @@ body {
 .fc-day-future {
   background-color: azure;
 }
+
+** {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
