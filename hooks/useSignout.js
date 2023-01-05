@@ -3,7 +3,7 @@ import { auth } from "../utils_firebase/config";
 import { AuthContext } from "../contexts/auth_context";
 
 export const useSignout = () => {
-  const { setUser } = useContext(AuthContext);
+  const { setUser, triggerAuthEffect } = useContext(AuthContext);
 
   const [error, setError] = useState(null);
   const [isPanding, setIsPanding] = useState(false);
@@ -18,12 +18,14 @@ export const useSignout = () => {
       setUser((prev) => {
         return { ...prev, user: false, authIsValide: false };
       });
-
       if (!cancelled) {
         setError(null);
         setIsPanding(false);
       }
+
       router.push("/");
+      triggerAuthEffect();
+
       // Signout
       console.log("logout");
     } catch (error) {

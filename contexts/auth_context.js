@@ -6,13 +6,14 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({ user: false, authIsValide: false });
+  const [trigger, setTrigger] = useState(false);
 
   const triggerAuthEffect = () => {
-    // if (trigger == true) {
-    //   setTrigger(false);
-    // } else if (trigger == false) {
-    //   setTrigger(true);
-    // }
+    if (trigger == true) {
+      setTrigger(false);
+    } else if (trigger == false) {
+      setTrigger(true);
+    }
   };
 
   useEffect(() => {
@@ -30,11 +31,11 @@ export const AuthProvider = ({ children }) => {
 
       unSub();
     });
-  }, []);
+  }, [trigger]);
   console.log(user, "auth user");
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser, triggerAuthEffect }}>
       {children}
     </AuthContext.Provider>
   );
