@@ -6,9 +6,15 @@ import { useRouter } from "next/router";
 import SkillTag from "../../components/tiles/skillTag";
 
 export default function Profile() {
-  const [User, setUser] = useState(null);
   const { user } = useContext(AuthContext);
-  const [tags, setTags] = useState([]);
+
+  if (!user.user) {
+    return (
+      <div className=" text-center  items-center  text-5xl pb-20 pt-20">
+        <p>Loading.... </p>
+      </div>
+    );
+  }
 
   useEffect(() => {
     getSingleUser(user.user.uid).then((data) => {
@@ -65,9 +71,6 @@ export default function Profile() {
     router.push("/auth/userId");
   }
 
-  const handleChange = (tags) => {
-    setTags(tags);
-  };
   return (
     <Fragment>
       <div className=" mt-5 bg-slate-50  ">
