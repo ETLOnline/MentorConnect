@@ -1,5 +1,6 @@
 import React from "react";
 import { getAllSkills } from "../../proxyLayer/api-util";
+import Image from "next/image";
 
 const SkillCard = ({ onClickSkills }) => {
   const [Skills] = getAllSkills();
@@ -23,10 +24,37 @@ const SkillCard = ({ onClickSkills }) => {
               className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex pl-3 gap-3">
-                <img
+                <Image
+                  src="/img/Image (28).png"
+                  alt="img"
+                  height={30}
+                  width={30}
+                />
+                {/* <img
                   src="./img/Image (28).png"
                   className="w-[30px]"
                   alt="img"
+                /> */}
+
+                <div className="flex items-center">
+                  <p className="text-[18px] pr-4 font-bold font['Raleway'] leading-[28px]">
+                    {skills[0]}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              onClick={() => {
+                onClickSkills(skills[0]);
+              }}
+              className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
+            >
+              <div className="flex pl-3 gap-3">
+                <Image
+                  src="/img/Image (28).png"
+                  alt="img"
+                  height={30}
+                  width={30}
                 />
 
                 <div className="flex items-center">
@@ -43,30 +71,11 @@ const SkillCard = ({ onClickSkills }) => {
               className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex pl-3 gap-3">
-                <img
-                  src="./img/Image (28).png"
-                  className="w-[30px]"
+                <Image
+                  src="/img/Image (28).png"
                   alt="img"
-                />
-
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font['Raleway'] leading-[28px]">
-                    {skills[0]}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              onClick={() => {
-                onClickSkills(skills[0]);
-              }}
-              className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
-            >
-              <div className="flex pl-3 gap-3">
-                <img
-                  src="./img/Image (28).png"
-                  className="w-[30px]"
-                  alt="img"
+                  height={30}
+                  width={30}
                 />
 
                 <div className="flex items-center">
@@ -83,10 +92,11 @@ const SkillCard = ({ onClickSkills }) => {
               className=" h-[60px] shadow-lg border-[1px]  rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex  pl-3 m-auto gap-3">
-                <img
-                  src="./img/Image (23).png"
-                  className="w-[30px]"
+                <Image
+                  src="/img/Image (28).png"
                   alt="img"
+                  height={30}
+                  width={30}
                 />
 
                 <div className="flex items-center">
@@ -103,10 +113,11 @@ const SkillCard = ({ onClickSkills }) => {
               className="h-[60px] shadow-lg border-[1px]  rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex pl-3 m-auto gap-3">
-                <img
-                  src="./img/Image (24).png"
-                  className="w-[30px]"
+                <Image
+                  src="/img/Image (24).png"
                   alt="img"
+                  height={30}
+                  width={30}
                 />
 
                 <div className="flex items-center">
@@ -130,10 +141,11 @@ const SkillCard = ({ onClickSkills }) => {
               className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex pl-3 gap-3">
-                <img
-                  src="./img/Image (28).png"
-                  className="w-[30px]"
+                <Image
+                  src="/img/Image (28).png"
                   alt="img"
+                  height={30}
+                  width={30}
                 />
 
                 <div className="flex items-center">
@@ -150,10 +162,11 @@ const SkillCard = ({ onClickSkills }) => {
               className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex pl-3 gap-3">
-                <img
-                  src="./img/Image (28).png"
-                  className="w-[30px]"
+                <Image
+                  src="/img/Image (28).png"
                   alt="img"
+                  height={30}
+                  width={30}
                 />
 
                 <div className="flex items-center">
@@ -165,7 +178,12 @@ const SkillCard = ({ onClickSkills }) => {
             </div>
             <div className="h-[60px] shadow-lg border-[1px]  rounded-[12px] flex items-center hover:border-none hover:shadow-lg">
               <div className="flex pl-3 m-auto gap-3">
-                <img src="./img/Image (26).png" className="w-[30px]" alt="" />
+                <Image
+                  src="/img/Image (28).png"
+                  alt="img"
+                  height={30}
+                  width={30}
+                />
                 <div className="flex items-center">
                   <p className="text-[18px] pr-4 font-bold font-['Raleway'] leading-[30.18px] mt-1">
                     {skills[4]}
@@ -180,7 +198,12 @@ const SkillCard = ({ onClickSkills }) => {
               className="h-[60px] shadow-lg border-[1px]  rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex pl-3 m-auto gap-3">
-                <img src="./img/Image (25).png" className="w-[30px]" alt="" />
+                <Image
+                  src="/img/Image (28).png"
+                  alt="img"
+                  height={30}
+                  width={30}
+                />
 
                 <div className="flex items-center">
                   <p className="text-[18px] pr-4 font-bold font-['Raleway'] leading-[30.18px]">
@@ -198,10 +221,11 @@ const SkillCard = ({ onClickSkills }) => {
               className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex pl-3 gap-3">
-                <img
-                  src="./img/Image (28).png"
-                  className="w-[30px]"
+                <Image
+                  src="/img/Image (28).png"
                   alt="img"
+                  height={30}
+                  width={30}
                 />
 
                 <div className="flex items-center">
@@ -218,10 +242,11 @@ const SkillCard = ({ onClickSkills }) => {
               className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex pl-3 gap-3">
-                <img
-                  src="./img/Image (28).png"
-                  className="w-[30px]"
+                <Image
+                  src="/img/Image (28).png"
                   alt="img"
+                  height={30}
+                  width={30}
                 />
 
                 <div className="flex items-center">
@@ -238,10 +263,11 @@ const SkillCard = ({ onClickSkills }) => {
               className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex pl-3 gap-3">
-                <img
-                  src="./img/Image (28).png"
-                  className="w-[30px]"
+                <Image
+                  src="/img/Image (28).png"
                   alt="img"
+                  height={30}
+                  width={30}
                 />
 
                 <div className="flex items-center">
@@ -260,10 +286,11 @@ const SkillCard = ({ onClickSkills }) => {
                 className="h-[60px] shadow-lg border-[1px]  rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
               >
                 <div className="flex pl-3 m-auto gap-3">
-                  <img
-                    src="./img/Image (24).png"
-                    className="w-[30px]"
+                  <Image
+                    src="/img/Image (24).png"
                     alt="img"
+                    height={30}
+                    width={30}
                   />
 
                   <div className="flex items-center">
@@ -282,10 +309,11 @@ const SkillCard = ({ onClickSkills }) => {
               className="h-[60px] shadow-lg mr-10 border-[1px]  rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
             >
               <div className="flex pl-3 m-auto gap-3">
-                <img
-                  src="./img/Image (28).png"
-                  className="w-[30px]"
+                <Image
+                  src="/img/Image (28).png"
                   alt="img"
+                  height={30}
+                  width={30}
                 />
 
                 <div className="flex items-center">
@@ -303,10 +331,11 @@ const SkillCard = ({ onClickSkills }) => {
               className="h-[60px] shadow-lg border-[1px]  rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
             >
               <div className="flex pl-3 m-auto gap-3">
-                <img
-                  src="./img/Image (23).png"
-                  className="w-[30px]"
+                <Image
+                  src="/img/Image (23).png"
                   alt="img"
+                  height={30}
+                  width={30}
                 />
 
                 <div className="flex items-center">

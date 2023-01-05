@@ -14,6 +14,7 @@ const MyMentorsCard = () => {
             <div className="min-w-[62px] mx-h-[62px] rounded-[50px]">
               <Image
                 src="/img/Image (7).png"
+                alt=""
                 width={64}
                 height={64}
                 className="rounded-[50px]"

@@ -52,13 +52,13 @@ const FeatureMentor = () => {
       400: {
         items: 1,
       },
-      600: {
+      768: {
         items: 2,
       },
-      700: {
+      950: {
         items: 3,
       },
-      1000: {
+      1200: {
         items: 4,
       },
     },

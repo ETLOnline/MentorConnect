@@ -17,7 +17,7 @@ const CoachingActivityBlock = () => {
         setSession(data);
       });
     });
-  }, []);
+  }, [null]);
 
   if (!session) {
     return <Spinner />;
