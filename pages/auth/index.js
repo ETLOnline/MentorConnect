@@ -59,9 +59,9 @@ const Index = () => {
         confirmPassword: enteredConfirmPassword,
       };
       // SignupWithEmailPassword(formData, router);
+      console.log(formData);
       signup(formData, router);
     }
-    console.log(formData);
   }
 
   return (
@@ -95,9 +95,9 @@ const Index = () => {
               For All Your Mentoring Needs
             </h1>
 
-            <div className="w-[63.88%] mx-auto h-[26%] flex flex-col ">
+            <div className="w-[63.88%] mx-auto h-[26%] flex flex-col group ">
               <div className="flex justify-between ">
-                <div className="w-[46.52%] group ">
+                <div className="w-[46.52%]  ">
                   {isLogin ? (
                     ""
                   ) : (
@@ -121,7 +121,7 @@ const Index = () => {
                       <input
                         type="text"
                         className="border-[1px] rounded-[8px] w-full  h-[48px] border-[black]  group group-focus-within:border-[#1C2D56] outline-none pl-[16px] text-[16px] font-semibold "
-                        ref={inputFirstName}
+                        ref={inputLastName}
                       />
                       <label className="relative px-[4px] bottom-[35px] left-[12px] text-[black] group-focus-within:bottom-[60px] bg-[white] group-focus-within:text-[#1C2D56] group text-[16px] font-medium">
                         Last Name

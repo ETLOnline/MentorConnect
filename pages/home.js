@@ -29,8 +29,8 @@ const Home = () => {
   //     </div>
   //   );
   // }
-
-  console.log(user.user, "userHome");
+  const generalSkills = ["HTML", "CSS"];
+  console.log(user.user, "userHome...");
 
   useEffect(() => {
     // if (!user.authIsValide) {
@@ -42,7 +42,9 @@ const Home = () => {
     //   );
     // }
 
-    getSessionByUserSkills(user.user.interest).then((data) => {
+    getSessionByUserSkills(
+      user.user.interest.length === 0 ? generalSkills : user.user.interest
+    ).then((data) => {
       setRecommendedSession(data);
     });
   }, []);
@@ -62,8 +64,16 @@ const Home = () => {
       <RegisteredSession />
       <MyMentor />
       {/* <FeatureMentor /> */}
-      <InterestSkills Interests={user.user.interest} />
-      <RecomendedSkills Interests={user.user.interest} />
+      <InterestSkills
+        Interests={
+          user.user.interest.length === 0 ? generalSkills : user.user.interest
+        }
+      />
+      <RecomendedSkills
+        Interests={
+          user.user.interest.length === 0 ? generalSkills : user.user.interest
+        }
+      />
 
       <UpCommingSection
         sessions={RecommendedSession}

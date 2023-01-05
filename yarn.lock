@@ -1610,7 +1610,6 @@
   integrity sha512-/4WzeG61Ot/PxsghXkSqQJ6UohFfwXoZ3dtsypmR9EBP+OIax9JRq0trq8Z/LCT9Aq4JbihVkaazRWguORjTAw==
 
 "@next/eslint-plugin-next@13.0.3":
-<<<<<<< HEAD
   version "13.0.3"
   resolved "https://registry.npmjs.org/@next/eslint-plugin-next/-/eslint-plugin-next-13.0.3.tgz"
   integrity sha512-slmTAHNKDyc7jhx4VF8lFbmOPWJ3PShtUUWpb6x9+ga59CyOxgP6AdcDhxfapnWYACKe/TwYiaveufu7LqXgZg==
@@ -1618,22 +1617,10 @@
     glob "7.1.7"
 
 "@next/swc-win32-ia32-msvc@13.0.3":
-=======
->>>>>>> f50e7c7b6dc5c1cb64c7b5bba68657fd41a0773c
   version "13.0.3"
-  resolved "https://registry.npmjs.org/@next/eslint-plugin-next/-/eslint-plugin-next-13.0.3.tgz"
-  integrity sha512-slmTAHNKDyc7jhx4VF8lFbmOPWJ3PShtUUWpb6x9+ga59CyOxgP6AdcDhxfapnWYACKe/TwYiaveufu7LqXgZg==
-  dependencies:
-    glob "7.1.7"
+  resolved "https://registry.npmjs.org/@next/swc-win32-ia32-msvc/-/swc-win32-ia32-msvc-13.0.3.tgz"
+  integrity sha512-Sa8yGkNeRUsic8Qjf7MLIAfP0p0+einK/wIqJ8UO1y76j+8rRQu42AMs5H4Ax1fm9GEYq6I8njHtY59TVpTtGQ==
 
-<<<<<<< HEAD
-=======
-"@next/swc-win32-x64-msvc@13.0.3":
-  version "13.0.3"
-  resolved "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-13.0.3.tgz"
-  integrity sha512-IAptmSqA7k4tQzaw2NAkoEjj3+Dz9ceuvlEHwYh770MMDL4V0ku2m+UHrmn5HUCEDHhgwwjg2nyf6728q2jr1w==
-
->>>>>>> f50e7c7b6dc5c1cb64c7b5bba68657fd41a0773c
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz"
