@@ -50,7 +50,7 @@ const Home = () => {
   if (!RecommendedSession) {
     return (
       <div className=" text-center  items-center  text-5xl pb-20 pt-20">
-        <p> Firts login please</p>
+        <p> First login please</p>
       </div>
     );
   }

@@ -40,7 +40,7 @@ const SessionDetail = () => {
       <div className="flex">
         <div className="w-[40%] h-[110vh] ">
           <div className="border-[2px] m-[40px] rounded-[20px]">
-            <div className="h-[80vh] w-[80%] m-auto ">
+            <div className="relative h-[80vh] w-[80%] m-auto ">
               <Image
                 src={isLoaded.image}
                 alt="img"

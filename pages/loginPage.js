@@ -55,8 +55,8 @@ const Index = () => {
   return (
     <>
       <form onSubmit={submitHandler}>
-        <div className="flex">
-          <div className="w-[50%] h-[764px]">
+        <div className=" flex">
+          <div className="relative w-[50%] h-[764px]">
             <Image
               src="/img/Image (15).png"
               alt="img"
