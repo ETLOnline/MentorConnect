@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -35,10 +36,38 @@ const Footer = () => {
 
             <div className="sm:w-[30%] md:w-[19.44%] mx-auto md:mr-[1rem] lg:ml-auto lg:mr-[2%]">
               <div className="w-[70%] md:w-[54.88%] lg:w-[60%] gap-[10px] md:gap-[5px] flex md:justify-between lg:ml-auto lg:mr-auto my-[15px] md:my-[89px]">
-                <img src="/img/LinKedIn (2).png" className="cursor-pointer" />
+                <Image
+                  src="/img/LinKedIn (2).png"
+                  className="cursor-pointer"
+                  width={32}
+                  height={32}
+                  alt="img"
+                />
+                <Image
+                  src="/img/Facebook (1).png"
+                  className="cursor-pointer"
+                  width={32}
+                  height={32}
+                  alt="img"
+                />
+                <Image
+                  src="/img/Instagram (1).png"
+                  className="cursor-pointer"
+                  width={32}
+                  height={32}
+                  alt="img"
+                />
+                <Image
+                  src="/img/Twitter (3).png"
+                  className="cursor-pointer"
+                  width={32}
+                  height={32}
+                  alt="img"
+                />
+                {/* <img src="/img/LinKedIn (2).png" className="cursor-pointer" />
                 <img src="/img/Facebook (1).png" className="cursor-pointer" />
                 <img src="/img/Instagram (1).png" className="cursor-pointer" />
-                <img src="/img/Twitter (3).png" className="cursor-pointer" />
+                <img src="/img/Twitter (3).png" className="cursor-pointer" /> */}
               </div>
             </div>
           </div>

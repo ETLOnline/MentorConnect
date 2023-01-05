@@ -4,6 +4,7 @@ import FeatureMentor from "./featureMentor";
 import FindMentor from "./findMentor";
 import SkillCard from "./skillCard";
 import UpCommingSection from "./upCommingSection";
+import Image from "next/image";
 
 const HomePage = () => {
   return (

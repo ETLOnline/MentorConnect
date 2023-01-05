@@ -9,7 +9,7 @@ const Endorsment = () => {
           Books4us.com
         </p>
         <div>
-          <Image src="/img/2group.png" width={23.33} height={23.33} />
+          <Image src="/img/2group.png" alt="img" width={23.33} height={23.33} />
         </div>
       </div>
     </>

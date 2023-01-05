@@ -20,7 +20,7 @@ const RegisteredSession = () => {
   // console.log(session, "registeredSession11111");
   return (
     <>
-      <div className="flex flex-col gap-6 bg-[#8B8B8B]">
+      <div className="flex flex-col gap-6 ">
         <div className="m-auto">
           <p className="text-[32px] font-semibold font-['Raleway'] leading-[38px] text-[#1C2D56]">
             Registered Sessions
@@ -38,7 +38,7 @@ const RegisteredSession = () => {
           : session.map((data) => {
               return (
                 <Fragment key={Math.random()}>
-                  <LearningCard data={data} />
+                  <LearningCard key={Math.random()} data={data} />
                   {/* <RegisteredSessionCard data={data} /> */}
                 </Fragment>
               );

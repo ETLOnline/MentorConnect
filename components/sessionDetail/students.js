@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import Image from "next/image";
 
 const Students = ({ student, onFollowHenddler }) => {
   return (
@@ -6,10 +7,14 @@ const Students = ({ student, onFollowHenddler }) => {
       <div className="">
         <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
           <div className="flex max-h-[32px]">
-            <img
+            <Image
               src={student.summry.image}
-              className="w-[32px] h-[32px] rounded-[50px] object-cover"
+              alt="img"
+              width={32}
+              height={32}
+              className="rounded-[50px] object-cover"
             />
+
             <h1 className="font-bold ml-[15px] text-[#1C2D56]">
               {student.summry.displayName}
             </h1>

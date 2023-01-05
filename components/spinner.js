@@ -1,10 +1,15 @@
+import Image from "next/image";
+
 function Spinner() {
   return (
-    <div className="flex items-center justify-center space-x-2 h-auto max-w-full">
-      <img
+    <div className="h-[100vh] flex items-center justify-center space-x-2  max-w-full">
+      <Image
         src="/img/Loading.gif"
-        className="object-contain h-60 object-cover"
-      ></img>
+        alt=""
+        height={240}
+        width={240}
+        className="object-contain"
+      />
     </div>
   );
 }
