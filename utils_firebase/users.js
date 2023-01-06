@@ -51,8 +51,10 @@ export const loginWithGoogle = (router, setUser) => {
                 learningPoint: 100,
                 coachingPoint: 100,
               },
-              followers: [""],
-              following: [""],
+              followers: [],
+              following: [],
+              interest: [],
+              learning: [],
             },
             { merge: true }
           );

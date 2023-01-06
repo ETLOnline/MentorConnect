@@ -59,16 +59,16 @@ const Index = () => {
         confirmPassword: enteredConfirmPassword,
       };
       // SignupWithEmailPassword(formData, router);
+      console.log(formData);
       signup(formData, router);
     }
-    console.log(formData);
   }
 
   return (
     <>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} className="gro">
         <div className="flex">
-          <div className="relative w-[50%] h-[764px]">
+          <div className="hidden sm:flex relative w-[50%] h-[764px]">
             <Image
               src="/img/Image (15).png"
               alt=""
@@ -76,7 +76,7 @@ const Index = () => {
               className="object-cover"
             />
           </div>
-          <div className="flex flex-col w-[50%]">
+          <div className="flex flex-col w-[100%] sm:w-[50%]">
             <Link className="ml-[auto] mr-[6.198%]" href="/">
               <Image
                 src="/img/X.png"
@@ -95,49 +95,52 @@ const Index = () => {
               For All Your Mentoring Needs
             </h1>
 
-            <div className="w-[63.88%] mx-auto h-[26%] flex flex-col ">
+            <div className="w-[80%] sm:w-[63.88%] mx-auto h-[26%] flex flex-col gap-8  ">
               <div className="flex justify-between ">
-                <div className="w-[46.52%] group ">
+                <div className="w-[46.52%]  ">
                   {isLogin ? (
                     ""
                   ) : (
-                    <div>
+                    <div className="relative">
                       <input
                         type="text"
-                        className="border-[1px] rounded-[8px] w-full  h-[48px] border-[black]  group group-focus-within:border-[#1C2D56] outline-none pl-[16px] text-[16px] font-semibold "
+                        className="peer border-[1px] rounded-[8px] w-full placeholder-transparent  h-[48px] border-[black]  focus:outline-none pl-[16px] text-[16px] font-semibold "
+                        placeholder="First Name"
                         ref={inputFirstName}
                       />
-                      <label className="relative px-[4px] bottom-[35px] left-[12px] text-[black] group-focus-within:bottom-[60px] bg-[white] group-focus-within:text-[#1C2D56] group text-[16px] font-medium">
+                      <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
                         First Name
                       </label>
                     </div>
                   )}
                 </div>
-                <div className="w-[46.52%] group ">
+                <div className=" w-[46.52%]  ">
                   {isLogin ? (
                     ""
                   ) : (
-                    <div>
+                    <div className="relative">
                       <input
                         type="text"
-                        className="border-[1px] rounded-[8px] w-full  h-[48px] border-[black]  group group-focus-within:border-[#1C2D56] outline-none pl-[16px] text-[16px] font-semibold "
-                        ref={inputFirstName}
+                        className="peer border-[1px] rounded-[8px] w-full placeholder-transparent  h-[48px] border-[black]  focus:outline-none pl-[16px] text-[16px] font-semibold "
+                        placeholder="Last Name"
+                        ref={inputLastName}
                       />
-                      <label className="relative px-[4px] bottom-[35px] left-[12px] text-[black] group-focus-within:bottom-[60px] bg-[white] group-focus-within:text-[#1C2D56] group text-[16px] font-medium">
+                      <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
                         Last Name
                       </label>
                     </div>
                   )}
                 </div>
               </div>
-              <div className="group">
+              <div className="relative">
                 <input
                   type="text"
-                  className="border-[1px]  border-[black] h-[48px] rounded-[8px] w-full group group-focus-within:border-[#1C2D56] outline-none pl-[16px] text-[16px] font-semibold "
+                  className="peer border-[1px] rounded-[8px] w-full placeholder-transparent  h-[48px] border-[black]  focus:outline-none pl-[16px] text-[16px] font-semibold "
+                  placeholder="First Name"
                   ref={inputGamil}
                 />
-                <label className="relative px-[4px] bottom-[35px] left-[12px] text-[black] group-focus-within:bottom-[60px] bg-[white] group-focus-within:text-[#1C2D56] group text-[16px] font-medium">
-                  Enter Your Email
+                <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
+                  Enter your Email
                 </label>
               </div>
 
@@ -145,37 +148,40 @@ const Index = () => {
                 {isLogin ? (
                   ""
                 ) : (
-                  <div className="w-[46.52%] group">
+                  <div className="relative w-[46.52%]">
                     <input
                       type="Password"
-                      className="border-[1px]  border-[black] h-[48px] rounded-[8px] w-full group group-focus-within:border-[#1C2D56] outline-none pl-[16px] text-[16px] font-semibold"
+                      className="peer border-[1px] rounded-[8px] w-full placeholder-transparent  h-[48px] border-[black]  focus:outline-none pl-[16px] text-[16px] font-semibold "
+                      placeholder="First Name"
                       ref={inputPassword}
                     />
-                    <label className="relative px-[4px] bottom-[35px] left-[12px] text-[black] group-focus-within:bottom-[60px] bg-[white] group-focus-within:text-[#1C2D56] group text-[16px] font-medium">
+                    <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
                       Password
                     </label>
                   </div>
                 )}
 
                 {isLogin ? (
-                  <div className="w-full group">
+                  <div className="relative w-[46.52%]">
                     <input
                       type="Password"
-                      className="border-[1px]  border-[black] h-[48px] rounded-[8px] w-full group group-focus-within:border-[#1C2D56] outline-none pl-[16px] text-[16px] font-semibold"
+                      className="peer border-[1px] rounded-[8px] w-full placeholder-transparent  h-[48px] border-[black]  focus:outline-none pl-[16px] text-[16px] font-semibold "
+                      placeholder="First Name"
                       ref={inputPassword}
                     />
-                    <label className="relative px-[4px] bottom-[35px] left-[12px] text-[black] group-focus-within:bottom-[60px] bg-[white] group-focus-within:text-[#1C2D56] group text-[16px] font-medium">
+                    <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
                       Password
                     </label>
                   </div>
                 ) : (
-                  <div className="w-[46.52%] group">
+                  <div className="relative w-[46.52%]">
                     <input
                       type="Password"
-                      className="border-[1px]  border-[black] h-[48px] rounded-[8px] w-full group group-focus-within:border-[#1C2D56] outline-none pl-[16px] text-[16px] font-semibold"
+                      className="peer border-[1px] rounded-[8px] w-full placeholder-transparent  h-[48px] border-[black]  focus:outline-none pl-[16px] text-[16px] font-semibold "
+                      placeholder="First Name"
                       ref={inputConfirmPassword}
                     />
-                    <label className="relative px-[4px] bottom-[35px] left-[12px] text-[black] group-focus-within:bottom-[60px] bg-[white] group-focus-within:text-[#1C2D56] group text-[16px] font-medium">
+                    <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
                       Password
                     </label>
                   </div>
@@ -183,7 +189,7 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="mx-auto w-[14.85%] bg-[#1C2D56]  rounded-[4px] py-[5px] flex mt-[32px]">
+            <div className="mx-auto w-[30%] xs:w-[20%] sm:w-[25%] md:w-[20%] lg:w-[14.85%] bg-[#1C2D56]  rounded-[4px] py-[5px] flex mt-[64px] sm:mt-[32px]">
               {!isPanding && (
                 <button className="bg-[#1C2D56] m-auto text-center text-[white]">
                   {isLogin ? "Login" : "Signup"}
@@ -216,7 +222,7 @@ const Index = () => {
               </h1>
             </div>
 
-            <div className="w-[32.22%] flex justify-between mx-auto mb-[15.57%] mt-[64px]">
+            <div className="w-[40%] xs:w-[35%] sm:w-[50%] md:w-[45%] lg:w-[32.22%] flex justify-between mx-auto mb-[15.57%] mt-[64px]">
               <div
                 onClick={() => loginWithGoogle(router, setUser)}
                 className="relative h-[52px] w-[52px]"

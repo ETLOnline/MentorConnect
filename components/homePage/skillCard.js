@@ -16,7 +16,7 @@ const SkillCard = ({ onClickSkills }) => {
           </p>
         </div>
         <div className="flex flex-col mx-[11%] gap-10 my-10">
-          <div className="flex flex-row  justify-between">
+          <div className="flex flex-row flex-wrap justify-between">
             <div
               onClick={() => {
                 onClickSkills(skills[0]);
@@ -132,7 +132,7 @@ const SkillCard = ({ onClickSkills }) => {
             onClick={() => {
               onClickSkills(skills[4]);
             }}
-            className="flex flex-row justify-evenly"
+            className="flex flex-row flex-wrap justify-evenly"
           >
             <div
               onClick={() => {
@@ -213,7 +213,7 @@ const SkillCard = ({ onClickSkills }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-row justify-between">
+          <div className="flex flex-row flex-wrap justify-between">
             <div
               onClick={() => {
                 onClickSkills(skills[0]);
