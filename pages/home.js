@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from "react";
 import MyMentor from "../components/tiles/myMentor";
 import RegisteredSession from "../components/tiles/registeredSession";
 import { AuthContext } from "../contexts/auth_context";
-import Spinner from "../components/spinner";
 import UpCommingSection from "../components/homePage/upCommingSection";
 import { getSessionByUserSkills } from "../utils_firebase/sessions";
 import InterestSkills from "../components/tiles/interestSkills";
