@@ -18,6 +18,7 @@ const Home = () => {
     return (
       <div className=" text-center  items-center  text-5xl pb-20 pt-20">
         <p>First Login Please</p>
+        <p>Loading.... </p>
       </div>
     );
   }

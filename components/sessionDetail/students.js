@@ -6,7 +6,7 @@ const Students = ({ student, onFollowHenddler }) => {
     <Fragment>
       <div className="">
         <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
-          <div className="flex max-h-[32px]">
+          <div className="flex  h-[32px]">
             <Image
               src={student.summry.image}
               alt="img"
