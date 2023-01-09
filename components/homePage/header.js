@@ -57,7 +57,7 @@ const Header = () => {
             </div>
 
             <div className="max-w-[124px] max-h-[124px] border-[#ACB0B5] border-[12px] rounded-[85px]  ml-auto mr-[35.5%]  mt-[-3%] ">
-              <Image src="/img/mentor1.png" alt="" width={100} height={100} />
+              <Image src="/img/mentor7.png" alt="" width={100} height={100} />
             </div>
 
             <div className="max-w-[124px] max-h-[124px] border-[#FFE36A] border-[12px] rounded-[85px]  ml-auto mr-[5.5%]  md:mt-[-55%] lg:mt-[-30%] ">

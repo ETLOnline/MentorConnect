@@ -66,7 +66,7 @@ const Index = () => {
           <Image src="/img/Frame 83.png" alt="img" fill />
         </div>
 
-        <div className="fixed bottom-[10%] w-[35.56%] max-w-[512px]">
+        <div className="invisible md:visible fixed bottom-[7%] w-[35.56%] max-w-[512px]">
           <IntroCard data={User} />
         </div>
       </div>
@@ -75,7 +75,7 @@ const Index = () => {
         <div className="w-[95.56%] flex flex-col">
           <div className="w-full h-[87px] flex border-b-[1px] border-[#1C2D56]">
             <div className=" w-[37.20%]"></div>
-            <div className=" flex flex-wrap justify-between h-[87px] w-[62.8%] items-end">
+            <div className="invisible md:visible flex flex-wrap justify-between h-[87px] w-[62.8%] items-end">
               <button
                 className="w-[19.44%] py-0 px-[5.55%] focus:border-b-[2px] focus:border-[#1C2D56]  h-[73.56%] flex items-center text-[24px] focus:text-[#1C2D56] font-normal leading-[28px] font-['Raleway'] text-center"
                 onClick={abouthandler}

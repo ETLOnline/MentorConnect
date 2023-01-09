@@ -37,7 +37,7 @@ const IntroCard = ({ data }) => {
   return (
     <>
       <div className=" bg-white w-[81.25%]  flex flex-col  m-auto justify-between rounded-[12px] shadow-lg border-[1px] ">
-        <div className="relative w-[46.5%] h-[24.5vh] mt-[40px] mx-auto ">
+        <div className="relative w-[46.5%] h-[180px] mt-[40px] mb-[21px] mx-auto ">
           <Image
             src={Url ? Url : data?.summry.image}
             alt="img"
