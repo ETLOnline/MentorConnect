@@ -113,7 +113,7 @@ export default function NavBar() {
                   </div>
                 )}
                 {!user.user && (
-                  <button className=" h-[36px] max-w-24 bg-[#1C2D56] rounded group  hover:bg-[#E6E5E5]">
+                  <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group  hover:bg-[#E6E5E5]">
                     <Link
                       className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"
                       href="/loginPage"
