@@ -8,18 +8,34 @@ import IntroCard from "../../components/tiles/introCard";
 import { getSingleUser } from "../../utils_firebase/users";
 import { AuthContext } from "../../contexts/auth_context";
 import Image from "next/image";
-
+import { useRouter } from "next/router";
+import Loader from "../../components/tiles/loader";
 const Index = () => {
   const { user } = useContext(AuthContext);
   const [User, setUser] = useState();
+  const [follower, setFollower] = useState(true);
 
+  const router = useRouter();
+  // Here we reading url
+  const path = router.query.userId;
+  console.log(path, "path.................");
   useEffect(() => {
-    console.log(user.user);
-    getSingleUser(user.user.uid).then((users) => {
-      console.log(users, "useeffect");
-      setUser(users);
-    });
-  }, []);
+    if (user.user.uid === path) {
+      getSingleUser(user.user.uid).then((users) => {
+        console.log(users, "useeffect");
+        setUser(users);
+      });
+    } else {
+      getSingleUser(path).then((users) => {
+        console.log(users, "useeffect");
+        setUser(users);
+      });
+    }
+  }, [path, follower]);
+  // Taking data from child component to rerender the component to increase follower😎
+  function Rerender(data) {
+    setFollower(data);
+  }
 
   const [about, setabout] = useState(true);
   const [activity, setactivity] = useState(false);
@@ -67,7 +83,7 @@ const Index = () => {
         </div>
 
         <div className="invisible md:visible fixed bottom-[7%] w-[35.56%] max-w-[512px]">
-          <IntroCard data={User} />
+          <IntroCard data={User} fn={Rerender} />
         </div>
       </div>
 
@@ -80,6 +96,7 @@ const Index = () => {
                 className="w-[19.44%] py-0 px-[5.55%] focus:border-b-[2px] focus:border-[#1C2D56]  h-[73.56%] flex items-center text-[24px] focus:text-[#1C2D56] font-normal leading-[28px] font-['Raleway'] text-center"
                 onClick={abouthandler}
               >
+                
                 About
               </button>
 

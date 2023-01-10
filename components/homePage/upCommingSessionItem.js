@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 
 const SessionItem = ({ session }) => {
   const { id } = session;
-
+  console.log(id);
   return (
     <>
       <Link

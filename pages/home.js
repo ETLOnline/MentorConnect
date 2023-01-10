@@ -7,6 +7,7 @@ import UpCommingSection from "../components/homePage/upCommingSection";
 import { getSessionByUserSkills } from "../utils_firebase/sessions";
 import InterestSkills from "../components/tiles/interestSkills";
 import RecomendedSkills from "../components/tiles/recomendedSkills";
+import Loader from "../components/tiles/loader";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
