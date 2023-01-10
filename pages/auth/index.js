@@ -88,48 +88,40 @@ const Index = () => {
             </Link>
 
             <h1 className="font-semibold text-[36px] text-[#357A7B] mx-auto font-[Raleway] leading-[38px]">
-              {isLogin ? "Login" : "Signup"}
+              Signup
             </h1>
 
             <h1 className="leading-[19px] font-medium mx-auto text-[16px] text-[#1C2D56] mt-[16px] mb-[19px]">
               For All Your Mentoring Needs
             </h1>
 
-            <div className="w-[80%] sm:w-[63.88%] mx-auto h-[26%] flex flex-col gap-8  ">
+            <div className="w-[80%] md:w-[63.88%] mx-auto h-[26%] flex flex-col gap-8  ">
               <div className="flex justify-between ">
                 <div className="w-[46.52%]  ">
-                  {isLogin ? (
-                    ""
-                  ) : (
-                    <div className="relative">
-                      <input
-                        type="text"
-                        className="peer border-[1px] rounded-[8px] w-full placeholder-transparent  h-[48px] border-[black]  focus:outline-none pl-[16px] text-[16px] font-semibold "
-                        placeholder="First Name"
-                        ref={inputFirstName}
-                      />
-                      <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
-                        First Name
-                      </label>
-                    </div>
-                  )}
+                  <div className="relative">
+                    <input
+                      type="text"
+                      className="peer border-[1px] rounded-[8px] w-full placeholder-transparent  h-[48px] border-[black]  focus:outline-none pl-[16px] text-[16px] font-semibold "
+                      placeholder="First Name"
+                      ref={inputFirstName}
+                    />
+                    <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
+                      First Name
+                    </label>
+                  </div>
                 </div>
                 <div className=" w-[46.52%]  ">
-                  {isLogin ? (
-                    ""
-                  ) : (
-                    <div className="relative">
-                      <input
-                        type="text"
-                        className="peer border-[1px] rounded-[8px] w-full placeholder-transparent  h-[48px] border-[black]  focus:outline-none pl-[16px] text-[16px] font-semibold "
-                        placeholder="Last Name"
-                        ref={inputLastName}
-                      />
-                      <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
-                        Last Name
-                      </label>
-                    </div>
-                  )}
+                  <div className="relative">
+                    <input
+                      type="text"
+                      className="peer border-[1px] rounded-[8px] w-full placeholder-transparent  h-[48px] border-[black]  focus:outline-none pl-[16px] text-[16px] font-semibold "
+                      placeholder="Last Name"
+                      ref={inputLastName}
+                    />
+                    <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
+                      Last Name
+                    </label>
+                  </div>
                 </div>
               </div>
               <div className="relative">
@@ -145,23 +137,19 @@ const Index = () => {
               </div>
 
               <div className="flex justify-between">
-                {isLogin ? (
-                  ""
-                ) : (
-                  <div className="relative w-[46.52%]">
-                    <input
-                      type="Password"
-                      className="peer border-[1px] rounded-[8px] w-full placeholder-transparent  h-[48px] border-[black]  focus:outline-none pl-[16px] text-[16px] font-semibold "
-                      placeholder="First Name"
-                      ref={inputPassword}
-                    />
-                    <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
-                      Password
-                    </label>
-                  </div>
-                )}
+                <div className="relative w-[46.52%]">
+                  <input
+                    type="Password"
+                    className="peer border-[1px] rounded-[8px] w-full placeholder-transparent  h-[48px] border-[black]  focus:outline-none pl-[16px] text-[16px] font-semibold "
+                    placeholder="First Name"
+                    ref={inputPassword}
+                  />
+                  <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
+                    Password
+                  </label>
+                </div>
 
-                {isLogin ? (
+                {/* {isLogin ? (
                   <div className="relative w-[46.52%]">
                     <input
                       type="Password"
@@ -173,26 +161,26 @@ const Index = () => {
                       Password
                     </label>
                   </div>
-                ) : (
-                  <div className="relative w-[46.52%]">
-                    <input
-                      type="Password"
-                      className="peer border-[1px] rounded-[8px] w-full placeholder-transparent  h-[48px] border-[black]  focus:outline-none pl-[16px] text-[16px] font-semibold "
-                      placeholder="First Name"
-                      ref={inputConfirmPassword}
-                    />
-                    <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
-                      Password
-                    </label>
-                  </div>
-                )}
+                ) : ( */}
+                <div className="relative w-[46.52%]">
+                  <input
+                    type="Password"
+                    className="peer border-[1px] rounded-[8px] w-full placeholder-transparent  h-[48px] border-[black]  focus:outline-none pl-[16px] text-[16px] font-semibold "
+                    placeholder="First Name"
+                    ref={inputConfirmPassword}
+                  />
+                  <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
+                    Password
+                  </label>
+                </div>
+                {/* )} */}
               </div>
             </div>
 
             <div className="mx-auto w-[30%] xs:w-[20%] sm:w-[25%] md:w-[20%] lg:w-[14.85%] bg-[#1C2D56]  rounded-[4px] py-[5px] flex mt-[64px] sm:mt-[32px]">
               {!isPanding && (
                 <button className="bg-[#1C2D56] m-auto text-center text-[white]">
-                  {isLogin ? "Login" : "Signup"}
+                  Signup
                 </button>
               )}
               {isPanding && (
@@ -215,9 +203,9 @@ const Index = () => {
             <div className="mt-[16px]">
               <h1 className="leading-[28px] text-[16px] font-medium text-center">
                 <button type="button" onClick={switchAuthModeHandler}>
-                  {isLogin
-                    ? "Create new account"
-                    : "Login with existing account LogIn"}
+                  <Link href={"/loginPage"}>
+                    Login with existing account LogIn
+                  </Link>
                 </button>
               </h1>
             </div>
