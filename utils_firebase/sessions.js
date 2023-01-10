@@ -104,6 +104,7 @@ export const getSessionById = async (id) => {
 export const getSessionByUserSkills = async (data) => {
   try {
     const allfilterSession = [];
+    console.log(data, "skillfilter");
     const doc = await fireStore
       .collection("sessions")
       .where("tags", "array-contains-any", data)

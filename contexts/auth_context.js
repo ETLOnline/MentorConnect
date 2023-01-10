@@ -1,5 +1,10 @@
 import React, { createContext, useState, useEffect } from "react";
 import { auth } from "../utils_firebase/config";
+import {
+  getAllSkillsOnly,
+  getAllSkillsWithImage,
+  getSkillsByUserIntrest,
+} from "../utils_firebase/skills";
 import { getSingleUser } from "../utils_firebase/users";
 
 export const AuthContext = createContext();
