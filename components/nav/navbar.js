@@ -16,7 +16,7 @@ export default function NavBar() {
     <header>
       <div>
         <div className="bg-[#fff]  w-full">
-          <div className="md:flex mx-[60px] py-1  gap-[10px]  ">
+          <div className="md:flex lg:mx-[60px] py-1  gap-[10px]  ">
             <Link href="/" className="w-[20.63%] min-w-[100px]">
               <div className=" relative   h-16 flex">
                 {/* <img src="/img/logo.png" className="mx-auto object-cover"></img> */}
@@ -42,7 +42,7 @@ export default function NavBar() {
               />
             </div>
             <div
-              className={` md:flex md:items-center md:w-full md:justify-between left-0 md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[1]  w-full  md:pl-0 pl-9 transition-all duration-500 ease-in ${
+              className={`  md:flex md:items-center md:w-full md:justify-between left-0 md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[1]  w-full  md:pl-0 pl-9 transition-all duration-500 ease-in ${
                 open
                   ? "top-15 sm:visible left-0 ml-0 opacity-100"
                   : "top-[-490px] sm:invisible md:visible"

@@ -110,7 +110,7 @@ const IntroCard = ({ data }) => {
           <p className="text-[24px] leading-[28px] font-semibold">
             {data?.summry?.displayName}
           </p>
-          <button className="w-[74px] h-[3.39vh] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
+          <button className="w-[74px] max-h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
             Follow
           </button>
           <Link href="/auth/sessionForm">
