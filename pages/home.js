@@ -2,9 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import MyMentor from "../components/tiles/myMentor";
 import RegisteredSession from "../components/tiles/registeredSession";
-import { getSingleUser } from "../utils_firebase/users";
 import { AuthContext } from "../contexts/auth_context";
-import Spinner from "../components/spinner";
 import UpCommingSection from "../components/homePage/upCommingSection";
 import { getSessionByUserSkills } from "../utils_firebase/sessions";
 import InterestSkills from "../components/tiles/interestSkills";
@@ -23,6 +21,14 @@ const Home = () => {
 
   const generalSkills = ["Node JS", "MongoDB"];
   console.log(user.user, "userHome...");
+  if (!user.user) {
+    return (
+      <div className=" text-center  items-center  text-5xl pb-20 pt-20">
+        <p>First Login Please</p>
+        <p>Loading.... </p>
+      </div>
+    );
+  }
 
   useEffect(() => {
     getAllSkillsWithImage().then((data) => setAllSkill(data));
@@ -35,14 +41,6 @@ const Home = () => {
       setRecommendedSession(data);
     });
   }, []);
-
-  if (!RecommendedSession) {
-    return (
-      <div className=" text-center  items-center  text-5xl pb-20 pt-20">
-        <p>Loading.... </p>
-      </div>
-    );
-  }
 
   console.log(RecommendedSession, "RecommendedSession....");
   return (

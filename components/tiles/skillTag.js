@@ -21,6 +21,7 @@ export default function SkillTag({ skills, handleSelectedChange, userSkills }) {
     }
   };
 
+  console.log(selectedItems, "fffffffffffffffff");
   return (
     <ChakraProvider>
       <Box maxW="xl">
@@ -39,6 +40,8 @@ export default function SkillTag({ skills, handleSelectedChange, userSkills }) {
             fontSize: "1rem",
           }}
           selectedItems={selectedItems}
+          // Here selected skills comes as argument in changes and send to handleSelectedItmsChange
+
           onSelectedItemsChange={(changes) =>
             handleSelectedItemsChange(changes.selectedItems)
           }

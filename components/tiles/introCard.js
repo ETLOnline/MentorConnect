@@ -37,7 +37,7 @@ const IntroCard = ({ data }) => {
   return (
     <>
       <div className=" bg-white w-[81.25%]  flex flex-col  m-auto justify-between rounded-[12px] shadow-lg border-[1px] ">
-        <div className="relative w-[46.5%] h-[24.5vh] mt-[40px] mx-auto ">
+        <div className="relative w-[46.5%] h-[180px] mt-[40px] mb-[21px] mx-auto ">
           <Image
             src={Url ? Url : data?.summry.image}
             alt="img"
@@ -110,7 +110,7 @@ const IntroCard = ({ data }) => {
           <p className="text-[24px] leading-[28px] font-semibold">
             {data?.summry?.displayName}
           </p>
-          <button className="w-[74px] h-[3.39vh] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
+          <button className="w-[74px] max-h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
             Follow
           </button>
           <Link href="/auth/sessionForm">
