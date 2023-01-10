@@ -1,12 +1,9 @@
 import React from "react";
 import { getAllSkills } from "../../proxyLayer/api-util";
 import Image from "next/image";
+import InterestSkillsCard from "../tiles/interestSkillsCard";
 
-const SkillCard = ({ onClickSkills }) => {
-  const [Skills] = getAllSkills();
-  const { skills } = Skills;
-  // console.log(skills);
-
+const SkillCard = ({ onClickSkills, skills }) => {
   return (
     <div>
       <div className="bg-white">
@@ -16,335 +13,33 @@ const SkillCard = ({ onClickSkills }) => {
           </p>
         </div>
         <div className="flex flex-col mx-[11%] gap-10 my-10">
-          <div className="flex flex-row  justify-between">
-            <div
-              onClick={() => {
-                onClickSkills(skills[0]);
-              }}
-              className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
-            >
-              <div className="flex pl-3 gap-3">
-                <Image
-                  src="/img/Image (28).png"
-                  alt="img"
-                  height={30}
-                  width={30}
-                />
-                {/* <img
-                  src="./img/Image (28).png"
-                  className="w-[30px]"
-                  alt="img"
-                /> */}
+          <div className="flex flex-row flex-wrap justify-between">
+            {skills.map((element) => {
+              return (
+                <div
+                  onClick={() => {
+                    onClickSkills(element.name);
+                  }}
+                >
+                  <InterestSkillsCard skill={element} />
 
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font['Raleway'] leading-[28px]">
-                    {skills[0]}
-                  </p>
+                  {/* <div className="flex pl-3 gap-3">
+                    <Image
+                      src={element.image}
+                      alt="img"
+                      height={30}
+                      width={30}
+                    />
+
+                    <div className="flex items-center">
+                      <p className="text-[18px] pr-4 font-bold font['Raleway'] leading-[28px]">
+                        {element.name}
+                      </p>
+                    </div>
+                  </div> */}
                 </div>
-              </div>
-            </div>
-            <div
-              onClick={() => {
-                onClickSkills(skills[0]);
-              }}
-              className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
-            >
-              <div className="flex pl-3 gap-3">
-                <Image
-                  src="/img/Image (28).png"
-                  alt="img"
-                  height={30}
-                  width={30}
-                />
-
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font['Raleway'] leading-[28px]">
-                    {skills[0]}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              onClick={() => {
-                onClickSkills(skills[0]);
-              }}
-              className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
-            >
-              <div className="flex pl-3 gap-3">
-                <Image
-                  src="/img/Image (28).png"
-                  alt="img"
-                  height={30}
-                  width={30}
-                />
-
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font['Raleway'] leading-[28px]">
-                    {skills[0]}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              onClick={() => {
-                onClickSkills(skills[1]);
-              }}
-              className=" h-[60px] shadow-lg border-[1px]  rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
-            >
-              <div className="flex  pl-3 m-auto gap-3">
-                <Image
-                  src="/img/Image (28).png"
-                  alt="img"
-                  height={30}
-                  width={30}
-                />
-
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font-['Raleway'] leading-[28px]">
-                    {skills[1]}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              onClick={() => {
-                onClickSkills(skills[2]);
-              }}
-              className="h-[60px] shadow-lg border-[1px]  rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
-            >
-              <div className="flex pl-3 m-auto gap-3">
-                <Image
-                  src="/img/Image (24).png"
-                  alt="img"
-                  height={30}
-                  width={30}
-                />
-
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font-['Raleway'] leading-[28px]">
-                    {skills[2]}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            onClick={() => {
-              onClickSkills(skills[4]);
-            }}
-            className="flex flex-row justify-evenly"
-          >
-            <div
-              onClick={() => {
-                onClickSkills(skills[0]);
-              }}
-              className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
-            >
-              <div className="flex pl-3 gap-3">
-                <Image
-                  src="/img/Image (28).png"
-                  alt="img"
-                  height={30}
-                  width={30}
-                />
-
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font['Raleway'] leading-[28px]">
-                    {skills[0]}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              onClick={() => {
-                onClickSkills(skills[0]);
-              }}
-              className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
-            >
-              <div className="flex pl-3 gap-3">
-                <Image
-                  src="/img/Image (28).png"
-                  alt="img"
-                  height={30}
-                  width={30}
-                />
-
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font['Raleway'] leading-[28px]">
-                    {skills[0]}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="h-[60px] shadow-lg border-[1px]  rounded-[12px] flex items-center hover:border-none hover:shadow-lg">
-              <div className="flex pl-3 m-auto gap-3">
-                <Image
-                  src="/img/Image (28).png"
-                  alt="img"
-                  height={30}
-                  width={30}
-                />
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font-['Raleway'] leading-[30.18px] mt-1">
-                    {skills[4]}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              onClick={() => {
-                onClickSkills(skills[3]);
-              }}
-              className="h-[60px] shadow-lg border-[1px]  rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
-            >
-              <div className="flex pl-3 m-auto gap-3">
-                <Image
-                  src="/img/Image (28).png"
-                  alt="img"
-                  height={30}
-                  width={30}
-                />
-
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font-['Raleway'] leading-[30.18px]">
-                    {skills[3]}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-row justify-between">
-            <div
-              onClick={() => {
-                onClickSkills(skills[0]);
-              }}
-              className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
-            >
-              <div className="flex pl-3 gap-3">
-                <Image
-                  src="/img/Image (28).png"
-                  alt="img"
-                  height={30}
-                  width={30}
-                />
-
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font['Raleway'] leading-[28px]">
-                    {skills[0]}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              onClick={() => {
-                onClickSkills(skills[0]);
-              }}
-              className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
-            >
-              <div className="flex pl-3 gap-3">
-                <Image
-                  src="/img/Image (28).png"
-                  alt="img"
-                  height={30}
-                  width={30}
-                />
-
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font['Raleway'] leading-[28px]">
-                    {skills[0]}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              onClick={() => {
-                onClickSkills(skills[0]);
-              }}
-              className=" h-[60px] shadow-lg border-[1px] rounded-[8px] flex items-center hover:border-none hover:shadow-lg"
-            >
-              <div className="flex pl-3 gap-3">
-                <Image
-                  src="/img/Image (28).png"
-                  alt="img"
-                  height={30}
-                  width={30}
-                />
-
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font['Raleway'] leading-[28px]">
-                    {skills[0]}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="md:flex gap-10 ">
-              <div
-                onClick={() => {
-                  onClickSkills(skills[2]);
-                }}
-                className="h-[60px] shadow-lg border-[1px]  rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
-              >
-                <div className="flex pl-3 m-auto gap-3">
-                  <Image
-                    src="/img/Image (24).png"
-                    alt="img"
-                    height={30}
-                    width={30}
-                  />
-
-                  <div className="flex items-center">
-                    <p className="text-[18px] pr-4 font-bold font-['Raleway'] leading-[28px]">
-                      {skills[2]}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              onClick={() => {
-                onClickSkills(skills[0]);
-              }}
-              className="h-[60px] shadow-lg mr-10 border-[1px]  rounded-[12px] flex items-center hover:border-none hover:shadow-lg"
-            >
-              <div className="flex pl-3 m-auto gap-3">
-                <Image
-                  src="/img/Image (28).png"
-                  alt="img"
-                  height={30}
-                  width={30}
-                />
-
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font['Raleway'] leading-[28px]">
-                    {skills[0]}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              onClick={() => {
-                onClickSkills(skills[1]);
-              }}
-              className="h-[60px] shadow-lg border-[1px]  rounded-[12px] flex items-center hover:border-none hover:shadow-lg "
-            >
-              <div className="flex pl-3 m-auto gap-3">
-                <Image
-                  src="/img/Image (23).png"
-                  alt="img"
-                  height={30}
-                  width={30}
-                />
-
-                <div className="flex items-center">
-                  <p className="text-[18px] pr-4 font-bold font-['Raleway'] leading-[28px]">
-                    {skills[1]}
-                  </p>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>
