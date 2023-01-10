@@ -7,13 +7,19 @@ import UpCommingSection from "../components/homePage/upCommingSection";
 import { getSessionByUserSkills } from "../utils_firebase/sessions";
 import InterestSkills from "../components/tiles/interestSkills";
 import RecomendedSkills from "../components/tiles/recomendedSkills";
-import Loader from "../components/tiles/loader";
+import {
+  getAllSkillsWithImage,
+  getSkillsByUserIntrest,
+} from "../utils_firebase/skills";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
   const [RecommendedSession, setRecommendedSession] = useState();
+  const [skill, setskill] = useState([]);
+  const [allSkill, setAllSkill] = useState([]);
+  console.log(user, "userHome");
 
-  const generalSkills = ["HTML", "CSS"];
+  const generalSkills = ["Node JS", "MongoDB"];
   console.log(user.user, "userHome...");
   if (!user.user) {
     return (
@@ -25,6 +31,12 @@ const Home = () => {
   }
 
   useEffect(() => {
+    getAllSkillsWithImage().then((data) => setAllSkill(data));
+    getSkillsByUserIntrest(
+      user.user.interest.length === 0 ? generalSkills : user.user.interest
+    ).then((data) => {
+      setskill(data);
+    });
     getSessionByUserSkills(
       user.user.interest.length === 0 ? generalSkills : user.user.interest
     ).then((data) => {
@@ -39,16 +51,24 @@ const Home = () => {
       <RegisteredSession />
       <MyMentor />
       {/* <FeatureMentor /> */}
-      <InterestSkills
-        Interests={
-          user.user.interest.length === 0 ? generalSkills : user.user.interest
-        }
-      />
-      <RecomendedSkills
-        Interests={
-          user.user.interest.length === 0 ? generalSkills : user.user.interest
-        }
-      />
+      {skill.length > 0 ? (
+        <InterestSkills
+          title={"Interested Skills"}
+          dis={"Skills in which you are interested"}
+          skills={skill}
+        />
+      ) : (
+        ""
+      )}
+      {skill.length > 0 ? (
+        <InterestSkills
+          title={"Recomended Skills"}
+          dis={"Skills Recomended for you"}
+          skills={allSkill}
+        />
+      ) : (
+        ""
+      )}
 
       <UpCommingSection
         sessions={RecommendedSession}

@@ -9,13 +9,17 @@ import {
   getAllSessions,
 } from "../../utils_firebase/sessions";
 import Link from "next/link";
+import Videos from "./videos";
+import { getAllSkillsWithImage } from "../../utils_firebase/skills";
 
 const HomePage = () => {
   const [sessions, setSessions] = useState([]);
+  const [skills, setSkills] = useState([]);
   useEffect(() => {
     async function name() {
+      const skill = await getAllSkillsWithImage();
       const seasion = await getAllSessions();
-      console.log(seasion, ">>>>>>>>>>><<<LLLLLLLLKKKKKKKKKKK");
+      setSkills(skill);
       setSessions(seasion);
     }
     name();
@@ -32,8 +36,9 @@ const HomePage = () => {
     <Fragment>
       <Header />
       <FeatureMentor />
+      <Videos />
       <FindMentor />
-      <SkillCard onClickSkills={onClickSkills} />
+      <SkillCard onClickSkills={onClickSkills} skills={skills} />
       {sessions.length > 0 ? (
         <div>
           <UpCommingSection

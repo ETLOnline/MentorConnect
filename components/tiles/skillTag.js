@@ -1,19 +1,13 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 import { ChakraProvider } from "@chakra-ui/react";
 import { CUIAutoComplete } from "chakra-ui-autocomplete";
 
-const countries = [
-  { value: "HTML", label: "HTML" },
-  { value: "JS", label: "JS" },
-  { value: "ReactJs", label: "ReactJs" },
-  { value: "MachineLearning", label: "MachineLearning" },
-  { value: "Desgining", label: "Desgining " },
-];
+export default function SkillTag({ skills, handleSelectedChange, userSkills }) {
 
-export default function SkillTag() {
-  const [pickerItems, setPickerItems] = React.useState(countries);
-  const [selectedItems, setSelectedItems] = React.useState([]);
+  
+  const [pickerItems, setPickerItems] = React.useState(skills);
+  const [selectedItems, setSelectedItems] = React.useState(userSkills);
 
   const handleCreateItem = (item) => {
     setPickerItems((curr) => [...curr, item]);
@@ -23,21 +17,22 @@ export default function SkillTag() {
   const handleSelectedItemsChange = (selectedItems) => {
     if (selectedItems) {
       setSelectedItems(selectedItems);
+      handleSelectedChange(selectedItems);
     }
   };
 
   console.log(selectedItems, "fffffffffffffffff");
   return (
     <ChakraProvider>
-      <Box px={1} py={4} maxW="xl">
+      <Box maxW="xl">
         <CUIAutoComplete
-          label="Select Skills"
+          // label="Select Skills"
           placeholder="Type a Skills"
           onCreateItem={handleCreateItem}
           items={pickerItems}
           tagStyleProps={{
             rounded: "full",
-            bgColor: "blue",
+            bgColor: "#1C2D56",
             color: "white",
             pt: 1,
             pb: 2,
