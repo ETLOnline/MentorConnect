@@ -20,19 +20,19 @@ const RegisteredSession = () => {
   // console.log(session, "registeredSession11111");
   return (
     <>
-      <div className="flex flex-col gap-6 ">
-        <div className="m-auto">
+      <div className=" flex flex-col gap-6 mx-[5%] xs:mx-[10%] lg:mx-[15%] ">
+        <div className="m-auto text-center">
           <p className="text-[32px] font-semibold font-['Raleway'] leading-[38px] text-[#1C2D56]">
             Registered Sessions
           </p>
         </div>
-        <div className="m-auto">
+        <div className="m-auto text-center">
           <p className="text-[20px] font-medium leading-[23px] text-[#1C2D56] font-['Raleway']">
             Sessions that you have Registered
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-2  mt-10  mx-[210px] ">
+      <div className="grid md:grid-cols-2  mt-10 mx-[5%] xs:mx-[10%] lg:mx-[15%]">
         {session === "You are not register any Sessions"
           ? "You are not register any Sessions"
           : session.map((data) => {

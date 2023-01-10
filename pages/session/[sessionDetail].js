@@ -8,20 +8,20 @@ import Spinner from "../../components/spinner";
 import { AuthContext } from "../../contexts/auth_context";
 import { followUser } from "../../utils_firebase/users";
 import Image from "next/image";
+import Link from "next/link";
 
 const SessionDetail = () => {
   const { user } = useContext(AuthContext);
   const [isLoaded, setIsLoaded] = useState([]);
   const router = useRouter();
   const id = router.query.sessionDetail;
-  // console.log(id, "id in dinamic");
 
   useEffect(() => {
     getSessionById(id).then((user) => {
       setIsLoaded(user);
     });
     // declare the async data fetching function
-  }, []);
+  }, [id]);
 
   const onFollowHenddler = (id) => {
     console.log(id, "foll", user.user.uid);
@@ -30,7 +30,7 @@ const SessionDetail = () => {
   if (isLoaded.length === 0) {
     return <Spinner />;
   }
-
+  console.log(isLoaded.instructor.uid, "id in dinamic");
   // const [A, B] =
   // console.log(A, B, "data");
   // console.log(isLoaded, "loaded.....", id);
@@ -67,28 +67,29 @@ const SessionDetail = () => {
                 );
               })}
             </div>
-
-            <div className="border-b-[2px]">
-              Instructor
-              <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
-                <div className="flex items-center">
-                  <div className="relative w-[32px] h-[32px]">
-                    <Image
-                      src={isLoaded.instructor.summry.image}
-                      alt=""
-                      fill
-                      className="object-cover rounded-full"
-                    />
+            <Link href={`/auth/${isLoaded.instructor.uid}`}>
+              <div className="border-b-[2px]">
+                Instructor
+                <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
+                  <div className="flex items-center">
+                    <div className="relative w-[32px] h-[32px]">
+                      <Image
+                        src={isLoaded.instructor.summry.image}
+                        alt=""
+                        fill
+                        className="object-cover rounded-full"
+                      />
+                    </div>
+                    <h1 className="font-bold ml-[15px] text-[#1C2D56]">
+                      {isLoaded.instructor.summry.displayName}
+                    </h1>
                   </div>
-                  <h1 className="font-bold ml-[15px] text-[#1C2D56]">
-                    {isLoaded.instructor.summry.displayName}
-                  </h1>
+                  <button className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
+                    Follow
+                  </button>
                 </div>
-                <button className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
-                  Follow
-                </button>
               </div>
-            </div>
+            </Link>
             <div className="border-b-[2px] p-5 flex justify-around ">
               <div className="flex flex-col">
                 <h1 className="font-bold text-[20px]">CoachingPoints</h1>

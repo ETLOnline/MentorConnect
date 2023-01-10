@@ -8,6 +8,8 @@ import IntroCard from "../../components/tiles/introCard";
 import { getSingleUser } from "../../utils_firebase/users";
 import { AuthContext } from "../../contexts/auth_context";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import Loader from "../../components/tiles/loader";
 
 import SmIntoCard from "../../components/tiles/smIntroCard";
 import Avatar from "../../components/tiles/avatar";
@@ -15,14 +17,29 @@ import Avatar from "../../components/tiles/avatar";
 const Index = () => {
   const { user } = useContext(AuthContext);
   const [User, setUser] = useState();
+  const [follower, setFollower] = useState(true);
 
+  const router = useRouter();
+  // Here we reading url
+  const path = router.query.userId;
+  console.log(path, "path.................");
   useEffect(() => {
-    console.log(user.user);
-    getSingleUser(user.user.uid).then((users) => {
-      console.log(users, "useeffect");
-      setUser(users);
-    });
-  }, []);
+    if (user.user.uid === path) {
+      getSingleUser(user.user.uid).then((users) => {
+        console.log(users, "useeffect");
+        setUser(users);
+      });
+    } else {
+      getSingleUser(path).then((users) => {
+        console.log(users, "useeffect");
+        setUser(users);
+      });
+    }
+  }, [path, follower]);
+  // Taking data from child component to rerender the component to increase follower😎
+  function Rerender(data) {
+    setFollower(data);
+  }
 
   const [about, setabout] = useState(true);
   const [activity, setactivity] = useState(false);
@@ -71,12 +88,22 @@ const Index = () => {
         </div>
 
         <div className="invisible md:visible fixed bottom-[7%] w-[35.56%] max-w-[512px]">
-          <IntroCard data={User} />
+          <IntroCard data={User} fn={Rerender} />
         </div>
       </div>
 
       <div className="flex w-full ">
         <div className="w-[95.56%] flex flex-col">
+          <div className="w-full h-[87px] flex border-b-[1px] border-[#1C2D56]">
+            <div className=" w-[37.20%]"></div>
+            <div className="invisible md:visible flex flex-wrap justify-between h-[87px] w-[62.8%] items-end">
+              <button
+                className="w-[19.44%] py-0 px-[5.55%] focus:border-b-[2px] focus:border-[#1C2D56]  h-[73.56%] flex items-center text-[24px] focus:text-[#1C2D56] font-normal leading-[28px] font-['Raleway'] text-center"
+                onClick={abouthandler}
+              >
+                
+                About
+              </button>
           <div className="w-full md:h-[87px] h-[183px]  flex border-b-[1px] border-[#1C2D56]">
             <div className=" md:w-[37.20%]"></div>
             <div className=" md:flex flex-wrap justify-between h-[87px] w-full md:w-[62.8%] items-end">
