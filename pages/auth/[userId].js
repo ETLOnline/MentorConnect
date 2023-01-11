@@ -8,21 +8,35 @@ import IntroCard from "../../components/tiles/introCard";
 import { getSingleUser } from "../../utils_firebase/users";
 import { AuthContext } from "../../contexts/auth_context";
 import Image from "next/image";
-
+import { useRouter } from "next/router";
 import SmIntoCard from "../../components/tiles/smIntroCard";
 import Avatar from "../../components/tiles/avatar";
 
 const Index = () => {
   const { user } = useContext(AuthContext);
   const [User, setUser] = useState();
+  const router = useRouter();
+  // Here we reading url
+  const path = router.query.userId;
 
+  const onFollowHenddler = (id) => {
+    console.log(id, "foll", user.user.uid);
+    followUser(id, user.user.uid);
+  };
+
+  console.log(path, "path.................");
   useEffect(() => {
-    console.log(user.user);
-    getSingleUser(user.user.uid).then((users) => {
-      console.log(users, "useeffect");
-      setUser(users);
-    });
-  }, []);
+    if (user.user.uid === path) {
+      getSingleUser(user.user.uid).then((users) => {
+        console.log(users, "useeffect");
+        setUser(users);
+      });
+    } else {
+      getSingleUser(path).then((users) => {
+        setUser(users);
+      });
+    }
+  }, [path]);
 
   const [about, setabout] = useState(true);
   const [activity, setactivity] = useState(false);

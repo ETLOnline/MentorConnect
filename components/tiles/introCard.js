@@ -1,14 +1,22 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { storage } from "../../utils_firebase/config";
 import Image from "next/image";
-
 import updateImage, { getSingleUser } from "../../utils_firebase/users";
+import { useRouter } from "next/router";
+import { AuthContext } from "../../contexts/auth_context";
+import Followbtn from "./followbtn";
 const IntroCard = ({ data }) => {
+  const { user } = useContext(AuthContext);
   //upload file
   const [file, setFile] = useState(null);
   const [fileSelect, setFileSelect] = useState(false);
   const [Url, setURL] = useState("");
+  const router = useRouter();
+
+  const path = router.query.userId;
+  // Here im comparing  id's  to show follow btn conditionally...
+  const userdata = user.user.uid === path ? false : true;
 
   function handleChange(e) {
     console.log(e.target.files[0]);
@@ -52,13 +60,17 @@ const IntroCard = ({ data }) => {
           <div className="relative top-[120px] left-[130px] w-[25px] rounded-[15px]">
             {!fileSelect ? (
               <label type="file">
-                <Image
-                  src="/img/editIcon.png"
-                  alt="img"
-                  height={25}
-                  width={25}
-                  className="bg-[#646464] rounded-[15px] opacity-[0.7] object-cover"
-                />
+                {userdata ? (
+                  ""
+                ) : (
+                  <Image
+                    src="/img/editIcon.png"
+                    alt="img"
+                    height={25}
+                    width={25}
+                    className="bg-[#646464] rounded-[15px] opacity-[0.7] object-cover"
+                  />
+                )}
                 {/* <img
                   src="/img/editIcon.png"
                   className="bg-[#646464] rounded-[15px] opacity-[0.3] object-cover"
@@ -91,32 +103,39 @@ const IntroCard = ({ data }) => {
             className="w-[37%] h-[3.13vh] flex mx-auto justify-evenly mb-[27px]"
             href="/auth/profile"
           >
-            <button>
-              <Image
-                src="/img/2ndPath.png"
-                alt="img"
-                width={16}
-                height={16}
-                className="object-cover"
-              />
-              {/* <img src="/img/2ndPath.png" className="object-cover" /> */}
-            </button>
-            <p className="text-[12px] mt-[5px] leading-[14px] font-semibold text-[#646464]">
-              Update Profile
-            </p>
+            {userdata ? (
+              ""
+            ) : (
+              <>
+                <button>
+                  <Image
+                    src="/img/2ndPath.png"
+                    alt="img"
+                    width={16}
+                    height={16}
+                    className="object-cover"
+                  />
+                </button>
+                <p className="text-[12px] mt-[5px] leading-[14px] font-semibold text-[#646464]">
+                  Update Profile
+                </p>
+              </>
+            )}
           </Link>
         </div>
         <div className="w-[84.61%] mx-auto flex justify-between mb-[32px]">
           <p className="text-[24px] leading-[28px] font-semibold">
             {data?.summry?.displayName}
           </p>
-          <button className="w-[74px] max-h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
-            Follow
-          </button>
+          {userdata ? <Followbtn /> : ""}
           <Link href="/auth/sessionForm">
-            <button className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[10px] font-medium rounded-xl">
-              Create Session
-            </button>
+            {userdata ? (
+              ""
+            ) : (
+              <button className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[10px] font-medium rounded-xl">
+                Create Session
+              </button>
+            )}
           </Link>
         </div>
         <div className="flex flex-col gap-3">
