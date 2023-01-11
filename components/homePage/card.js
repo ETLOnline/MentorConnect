@@ -1,13 +1,11 @@
 import React, { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
-// import { getAllMentors } from "../../proxyLayer/api-util";
 
 const Card = ({ mentors }) => {
   console.log(mentors, "card");
 
   console.log("Check");
-  // const Mentors = getAllMentors();
 
   return (
     <Fragment>

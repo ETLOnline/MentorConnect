@@ -5,7 +5,7 @@ import Rewards from "./rewards";
 import Schdule from "./schdule";
 import { useState } from "react";
 import IntroCard from "../../components/tiles/introCard";
-import { getSingleUser } from "../../utils_firebase/users";
+import { followUser, getSingleUser } from "../../utils_firebase/users";
 import { AuthContext } from "../../contexts/auth_context";
 import Image from "next/image";
 import { useRouter } from "next/router";
