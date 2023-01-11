@@ -11,7 +11,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Followbtn from "../../components/tiles/followbtn";
 
-
 const SessionDetail = () => {
   const { user } = useContext(AuthContext);
   const [isLoaded, setIsLoaded] = useState([]);
@@ -70,12 +69,10 @@ const SessionDetail = () => {
               })}
             </div>
 
-
             <div className="border-b-[2px]">
               Instructor
               <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
                 <Link href={`/auth/${isLoaded.instructor.uid}`}>
-
                   <div className="flex items-center">
                     <div className="relative w-[32px] h-[32px]">
                       <Image
@@ -89,15 +86,13 @@ const SessionDetail = () => {
                       {isLoaded.instructor.summry.displayName}
                     </h1>
                   </div>
-
                 </Link>
 
                 <div>
                   <Followbtn />
-
                 </div>
               </div>
-            </Link>
+            </div>
             <div className="border-b-[2px] p-5 flex justify-around ">
               <div className="flex flex-col">
                 <h1 className="font-bold text-[20px]">CoachingPoints</h1>

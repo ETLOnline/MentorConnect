@@ -36,7 +36,7 @@ const Index = () => {
         setUser(users);
       });
     }
-  }, [path, follower]);
+  }, [path]);
 
   // Taking data from child component to rerender the component to increase follower😎
   function Rerender(data) {
