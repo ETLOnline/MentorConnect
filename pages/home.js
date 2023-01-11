@@ -15,8 +15,8 @@ import {
 const Home = () => {
   const { user } = useContext(AuthContext);
   const [RecommendedSession, setRecommendedSession] = useState();
-  const [skill, setskill] = useState();
-  const [allSkill, setAllSkill] = useState();
+  const [skill, setskill] = useState([]);
+  const [allSkill, setAllSkill] = useState([]);
   console.log(user, "userHome");
 
   const generalSkills = ["Node JS", "MongoDB"];
@@ -34,7 +34,9 @@ const Home = () => {
     getAllSkillsWithImage().then((data) => setAllSkill(data));
     getSkillsByUserIntrest(
       user.user.interest.length === 0 ? generalSkills : user.user.interest
-    ).then((data) => setskill(data));
+    ).then((data) => {
+      setskill(data);
+    });
     getSessionByUserSkills(
       user.user.interest.length === 0 ? generalSkills : user.user.interest
     ).then((data) => {
@@ -49,19 +51,24 @@ const Home = () => {
       <RegisteredSession />
       <MyMentor />
       {/* <FeatureMentor /> */}
-      <InterestSkills
-        title={"Interested Skills"}
-        dis={"Skills in which you are interested"}
-        skills={skill}
-      />
-
-      <InterestSkills
-        title={"Recomended Skills"}
-        dis={"Skills Recomended for you"}
-        skills={allSkill}
-      />
-
-    
+      {skill.length > 0 ? (
+        <InterestSkills
+          title={"Interested Skills"}
+          dis={"Skills in which you are interested"}
+          skills={skill}
+        />
+      ) : (
+        ""
+      )}
+      {skill.length > 0 ? (
+        <InterestSkills
+          title={"Recomended Skills"}
+          dis={"Skills Recomended for you"}
+          skills={allSkill}
+        />
+      ) : (
+        ""
+      )}
 
       <UpCommingSection
         sessions={RecommendedSession}

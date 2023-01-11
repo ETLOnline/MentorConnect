@@ -4,7 +4,7 @@ import SessionTile from "./sessionTile";
 const MyMentorsCard = () => {
   return (
     <>
-      <div className="bg-[#F4F4F4] w-[68.2%] px-6 py-4 rounded-xl">
+      <div className="bg-[#F4F4F4] xs:w-[70%] sm:w-[62%] md:w-[48%] lg:w-[31.6%] mb-[20px] px-6 py-4 rounded-xl">
         <div className="border-b-[0.5px] border-black">
           <div className="flex justify-between">
             <div>

@@ -1,14 +1,21 @@
 import React, { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 import Followbtn from "../tiles/followbtn";
 
+
 const Students = ({ student, onFollowHenddler }) => {
+  console.log(student.uid, "StudentData");
   return (
+
     <Fragment>
       <div className="">
         <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
-          <Link href={`/auth/${student.uid}`}>
+          <Link href={`/auth/${student.uid}`}
+   
+      
+
             <div className="flex  h-[32px]">
               <Image
                 src={student.summry.image}
@@ -17,11 +24,12 @@ const Students = ({ student, onFollowHenddler }) => {
                 height={32}
                 className="rounded-[50px] object-cover"
               />
-
               <h1 className="font-bold ml-[15px] text-[#1C2D56]">
                 {student.summry.displayName}
               </h1>
             </div>
+            
+
           </Link>
           <Followbtn
             onClick={() => onFollowHenddler(student.uid)}
@@ -29,9 +37,11 @@ const Students = ({ student, onFollowHenddler }) => {
           >
             Follow
           </Followbtn>
+
+
         </div>
-      </div>
-    </Fragment>
+      </Fragment>
+    </Link>
   );
 };
 

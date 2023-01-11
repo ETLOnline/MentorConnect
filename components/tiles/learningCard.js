@@ -8,9 +8,9 @@ const LearningCard = ({ data }) => {
 
   return (
     <>
-      <div className="w-[100%] h-auto rounded-[12px] flex group hover:bg-[#F4F4F4]">
-        <div className="flex w-[100%] gap-4 ml-[12px] my-[12px]">
-          <div className="relative min-w-[96px] min-h-[96px]  my-auto ">
+      <div className="w-[80%] mb-[20px] mx-auto xs:w-[100%] h-auto rounded-[12px] flex group hover:bg-[#F4F4F4]">
+        <div className="flex flex-col mx-auto xs:flex-row w-[100%] gap-4 xs:ml-[12px] my-[12px]">
+          <div className="relative mx-auto max-w-[200px] max-h-[200px] min-w-[200px] min-h-[200px] xs:min-w-[96px] xs:min-h-[96px]  my-auto ">
             <Image
               src={data.image}
               alt="img"
@@ -23,7 +23,7 @@ const LearningCard = ({ data }) => {
             /> */}
           </div>
 
-          <div className="w-[76.93%] flex flex-col gap-4 my-auto">
+          <div className="w-[76.93%] flex flex-col  mx-auto gap-4 my-auto">
             <div className="flex flex-col gap-1">
               <div className=" h-[14px]">
                 <p className="text-[12px] leading-[14px] tex font-medium overflow-hidden ... text-[#8B8B8B] group-hover:text-green-800">
