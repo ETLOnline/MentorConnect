@@ -8,6 +8,22 @@ import { AuthContext } from "../../contexts/auth_context";
 import Followbtn from "./followbtn";
 const IntroCard = ({ data }) => {
   const { user } = useContext(AuthContext);
+
+
+  
+
+  const router = useRouter();
+  const path = router.query.userId;
+  // Here follow logic // when we click follow btn component not state not change we have to change state....
+  const onFollowHenddler = () => {
+    fn(false);
+    followUser(path, user.user.uid);
+  };
+
+  // Here im comparing  id's  to show follow btn conditionally...
+  const userdata = user.user.uid === path ? false : true;
+
+
   //upload file
   const [file, setFile] = useState(null);
   const [fileSelect, setFileSelect] = useState(false);
@@ -15,9 +31,6 @@ const IntroCard = ({ data }) => {
   const router = useRouter();
 
   const path = router.query.userId;
-  // Here im comparing  id's  to show follow btn conditionally...
-  const userdata = user.user.uid === path ? false : true;
-
   function handleChange(e) {
     console.log(e.target.files[0]);
     const file = e.target.files[0];
@@ -27,7 +40,6 @@ const IntroCard = ({ data }) => {
 
   async function handleUpload() {
     if (file) {
-      console.log("chal raya aa");
       const path = `/images/${file.name}`;
       const ref = storage.ref(path);
       await ref.put(file);
@@ -137,6 +149,9 @@ const IntroCard = ({ data }) => {
               </button>
             )}
           </Link>
+
+         
+
         </div>
         <div className="flex flex-col gap-3">
           <div className="flex mx-auto w-[69.5%] justify-between">

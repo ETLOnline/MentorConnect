@@ -33,6 +33,8 @@ const FeatureMentor = () => {
     return <Spinner />;
   }
 
+  console.log(Mentors, "Mentorssssssssssssssssssssssssssssssssssss");
+
   const options = {
     margin: 10,
     responsiveClass: true,
@@ -41,10 +43,11 @@ const FeatureMentor = () => {
     autoplay: true,
     smartSpeed: 1000,
     // navClass: ["owl-prev", "owl-next"],
-    // // navText: [
-    // //   '<i class="fas fa-angle-left"></i>',
-    // //   '<i class="fas fa-angle-right"></i>',
-    // // ],
+    // navText: [
+    //   '<i class="fas fa-angle-left"></i>',
+    //   '<i class="fas fa-angle-right"></i>',
+    // ],
+
     responsive: {
       0: {
         items: 1,
@@ -65,7 +68,7 @@ const FeatureMentor = () => {
   };
   return (
     <Fragment>
-      <div className="ml-[62px] mt-[64px]">
+      <div className=" xs:ml-[62px] mt-[64px]">
         <div className="flex justify-between ml-6 mr-[64px]">
           <h2 className="text-3xl   font-bold"> Featured Mentors</h2>
           <div className="flex gap-2 justify-between items-center ">
