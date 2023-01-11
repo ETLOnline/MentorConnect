@@ -2,35 +2,32 @@ import Link from "next/link";
 import React, { useContext, useState } from "react";
 import { storage } from "../../utils_firebase/config";
 import Image from "next/image";
-import updateImage, { getSingleUser } from "../../utils_firebase/users";
+import updateImage, {
+  followUser,
+  getSingleUser,
+} from "../../utils_firebase/users";
 import { useRouter } from "next/router";
 import { AuthContext } from "../../contexts/auth_context";
 import Followbtn from "./followbtn";
 const IntroCard = ({ data }) => {
   const { user } = useContext(AuthContext);
 
-
-  
-
   const router = useRouter();
   const path = router.query.userId;
   // Here follow logic // when we click follow btn component not state not change we have to change state....
+
+  // Here im comparing  id's  to show follow btn conditionally...
+  const userdata = user.user.uid === path ? false : true;
   const onFollowHenddler = () => {
     fn(false);
     followUser(path, user.user.uid);
   };
 
-  // Here im comparing  id's  to show follow btn conditionally...
-  const userdata = user.user.uid === path ? false : true;
-
-
   //upload file
   const [file, setFile] = useState(null);
   const [fileSelect, setFileSelect] = useState(false);
   const [Url, setURL] = useState("");
-  const router = useRouter();
 
-  const path = router.query.userId;
   function handleChange(e) {
     console.log(e.target.files[0]);
     const file = e.target.files[0];
@@ -139,7 +136,7 @@ const IntroCard = ({ data }) => {
           <p className="text-[24px] leading-[28px] font-semibold">
             {data?.summry?.displayName}
           </p>
-          {userdata ? <Followbtn /> : ""}
+          {userdata ? <Followbtn onClick={onFollowHenddler} /> : ""}
           <Link href="/auth/sessionForm">
             {userdata ? (
               ""
@@ -149,9 +146,6 @@ const IntroCard = ({ data }) => {
               </button>
             )}
           </Link>
-
-         
-
         </div>
         <div className="flex flex-col gap-3">
           <div className="flex mx-auto w-[69.5%] justify-between">

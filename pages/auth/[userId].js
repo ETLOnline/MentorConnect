@@ -5,7 +5,7 @@ import Rewards from "./rewards";
 import Schdule from "./schdule";
 import { useState } from "react";
 import IntroCard from "../../components/tiles/introCard";
-import {followUser, getSingleUser } from "../../utils_firebase/users";
+import { followUser, getSingleUser } from "../../utils_firebase/users";
 import { AuthContext } from "../../contexts/auth_context";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -24,7 +24,6 @@ const Index = () => {
     followUser(id, user.user.uid);
   };
 
-
   console.log(path, "path.................");
   useEffect(() => {
     if (user.user.uid === path) {
@@ -34,13 +33,11 @@ const Index = () => {
       });
     } else {
       getSingleUser(path).then((users) => {
-
         setUser(users);
       });
     }
-  }, [path,follower]);
-  
-       
+  }, [path]);
+
   // Taking data from child component to rerender the component to increase follower😎
   function Rerender(data) {
     console.log(data, "data is from child");
