@@ -36,6 +36,7 @@ const SessionItem = ({ session }) => {
               className=" rounded-[20px] w-full object-cover"
             /> */}
           </div>
+
           <div className="flex flex-col  mx-3">
             <div className="flex flex-row mb-3 justify-between">
               <p className="text-[16px] font-medium leading-[20px] font-['Raleway'] text-[#8B8B8B]">
@@ -52,6 +53,7 @@ const SessionItem = ({ session }) => {
                 {session?.title}
               </p>
             </div>
+
             <div className="flex  gap-2 mb-4 h-[32px]">
               <Image
                 src={session?.instructor?.summry?.image}

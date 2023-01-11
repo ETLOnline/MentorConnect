@@ -9,6 +9,8 @@ import { AuthContext } from "../../contexts/auth_context";
 import { followUser } from "../../utils_firebase/users";
 import Image from "next/image";
 import Link from "next/link";
+import Followbtn from "../../components/tiles/followbtn";
+
 
 const SessionDetail = () => {
   const { user } = useContext(AuthContext);
@@ -67,10 +69,13 @@ const SessionDetail = () => {
                 );
               })}
             </div>
-            <Link href={`/auth/${isLoaded.instructor.uid}`}>
-              <div className="border-b-[2px]">
-                Instructor
-                <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
+
+
+            <div className="border-b-[2px]">
+              Instructor
+              <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
+                <Link href={`/auth/${isLoaded.instructor.uid}`}>
+
                   <div className="flex items-center">
                     <div className="relative w-[32px] h-[32px]">
                       <Image
@@ -84,9 +89,12 @@ const SessionDetail = () => {
                       {isLoaded.instructor.summry.displayName}
                     </h1>
                   </div>
-                  <button className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl">
-                    Follow
-                  </button>
+
+                </Link>
+
+                <div>
+                  <Followbtn />
+
                 </div>
               </div>
             </Link>

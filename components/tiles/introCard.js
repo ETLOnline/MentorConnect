@@ -2,13 +2,15 @@ import Link from "next/link";
 import React, { useContext, useState } from "react";
 import { storage } from "../../utils_firebase/config";
 import Image from "next/image";
-import { AuthContext } from "../../contexts/auth_context";
+import updateImage, { getSingleUser } from "../../utils_firebase/users";
 import { useRouter } from "next/router";
-import { followUser } from "../../utils_firebase/users";
+import { AuthContext } from "../../contexts/auth_context";
 import Followbtn from "./followbtn";
-import Loader from "./loader";
-const IntroCard = ({ data, fn }) => {
+const IntroCard = ({ data }) => {
   const { user } = useContext(AuthContext);
+
+
+  
 
   const router = useRouter();
   const path = router.query.userId;
@@ -21,11 +23,14 @@ const IntroCard = ({ data, fn }) => {
   // Here im comparing  id's  to show follow btn conditionally...
   const userdata = user.user.uid === path ? false : true;
 
+
   //upload file
   const [file, setFile] = useState(null);
   const [fileSelect, setFileSelect] = useState(false);
   const [Url, setURL] = useState("");
+  const router = useRouter();
 
+  const path = router.query.userId;
   function handleChange(e) {
     console.log(e.target.files[0]);
     const file = e.target.files[0];
@@ -134,16 +139,19 @@ const IntroCard = ({ data, fn }) => {
           <p className="text-[24px] leading-[28px] font-semibold">
             {data?.summry?.displayName}
           </p>
-          {userdata ? <Followbtn fn={onFollowHenddler} /> : ""}
-          {userdata ? (
-            ""
-          ) : (
-            <Link href="/auth/sessionForm">
+          {userdata ? <Followbtn /> : ""}
+          <Link href="/auth/sessionForm">
+            {userdata ? (
+              ""
+            ) : (
               <button className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[10px] font-medium rounded-xl">
                 Create Session
               </button>
-            </Link>
-          )}
+            )}
+          </Link>
+
+         
+
         </div>
         <div className="flex flex-col gap-3">
           <div className="flex mx-auto w-[69.5%] justify-between">
