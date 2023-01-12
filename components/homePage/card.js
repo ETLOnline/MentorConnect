@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 const Card = ({ mentors }) => {
-  console.log(mentors, "card");
-  console.log("Check");
+  // console.log(mentors, "card");
+  // console.log("Check");
 
   return (
     <Fragment>

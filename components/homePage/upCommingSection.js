@@ -5,7 +5,7 @@ import Spinner from "../spinner";
 import SessionItem from "./upCommingSessionItem";
 
 const UpCommingSection = ({ sessions, title, dis }) => {
-  console.log(sessions, " UpCommingSection");
+  // console.log(sessions, " UpCommingSection");
   if (!sessions) {
     return <Spinner />;
   }

@@ -23,7 +23,7 @@ const FeatureMentor = () => {
   useEffect(() => {
     async function name() {
       const users = await getUsers();
-      console.log(users);
+      // console.log(users);
       setMentors(users);
     }
     name();
@@ -33,7 +33,7 @@ const FeatureMentor = () => {
     return <Spinner />;
   }
 
-  console.log(Mentors, "Mentorssssssssssssssssssssssssssssssssssss");
+  // console.log(Mentors, "Mentorssssssssssssssssssssssssssssssssssss");
 
   const options = {
     margin: 10,

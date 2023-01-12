@@ -61,7 +61,7 @@ export const getAllSessions = async () => {
 };
 // filter session by tags
 export const filterSessionByTag = async (tag) => {
-  console.log("filterSessionByTag");
+  // console.log("filterSessionByTag",tag);
   const allSessions = [];
   const session = await fireStore
     .collection("sessions")
@@ -111,7 +111,11 @@ export const getSessionByUserSkills = async (data) => {
       .get();
     for (const element of doc.docs) {
       const user = await getSingleUser(element.data().instructor);
-      allfilterSession.push({ ...element.data(), instructor: user });
+      allfilterSession.push({
+        id: element.id,
+        ...element.data(),
+        instructor: user,
+      });
     }
     console.log(allfilterSession);
     return allfilterSession;
