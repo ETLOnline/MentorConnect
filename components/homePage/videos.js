@@ -66,9 +66,9 @@ const Videos = () => {
   };
   return (
     <Fragment>
-      <div className="ml-[62px] mt-[64px]">
-        <div className="flex justify-between ml-6 mr-[64px]">
-          <h2 className="text-3xl   font-bold">Past Sessions</h2>
+      <div className="ml-[32px]">
+        <div className="flex justify-between ml-3 mb-[32px] mr-[32px]">
+          <h2 className="text-3xl font-bold">Past Sessions</h2>
           <div className="flex gap-2 justify-between items-center ">
             <p className="text-[20px] text-[#909090] leading-[23px] ">
               Explore
@@ -100,7 +100,7 @@ const Videos = () => {
           </div>
           <>
             <ReactPlayer
-              className="mx-4"
+              className=""
               url={
                 "https://www.youtube.com/watch?v=Ulp1Kimblg0&ab_channel=CodeWithChris"
               }
