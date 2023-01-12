@@ -68,9 +68,9 @@ const FeatureMentor = () => {
   };
   return (
     <Fragment>
-      <div className=" xs:ml-[62px] mt-[64px]">
-        <div className="flex justify-between ml-6 mr-[64px]">
-          <h2 className="text-3xl   font-bold"> Featured Mentors</h2>
+      <div className=" xs:ml-[32px] mt-[32px]">
+        <div className="flex justify-between ml-3 mr-[32px]">
+          <h2 className="text-3xl font-bold">Featured Mentors</h2>
           <div className="flex gap-2 justify-between items-center ">
             <p className="text-[20px] text-[#909090] leading-[23px] ">
               Explore

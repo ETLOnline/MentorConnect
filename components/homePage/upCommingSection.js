@@ -12,7 +12,7 @@ const UpCommingSection = ({ sessions, title, dis }) => {
 
   return (
     <Fragment>
-      <div className="flex flex-col gap-6 mt-40 ">
+      <div className="flex flex-col gap-6 mt-[28px] ">
         <div className="m-auto">
           <p className="text-[32px] text-center font-semibold font-['Raleway'] leading-[38px] text-[#242424]">
             {title}
@@ -25,7 +25,7 @@ const UpCommingSection = ({ sessions, title, dis }) => {
         </div>
       </div>
 
-      <div className="mx-[16px] xs:mx-[64px] ">
+      <div className="mx-[16px] xs:mx-[32px] ">
         <div>
           <div className="flex flex-wrap justify-center  gap-[2.22%] my-[24px]  ">
             {sessions.length === 0
