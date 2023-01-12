@@ -1,6 +1,3 @@
-import React from "react";
-import { getAllSkills } from "../../proxyLayer/api-util";
-import Image from "next/image";
 import InterestSkillsCard from "../tiles/interestSkillsCard";
 
 const SkillCard = ({ onClickSkills, skills }) => {
@@ -16,27 +13,8 @@ const SkillCard = ({ onClickSkills, skills }) => {
           <div className="flex flex-row flex-wrap justify-between">
             {skills.map((element) => {
               return (
-                <div
-                  onClick={() => {
-                    onClickSkills(element.name);
-                  }}
-                >
-                  <InterestSkillsCard skill={element} />
-
-                  {/* <div className="flex pl-3 gap-3">
-                    <Image
-                      src={element.image}
-                      alt="img"
-                      height={30}
-                      width={30}
-                    />
-
-                    <div className="flex items-center">
-                      <p className="text-[18px] pr-4 font-bold font['Raleway'] leading-[28px]">
-                        {element.name}
-                      </p>
-                    </div>
-                  </div> */}
+                <div key={element.name}>
+                  <InterestSkillsCard skill={element} click={onClickSkills} />
                 </div>
               );
             })}

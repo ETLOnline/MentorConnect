@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect } from "react";
 
 const SessionItem = ({ session }) => {
   const { id } = session;
-  console.log(id);
+  // console.log(id);
   return (
     <>
       <Link
@@ -40,11 +39,11 @@ const SessionItem = ({ session }) => {
           <div className="flex flex-col  mx-3">
             <div className="flex flex-row mb-3 justify-between">
               <p className="text-[16px] font-medium leading-[20px] font-['Raleway'] text-[#8B8B8B]">
-                {session?.students.length} +Attendees
+                {session?.students?.length} +Attendees
               </p>
               <p className="text-[16px] font-medium leading-[20px] font-['Raleway'] text-[#8B8B8B]">
                 {new Date(
-                  session.startTime.seconds * 1000
+                  session?.startTime?.seconds * 1000
                 ).toLocaleDateString()}
               </p>
             </div>

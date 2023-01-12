@@ -5,7 +5,7 @@ import Spinner from "../spinner";
 import SessionItem from "./upCommingSessionItem";
 
 const UpCommingSection = ({ sessions, title, dis }) => {
-  console.log(sessions, " UpCommingSection");
+  // console.log(sessions, " UpCommingSection");
   if (!sessions) {
     return <Spinner />;
   }
@@ -42,13 +42,13 @@ const UpCommingSection = ({ sessions, title, dis }) => {
       </div>
 
       {/* <!-- Footer button --> */}
-      <div className="flex my-16">
+      {/* <div className="flex my-16">
         <div className="m-auto bg-[#F3F3F4] rounded-[7px]">
           <button className="text-[20px] font-medium text-[#1C2D56] leading-[24px] font-['Raleway'] px-5 py-1 hover:bg-[#1C2D56] hover:text-white">
             <Link href="/calender">Calender</Link>
           </button>
         </div>
-      </div>
+      </div> */}
     </Fragment>
   );
 };
