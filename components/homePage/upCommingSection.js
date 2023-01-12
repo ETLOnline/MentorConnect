@@ -12,7 +12,7 @@ const UpCommingSection = ({ sessions, title, dis }) => {
 
   return (
     <Fragment>
-      <div className="flex flex-col gap-6 mt-40 ">
+      <div className="flex flex-col gap-6 mt-[28px] ">
         <div className="m-auto">
           <p className="text-[32px] text-center font-semibold font-['Raleway'] leading-[38px] text-[#242424]">
             {title}
@@ -25,7 +25,7 @@ const UpCommingSection = ({ sessions, title, dis }) => {
         </div>
       </div>
 
-      <div className="mx-[16px] xs:mx-[64px] ">
+      <div className="mx-[16px] xs:mx-[32px] ">
         <div>
           <div className="flex flex-wrap justify-center  gap-[2.22%] my-[24px]  ">
             {sessions.length === 0
@@ -42,13 +42,13 @@ const UpCommingSection = ({ sessions, title, dis }) => {
       </div>
 
       {/* <!-- Footer button --> */}
-      <div className="flex my-16">
+      {/* <div className="flex my-16">
         <div className="m-auto bg-[#F3F3F4] rounded-[7px]">
           <button className="text-[20px] font-medium text-[#1C2D56] leading-[24px] font-['Raleway'] px-5 py-1 hover:bg-[#1C2D56] hover:text-white">
             <Link href="/calender">Calender</Link>
           </button>
         </div>
-      </div>
+      </div> */}
     </Fragment>
   );
 };

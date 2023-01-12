@@ -12,11 +12,11 @@ const Card = ({ mentors }) => {
             return (
               <Link key={mentor.id} href={`/auth/${mentor.id}`}>
                 <Fragment>
-                  <div id="featuredProducts" className=" mb-8 m-2 w-100 ">
-                    <div className=" px-2 py-11  w-full  ">
+                  <div id="featuredProducts" className=" mb-8 mx-2 w-100 ">
+                    <div className="pt-[28px]  w-full  ">
                       <div className="relative group rounded-[12px] w-[100%]">
                         <div
-                          className="h-[330px] w-[100%] rounded-[12px] bg-no-repeat   bg-cover"
+                          className="h-[330px] w-[100%] rounded-[12px] bg-no-repeat bg-cover"
                           style={{
                             backgroundImage:
                               "url(" + mentor.summry?.image + ")",
@@ -43,7 +43,7 @@ const Card = ({ mentors }) => {
                                 className="object-cover"
                               />
                             </div>
-                            <p className="ml-3  ">{mentor.about}</p>
+                            <p className="ml-3">{mentor.about}</p>
                           </div>
                         </div>
 

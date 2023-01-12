@@ -137,7 +137,7 @@ const IntroCard = ({ data }) => {
             {data?.summry?.displayName}
           </p>
           {userdata ? <Followbtn onClick={onFollowHenddler} /> : ""}
-          <Link href="/auth/sessionForm">
+          {/* <Link href="/auth/sessionForm">
             {userdata ? (
               ""
             ) : (
@@ -145,7 +145,7 @@ const IntroCard = ({ data }) => {
                 Create Session
               </button>
             )}
-          </Link>
+          </Link> */}
         </div>
         <div className="flex flex-col gap-3">
           <div className="flex mx-auto w-[69.5%] justify-between">

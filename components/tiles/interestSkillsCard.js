@@ -4,7 +4,7 @@ import Image from "next/image";
 const InterestSkillsCard = ({ skill }) => {
   return (
     <>
-      <div className="min-w-[21.53%] mb-[15px] rounded-[12px] flex items-center  shadow-md gap-2 px-2">
+      <div className="min-w-[21.53%] mb-[15px] rounded-[12px] flex items-center shadow-md gap-2 pl-2 pr-3">
         <div className="flex w-[42px] h-[42px] m-2 ">
           <Image
             src={skill.image}
