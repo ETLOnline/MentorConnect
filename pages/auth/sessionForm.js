@@ -70,10 +70,19 @@ export default function Profile() {
                 <h3 className="text-lg font-medium leading-6 text-gray-900">
                   SessionForm
                 </h3>
-                <p className="mt-1 text-sm text-gray-600">
+                {/* <p className="mt-1 text-sm text-gray-600">
                   This information will be displayed publicly so be careful what
                   you share.
-                </p>
+                </p> */}
+                <div className="w-[100%] mt-[50px] bg-white rounded-[12px] h-[500px]">
+                  <div className="relative h-[150px]  mx-auto w-[150px]">
+                    <Image
+                      src={"/img/Image (14).png"}
+                      fill
+                      className="rounded-full my-[20px]"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div className="mt-5 md:col-span-2 md:mt-0">

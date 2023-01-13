@@ -3,16 +3,16 @@ import React from "react";
 const admin = () => {
   return (
     <div>
-      <div className="relative bg-yellow-50 overflow-hidden max-h-screen">
-        <header className="fixed right-0 top-0 left-60 bg-yellow-50 py-3 px-4 h-16">
+      <div className="relative bg-blue-50 overflow-hidden max-h-full">
+        <header className="absolute right-0 top-0 left-60 bg-[#000000] py-3 px-4 h-16">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center justify-between">
               <div>
                 <button
                   type="button"
-                  className="flex items-center focus:outline-none rounded-lg text-gray-600 hover:text-yellow-600 focus:text-yellow-600 font-semibold p-2 border border-transparent hover:border-yellow-300 focus:border-yellow-300 transition"
+                  className="flex items-center focus:outline-none rounded-lg text-white hover:text-yellow-600 focus:text-yellow-600 font-semibold p-2 border border-transparent hover:border-yellow-300 focus:border-yellow-300 transition"
                 >
-                  <span className="inline-flex items-center justify-center w-6 h-6 text-gray-600 text-xs rounded bg-white transition mr-2">
+                  <span className="inline-flex items-center justify-center w-6 h-6 text-black text-xs rounded bg-white transition mr-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="1em"
@@ -22,7 +22,7 @@ const admin = () => {
                       viewBox="0 0 16 16"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
                       />
                     </svg>
@@ -30,14 +30,14 @@ const admin = () => {
                   <span className="text-sm">Archive</span>
                 </button>
               </div>
-              <div className="text-lg font-bold">Today's Plan</div>
+              <div className="text-lg font-bold text-white">Today's Plan</div>
               <div>
                 <button
                   type="button"
-                  className="flex items-center focus:outline-none rounded-lg text-gray-600 hover:text-yellow-600 focus:text-yellow-600 font-semibold p-2 border border-transparent hover:border-yellow-300 focus:border-yellow-300 transition"
+                  className="flex items-center focus:outline-none rounded-lg text-white hover:text-yellow-600 focus:text-yellow-600 font-semibold p-2 border border-transparent hover:border-yellow-300 focus:border-yellow-300 transition"
                 >
                   <span className="text-sm">This week</span>
-                  <span className="inline-flex items-center justify-center w-6 h-6 text-gray-600 text-xs rounded bg-white transition ml-2">
+                  <span className="inline-flex items-center justify-center w-6 h-6 text-black text-xs rounded bg-white transition ml-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="1em"
@@ -47,7 +47,7 @@ const admin = () => {
                       viewBox="0 0 16 16"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
                       />
                     </svg>
@@ -58,20 +58,20 @@ const admin = () => {
           </div>
         </header>
 
-        <aside className="fixed inset-y-0 left-0 bg-white shadow-md max-h-screen w-60">
+        <aside className="absolute inset-y-0 left-0 bg-black text-white shadow-md  w-60">
           <div className="flex flex-col justify-between h-full">
             <div className="flex-grow">
               <div className="px-4 py-6 text-center border-b">
                 <h1 className="text-xl font-bold leading-none">
-                  <span className="text-yellow-700">Task Manager</span> App
+                  <span className="text-yellow-700">Admin </span> Dashboard
                 </h1>
               </div>
               <div className="p-4">
                 <ul className="space-y-1">
                   <li>
                     <a
-                      href="javascript:void(0)"
-                      className="flex items-center bg-yellow-200 rounded-xl font-bold text-sm text-yellow-900 py-3 px-4"
+                      href=""
+                      className="flex items-center bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@ const admin = () => {
                   </li>
                   <li>
                     <a
-                      href="javascript:void(0)"
+                      href=""
                       className="flex bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4"
                     >
                       <svg
@@ -106,7 +106,7 @@ const admin = () => {
                   </li>
                   <li>
                     <a
-                      href="javascript:void(0)"
+                      href=""
                       className="flex bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4"
                     >
                       <svg
@@ -124,7 +124,7 @@ const admin = () => {
                   </li>
                   <li>
                     <a
-                      href="javascript:void(0)"
+                      href=""
                       className="flex bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4"
                     >
                       <svg
@@ -164,7 +164,7 @@ const admin = () => {
           </div>
         </aside>
 
-        <main className="ml-60 pt-16 max-h-screen overflow-auto">
+        <main className="ml-60 pt-16 ">
           <div className="px-6 py-8">
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-3xl p-8 mb-5">
@@ -276,7 +276,7 @@ const admin = () => {
                           <div className="text-gray-400 text-xs">4h</div>
                         </div>
                         <a
-                          href="javascript:void(0)"
+                          href=""
                           className="font-bold hover:text-yellow-800 hover:underline"
                         >
                           Blog and social posts
@@ -303,7 +303,7 @@ const admin = () => {
                           <div className="text-gray-400 text-xs">7d</div>
                         </div>
                         <a
-                          href="javascript:void(0)"
+                          href=""
                           className="font-bold hover:text-yellow-800 hover:underline"
                         >
                           New campaign review
@@ -328,7 +328,7 @@ const admin = () => {
                           <div className="text-gray-400 text-xs">2h</div>
                         </div>
                         <a
-                          href="javascript:void(0)"
+                          href=""
                           className="font-bold hover:text-yellow-800 hover:underline"
                         >
                           Cross-platform and browser QA
