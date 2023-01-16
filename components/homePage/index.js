@@ -27,13 +27,7 @@ const HomePage = () => {
   }, []);
   console.log(sessions, "sesasas");
   const onClickSkills = (ele, exist) => {
-    var arr = [...selectedSkill];
-
-    // setSelectedSkill((prev) => {
-    //   arr.push(ele);
-    //   return [ele, ...prev];
-    // });
-
+    let arr = [...selectedSkill];
     // if (arr.find((data) => data == ele) == ele) {
     // }
 

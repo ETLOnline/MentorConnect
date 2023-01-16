@@ -22,7 +22,7 @@ const FeatureMentor = () => {
   // const Mentors = getAllMentors();
   useEffect(() => {
     async function name() {
-      const users = await getUsers();
+      const users = await getUsers(true);
       // console.log(users);
       setMentors(users);
     }

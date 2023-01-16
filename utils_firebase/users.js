@@ -2,16 +2,23 @@ import { auth, fireStore, googleProvider } from "./config";
 import firebase from "firebase/app";
 
 // get feature mentors
-export const getUsers = async () => {
+export const getUsers = async (condition) => {
   const resualt = [];
-  const data = await fireStore
-    .collection("users")
-    .where("feature", "==", true)
-    .get();
+  if (condition) {
+    const data = await fireStore
+      .collection("users")
+      .where("feature", "==", true)
+      .get();
+    data.docs.forEach((doc) => {
+      resualt.push({ id: doc.id, ...doc.data() });
+    });
+  } else {
+    const data = await fireStore.collection("users").get();
+    data.docs.forEach((doc) => {
+      resualt.push({ id: doc.id, ...doc.data() });
+    });
+  }
 
-  data.docs.forEach((doc) => {
-    resualt.push({ id: doc.id, ...doc.data() });
-  });
   return resualt;
 };
 
