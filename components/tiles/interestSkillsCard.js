@@ -6,7 +6,9 @@ const InterestSkillsCard = ({ skill, click }) => {
   const [selectSkill, setSelectSkill] = useState(false);
   useEffect(() => {
     if (click) {
-      click(skill.name, selectSkill);
+      if (selectSkill) {
+        click(skill.name, selectSkill);
+      }
     }
   }, [selectSkill]);
   return (
