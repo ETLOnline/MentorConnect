@@ -66,15 +66,15 @@ export default function NavBar() {
                     </div>
                     {/* --------- */}
                     {/* Nav DropDown Comming Soon */}
-                    <div class="relative group">
-                      <button class="flex flex-row items-center w-full text-base text-left  bg-transparent rounded-lg  focus:outline-none ">
+                    <div className="relative group">
+                      <button className="flex flex-row items-center w-full text-base text-left  bg-transparent rounded-lg  focus:outline-none ">
                         <p className="text-center hover:font-medium font-['Raleway'] text-[16px] md:text-[15px] lg:text-[16px] leading-5 md:m-[10px] m-[16px] cursor-pointer">
                           Comming Soon
                         </p>
                       </button>
-                      <div class="absolute left-[-10px] z-10 hidden  group-hover:block">
-                        <div class="px-2 pt-2 pb-4 bg-gray-50 rounded-[5px] shadow-lg">
-                          <div class="flex flex-col gap-4">
+                      <div className="absolute left-[-10px] z-10 hidden  group-hover:block">
+                        <div className="px-2 pt-2 pb-4 bg-gray-50 rounded-[5px] shadow-lg">
+                          <div className="flex flex-col gap-4">
                             <div className="hover:text-[#1C2D56] hover:bg-blue-50 px-3 cursor-pointer text-center">
                               Recommendations
                             </div>
