@@ -60,6 +60,8 @@ export default function Profile() {
     createSession(formData, router, user?.user.uid);
   }
 
+  console.log(user.user.summry.displayName);
+
   return (
     <Fragment>
       <div className=" mt-5 bg-slate-50  ">
@@ -74,15 +76,73 @@ export default function Profile() {
                   This information will be displayed publicly so be careful what
                   you share.
                 </p> */}
-                <div className="w-[100%] mt-[50px] bg-white rounded-[12px] h-[500px]">
-                  <div className="relative h-[150px]  mx-auto w-[150px]">
+                {/* Look like Intro Card */}
+                <div className="w-[100%] mt-[50px] bg-white rounded-[20px] h-[500px]">
+                  <div className="relative h-[200px]  mx-auto w-[200px]">
                     <Image
-                      src={"/img/Image (14).png"}
+                      src={Url ? Url : user?.user?.summry.image}
                       fill
                       className="rounded-full my-[20px]"
+                      alt="img"
+                    />
+                  </div>
+                  <div className="w-[84.61%] mx-auto flex justify-between my-[32px]">
+                    <p className="text-[24px] leading-[28px] font-semibold">
+                      {user?.user?.summry?.displayName}
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex mx-auto w-[69.5%] justify-between">
+                      <p className="text-[32px] font-semibold leading-[38px] text-[#1C2D56] text-center">
+                        {user?.user?.followers?.length}
+                      </p>
+                      <p className="text-[32px] leading-[38px] font-semibold text-[#1C2D56] text-center">
+                        {user?.user?.points?.coachingPoint +
+                          user?.user?.points?.learningPoint}
+                      </p>
+                    </div>
+
+                    <div className="flex w-[70%] ml-[45px] justify-between">
+                      <p className="text-[20px] leading-[23px] text-center text-[#1C2D56]">
+                        Followers
+                      </p>
+                      <p className="text-[20px] leading-[23px] text-center text-[#1C2D56]">
+                        Points
+                      </p>
+                    </div>
+                  </div>
+                  <div className="w-[48.07%] flex mx-auto justify-between mb-[32px] mt-[40px]">
+                    <Image
+                      src="/img/LinkedIn.png"
+                      alt="img"
+                      height={32}
+                      width={32}
+                      className="object-cover"
+                    />
+                    <Image
+                      src="/img/Discord.png"
+                      alt="img"
+                      height={32}
+                      width={32}
+                      className="object-cover"
+                    />
+                    <Image
+                      src="/img/Github.png"
+                      alt="img"
+                      height={32}
+                      width={32}
+                      className="object-cover"
+                    />
+                    <Image
+                      src="/img/Twitter (1).png"
+                      alt="img"
+                      height={32}
+                      width={32}
+                      className="object-cover"
                     />
                   </div>
                 </div>
+                {/* --- END Look like Intro Card --- */}
               </div>
             </div>
             <div className="mt-5 md:col-span-2 md:mt-0">
