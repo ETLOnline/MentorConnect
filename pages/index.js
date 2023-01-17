@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import HomePage from "../components/homePage";
 
 export default function Home() {

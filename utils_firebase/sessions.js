@@ -40,16 +40,20 @@ export const registorSession = (sessionId, uid) => {
       students: firebase.firestore.FieldValue.arrayUnion(uid),
     });
     console.log("update ho gya he");
-    return "You are Register this Session"
+    return "You are Register this Session";
   } else {
     return "Do not have enough points...";
   }
 };
 // get all sessions
 export const getAllSessions = async () => {
+  // console.log(firebase.firestore.Timestamp.fromDate(new Date()), "date");
   const allSessions = [];
-  const session = await fireStore.collection("sessions").get();
-  // console.log(session.docs);
+  const session = await fireStore
+    .collection("sessions")
+    .where("startTime", ">=", firebase.firestore.Timestamp.fromDate(new Date()))
+    .get();
+  // console.log(session, "session");
   for (const doc of session.docs) {
     const user = await getSingleUser(doc.data().instructor);
     allSessions.push({
@@ -108,6 +112,12 @@ export const getSessionByUserSkills = async (data) => {
     console.log(data, "skillfilter");
     const doc = await fireStore
       .collection("sessions")
+      .where(
+        "startTime",
+        ">=",
+        firebase.firestore.Timestamp.fromDate(new Date())
+      )
+      .where("approve", "==", true)
       .where("tags", "array-contains-any", data)
       .get();
     for (const element of doc.docs) {

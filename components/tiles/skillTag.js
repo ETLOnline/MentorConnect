@@ -4,10 +4,10 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { CUIAutoComplete } from "chakra-ui-autocomplete";
 
 export default function SkillTag({ skills, handleSelectedChange, userSkills }) {
-
-  
   const [pickerItems, setPickerItems] = React.useState(skills);
-  const [selectedItems, setSelectedItems] = React.useState(userSkills);
+  const [selectedItems, setSelectedItems] = React.useState(
+    userSkills ? userSkills : []
+  );
 
   const handleCreateItem = (item) => {
     setPickerItems((curr) => [...curr, item]);
