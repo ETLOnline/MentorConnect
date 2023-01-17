@@ -7,6 +7,10 @@ import { loginWithGoogle } from "../../utils_firebase/users";
 import { useRouter } from "next/router";
 import { useSinup } from "../../hooks/useSignup";
 import { useSinin } from "../../hooks/useSignin";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+
 import { AuthContext } from "../../contexts/auth_context";
 const Index = () => {
   const { setUser } = useContext(AuthContext);
@@ -31,6 +35,7 @@ const Index = () => {
 
   function submitHandler(event) {
     event.preventDefault();
+    // toast("Wow so easy !");
 
     if (isLogin) {
       const enteredGmail = inputGamil.current.value;
@@ -212,7 +217,7 @@ const Index = () => {
 
             <div className="w-[40%] xs:w-[35%] sm:w-[50%] md:w-[45%] lg:w-[32.22%] flex justify-between mx-auto mb-[15.57%] mt-[64px]">
               <div
-                onClick={() => loginWithGoogle(router, setUser)}
+                onClick={() => loginWithGoogle(router, setUser, toast)}
                 className="relative h-[52px] w-[52px]"
               >
                 <Image

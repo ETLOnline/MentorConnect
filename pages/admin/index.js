@@ -9,7 +9,7 @@ function Index() {
   const [userData, setUserData] = useState([]);
   useEffect(() => {
     getUsers().then((data) => {
-      console.log(data, "admin");
+      // console.log(data, "admin");
       setUserData(data);
     });
   }, []);

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { auth, fireStore } from "../utils_firebase/config";
 import { AuthContext } from "../contexts/auth_context";
 import { getSingleUser } from "../utils_firebase/users";
+import { toast } from "react-toastify";
 
 export const useSinup = () => {
   const { setUser } = useContext(AuthContext);
@@ -35,7 +36,7 @@ export const useSinup = () => {
         .set({
           uid: userCredential.user.uid,
           summry: {
-            displayName: data.firstName + data.lastName,
+            displayName: data.firstName + " " + data.lastName,
             email: data.gmail,
             image: image,
           },
@@ -63,12 +64,13 @@ export const useSinup = () => {
         setError(null);
         setIsPanding(false);
       }
-
+      toast.success("Successfully Sigin In");
       router.push("/home");
       // Signed in
       var user = userCredential.user;
       console.log(user, "Signed in");
     } catch (error) {
+      toast.error(error.message);
       console.log(error.message);
       if (!cancelled) {
         setError(error.message);

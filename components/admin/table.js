@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 function Table(users) {
-  console.log(users.users, "table");
+  // console.log(users.users, "table");
   return (
     <section className="antialiased bg-gray-100 text-gray-600 px-4">
       <div className="flex flex-col justify-center h-full">
