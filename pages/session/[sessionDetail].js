@@ -10,6 +10,7 @@ import { followUser } from "../../utils_firebase/users";
 import Image from "next/image";
 import Link from "next/link";
 import Followbtn from "../../components/tiles/followbtn";
+import { toast } from "react-toastify";
 
 const SessionDetail = () => {
   const { user } = useContext(AuthContext);
@@ -24,9 +25,19 @@ const SessionDetail = () => {
     // declare the async data fetching function
   }, [id]);
 
-  const onFollowHenddler = (id) => {
+  const onFollowHenddler = (id, name) => {
     console.log(id, "foll", user.user.uid);
+
     followUser(id, user.user.uid);
+    const resolveAfter3Sec = new Promise((resolve) =>
+      setTimeout(resolve, 1000)
+    );
+
+    toast.promise(resolveAfter3Sec, {
+      pending: "please wait ",
+      success: "You Follow " + name,
+      error: "Error 🤯",
+    });
   };
   if (isLoaded.length === 0) {
     return <Spinner />;
@@ -124,7 +135,17 @@ const SessionDetail = () => {
 
             <div className="p-5">
               <div
-                onClick={() => registorSession(id, user.user.uid)}
+                onClick={() => {
+                  const data = registorSession(id, user.user.uid);
+                  const resolveAfter3Sec = new Promise((resolve) =>
+                    setTimeout(resolve, 1000)
+                  );
+                  toast.promise(resolveAfter3Sec, {
+                    pending: "please wait ",
+                    success: data,
+                    error: "Error 🤯",
+                  });
+                }}
                 className="w-[63.63%] cursor-pointer bg-[#E6E5E5] p-[30px]  mx-auto  flex justify-center"
               >
                 <p className="text-[40px] leading-[18px] text-[#1C2D56] m-auto">

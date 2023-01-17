@@ -1,5 +1,6 @@
 import { auth, fireStore, googleProvider } from "./config";
 import firebase from "firebase/app";
+// import { toast } from "react-toastify";
 
 // get feature mentors
 export const getUsers = async (condition) => {
@@ -72,15 +73,19 @@ export const loginWithGoogle = (router, setUser) => {
         });
         console.log("Document successfully written!");
         router.push("/home");
+        // toast.success("Successfully Sigin In");
       } else {
         setUser((prev) => {
           return { ...prev, user: userData };
         });
+        // toast.success("Successfully LogIn");
+
         router.push("/home");
       }
       // ...
     })
     .catch((error) => {
+      // toast.error(error.message);
       // Handle Errors here.
       console.log(error);
       const errorCode = error.code;
@@ -110,8 +115,8 @@ export default function updateImage(image, uid) {
       console.error("Error updating document: ", error);
     });
 }
-export const updatePoint = (params) => {
-  var Ref = fireStore.collection("users").doc("99iQxqVi3gc7ppU7Yvq8cSd26Wr1");
+export const updatePoint = async(params) => {
+  var Ref = await fireStore.collection("users").doc("99iQxqVi3gc7ppU7Yvq8cSd26Wr1");
   return Ref.update({
     // "points.learningPoint": learningPoint-sessionPoins,
     "points.learningPoint": 100 - 100,

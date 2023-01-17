@@ -40,6 +40,7 @@ export const registorSession = (sessionId, uid) => {
       students: firebase.firestore.FieldValue.arrayUnion(uid),
     });
     console.log("update ho gya he");
+    return "You are Register this Session"
   } else {
     return "Do not have enough points...";
   }

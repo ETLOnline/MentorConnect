@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { auth } from "../utils_firebase/config";
 import { AuthContext } from "../contexts/auth_context";
+import { toast } from "react-toastify";
 
 export const useSignout = () => {
   const { setUser, triggerAuthEffect } = useContext(AuthContext);
@@ -22,13 +23,14 @@ export const useSignout = () => {
         setError(null);
         setIsPanding(false);
       }
-
+      toast.info("Successfully LogOut");
       router.push("/");
       triggerAuthEffect();
 
       // Signout
       console.log("logout");
     } catch (error) {
+      toast.error(error.message);
       console.log(error.message);
       if (!cancelled) {
         setError(error.message);
