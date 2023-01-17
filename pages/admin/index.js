@@ -21,7 +21,7 @@ function Index() {
         <Aside />
 
         <main className="ml-60 pt-16 ">
-          <div className="px-6 py-8">
+          <div className="px-6 bg-white py-8">
             {userData.length > 0 ? <Table users={userData} /> : <Spinner />}
           </div>
         </main>
