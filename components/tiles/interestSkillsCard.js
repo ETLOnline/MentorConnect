@@ -4,16 +4,20 @@ import Image from "next/image";
 
 const InterestSkillsCard = ({ skill, click }) => {
   const [selectSkill, setSelectSkill] = useState(false);
+  const [con, setCon] = useState(false);
   useEffect(() => {
     if (click) {
-      if (selectSkill) {
+      if (con) {
+        // if (selectSkill) {
         click(skill.name, selectSkill);
+        // }
       }
     }
   }, [selectSkill]);
   return (
     <div
       onClick={() => {
+        setCon(true);
         setSelectSkill((prev) => !prev);
       }}
     >

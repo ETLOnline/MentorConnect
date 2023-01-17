@@ -70,7 +70,7 @@ export default function Profile() {
     console.log(formData, " data");
     updateProfile(formData, user.user.uid);
     triggerAuthEffect();
-    router.push("/auth/userId");
+    router.push(`/auth/${user.user.uid}`);
   }
 
   return (

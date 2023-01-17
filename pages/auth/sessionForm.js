@@ -1,13 +1,17 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { useRef } from "react";
 import { storage } from "../../utils_firebase/config";
 import { createSession } from "../../utils_firebase/sessions";
 import { useRouter } from "next/router";
 import { AuthContext } from "../../contexts/auth_context";
 import Image from "next/image";
+import { getAllSkillsOnly } from "../../utils_firebase/skills";
+import SkillTag from "../../components/tiles/skillTag";
 
 export default function Profile() {
   const { user } = useContext(AuthContext);
+  const [skills, setskills] = useState([]);
+  const [intrest, setintrest] = useState([]);
 
   const router = useRouter();
 
@@ -36,23 +40,35 @@ export default function Profile() {
     }
   }
 
+  const handleSelectedChange = (seleteditem) => {
+    // console.log(fillterSkills(seleteditem));
+    setintrest(fillterSkills(seleteditem));
+  };
+  const fillterSkills = (data) => {
+    return data.map((ele) => ele.value);
+  };
+  useEffect(() => {
+    getAllSkillsOnly().then((data) => {
+      setskills(data);
+      // console.log(data);
+    });
+  }, []);
   let formData;
   function submitHandler(event) {
     event.preventDefault();
     const enteredStartTime = inputStartTime.current.value;
     const enteredEndTime = inputEndTime.current.value;
-    const enteredTags = inputTags.current.value;
+    // const enteredTags = inputTags.current.value;
     const enteredPoints = inputPoints.current.value;
     const enteredTiltle = inputTitle.current.value;
 
     // Spliting by comma...
-    const Tags = enteredTags.split(",");
-
+    // const Tags = enteredTags.split(",");
     formData = {
       Title: enteredTiltle,
       StartTime: enteredStartTime,
       EndTime: enteredEndTime,
-      Tags: Tags,
+      Tags: intrest,
       Points: enteredPoints,
       Image: Url,
     };
@@ -60,7 +76,7 @@ export default function Profile() {
     createSession(formData, router, user?.user.uid);
   }
 
-  console.log(user.user.summry.displayName);
+  // console.log(user.user.summry.displayName);
 
   return (
     <Fragment>
@@ -220,7 +236,15 @@ export default function Profile() {
                         >
                           Tags
                         </label>
-                        <div className="mt-1 flex rounded-md shadow-sm">
+                        {skills.length > 0 ? (
+                          <SkillTag
+                            handleSelectedChange={handleSelectedChange}
+                            skills={skills}
+                          />
+                        ) : (
+                          ""
+                        )}
+                        {/* <div className="mt-1 flex rounded-md shadow-sm">
                           <input
                             type="text"
                             name="company-website"
@@ -229,7 +253,7 @@ export default function Profile() {
                             className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             placeholder="Please enter your Tags"
                           />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                     <div className="grid grid-cols-3 gap-6">
