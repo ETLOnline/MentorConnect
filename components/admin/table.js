@@ -1,96 +1,176 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { useTable, useSortBy, usePagination } from "react-table";
+// import { COLUMNS } from "./columns";
 import Image from "next/image";
 
 function Table(users) {
-  // console.log(users.users, "table");
-  return (
-    <section className="antialiased bg-gray-100 text-gray-600 px-4">
-      <div className="flex flex-col justify-center h-full">
-        <div className="w-full  mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
-          <header className="px-5 py-4 border-b border-gray-100">
-            <h2 className="font-semibold text-gray-800">Customers</h2>
-          </header>
-          <div className="p-3">
-            <div className="overflow-x-auto">
-              <table className="table-auto w-full">
-                <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
-                  <tr>
-                    <th className="p-2 whitespace-nowrap">
-                      <div className="font-semibold text-left">Name</div>
-                    </th>
-                    <th className="p-2 whitespace-nowrap">
-                      <div className="font-semibold text-left">Email</div>
-                    </th>
-                    {/* <th className="p-2 whitespace-nowrap">
-                      <div className="font-semibold text-left">Name</div>
-                    </th> */}
-                  </tr>
-                </thead>
-                <tbody className="text-sm divide-y divide-gray-100">
-                  {users.users.map((ele) => {
-                    return (
-                      <tr>
-                        <td className="p-2 whitespace-nowrap">
-                          <div className="flex items-center">
-                            <div className="relative w-[40px] rounded-[100%] h-[40px] flex-shrink-0 mr-2 sm:mr-3">
-                              <Image
-                                src={ele.summry.image}
-                                alt="Alex Shatov"
-                                fill
-                              />
-                              {/* <img
-                                className="rounded-full"
-                                src={ele.summry.image}
-                                width="40"
-                                height="40"
-                                alt="Alex Shatov"
-                              /> */}
-                            </div>
-                            <div className="font-medium text-gray-800">
-                              {ele.summry.displayName}
-                            </div>
-                          </div>
-                        </td>
-                        <td className="p-2 whitespace-nowrap">
-                          <div className="text-left">{ele.summry.email}</div>
-                        </td>
-                      </tr>
-                    );
-                  })}
+  const COLUMNS = [
+    {
+      Header: "Image",
+      Cell: (row) => (
+        <div className="relative w-[40px] h-[40px] pl-[40px] flex items-center">
+          <Image
+            src={row.row.original.summry.image}
+            className="rounded-full"
+            alt="img"
+            fill
+          />
+        </div>
+      ),
+    },
+    {
+      Header: "Name",
+      accessor: "summry.displayName",
+    },
 
-                  {/* <tr>
-                    <td className="p-2 whitespace-nowrap">
-                      <div className="flex items-center">
-                        <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
-                          <img
-                            className="rounded-full"
-                            src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg"
-                            width="40"
-                            height="40"
-                            alt="Alex Shatov"
-                          />
-                        </div>
-                        <div className="font-medium text-gray-800">
-                          Alex Shatov
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2 whitespace-nowrap">
-                      <div className="text-left">alexshatov@gmail.com</div>
-                    </td>
-                    <td className="p-2 whitespace-nowrap">
-                      <div className="text-left font-medium text-green-500">
-                        $2,890.66
-                      </div>
-                    </td>
-                  </tr> */}
-                </tbody>
-              </table>
-            </div>
+    {
+      Header: "Email",
+      accessor: "summry.email",
+    },
+  ];
+
+  const MOCK_DATA = users.users;
+
+  const columns = useMemo(() => COLUMNS, []);
+  const data = useMemo(() => MOCK_DATA, []);
+
+  console.log(MOCK_DATA, "table");
+
+  const tableInstance = useTable(
+    {
+      columns,
+      data,
+    },
+    useSortBy,
+    usePagination
+  );
+
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    page,
+    nextPage,
+    previousPage,
+    canNextPage,
+    canPreviousPage,
+    pageOptions,
+    gotoPage,
+    pageCount,
+    setPageSize,
+    state,
+    prepareRow,
+  } = tableInstance;
+
+  const { pageIndex, pageSize } = state;
+
+  return (
+    <>
+      <section>
+        <div className="px-5 py-4 border-b border-gray-100">
+          <h2 className="text-[20px] font-semibold font-['Raleway']">Users</h2>
+        </div>
+        <div className="p-3">
+          <table className="table-auto w-full" {...getTableProps()}>
+            <thead className="text-md text-left font-bold uppercase text-gray-900 bg-[#dbdbdb]">
+              {headerGroups.map((headerGroup) => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map((column) => (
+                    <th
+                      className="p-5 whitespace-nowrap"
+                      {...column.getHeaderProps(column.getSortByToggleProps())}
+                    >
+                      {column.render("Header")}
+                      <span>
+                        {column.isSorted
+                          ? column.isSortedDesc
+                            ? " 🔽"
+                            : " 🔼"
+                          : ""}
+                      </span>
+                    </th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody
+              className="text-sm divide-y divide-gray-100"
+              {...getTableBodyProps()}
+            >
+              {page.map((row) => {
+                prepareRow(row);
+                return (
+                  <tr
+                    className="even:bg-gray-50 odd:hover:bg-blue-50"
+                    {...row.getRowProps()}
+                  >
+                    {row.cells.map((cell) => {
+                      return (
+                        <td
+                          className="p-2 whitespace-nowrap "
+                          {...cell.getCellProps()}
+                        >
+                          {cell.render("Cell")}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <div className="w-[100%] mx-auto bg-[#dbdbdb] py-4 ">
+          <div className="w-[80%] flex justify-evenly mx-auto items-center gap-5">
+            <span>
+              Page{" "}
+              <strong>
+                {pageIndex + 1} of {pageOptions.length}
+              </strong>{" "}
+            </span>
+            <span>
+              | Go to Page:{" "}
+              <input
+                className="w-[50px] pl-1"
+                type="number"
+                defaultValue={pageIndex + 1}
+                onChange={(e) => {
+                  const pageNumber = e.target.value
+                    ? Number(e.target.value) - 1
+                    : 0;
+                  gotoPage(pageNumber);
+                }}
+              />
+            </span>
+            <select
+              value={pageSize}
+              onChange={(e) => setPageSize(Number(e.target.value))}
+            >
+              {[10, 25, 50].map((pageSize) => (
+                <option key={pageSize} value={pageSize}>
+                  Show {pageSize}
+                </option>
+              ))}
+            </select>
+            <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+              {"<<"}
+            </button>
+            <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+              Previous
+            </button>
+            <button onClick={() => nextPage()} disabled={!canNextPage}>
+              Next
+            </button>
+            <button
+              onClick={() => gotoPage(pageCount - 1)}
+              disabled={!canNextPage}
+            >
+              {">>"}
+            </button>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
