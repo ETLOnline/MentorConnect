@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { BsFilePerson } from "react-icons/bs";
 import { SiGooglemeet } from "react-icons/si";
 
@@ -13,24 +14,24 @@ function Aside() {
             </h1>
           </div>
           <div className="p-4">
-            <ul className="space-y-1">
+            <ul className="space-y-2">
               <li>
-                <a
+                <Link
                   href=""
-                  className="flex items-center bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4"
+                  className="flex items-center gap-2 bg-white hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
                 >
-                  <BsFilePerson />
+                  <BsFilePerson className="w-[25px] h-[25px]" />
                   Users
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href=""
-                  className="flex bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4"
+                  className="flex items-center bg-white gap-2 hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
                 >
-                  <SiGooglemeet />
+                  <SiGooglemeet className="w-[25px] h-[25px]" />
                   Sessions
-                </a>
+                </Link>
               </li>
               {/* <li>
                 <a
