@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Followbtn from "../tiles/followbtn";
+import { BsCheckLg } from "react-icons/bs";
 
 const Students = ({ student, onFollowHenddler }) => {
   console.log(student.uid, "StudentData");
@@ -24,12 +25,23 @@ const Students = ({ student, onFollowHenddler }) => {
               </h1>
             </div>
           </Link>
-          <Followbtn
-            onClick={() => onFollowHenddler(student.uid)}
+          <button
+            onClick={() => {
+              onFollowHenddler(student.uid, student.summry.displayName);
+            }}
+            className="w-[74px] h-[3.39vh] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl"
+          >
+            Follows
+          </button>
+          {/* <Followbtn
+            onClick={() => {
+              console.log("sasas");
+              onFollowHenddler(student.uid);
+            }}
             className="w-[74px] h-[26px] border-[1px] text-[#1C2D56] text-[16px] font-medium rounded-xl"
           >
             Follow
-          </Followbtn>
+          </Followbtn> */}
         </div>
       </div>
     </Fragment>

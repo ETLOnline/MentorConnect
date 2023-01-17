@@ -2,6 +2,9 @@ import "../styles/globals.css";
 import Layout from "../components/layout";
 import Footer from "../components/footer";
 import AuthProvider from "../contexts/auth_context";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -20,6 +23,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
         <Footer />
       </Layout>
+      <ToastContainer />
     </AuthProvider>
   );
 }

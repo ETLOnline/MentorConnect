@@ -15,9 +15,6 @@ const InterestSkillsCard = ({ skill, click }) => {
     <div
       onClick={() => {
         setSelectSkill((prev) => !prev);
-        // if (click) {
-        //   click(skill.name, !selectSkill);
-        // }
       }}
     >
       <div
