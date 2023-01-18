@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import Videos from "./videos";
 import { getAllSkillsWithImage } from "../../utils_firebase/skills";
+import VideoCard from "./videoCard";
 
 const HomePage = () => {
   const [sessions, setSessions] = useState([]);
@@ -53,7 +54,7 @@ const HomePage = () => {
     <Fragment>
       <Header />
       <FeatureMentor />
-      <Videos />
+      <VideoCard />
       <FindMentor />
       <SkillCard onClickSkills={onClickSkills} skills={skills} />
       {sessions == undefined || sessions.length == 0 ? (
