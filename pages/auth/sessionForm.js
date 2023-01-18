@@ -274,6 +274,20 @@ export default function Profile() {
                             placeholder="Please enter Points"
                           />
                         </div>
+                        <div className="mt-1 flex rounded-md shadow-sm">
+                          <select className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 lg:text-lg pl-5 sm:text-sm">
+                            <option value="10">10 Points</option>
+                            <option value="20">20 Points</option>
+                            <option value="30">30 Points</option>
+                            <option value="40">40 Points</option>
+                            <option value="50">50 Points</option>
+                            <option value="60">60 Points</option>
+                            <option value="70">70 Points</option>
+                            <option value="80">80 Points</option>
+                            <option value="90">90 Points</option>
+                            <option value="100">100 Points</option>
+                          </select>
+                        </div>
                       </div>
                     </div>
 

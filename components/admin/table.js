@@ -2,6 +2,8 @@ import React, { useMemo } from "react";
 import { useTable, useSortBy, usePagination } from "react-table";
 // import { COLUMNS } from "./columns";
 import Image from "next/image";
+import { BiFirstPage } from "react-icons/bi";
+import { BiLastPage } from "react-icons/bi";
 
 function Table(users) {
   const COLUMNS = [
@@ -66,7 +68,7 @@ function Table(users) {
 
   return (
     <>
-      <section>
+      <section className="min-h-[500px]">
         <div className="px-5 py-4 border-b border-gray-100">
           <h2 className="text-[20px] font-semibold font-['Raleway']">Users</h2>
         </div>
@@ -153,19 +155,27 @@ function Table(users) {
               ))}
             </select>
             <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-              {"<<"}
+              <BiFirstPage className="w-[25px] h-[25px]" />
             </button>
-            <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+            <button
+              className="font-bold"
+              onClick={() => previousPage()}
+              disabled={!canPreviousPage}
+            >
               Previous
             </button>
-            <button onClick={() => nextPage()} disabled={!canNextPage}>
+            <button
+              className="font-bold"
+              onClick={() => nextPage()}
+              disabled={!canNextPage}
+            >
               Next
             </button>
             <button
               onClick={() => gotoPage(pageCount - 1)}
               disabled={!canNextPage}
             >
-              {">>"}
+              <BiLastPage className="w-[25px] h-[25px]" />
             </button>
           </div>
         </div>
