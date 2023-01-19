@@ -11,8 +11,8 @@ export default function Home() {
   // const Mentors = getAllMentors();
   useEffect(() => {
     async function name() {
-      const seasion = await getAllSessions();
-      console.log(seasion, ">>>>>>>>>>><<<LLLLLLLLKKKKKKKKKKK");
+      const seasion = await getAllSessions(true);
+      // console.log(seasion, ">>>>>>>>>>><<<LLLLLLLLKKKKKKKKKKK");
       const filtersession = seasion.map((doc) => {
         // console.log(
         //   new Date(

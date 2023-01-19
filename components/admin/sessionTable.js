@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import { useTable, useSortBy, usePagination } from "react-table";
-// import { COLUMNS } from "./columns";
 import Image from "next/image";
 import { BiFirstPage } from "react-icons/bi";
 import { BiLastPage } from "react-icons/bi";
@@ -24,6 +23,10 @@ function SessionTable(sessions) {
       Header: "Title",
       accessor: "title",
     },
+    {
+      Header: "Instructor",
+      accessor: "instructor.summry.displayName",
+    },
 
     {
       Header: "Start Time",
@@ -37,7 +40,7 @@ function SessionTable(sessions) {
 
   // save session props data in mock data
   const MOCK_DATA = sessions.sessions;
-
+  console.log(MOCK_DATA, "tav");
   const convertDate = (datetime) => {
     // functin to convert start and end session date time form seconds to datetime formate
     const date = new Date(datetime.seconds * 1000).toLocaleDateString();

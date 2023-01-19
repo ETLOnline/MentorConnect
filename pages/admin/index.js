@@ -10,45 +10,47 @@ import SessionTable from "../../components/admin/sessionTable";
 function Index() {
   const [userData, setUserData] = useState([]);
   const [sessionData, setSessionData] = useState([]);
-  const [userTable, setUserTable] = useState(true);
-  const [sessionTable, setSessionTable] = useState(false);
+  const [sessionRequest, setSessionRequest] = useState([]);
+  const [select, setSelect] = useState("user");
   useEffect(() => {
-    getUsers().then((data) => {
-      console.log(data, "admin");
-      setUserData(data);
-    });
-    getAllSessions().then((sdata) => {
-      console.log(sdata, "session data");
-      setSessionData(sdata);
-    });
-  }, []);
-  const userTableHandler = () => {
-    console.log("user table hazir ho");
-    setUserTable(true);
-    setSessionTable(false);
-  };
-  const sessionTableHandler = () => {
-    console.log("session table hazir ho");
-    setUserTable(false);
-    setSessionTable(true);
+    if (select == "user") {
+      getUsers().then((data) => {
+        console.log(data, "admin");
+        setUserData(data);
+      });
+    } else if (select == "session") {
+      getAllSessions(true).then((sdata) => {
+        setSessionData(sdata);
+      });
+    } else if (select == "requestSession") {
+      getAllSessions(false).then((sdata) => {
+        setSessionRequest(sdata);
+      });
+    }
+  }, [select]);
+  const selectHandler = (str) => {
+    setSelect(str);
   };
 
   return (
     <div>
       <div className="relative bg-blue-50 overflow-hidden max-h-full">
         <Header />
-        <Aside
-          userTable={userTableHandler}
-          sessionTable={sessionTableHandler}
-        />
+        <Aside selectHandler={selectHandler} />
 
         <main className="ml-60 pt-16 ">
           <div className="px-6 bg-white py-8">
-            {userTable &&
+            {select == "user" &&
               (userData.length > 0 ? <Table users={userData} /> : <Spinner />)}
-            {sessionTable &&
+            {select == "session" &&
               (sessionData.length > 0 ? (
                 <SessionTable sessions={sessionData} />
+              ) : (
+                <Spinner />
+              ))}
+            {select == "requestSession" &&
+              (sessionRequest.length > 0 ? (
+                <SessionTable sessions={sessionRequest} />
               ) : (
                 <Spinner />
               ))}

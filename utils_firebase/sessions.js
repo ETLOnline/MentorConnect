@@ -7,6 +7,7 @@ export const createSession = (data, router, id) => {
   fireStore
     .collection("sessions")
     .add({
+      approve: false,
       image: data.Image,
       instructor: id,
       students: ["HID06ysBc8cYx2rtsxvOAtOJT9o1"],
@@ -32,7 +33,6 @@ export const createSession = (data, router, id) => {
 // students register session
 export const registorSession = (sessionId, uid) => {
   var Ref = fireStore.collection("sessions").doc(sessionId);
-
   // if(userPoins>sessionPoins){
   if (true) {
     updatePoint();
@@ -46,11 +46,12 @@ export const registorSession = (sessionId, uid) => {
   }
 };
 // get all sessions
-export const getAllSessions = async () => {
+export const getAllSessions = async (cond) => {
   // console.log(firebase.firestore.Timestamp.fromDate(new Date()), "date");
   const allSessions = [];
   const session = await fireStore
     .collection("sessions")
+    .where("approve", "==", cond)
     .where("startTime", ">=", firebase.firestore.Timestamp.fromDate(new Date()))
     .get();
   // console.log(session, "session");
@@ -70,6 +71,7 @@ export const filterSessionByTag = async (tag) => {
   const allSessions = [];
   const session = await fireStore
     .collection("sessions")
+    .where("approve", "==", true)
     .where("tags", "array-contains", tag)
     .get();
   // console.log(session.docs);
@@ -141,6 +143,7 @@ export const getSessionInUserRegister = async (id) => {
     const allfilterSession = [];
     const doc = await fireStore
       .collection("sessions")
+      .where("approve", "==", true)
       .where("students", "array-contains", id)
       .get();
     console.log(doc);

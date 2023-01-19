@@ -20,7 +20,7 @@ const HomePage = () => {
   useEffect(() => {
     async function name() {
       const skill = await getAllSkillsWithImage();
-      const seasion = await getAllSessions();
+      const seasion = await getAllSessions(true);
       setSkills(skill);
       setSessions(seasion);
     }
