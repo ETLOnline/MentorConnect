@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BsFilePerson } from "react-icons/bs";
 import { SiGooglemeet } from "react-icons/si";
 
-function Aside() {
+function Aside({ userTable, sessionTable }) {
   return (
     <aside className="absolute inset-y-0 left-0 bg-black text-white shadow-md  w-60">
       <div className="flex flex-col justify-between h-full">
@@ -18,6 +18,7 @@ function Aside() {
               <li>
                 <Link
                   href=""
+                  onClick={userTable}
                   className="flex items-center gap-2 bg-white hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
                 >
                   <BsFilePerson className="w-[25px] h-[25px]" />
@@ -27,10 +28,21 @@ function Aside() {
               <li>
                 <Link
                   href=""
+                  onClick={sessionTable}
                   className="flex items-center bg-white gap-2 hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
                 >
                   <SiGooglemeet className="w-[25px] h-[25px]" />
                   Sessions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href=""
+                  onClick={sessionTable}
+                  className="flex items-center bg-white gap-2 hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
+                >
+                  <SiGooglemeet className="w-[25px] h-[25px]" />
+                  Request Sessions
                 </Link>
               </li>
               {/* <li>

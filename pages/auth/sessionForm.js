@@ -264,7 +264,7 @@ export default function Profile() {
                         >
                           Points
                         </label>
-                        <div className="mt-1 flex rounded-md shadow-sm">
+                        {/* <div className="mt-1 flex rounded-md shadow-sm">
                           <input
                             type="text"
                             name="company-website"
@@ -273,9 +273,14 @@ export default function Profile() {
                             className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             placeholder="Please enter Points"
                           />
-                        </div>
+                        </div> */}
                         <div className="mt-1 flex rounded-md shadow-sm">
-                          <select className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 lg:text-lg pl-5 sm:text-sm">
+                          <select
+                            name="company-website"
+                            id="company-website"
+                            ref={inputPoints}
+                            className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 lg:text-lg pl-5 sm:text-sm"
+                          >
                             <option value="10">10 Points</option>
                             <option value="20">20 Points</option>
                             <option value="30">30 Points</option>
