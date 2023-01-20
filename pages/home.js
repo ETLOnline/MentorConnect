@@ -20,6 +20,23 @@ const Home = () => {
 
   const generalSkills = ["Node JS", "MongoDB"];
   console.log(user.user, "userHome...");
+
+  useEffect(() => {
+    if (user.user) {
+      getAllSkillsWithImage().then((data) => setAllSkill(data));
+      getSkillsByUserIntrest(
+        user.user.interest.length === 0 ? generalSkills : user.user.interest
+      ).then((data) => {
+        setskill(data);
+      });
+      getSessionByUserSkills(
+        user.user.interest.length === 0 ? generalSkills : user.user.interest
+      ).then((data) => {
+        setRecommendedSession(data);
+      });
+    }
+  }, []);
+
   if (!user.user) {
     return (
       <div className=" text-center  items-center  text-5xl pb-20 pt-20">
@@ -28,20 +45,6 @@ const Home = () => {
       </div>
     );
   }
-
-  useEffect(() => {
-    getAllSkillsWithImage().then((data) => setAllSkill(data));
-    getSkillsByUserIntrest(
-      user.user.interest.length === 0 ? generalSkills : user.user.interest
-    ).then((data) => {
-      setskill(data);
-    });
-    getSessionByUserSkills(
-      user.user.interest.length === 0 ? generalSkills : user.user.interest
-    ).then((data) => {
-      setRecommendedSession(data);
-    });
-  }, []);
 
   console.log(RecommendedSession, "RecommendedSession....");
   return (

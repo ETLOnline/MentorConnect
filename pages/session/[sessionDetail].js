@@ -1,4 +1,4 @@
-import React, { Fragment, use, useContext, useEffect } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import IntrestsTile from "../../components/tiles/intrestsTile";
 import { getSessionById, registorSession } from "../../utils_firebase/sessions";
 import { useRouter } from "next/router";

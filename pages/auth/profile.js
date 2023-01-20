@@ -47,7 +47,6 @@ export default function Profile() {
   const inputLinkln = useRef();
   const inputGithub = useRef();
   const inputTwitter = useRef();
-  const inputDiscord = useRef();
 
   let formData;
   function submitHandler(event) {

@@ -3,6 +3,8 @@ import { useTable, useSortBy, usePagination } from "react-table";
 import Image from "next/image";
 import { BiFirstPage } from "react-icons/bi";
 import { BiLastPage } from "react-icons/bi";
+import { MdEditNote } from "react-icons/md";
+import Link from "next/link";
 
 function SessionTable(sessions) {
   const COLUMNS = [
@@ -35,6 +37,22 @@ function SessionTable(sessions) {
     {
       Header: "End Time",
       accessor: "EndSession",
+    },
+    {
+      Header: "Edit",
+      Cell: (row) => (
+        <Link href={""} className="flex">
+          {/* <Image
+            src={row.row.original.image}
+            className="rounded-full"
+            alt="img"
+            fill
+          /> */}
+          {/* <BiLastPage className="w-[25px] h-[25px]" /> */}
+
+          <MdEditNote className="m-auto w-[25px] h-[25px]" />
+        </Link>
+      ),
     },
   ];
 
@@ -103,9 +121,13 @@ function SessionTable(sessions) {
           <table className="table-auto w-full" {...getTableProps()}>
             <thead className="text-md text-left font-bold uppercase text-gray-900 bg-[#dbdbdb]">
               {headerGroups.map((headerGroup) => (
-                <tr {...headerGroup.getHeaderGroupProps()}>
+                <tr
+                  key={math.random() + 5}
+                  {...headerGroup.getHeaderGroupProps()}
+                >
                   {headerGroup.headers.map((column) => (
                     <th
+                      key={math.random() + 5}
                       className="p-5 whitespace-nowrap"
                       {...column.getHeaderProps(column.getSortByToggleProps())}
                     >
@@ -130,12 +152,14 @@ function SessionTable(sessions) {
                 prepareRow(row);
                 return (
                   <tr
+                    key={math.random() + 5}
                     className="even:bg-gray-50 odd:hover:bg-blue-50"
                     {...row.getRowProps()}
                   >
                     {row.cells.map((cell) => {
                       return (
                         <td
+                          key={math.random() + 5}
                           className="p-2 whitespace-nowrap "
                           {...cell.getCellProps()}
                         >
