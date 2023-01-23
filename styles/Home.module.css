@@ -1,3 +1,6 @@
+body {
+  font-family: "Raleway", sans-serif;
+}
 .container {
   padding: 0 2rem;
 }
@@ -12,7 +15,7 @@
   align-items: center;
 }
 
-.footer {
+/* .footer {
   display: flex;
   flex: 1;
   padding: 2rem 0;
@@ -26,7 +29,7 @@
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-}
+} */
 
 .title a {
   color: #0070f3;
@@ -106,6 +109,20 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
+}
+
+.marginx_flex_div {
+  margin: 0px 60px;
+}
+.align-cot {
+  margin: 22px;
+}
+.custom-margin-align-items {
+  margin-left: auto;
+  align-items: center;
+}
+.margin-auto {
+  margin: auto;
 }
 
 @media (max-width: 600px) {
