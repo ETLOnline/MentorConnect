@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { BsFilePerson } from "react-icons/bs";
 import { SiGooglemeet } from "react-icons/si";
+import { GiSkills } from "react-icons/gi";
 
 function Aside({ selectHandler }) {
   return (
@@ -43,6 +44,16 @@ function Aside({ selectHandler }) {
                 >
                   <SiGooglemeet className="w-[25px] h-[25px]" />
                   Requested Sessions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href=""
+                  onClick={() => selectHandler("skill")}
+                  className="flex items-center bg-white gap-2 hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
+                >
+                  <GiSkills className="w-[25px] h-[25px]" />
+                  Add Skill
                 </Link>
               </li>
             </ul>
