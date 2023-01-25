@@ -6,6 +6,7 @@ import Spinner from "../../components/spinner";
 import { getUsers } from "../../utils_firebase/users";
 import { getAllSessions } from "../../utils_firebase/sessions";
 import SessionTable from "../../components/admin/sessionTable";
+import AddSkill from "../../components/admin/addSkill";
 
 function Index() {
   const [userData, setUserData] = useState([]);
@@ -54,6 +55,7 @@ function Index() {
               ) : (
                 <Spinner />
               ))}
+            {select == "skill" && <AddSkill />}
           </div>
         </main>
       </div>
