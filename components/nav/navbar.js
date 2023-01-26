@@ -180,14 +180,14 @@ export default function NavBar() {
                   </div>
                 )}
                 {!user.user && (
-                  <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group  hover:bg-[#E6E5E5]">
-                    <Link
-                      className="text-[#fff] font-['Raleway'] group-hover:text-[#1C2D56]"
-                      href="/loginPage"
-                    >
+                  <Link
+                    className="text-[#fff] font-['Raleway'] hover:text-[#1C2D56]  "
+                    href="/loginPage"
+                  >
+                    <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:font-bold hover:bg-[#E6E5E5]">
                       Log In
-                    </Link>
-                  </button>
+                    </button>
+                  </Link>
                 )}
               </div>
 

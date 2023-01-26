@@ -3,9 +3,12 @@ import { AuthContext } from "../../../contexts/auth_context";
 import SkillTag from "../../../components/tiles/skillTag";
 import { getAllSkillsOnly } from "../../../utils_firebase/skills";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { getSessionById } from "../../../utils_firebase/sessions";
 
 function SessionForm() {
-  const { user } = useContext(AuthContext);
+  const router = useRouter();
+  const id = router.query.sessionId;
   const [skills, setskills] = useState([]);
   const [Url, setURL] = useState("");
   const inputStartTime = useRef();
@@ -17,7 +20,21 @@ function SessionForm() {
   useEffect(() => {
     getAllSkillsOnly().then((data) => {
       setskills(data);
-      // console.log(data);
+    });
+    const dateConverter = (now) => {
+      now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+      return now.toISOString().slice(0, 16);
+    };
+    getSessionById(id).then((data) => {
+      inputTitle.current.value = data.title;
+      inputStartTime.current.value = dateConverter(
+        new Date(data.startTime.seconds * 1000)
+      );
+      inputEndTime.current.value = dateConverter(
+        new Date(data.endTime.seconds * 1000)
+      );
+
+      console.log(data, new Date(data.startTime.seconds * 1000));
     });
   }, []);
 
@@ -107,7 +124,7 @@ function SessionForm() {
                               type="datetime-local"
                               name="company-website"
                               id="company-website"
-                              // ref={inputEndTime}
+                              ref={inputEndTime}
                               className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                               placeholder="Please enter End Time"
                             />
@@ -123,14 +140,14 @@ function SessionForm() {
                           >
                             Tags
                           </label>
-                          {skills.length > 0 ? (
+                          {/* {skills.length > 0 ? (
                             <SkillTag
                               // handleSelectedChange={handleSelectedChange}
                               skills={skills}
                             />
                           ) : (
                             ""
-                          )}
+                          )} */}
                         </div>
                       </div>
 

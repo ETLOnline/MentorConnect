@@ -41,7 +41,7 @@ function SessionTable(sessions) {
     {
       Header: "Edit",
       Cell: (row) => (
-        <Link href={"/admin/session/sa"} className="flex">
+        <Link href={`/admin/session/${row.row.original.id}`} className="flex">
           <MdEditNote className="m-auto w-[25px] h-[25px]" />
         </Link>
       ),

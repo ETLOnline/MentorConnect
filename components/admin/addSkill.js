@@ -2,6 +2,8 @@ import { Fragment, useContext, useState, useRef } from "react";
 import { AuthContext } from "../../contexts/auth_context";
 import { storage } from "../../utils_firebase/config";
 import Image from "next/image";
+import { createSkills } from "../../utils_firebase/skills";
+import { toast } from "react-toastify";
 
 const AddSkill = () => {
   const { user } = useContext(AuthContext);
@@ -38,17 +40,21 @@ const AddSkill = () => {
     event.preventDefault();
 
     const enteredSkill = inputSkill.current.value;
+    const imageUrl = Url;
 
     // Spliting by comma...
     // const Tags = enteredTags.split(",");
     formData = {
-      Title: enteredSkill,
-      Image: Url,
+      name: enteredSkill,
+      image: imageUrl,
     };
     console.log(formData);
+
+    createSkills(formData);
     inputSkill.current.value = "";
     setFileSelect(false);
     setURL("");
+    toast.success("You add New Skill");
 
     // createSession(formData, router, user?.user.uid);
   }

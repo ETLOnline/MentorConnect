@@ -20,7 +20,7 @@ const VideoCard = () => {
               <div className="relative mx-auto w-[100%] h-[200px] ">
                 <ReactPlayer
                   url={
-                    "https://www.youtube.com/watch?v=d56mG7DezGs&ab_channel=ProgrammingwithMosh"
+                    "https://www.youtube.com/watch?v=joFQtKOaIiQ&ab_channel=TheLearningDAO"
                   }
                   width="100%"
                   height="100%"
@@ -33,13 +33,13 @@ const VideoCard = () => {
               <div className="flex flex-col  mx-3">
                 <div className=" mb-4 max-h-[30px] ">
                   <p className="text-[20px] hover:text-clip overflow-hidden ... truncate xs:text-[24px] leading-[28px] font-normal font-['Raleway'] text-black">
-                    Session Title
+                    Introduction to Azure DevOps - Part 1
                   </p>
                 </div>
 
                 <div className="flex  gap-2 mb-4 h-[32px]">
                   <Image
-                    src="/img/Image (2).png"
+                    src="/img/mentor2.png"
                     alt=""
                     height={32}
                     width={32}
@@ -47,7 +47,7 @@ const VideoCard = () => {
                   />
 
                   <p className="text-[16px] font-['Raleway'] leading-[19px] font-medium text-[#8B8B8B] pt-2">
-                    Ali Raza
+                    Irfan Bashir
                   </p>
                 </div>
               </div>
@@ -58,7 +58,7 @@ const VideoCard = () => {
               <div className="relative mx-auto overflow-hi w-[100%] h-[200px] ">
                 <ReactPlayer
                   url={
-                    "https://www.youtube.com/watch?v=d56mG7DezGs&ab_channel=ProgrammingwithMosh"
+                    "https://www.youtube.com/watch?v=q3OukdZLnOw&ab_channel=TheLearningDAO"
                   }
                   width="100%"
                   height="100%"
@@ -71,13 +71,13 @@ const VideoCard = () => {
               <div className="flex flex-col  mx-3">
                 <div className=" mb-4 max-h-[30px] ">
                   <p className="text-[20px] hover:text-clip overflow-hidden ... truncate xs:text-[24px] leading-[28px] font-normal font-['Raleway'] text-black">
-                    Session Title
+                    Introduction to Azure DevOps - Part 2
                   </p>
                 </div>
 
                 <div className="flex  gap-2 mb-4 h-[32px]">
                   <Image
-                    src="/img/Image (2).png"
+                    src="/img/mentor2.png"
                     alt=""
                     height={32}
                     width={32}
@@ -85,7 +85,7 @@ const VideoCard = () => {
                   />
 
                   <p className="text-[16px] font-['Raleway'] leading-[19px] font-medium text-[#8B8B8B] pt-2">
-                    Ali Raza
+                    Irfan Bashir
                   </p>
                 </div>
               </div>
@@ -95,9 +95,7 @@ const VideoCard = () => {
             <div className=" flex flex-col gap-4 mb-8  bg-[#F4F4F4] rounded-[12px] overflow-hidden ">
               <div className="relative mx-auto overflow-hi w-[100%] h-[200px] ">
                 <ReactPlayer
-                  url={
-                    "https://www.youtube.com/watch?v=d56mG7DezGs&ab_channel=ProgrammingwithMosh"
-                  }
+                  url={"https://www.youtube.com/watch?v=WugqjIRZfOI"}
                   width="100%"
                   height="100%"
                   pip={true}
@@ -109,13 +107,13 @@ const VideoCard = () => {
               <div className="flex flex-col  mx-3">
                 <div className=" mb-4 max-h-[30px] ">
                   <p className="text-[20px] hover:text-clip overflow-hidden ... truncate xs:text-[24px] leading-[28px] font-normal font-['Raleway'] text-black">
-                    Session Title
+                    Introduction to Azure DevOps - Part 3
                   </p>
                 </div>
 
                 <div className="flex  gap-2 mb-4 h-[32px]">
                   <Image
-                    src="/img/Image (2).png"
+                    src="/img/mentor2.png"
                     alt=""
                     height={32}
                     width={32}
@@ -123,7 +121,7 @@ const VideoCard = () => {
                   />
 
                   <p className="text-[16px] font-['Raleway'] leading-[19px] font-medium text-[#8B8B8B] pt-2">
-                    Ali Raza
+                    Irfan Bashir
                   </p>
                 </div>
               </div>
@@ -133,9 +131,7 @@ const VideoCard = () => {
             <div className=" flex flex-col gap-4 mb-8  bg-[#F4F4F4] rounded-[12px] overflow-hidden ">
               <div className="relative mx-auto overflow-hi w-[100%] h-[200px] ">
                 <ReactPlayer
-                  url={
-                    "https://www.youtube.com/watch?v=d56mG7DezGs&ab_channel=ProgrammingwithMosh"
-                  }
+                  url={"https://www.youtube.com/watch?v=V8zVxC2224s"}
                   width="100%"
                   height="100%"
                   pip={true}
@@ -147,13 +143,13 @@ const VideoCard = () => {
               <div className="flex flex-col  mx-3">
                 <div className=" mb-4 max-h-[30px] ">
                   <p className="text-[20px] hover:text-clip overflow-hidden ... truncate xs:text-[24px] leading-[28px] font-normal font-['Raleway'] text-black">
-                    Session Title
+                    Web 3.0 - Developer's Introduction - Part 1 (Urdu)
                   </p>
                 </div>
 
                 <div className="flex  gap-2 mb-4 h-[32px]">
                   <Image
-                    src="/img/Image (2).png"
+                    src="/img/mentor2.png"
                     alt=""
                     height={32}
                     width={32}
@@ -161,7 +157,7 @@ const VideoCard = () => {
                   />
 
                   <p className="text-[16px] font-['Raleway'] leading-[19px] font-medium text-[#8B8B8B] pt-2">
-                    Ali Raza
+                    Irfan Bashir
                   </p>
                 </div>
               </div>
