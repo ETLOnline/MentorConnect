@@ -186,7 +186,9 @@ const Index = () => {
                   ref={inputGamil}
                   onChange={handleChange}
                 />
-                {emailError && <h2 className="text-[red]">{emailError}</h2>}
+                {emailError && (
+                  <h2 className="absolute text-[red]">{emailError}</h2>
+                )}
                 <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
                   Enter your Email
                 </label>
@@ -201,7 +203,9 @@ const Index = () => {
                     ref={inputPassword}
                     onChange={passwordHandler}
                   />
-                  {passError && <h2 className="text-[red]">{passError}</h2>}
+                  {passError && (
+                    <h2 className="absolute text-[red]">{passError}</h2>
+                  )}
                   <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
                     Password
                   </label>
@@ -230,7 +234,7 @@ const Index = () => {
                   />
                   {matchError && <h2 className="text-[red]">{matchError}</h2>}
                   <label className="pointer-events-none peer-focus:px-1 px-1 absolute left-[16px] -top-3.5 peer-placeholder-shown:top-3 peer-focus:-top-3.5 bg-white">
-                    Confirm Password
+                    Password
                   </label>
                 </div>
                 {/* )} */}
@@ -240,13 +244,13 @@ const Index = () => {
             {/* signup button with form valid */}
 
             {emailError == null && passError == null && matchError == null ? (
-              <div className="mx-auto w-[30%] xs:w-[20%]  sm:w-[25%] md:w-[20%] lg:w-[14.85%] bg-[#1C2D56]  rounded-[4px] py-[5px] flex mt-[64px] sm:mt-[32px]">
+              <div className="mx-auto w-[30%] xs:w-[20%]  sm:w-[25%] md:w-[20%] lg:w-[14.85%] bg-[#1C2D56]  rounded-[4px] py-[5px] flex mt-[64px] sm:mt-[42px]">
                 <button className="bg-[#1C2D56] m-auto text-center text-[white]">
                   Signup
                 </button>
               </div>
             ) : (
-              <div className="mx-auto w-[30%] xs:w-[20%]  sm:w-[25%] md:w-[20%] lg:w-[14.85%] bg-gray-500  rounded-[4px] py-[5px] flex mt-[64px] sm:mt-[32px]">
+              <div className="mx-auto w-[30%] xs:w-[20%]  sm:w-[25%] md:w-[20%] lg:w-[14.85%] bg-gray-500  rounded-[4px] py-[5px] flex mt-[64px] sm:mt-[42px]">
                 <button className=" m-auto text-center text-[white]" disabled>
                   Signup
                 </button>
