@@ -1,6 +1,7 @@
 import React from "react";
 import ReactPlayer from "react-player";
 import Image from "next/image";
+import VideoCardItem from "./videoCardItem";
 
 const VideoCard = () => {
   return (
@@ -14,8 +15,12 @@ const VideoCard = () => {
       </div>
 
       <div className=" w-full">
-        <div className="flex flex-wrap justify-between ">
-          <div className="w-[90%] xs:w-[80%] sm:w-[45%]  lg:w-[30.2%] xl:w-[23.18%]">
+        <div className="flex flex-wrap gap-[2.42%] justify-center ">
+          <VideoCardItem />
+          <VideoCardItem />
+          <VideoCardItem />
+          <VideoCardItem />
+          {/* <div className="w-[90%] xs:w-[80%] sm:w-[45%]  lg:w-[30.2%] xl:w-[23.18%]">
             <div className=" flex flex-col gap-4 mb-8  bg-[#F4F4F4] rounded-[12px] overflow-hidden ">
               <div className="relative mx-auto w-[100%] h-[200px] ">
                 <ReactPlayer
@@ -52,8 +57,8 @@ const VideoCard = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="w-[90%] xs:w-[80%] sm:w-[45%]  lg:w-[30.2%] xl:w-[23.18%]">
+          </div> */}
+          {/* <div className="w-[90%] xs:w-[80%] sm:w-[45%]  lg:w-[30.2%] xl:w-[23.18%]">
             <div className=" flex flex-col gap-4 mb-8  bg-[#F4F4F4] rounded-[12px] overflow-hidden ">
               <div className="relative mx-auto overflow-hi w-[100%] h-[200px] ">
                 <ReactPlayer
@@ -162,7 +167,7 @@ const VideoCard = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
