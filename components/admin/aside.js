@@ -56,6 +56,16 @@ function Aside({ selectHandler }) {
                   Add Skill
                 </Link>
               </li>
+              <li>
+                <Link
+                  href=""
+                  onClick={() => selectHandler("allSkills")}
+                  className="flex items-center bg-white gap-2 hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
+                >
+                  <GiSkills className="w-[25px] h-[25px]" />
+                  All Skills
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
