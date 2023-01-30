@@ -9,6 +9,8 @@ import { getAllSkillsWithImage } from "../../utils_firebase/skills";
 import SessionTable from "../../components/admin/sessionTable";
 import AddSkill from "../../components/admin/addSkill";
 import AllSkills from "../../components/admin/allSkills";
+import PastSessionForm from "../../components/admin/pastSessionForm";
+import CreateSession from "../../components/admin/createSession";
 
 function Index() {
   const [userData, setUserData] = useState([]);
@@ -70,6 +72,16 @@ function Index() {
               ) : (
                 <Spinner />
               ))}
+            {/* {select == "pastSessionForm" && <PastSessionForm />} */}
+            {select == "pastSessionForm" &&
+              (userData.length > 0 ? (
+                <PastSessionForm users={userData} />
+              ) : (
+                <Spinner />
+              ))}
+            {select == "createSessionForm" && (
+              <CreateSession users={userData} />
+            )}
           </div>
         </main>
       </div>
