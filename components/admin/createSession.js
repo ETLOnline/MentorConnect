@@ -82,11 +82,11 @@ const CreateSession = (users) => {
       EndTime: enteredEndTime,
       Tags: intrest,
       Points: enteredPoints,
-      instructor: enteredInstructor,
+      // instructor: enteredInstructor,
       Image: Url,
     };
     console.log(formData);
-    // createSession(formData, router, user?.user.uid);
+    createSession(formData, enteredInstructor);
   }
 
   // console.log(user.user.summry.displayName);

@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import { fireStore } from "./config";
 import { getSingleUser, updatePoint } from "./users";
 // create Sesssion
-export const createSession = (data, router, id) => {
+export const createSession = (data, id, router) => {
   // Add a new document with a generated id.
   fireStore
     .collection("sessions")
@@ -23,7 +23,9 @@ export const createSession = (data, router, id) => {
     })
     .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
-      router.push("/");
+      if (router) {
+        router.push("/");
+      }
     })
     .catch((error) => {
       console.error("Error adding document: ", error);

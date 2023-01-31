@@ -73,7 +73,7 @@ export default function Profile() {
       Image: Url,
     };
     console.log(formData);
-    createSession(formData, router, user?.user.uid);
+    createSession(formData, user?.user.uid, router);
   }
 
   // console.log(user.user.summry.displayName);
