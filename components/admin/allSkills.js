@@ -3,6 +3,7 @@ import { useTable, useSortBy, usePagination } from "react-table";
 import Image from "next/image";
 import { BiFirstPage } from "react-icons/bi";
 import { BiLastPage } from "react-icons/bi";
+import { updateIndemandSkill } from "../../utils_firebase/skills";
 
 function AllSkills(skills) {
   const COLUMNS = [
@@ -21,6 +22,29 @@ function AllSkills(skills) {
             fill
           />
         </div>
+      ),
+    },
+    {
+      Header: "In Demands",
+      Cell: (row) => (
+        <select
+        
+          onChange={(e) => {
+            console.log(e.target.value, row.row.original.id);
+            updateIndemandSkill({
+              id: row.row.original.id,
+              indemand: JSON.parse(e.target.value.toLowerCase()),
+            });
+          }}
+          className="text-[22px]"
+        >
+          <option selected={row.row.original.indemand === true} value={true}>
+            true
+          </option>
+          <option selected={row.row.original.indemand === false} value={false}>
+            false
+          </option>
+        </select>
       ),
     },
   ];

@@ -92,6 +92,7 @@ export const createSkills = (data) => {
     .add({
       image: data.image,
       name: data.name,
+      indemand: false,
     })
     .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
@@ -107,7 +108,7 @@ export const getAllSkillsWithImage = async () => {
   const skills = await fireStore.collection("skills").get();
   // console.log(skills.docs);
   for (const doc of skills.docs) {
-    allSkills.push(doc.data());
+    allSkills.push({ ...doc.data(), id: doc.id });
   }
   return allSkills;
 };
@@ -141,4 +142,19 @@ export const getSkillsByUserIntrest = async (data) => {
   } catch (error) {
     console.log(error);
   }
+};
+export const updateIndemandSkill = (data) => {
+  const ref = fireStore.collection("skills").doc(data.id);
+
+  return ref
+    .update({
+      indemand: data.indemand,
+    })
+    .then(() => {
+      console.log("Document successfully updated!");
+    })
+    .catch((error) => {
+      // The document probably doesn't exist.
+      console.error("Error updating document: ", error);
+    });
 };
