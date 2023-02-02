@@ -54,8 +54,8 @@ const HomePage = () => {
     <Fragment>
       <Header />
       <FeatureMentor />
-      <VideoCard />
       <FindMentor />
+      <VideoCard />
       <SkillCard onClickSkills={onClickSkills} skills={skills} />
       {sessions == undefined || sessions.length == 0 ? (
         <h2 className="flex justify-center text-[50px]">

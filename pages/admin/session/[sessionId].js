@@ -5,6 +5,7 @@ import { getAllSkillsOnly } from "../../../utils_firebase/skills";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { getSessionById } from "../../../utils_firebase/sessions";
+import { data } from "jquery";
 
 function SessionForm() {
   const router = useRouter();
@@ -27,6 +28,8 @@ function SessionForm() {
     };
     getSessionById(id).then((data) => {
       inputTitle.current.value = data.title;
+      inputPoints.current.value = data.poins;
+      setURL(data.image);
       inputStartTime.current.value = dateConverter(
         new Date(data.startTime.seconds * 1000)
       );
@@ -227,7 +230,7 @@ function SessionForm() {
                       </div>
 
                       {/* Here is photo and coverphoto Start */}
-                      <div>
+                      {/* <div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700">
                             Upload photo
@@ -282,10 +285,31 @@ function SessionForm() {
                             )}
                           </div>
                         </div>
+                      </div> */}
+                      {/*  Here is photo and coverphoto End */}
+                      {/* <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                        {Url ? (
+                          <button
+                            type="submit"
+                            className="inline-flex justify-center rounded-md  border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                          >
+                            Create Session
+                          </button>
+                        ) : (
+                          <p>Please Upload file First</p>
+                        )}
+                      </div> */}
 
-                        {/*  Here is photo and coverphoto End */}
+                      <div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">
+                            Upload photo
+                          </label>
+                          <div className="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
+                            <Image src={Url} alt="" height={150} width={150} />
+                          </div>
+                        </div>
                       </div>
-
                       <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                         {Url ? (
                           <button
