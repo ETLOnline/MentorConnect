@@ -21,6 +21,14 @@ if (process.env.NODE_ENV === "development") {
     storageBucket: "dao-app-f170b.appspot.com",
     messagingSenderId: "729053054019",
     appId: "1:729053054019:web:be6e3bb5b3e58d20d9c0f6",
+
+    // apiKey: "AIzaSyD1U3a0aKscQzTY1y40YqVZ-8FeFqVnmeE",
+    // authDomain: "users-337f1.firebaseapp.com",
+    // databaseURL: "https://users-337f1-default-rtdb.firebaseio.com",
+    // projectId: "users-337f1",
+    // storageBucket: "users-337f1.appspot.com",
+    // messagingSenderId: "936869001543",
+    // appId: "1:936869001543:web:d41962670147d69edb7462",
   };
 }
 // for dev

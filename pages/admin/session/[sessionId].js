@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { getSessionById } from "../../../utils_firebase/sessions";
 import { data } from "jquery";
+import Link from "next/link";
 
 function SessionForm() {
   const router = useRouter();
@@ -16,6 +17,8 @@ function SessionForm() {
   const inputEndTime = useRef();
   const inputPoints = useRef();
   const inputTitle = useRef();
+  const inputMeetingUrl = useRef();
+  const inputStatus = useRef();
   const [file, setFile] = useState(null);
   const [fileSelect, setFileSelect] = useState(false);
   useEffect(() => {
@@ -57,6 +60,14 @@ function SessionForm() {
       console.log(url, "sasasa", Url);
     }
   }
+  const submitHandler = () => {
+    const enteredTitle = inputTitle.current.value;
+    const enteredStartTime = inputStartTime.current.value;
+    const enteredEndTime = inputEndTime.current.value;
+    const enteredPoints = inputPoints.current.value;
+    const enteredMeetingUrl = inputMeetingUrl.current.value;
+    const enteredStatus = inputStatus.current.value;
+  };
 
   return (
     <Fragment>
@@ -71,7 +82,7 @@ function SessionForm() {
               </div>
               {/* form */}
               <div className="mt-5 md:grid md:col-span-1 md:mt-0">
-                <form action="#" method="POST">
+                <form action="#" method="POST" onSubmit={submitHandler}>
                   <div className="shadow sm:overflow-hidden sm:rounded-md mt-5">
                     <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
                       <div className="grid grid-cols-3 ml-[20%] gap-6">
@@ -97,7 +108,7 @@ function SessionForm() {
                       <div className="grid grid-cols-3 ml-[20%] gap-6">
                         <div className="col-span-3 sm:col-span-2">
                           <label
-                            htmlFor="company-website"
+                            htmlFor="startTime"
                             className="block text-sm font-medium text-gray-700"
                           >
                             StartTime
@@ -105,8 +116,8 @@ function SessionForm() {
                           <div className="mt-1 flex rounded-md shadow-sm">
                             <input
                               type="datetime-local"
-                              name="company-website"
-                              id="company-website"
+                              name="startTime"
+                              id="startTime"
                               className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                               placeholder="Please intered the Start time"
                               ref={inputStartTime}
@@ -117,7 +128,7 @@ function SessionForm() {
                       <div className="grid grid-cols-3 ml-[20%] gap-6">
                         <div className="col-span-3 sm:col-span-2">
                           <label
-                            htmlFor="company-website"
+                            htmlFor="endTime"
                             className="block text-sm font-medium text-gray-700"
                           >
                             EndTime
@@ -125,8 +136,8 @@ function SessionForm() {
                           <div className="mt-1 flex rounded-md shadow-sm">
                             <input
                               type="datetime-local"
-                              name="company-website"
-                              id="company-website"
+                              name="endTime"
+                              id="endTime"
                               ref={inputEndTime}
                               className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                               placeholder="Please enter End Time"
@@ -138,26 +149,26 @@ function SessionForm() {
                       <div className="grid grid-cols-3 ml-[20%] gap-6">
                         <div className="col-span-3 sm:col-span-2">
                           <label
-                            htmlFor="company-website"
+                            htmlFor="tags"
                             className="block text-sm font-medium text-gray-700"
                           >
                             Tags
                           </label>
-                          {/* {skills.length > 0 ? (
+                          {skills.length > 0 ? (
                             <SkillTag
-                              // handleSelectedChange={handleSelectedChange}
+                              handleSelectedChange={handleSelectedChange}
                               skills={skills}
                             />
                           ) : (
                             ""
-                          )} */}
+                          )}
                         </div>
                       </div>
 
                       <div className="grid grid-cols-3 ml-[20%] gap-6">
                         <div className="col-span-3 sm:col-span-2">
                           <label
-                            htmlFor="company-website"
+                            htmlFor="points"
                             className="block text-sm font-medium text-gray-700"
                           >
                             Points
@@ -165,8 +176,8 @@ function SessionForm() {
 
                           <div className="mt-1 flex rounded-md shadow-sm">
                             <select
-                              name="company-website"
-                              id="company-website"
+                              name="points"
+                              id="points"
                               ref={inputPoints}
                               className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 lg:text-lg pl-5 sm:text-sm"
                             >
@@ -198,7 +209,7 @@ function SessionForm() {
                             <select
                               name="status"
                               id="status"
-                              // ref={inputPoints}
+                              ref={inputStatus}
                               className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 lg:text-lg pl-5 sm:text-sm"
                             >
                               <option value="reject">Approve</option>
@@ -223,8 +234,22 @@ function SessionForm() {
                               id="meeting-url"
                               className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                               placeholder="Please enter the Meeting Url"
-                              // ref={inputTitle}
+                              ref={inputMeetingUrl}
                             />
+                            {/* <button
+                              onClick={window.open(
+                                `http://localhost:8000/google`,
+                                "_blank"
+                              )}
+                            >
+                              Generate
+                            </button> */}
+                            <Link
+                              href={`http://localhost:8000/google?title=${inputTitle.current?.value}&start=${inputStartTime.current?.value}&end=${inputEndTime.current?.value}`}
+                              target="_blank"
+                            >
+                              Generate
+                            </Link>
                           </div>
                         </div>
                       </div>

@@ -5,7 +5,7 @@ import VideoCardItem from "./videoCardItem";
 
 const VideoCard = () => {
   return (
-    <div className="mx-[32px]">
+    <div className="mx-[32px] mt-[32px]">
       <div className="flex justify-between ml-3 mb-[32px] ">
         <h2 className="text-3xl font-bold">Past Sessions</h2>
         <div className="flex gap-2 justify-between items-center ">
