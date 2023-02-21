@@ -12,6 +12,7 @@ function SessionForm() {
   const router = useRouter();
   const id = router.query.sessionId;
   const [skills, setskills] = useState([]);
+  const [intrest, setintrest] = useState([]);
   const [Url, setURL] = useState("");
   const inputStartTime = useRef();
   const inputEndTime = useRef();
@@ -39,6 +40,7 @@ function SessionForm() {
       inputEndTime.current.value = dateConverter(
         new Date(data.endTime.seconds * 1000)
       );
+      setintrest(data.tags);
 
       console.log(data, new Date(data.startTime.seconds * 1000));
     });
@@ -60,13 +62,43 @@ function SessionForm() {
       console.log(url, "sasasa", Url);
     }
   }
-  const submitHandler = () => {
+  let formData = {};
+  const submitHandler = (event) => {
+    event.preventDefault();
     const enteredTitle = inputTitle.current.value;
     const enteredStartTime = inputStartTime.current.value;
     const enteredEndTime = inputEndTime.current.value;
     const enteredPoints = inputPoints.current.value;
     const enteredMeetingUrl = inputMeetingUrl.current.value;
     const enteredStatus = inputStatus.current.value;
+    formData = {
+      Title: enteredTitle,
+      StartTime: enteredStartTime,
+      EndTime: enteredEndTime,
+      Tags: intrest,
+      Points: enteredPoints,
+      Meeting: enteredMeetingUrl,
+      Status: enteredStatus,
+      Image: Url,
+    };
+    console.log(formData);
+  };
+
+  const handleSelectedChange = (seleteditem) => {
+    // console.log(fillterSkills(seleteditem));
+    setintrest(fillterSkills(seleteditem));
+  };
+  const fillterSkills = (data) => {
+    return data.map((ele) => ele.value);
+  };
+
+  const fillterSkillsforautocomplete = (data) => {
+    return data.map((ele) => {
+      return {
+        value: ele,
+        label: ele,
+      };
+    });
   };
 
   return (
@@ -154,10 +186,15 @@ function SessionForm() {
                           >
                             Tags
                           </label>
-                          {skills.length > 0 ? (
+                          {skills.length > 0 && intrest.length > 0 ? (
                             <SkillTag
                               handleSelectedChange={handleSelectedChange}
                               skills={skills}
+                              userSkills={
+                                intrest.length > 0
+                                  ? fillterSkillsforautocomplete(intrest)
+                                  : []
+                              }
                             />
                           ) : (
                             ""
@@ -212,8 +249,8 @@ function SessionForm() {
                               ref={inputStatus}
                               className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 lg:text-lg pl-5 sm:text-sm"
                             >
-                              <option value="reject">Approve</option>
-                              <option value="approve">Reject</option>
+                              <option value="true">Approve</option>
+                              <option value="false">Reject</option>
                             </select>
                           </div>
                         </div>

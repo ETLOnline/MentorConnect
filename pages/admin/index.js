@@ -11,6 +11,8 @@ import AddSkill from "../../components/admin/addSkill";
 import AllSkills from "../../components/admin/allSkills";
 import PastSessionForm from "../../components/admin/pastSessionForm";
 import CreateSession from "../../components/admin/createSession";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/auth_context";
 
 function Index() {
   const [userData, setUserData] = useState([]);
@@ -18,6 +20,9 @@ function Index() {
   const [sessionRequest, setSessionRequest] = useState([]);
   const [skillData, setSkillData] = useState([]);
   const [select, setSelect] = useState("user");
+  const { user } = useContext(AuthContext);
+
+  console.log(user.user, "Testing");
   useEffect(() => {
     if (select == "user") {
       getUsers().then((data) => {
@@ -44,47 +49,53 @@ function Index() {
   };
 
   return (
-    <div>
-      <div className="relative bg-blue-50 overflow-hidden max-h-full">
-        <Header />
-        <Aside selectHandler={selectHandler} />
+    <div className="min-h-[50vh]">
+      {user.user && (
+        <div className="relative bg-blue-50 overflow-hidden max-h-full">
+          <Header />
+          <Aside selectHandler={selectHandler} />
 
-        <main className="ml-60 pt-16 ">
-          <div className="px-6 bg-white py-8">
-            {select == "user" &&
-              (userData.length > 0 ? <Table users={userData} /> : <Spinner />)}
-            {select == "session" &&
-              (sessionData.length > 0 ? (
-                <SessionTable sessions={sessionData} />
-              ) : (
-                <Spinner />
-              ))}
-            {select == "requestSession" &&
-              (sessionRequest.length > 0 ? (
-                <SessionTable sessions={sessionRequest} />
-              ) : (
-                <Spinner />
-              ))}
-            {select == "skill" && <AddSkill />}
-            {select == "allSkills" &&
-              (skillData.length > 0 ? (
-                <AllSkills skills={skillData} />
-              ) : (
-                <Spinner />
-              ))}
-            {/* {select == "pastSessionForm" && <PastSessionForm />} */}
-            {select == "pastSessionForm" &&
-              (userData.length > 0 ? (
-                <PastSessionForm users={userData} />
-              ) : (
-                <Spinner />
-              ))}
-            {select == "createSessionForm" && (
-              <CreateSession users={userData} />
-            )}
-          </div>
-        </main>
-      </div>
+          <main className="ml-60 pt-16 ">
+            <div className="px-6 bg-white py-8">
+              {select == "user" &&
+                (userData.length > 0 ? (
+                  <Table users={userData} />
+                ) : (
+                  <Spinner />
+                ))}
+              {select == "session" &&
+                (sessionData.length > 0 ? (
+                  <SessionTable sessions={sessionData} />
+                ) : (
+                  <Spinner />
+                ))}
+              {select == "requestSession" &&
+                (sessionRequest.length > 0 ? (
+                  <SessionTable sessions={sessionRequest} />
+                ) : (
+                  <Spinner />
+                ))}
+              {select == "skill" && <AddSkill />}
+              {select == "allSkills" &&
+                (skillData.length > 0 ? (
+                  <AllSkills skills={skillData} />
+                ) : (
+                  <Spinner />
+                ))}
+              {/* {select == "pastSessionForm" && <PastSessionForm />} */}
+              {select == "pastSessionForm" &&
+                (userData.length > 0 ? (
+                  <PastSessionForm users={userData} />
+                ) : (
+                  <Spinner />
+                ))}
+              {select == "createSessionForm" && (
+                <CreateSession users={userData} />
+              )}
+            </div>
+          </main>
+        </div>
+      )}
     </div>
   );
 }
