@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { getSessionById } from "../../../utils_firebase/sessions";
 import { data } from "jquery";
+import { updateSessionMeeting } from "../../../utils_firebase/sessions";
 import Link from "next/link";
 
 function SessionForm() {
@@ -41,6 +42,9 @@ function SessionForm() {
         new Date(data.endTime.seconds * 1000)
       );
       setintrest(data.tags);
+      if (data.meetingLink) {
+        inputMeetingUrl.current.value = data.meetingLink;
+      }
 
       console.log(data, new Date(data.startTime.seconds * 1000));
     });
@@ -81,7 +85,8 @@ function SessionForm() {
       Status: enteredStatus,
       Image: Url,
     };
-    console.log(formData);
+    // console.log(formData, id, router.push("/admin"));
+    updateSessionMeeting(formData, id, router);
   };
 
   const handleSelectedChange = (seleteditem) => {

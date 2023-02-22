@@ -11,7 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 export let switchAuthModeHandler;
 
 const Index = () => {
-  // const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
   // Validation
   const [email, setEmail] = useState("");

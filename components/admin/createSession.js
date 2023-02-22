@@ -87,6 +87,13 @@ const CreateSession = (users) => {
     };
     console.log(formData);
     createSession(formData, enteredInstructor);
+    /*
+    inputStartTime.current.value = "";
+    inputEndTime.current.value = "";
+    inputPoints.current.value = "";
+    inputTitle.current.value = "";
+    inputInstructor.current.value = "";*/
+    router.push("/");
   }
 
   // console.log(user.user.summry.displayName);

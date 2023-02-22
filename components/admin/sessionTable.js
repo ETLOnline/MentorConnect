@@ -107,7 +107,9 @@ function SessionTable(sessions) {
     <>
       <section className="min-h-[500px]">
         <div className="px-5 py-4 border-b border-gray-100">
-          <h2 className="text-[20px] font-semibold font-['Raleway']">Users</h2>
+          <h2 className="text-[20px] font-semibold font-['Raleway']">
+            Sessions
+          </h2>
         </div>
         <div className="p-3">
           <table className="table-auto w-full" {...getTableProps()}>

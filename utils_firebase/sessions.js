@@ -32,6 +32,38 @@ export const createSession = (data, id, router) => {
     });
 };
 
+// update Session with meeting link
+/*
+var washingtonRef = db.collection("cities").doc("DC");
+
+// Set the "capital" field of the city 'DC'
+return washingtonRef.update({
+    capital: true
+})
+.then(() => {
+    console.log("Document successfully updated!");
+})
+.catch((error) => {
+    // The document probably doesn't exist.
+    console.error("Error updating document: ", error);
+});
+ */
+
+export const updateSessionMeeting = (data, id, router) => {
+  const ref = fireStore.collection("sessions").doc(id);
+  return ref
+    .update(
+      {
+        approve: "true" === data.Status,
+        meetingLink: data.Meeting,
+      }
+      // { merge: true }
+    )
+    .then(() => {
+      console.log("Document successfully updated!");
+      router.push("/admin");
+    });
+};
 // students register session
 export const registorSession = (sessionId, uid) => {
   var Ref = fireStore.collection("sessions").doc(sessionId);
