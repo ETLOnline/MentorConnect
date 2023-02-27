@@ -5,6 +5,7 @@ import Table from "../../components/admin/table";
 import Spinner from "../../components/spinner";
 import { getUsers } from "../../utils_firebase/users";
 import { getAllSessions } from "../../utils_firebase/sessions";
+import { getAllPastSessionsWOLink } from "../../utils_firebase/sessions";
 import { getAllSkillsWithImage } from "../../utils_firebase/skills";
 import SessionTable from "../../components/admin/sessionTable";
 import AddSkill from "../../components/admin/addSkill";
@@ -36,6 +37,10 @@ function Index() {
     } else if (select == "requestSession") {
       getAllSessions(false).then((sdata) => {
         setSessionRequest(sdata);
+      });
+    } else if (select == "pastSession") {
+      getAllPastSessionsWOLink().then((pdata) => {
+        setSessionRequest(pdata);
       });
     } else if (select == "allSkills") {
       getAllSkillsWithImage().then((skill) => {
@@ -70,6 +75,12 @@ function Index() {
                   <Spinner />
                 ))}
               {select == "requestSession" &&
+                (sessionRequest.length > 0 ? (
+                  <SessionTable sessions={sessionRequest} />
+                ) : (
+                  <Spinner />
+                ))}
+              {select == "pastSession" &&
                 (sessionRequest.length > 0 ? (
                   <SessionTable sessions={sessionRequest} />
                 ) : (

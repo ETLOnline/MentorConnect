@@ -32,23 +32,6 @@ export const createSession = (data, id, router) => {
     });
 };
 
-// update Session with meeting link
-/*
-var washingtonRef = db.collection("cities").doc("DC");
-
-// Set the "capital" field of the city 'DC'
-return washingtonRef.update({
-    capital: true
-})
-.then(() => {
-    console.log("Document successfully updated!");
-})
-.catch((error) => {
-    // The document probably doesn't exist.
-    console.error("Error updating document: ", error);
-});
- */
-
 export const updateSessionMeeting = (data, id, router) => {
   const ref = fireStore.collection("sessions").doc(id);
   return ref
@@ -99,6 +82,26 @@ export const getAllSessions = async (cond) => {
   }
   return allSessions;
 };
+// -----get all past sessions without link-----
+export const getAllPastSessionsWOLink = async () => {
+  // console.log(firebase.firestore.Timestamp.fromDate(new Date()), "date");
+  const allSessions = [];
+  const session = await fireStore
+    .collection("sessions")
+    .where("startTime", "<=", firebase.firestore.Timestamp.fromDate(new Date()))
+    .get();
+  // console.log(session, "session");
+  for (const doc of session.docs) {
+    const user = await getSingleUser(doc.data().instructor);
+    allSessions.push({
+      id: doc.id,
+      ...doc.data(),
+      instructor: user,
+    });
+  }
+  return allSessions;
+};
+
 // filter session by tags
 export const filterSessionByTag = async (tag) => {
   // console.log("filterSessionByTag",tag);

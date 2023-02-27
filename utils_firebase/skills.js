@@ -112,6 +112,22 @@ export const getAllSkillsWithImage = async () => {
   }
   return allSkills;
 };
+
+// -----get all indemand skills -----
+export const getAllIndemandSkillsWithImage = async () => {
+  const allIndemandSkills = [];
+  const skills = await fireStore
+    .collection("skills")
+    .where("indemand", "==", true)
+    .get();
+  // console.log(skills.docs);
+
+  for (const doc of skills.docs) {
+    allIndemandSkills.push({ ...doc.data(), id: doc.id });
+  }
+  return allIndemandSkills;
+};
+
 export const getAllSkillsOnly = async () => {
   const allSkills = [];
   const skills = await fireStore.collection("skills").get();
