@@ -115,8 +115,10 @@ export default function updateImage(image, uid) {
       console.error("Error updating document: ", error);
     });
 }
-export const updatePoint = async(params) => {
-  var Ref = await fireStore.collection("users").doc("99iQxqVi3gc7ppU7Yvq8cSd26Wr1");
+export const updatePoint = async (params) => {
+  var Ref = await fireStore
+    .collection("users")
+    .doc("99iQxqVi3gc7ppU7Yvq8cSd26Wr1");
   return Ref.update({
     // "points.learningPoint": learningPoint-sessionPoins,
     "points.learningPoint": 100 - 100,
@@ -184,5 +186,55 @@ export const followUser = async (followingId, userId) => {
       });
   } catch (error) {
     console.log(error);
+  }
+};
+
+//------- Make or Remove Admin---------
+export const makeOrRemoveAdmin = (data) => {
+  const ref = fireStore.collection("users").doc(data.id);
+
+  return ref
+    .update({
+      role: data.role,
+    })
+    .then(() => {
+      console.log("Document successfully updated!");
+    })
+    .catch((error) => {
+      // The document probably doesn't exist.
+      console.error("Error updating document: ", error);
+    });
+};
+
+// ---------Update Password-------
+export const updatePassword = (email, currentPassword, newPassword, router) => {
+  // Get the current user
+  const user = auth.currentUser;
+  // Create a credential object
+  const credential = firebase.auth.EmailAuthProvider.credential(
+    user.email,
+    currentPassword
+  );
+  if (user.email === email) {
+    // Reauthenticate the user
+    return user
+      .reauthenticateWithCredential(credential)
+      .then(() => {
+        // Update the user's password
+        user
+          .updatePassword(newPassword)
+          .then(() => {
+            console.log("Password updated successfully!");
+            router.push("/");
+          })
+          .catch((error) => {
+            console.error("Error updating password:", error);
+          });
+      })
+      .catch((error) => {
+        console.error("Error reauthenticating user:", error);
+      });
+  } else {
+    console.log("blabalablalablaalbalalbal");
   }
 };

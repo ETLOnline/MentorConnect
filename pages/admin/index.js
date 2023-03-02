@@ -14,16 +14,23 @@ import PastSessionForm from "../../components/admin/pastSessionForm";
 import CreateSession from "../../components/admin/createSession";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/auth_context";
+import { useRouter } from "next/router";
 
 function Index() {
   const [userData, setUserData] = useState([]);
   const [sessionData, setSessionData] = useState([]);
   const [sessionRequest, setSessionRequest] = useState([]);
+  const [pastSession, setPastSession] = useState([]);
   const [skillData, setSkillData] = useState([]);
   const [select, setSelect] = useState("user");
   const { user } = useContext(AuthContext);
+  const router = useRouter();
 
-  console.log(user.user, "Testing");
+  if (user.user.role != "superAdmin" && user.user.role != "admin") {
+    router.push("/");
+  }
+  console.log(user.user.role);
+
   useEffect(() => {
     if (select == "user") {
       getUsers().then((data) => {
@@ -40,7 +47,7 @@ function Index() {
       });
     } else if (select == "pastSession") {
       getAllPastSessionsWOLink().then((pdata) => {
-        setSessionRequest(pdata);
+        setPastSession(pdata);
       });
     } else if (select == "allSkills") {
       getAllSkillsWithImage().then((skill) => {
@@ -55,58 +62,65 @@ function Index() {
 
   return (
     <div className="min-h-[50vh]">
-      {user.user && (
-        <div className="relative bg-blue-50 overflow-hidden max-h-full">
-          <Header />
-          <Aside selectHandler={selectHandler} />
+      {user.user &&
+        (user.user.role == "superAdmin" || user.user.role == "admin") && (
+          <div className="relative bg-blue-50 overflow-hidden max-h-full">
+            <Header />
+            <Aside selectHandler={selectHandler} />
 
-          <main className="ml-60 pt-16 ">
-            <div className="px-6 bg-white py-8">
-              {select == "user" &&
-                (userData.length > 0 ? (
-                  <Table users={userData} />
-                ) : (
-                  <Spinner />
-                ))}
-              {select == "session" &&
-                (sessionData.length > 0 ? (
-                  <SessionTable sessions={sessionData} />
-                ) : (
-                  <Spinner />
-                ))}
-              {select == "requestSession" &&
-                (sessionRequest.length > 0 ? (
-                  <SessionTable sessions={sessionRequest} />
-                ) : (
-                  <Spinner />
-                ))}
-              {select == "pastSession" &&
-                (sessionRequest.length > 0 ? (
-                  <SessionTable sessions={sessionRequest} />
-                ) : (
-                  <Spinner />
-                ))}
-              {select == "skill" && <AddSkill />}
-              {select == "allSkills" &&
-                (skillData.length > 0 ? (
-                  <AllSkills skills={skillData} />
-                ) : (
-                  <Spinner />
-                ))}
-              {/* {select == "pastSessionForm" && <PastSessionForm />} */}
-              {select == "pastSessionForm" &&
-                (userData.length > 0 ? (
-                  <PastSessionForm users={userData} />
-                ) : (
-                  <Spinner />
-                ))}
-              {select == "createSessionForm" && (
-                <CreateSession users={userData} />
-              )}
-            </div>
-          </main>
-        </div>
-      )}
+            <main className="ml-60 pt-16 ">
+              <div className="px-6 bg-white py-8">
+                {select == "user" &&
+                  (userData.length > 0 ? (
+                    <Table users={userData} />
+                  ) : (
+                    <Spinner />
+                  ))}
+                {select == "session" &&
+                  (sessionData.length > 0 ? (
+                    <SessionTable sessions={sessionData} select={"Sessions"} />
+                  ) : (
+                    <Spinner />
+                  ))}
+                {select == "requestSession" &&
+                  (sessionRequest.length > 0 ? (
+                    <SessionTable
+                      sessions={sessionRequest}
+                      select={"Requested Sessions"}
+                    />
+                  ) : (
+                    <Spinner />
+                  ))}
+                {select == "pastSession" &&
+                  (pastSession.length > 0 ? (
+                    <SessionTable
+                      sessions={pastSession}
+                      select={"Past Sessions"}
+                    />
+                  ) : (
+                    <Spinner />
+                  ))}
+                {select == "skill" && <AddSkill />}
+                {select == "allSkills" &&
+                  (skillData.length > 0 ? (
+                    <AllSkills skills={skillData} />
+                  ) : (
+                    <Spinner />
+                  ))}
+                {/* {select == "pastSessionForm" && <PastSessionForm />} */}
+                {select == "pastSessionForm" &&
+                  (userData.length > 0 ? (
+                    <PastSessionForm users={userData} />
+                  ) : (
+                    <Spinner />
+                  ))}
+                {select == "createSessionForm" && (
+                  <CreateSession users={userData} />
+                )}
+              </div>
+            </main>
+          </div>
+        )}
     </div>
   );
 }

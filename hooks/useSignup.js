@@ -40,6 +40,7 @@ export const useSinup = () => {
             email: data.gmail,
             image: image,
           },
+          role: "user",
           points: {
             learningPoint: 100,
             coachingPoint: 100,

@@ -11,7 +11,15 @@ export default function NavBar() {
 
   const { signout, error, isPanding } = useSignout();
   const router = useRouter();
+  console.log(user.user);
 
+  let admin;
+
+  if (user.user.role === "superAdmin" || user.user.role === "admin") {
+    admin = true;
+  }
+
+  // if(user)
   return (
     <header>
       <div>
@@ -201,6 +209,24 @@ export default function NavBar() {
                       Porfile
                     </Link>
                   </div>
+                  <div className="font-medium leading-7  text-[#919191]">
+                    <Link
+                      href={`/updatePassword`}
+                      className="hover:text-[#1C2D56] px-3"
+                    >
+                      change password
+                    </Link>
+                  </div>
+                  {admin && (
+                    <div className="font-medium leading-7  text-[#919191]">
+                      <Link
+                        href={`/admin`}
+                        className="hover:text-[#1C2D56] px-3"
+                      >
+                        Admin Penal
+                      </Link>
+                    </div>
+                  )}
                   <button
                     onClick={() => signout(router)}
                     className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:border hover:bg-[#E6E5E5]"
