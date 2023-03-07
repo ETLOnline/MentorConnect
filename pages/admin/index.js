@@ -15,6 +15,7 @@ import CreateSession from "../../components/admin/createSession";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/auth_context";
 import { useRouter } from "next/router";
+import CreateUser from "../../components/admin/createUser";
 
 function Index() {
   const [userData, setUserData] = useState([]);
@@ -101,6 +102,7 @@ function Index() {
                     <Spinner />
                   ))}
                 {select == "skill" && <AddSkill />}
+                {select == "addUser" && <CreateUser />}
                 {select == "allSkills" &&
                   (skillData.length > 0 ? (
                     <AllSkills skills={skillData} />

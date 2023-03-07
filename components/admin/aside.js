@@ -98,6 +98,16 @@ function Aside({ selectHandler }) {
                   All Past Session
                 </Link>
               </li>
+              <li>
+                <Link
+                  href=""
+                  onClick={() => selectHandler("addUser")}
+                  className="flex items-center bg-white gap-2 hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
+                >
+                  <GrDocumentTime className="w-[25px] h-[25px]" />
+                  Add User
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

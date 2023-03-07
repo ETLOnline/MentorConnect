@@ -1,5 +1,6 @@
 import { auth, fireStore, googleProvider } from "./config";
 import firebase from "firebase/app";
+
 // import { toast } from "react-toastify";
 
 // get feature mentors
@@ -206,7 +207,7 @@ export const makeOrRemoveAdmin = (data) => {
     });
 };
 
-// ---------Update Password-------
+// ---------Update Password---------
 export const updatePassword = (email, currentPassword, newPassword, router) => {
   // Get the current user
   const user = auth.currentUser;
@@ -237,4 +238,62 @@ export const updatePassword = (email, currentPassword, newPassword, router) => {
   } else {
     console.log("blabalablalablaalbalalbal");
   }
+};
+
+// ---------Create New User---------
+export const createNewUser = (data) => {
+  const image = data.image
+    ? data.image
+    : "https://www.iconpacks.net/icons/1/free-user-icon-295-thumb.png";
+  auth
+    .createUserWithEmailAndPassword(data.email, data.password)
+    .then((credential) => {
+      const uid = credential.user.uid;
+      console.log(uid);
+      fireStore
+        .collection("users")
+        .doc(uid)
+        .set({
+          uid: uid,
+          summry: {
+            displayName: data.firstName + " " + data.lastName,
+            email: data.email,
+            image: image,
+          },
+          role: "user",
+          points: {
+            learningPoint: 100,
+            coachingPoint: 100,
+          },
+          followers: [],
+          following: [],
+          interest: [],
+          learning: [],
+        });
+
+      // credential.user.sendEmailVerification();
+      // credential.user.updateProfile({
+      //   displayName: data.firstName + data.lastName,
+      // });
+      // fireStore
+      //   .collection("users")
+      //   .doc(credential.user.uid)
+      //   .set({
+      //     uid: credential.user.uid,
+      //     summry: {
+      //       displayName: data.firstName + " " + data.lastName,
+      //       email: data.gmail,
+      //       image: image,
+      //     },
+      //     role: "user",
+      //     points: {
+      //       learningPoint: 100,
+      //       coachingPoint: 100,
+      //     },
+      //     followers: [],
+      //     following: [],
+      //     interest: [],
+      //     learning: [],
+      //   });
+    });
 };
