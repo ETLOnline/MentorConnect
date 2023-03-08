@@ -28,7 +28,7 @@ const CreateUser = () => {
       email: enteredEmail,
       password: enteredPassword,
     };
-    createNewUser(formData);
+    // createNewUser(formData);
 
     inputFirstName.current.value = "";
     inputLastName.current.value = "";
@@ -144,7 +144,7 @@ const CreateUser = () => {
                   </div>
                 </form> */}
 
-                <form method="POST" onSubmit={submitHandler}>
+                <form method="POST" action="/api/test">
                   <div className="shadow sm:overflow-hidden sm:rounded-md mt-5">
                     <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
                       <div className="grid grid-cols-3 gap-6">

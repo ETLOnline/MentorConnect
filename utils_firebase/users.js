@@ -297,3 +297,16 @@ export const createNewUser = (data) => {
       //   });
     });
 };
+
+// -------Get Rising Talents --------
+export const getRisings = async () => {
+  const result = [];
+  const data = await fireStore
+    .collection("users")
+    .where("risingTalents", "==", true)
+    .get();
+  data.docs.forEach((doc) => {
+    result.push({ id: doc.id, ...doc.data() });
+  });
+  return result;
+};
