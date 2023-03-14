@@ -144,7 +144,7 @@ const CreateUser = () => {
                   </div>
                 </form> */}
 
-                <form method="POST" action="/api/test">
+                <form method="POST" action="/api/addUserByAdmin">
                   <div className="shadow sm:overflow-hidden sm:rounded-md mt-5">
                     <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
                       <div className="grid grid-cols-3 gap-6">

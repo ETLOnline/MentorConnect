@@ -287,7 +287,7 @@ function SessionForm() {
                               Generate
                             </button> */}
                             <Link
-                              href={`http://localhost:8000/google?title=${inputTitle.current?.value}&start=${inputStartTime.current?.value}&end=${inputEndTime.current?.value}`}
+                              href={`http://localhost:3000/api/calendar/google?title=${inputTitle.current?.value}&start=${inputStartTime.current?.value}&end=${inputEndTime.current?.value}`}
                               target="_blank"
                             >
                               Generate
