@@ -1,3 +1,4 @@
+import clipboardy from "clipboardy";
 const { google } = require("googleapis");
 const calendar = google.calendar({
   version: "v3",
@@ -47,6 +48,9 @@ export default async function handler(req, res) {
     });
     var hangoutLink = result.data.hangoutLink;
     console.log(hangoutLink);
-    res.redirect(`/link?hanoutLink=${hangoutLink}`);
+    await clipboardy.write(hangoutLink);
+    res.write("<script>window.close();</script>");
+    res.end();
+    // res.redirect(`/link?hanoutLink=${hangoutLink}`);
   }
 }
