@@ -8,7 +8,7 @@ import { GrDocumentTime } from "react-icons/gr";
 
 function Aside({ selectHandler }) {
   return (
-    <aside className="absolute inset-y-0 left-0 bg-black text-white shadow-md  w-60">
+    <aside className="absolute inset-y-0 left-0 bg-black text-white shadow-md w-70">
       <div className="flex flex-col justify-between h-full">
         <div className="flex-grow">
           <div className="px-4 py-6 text-center border-b">
@@ -35,7 +35,7 @@ function Aside({ selectHandler }) {
                   className="flex items-center bg-white gap-2 hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
                 >
                   <SiGooglemeet className="w-[25px] h-[25px]" />
-                  Sessions
+                  Approved Sessions
                 </Link>
               </li>
               <li>

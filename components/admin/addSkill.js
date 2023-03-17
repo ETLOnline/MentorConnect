@@ -61,7 +61,7 @@ const AddSkill = () => {
 
   return (
     <Fragment>
-      <div className="mt-5 bg-slate-50">
+      <div className="mt-5 bg-slate-50 min-h-[700px]">
         <div className="w-11/12 ml-12 m-5">
           <div className="grid w-[60%] ">
             <div className="md:col-span-1">

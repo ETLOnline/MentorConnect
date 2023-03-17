@@ -1,28 +1,72 @@
 import { Fragment, useState, useRef, useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/auth_context";
+import { getAllSkillsOnly } from "../../utils_firebase/skills";
 import { getUsers } from "../../utils_firebase/users";
 import Spinner from "../spinner";
+import { toast } from "react-toastify";
+import SkillTag from "../tiles/skillTag";
+import { createNewPastSession } from "../../utils_firebase/sessions";
 
 const PastSessionForm = (users) => {
   const { user } = useContext(AuthContext);
+  const [skills, setskills] = useState([]);
+  const [intrest, setintrest] = useState([]);
+  // const [resetValue, setResetValue] = useState(false);
+
+  const inputTitle = useRef("");
+  const inputDescription = useRef("");
   const inputUrl = useRef("");
   const inputInstructor = useRef("");
+
+  const handleSelectedChange = (selecteditem) => {
+    // console.log(fillterSkills(seleteditem));
+    setintrest(fillterSkills(selecteditem));
+  };
+  const fillterSkills = (data) => {
+    return data.map((ele) => ele.value);
+  };
+  useEffect(() => {
+    getAllSkillsOnly().then((data) => {
+      setskills(data);
+      console.log(data);
+    });
+  }, []);
+
+  // const resetValue = () => {
+  //   return false;
+  // };
 
   // console.log(users, "admin");
   let formData;
   const submitHandler = (event) => {
     event.preventDefault();
+    const enteredTitle = inputTitle.current.value;
+    const enteredDescription = inputDescription.current.value;
     const enteredUrl = inputUrl.current.value;
     const enteredInstructor = inputInstructor.current.value;
     // const enteredInstructor = event.target.instructor.value;
 
     console.log(enteredInstructor);
+    const instructor = JSON.parse(enteredInstructor);
+    const instructorId = instructor.instructorId;
     formData = {
-      sessionUrl: enteredUrl,
-      instructor: enteredInstructor,
+      title: enteredTitle,
+      description: enteredDescription,
+      videoUrl: enteredUrl,
+      instructor: instructor,
+      tags: intrest,
+      // instructor: enteredInstructor,
     };
+    createNewPastSession(formData, instructorId);
+    console.log(formData, instructorId);
+    inputTitle.current.value = "";
+    inputDescription.current.value = "";
+    inputUrl.current.value = "";
+    inputInstructor.current.value = "";
+    // setResetValue(true);
 
-    console.log(JSON.parse(formData.instructor));
+    toast.success("The past session created successfully");
+    // console.log(JSON.parse(formData.instructor));
   };
 
   return (
@@ -44,10 +88,72 @@ const PastSessionForm = (users) => {
                       <div className="grid grid-cols-3 gap-6">
                         <div className="col-span-3 sm:col-span-2">
                           <label
+                            htmlFor="title"
+                            className="block text-lg font-medium text-gray-700"
+                          >
+                            Title
+                          </label>
+                          <div className="mt-1 flex rounded-md shadow-sm">
+                            <input
+                              type="text"
+                              name="title"
+                              id="title"
+                              className="block w-full h-9 pl-[4px] flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                              placeholder="Please entered the Title"
+                              ref={inputTitle}
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-6">
+                        <div className="col-span-3 sm:col-span-2">
+                          <label
+                            htmlFor="desc"
+                            className="block text-lg font-medium text-gray-700"
+                          >
+                            Description
+                          </label>
+                          <div className="mt-1 flex rounded-md shadow-sm">
+                            <textarea
+                              name="desc"
+                              id="desc"
+                              rows={5}
+                              className="block w-full pl-[4px] flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                              placeholder="Please entered the url"
+                              ref={inputDescription}
+                            ></textarea>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-6">
+                        <div className="col-span-3 sm:col-span-2">
+                          <label
+                            htmlFor="tags"
+                            className="block text-sm font-medium text-gray-700"
+                          >
+                            Tags
+                          </label>
+                          {skills.length > 0 ? (
+                            <SkillTag
+                              handleSelectedChange={handleSelectedChange}
+                              skills={skills}
+                              // reset={resetValue}
+                            />
+                          ) : (
+                            ""
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-6">
+                        <div className="col-span-3 sm:col-span-2">
+                          <label
                             htmlFor="url"
                             className="block text-lg font-medium text-gray-700"
                           >
-                            Url
+                            Video Url
                           </label>
                           <div className="mt-1 flex rounded-md shadow-sm">
                             <input
@@ -91,6 +197,7 @@ const PastSessionForm = (users) => {
                                   value={JSON.stringify({
                                     image: data.summry.image,
                                     displayName: data.summry.displayName,
+                                    instructorId: data.uid,
                                   })}
                                   key={Math.random()}
                                 >

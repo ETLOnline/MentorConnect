@@ -4,6 +4,7 @@ import { getSessionById } from "../../../utils_firebase/sessions";
 import SkillTag from "../../../components/tiles/skillTag";
 import { getAllSkillsOnly } from "../../../utils_firebase/skills";
 import Image from "next/image";
+import { createPastSessionByUpdate } from "../../../utils_firebase/sessions";
 
 const PastSessionForm = () => {
   const router = useRouter();
@@ -47,9 +48,10 @@ const PastSessionForm = () => {
     event.preventDefault();
     const enteredVideoLink = inputVideoLink.current.value;
     formData = {
-      videoLink: enteredVideoLink,
+      videoUrl: enteredVideoLink,
     };
-    console.log(formData);
+    createPastSessionByUpdate(formData, id, router);
+    // console.log(formData);
   };
   const handleSelectedChange = (seleteditem) => {
     // console.log(fillterSkills(seleteditem));

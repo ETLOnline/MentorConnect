@@ -108,7 +108,7 @@ function SessionTable({ sessions, select }) {
 
   return (
     <>
-      <section className="min-h-[500px]">
+      <section className="min-h-[700px]">
         <div className="px-5 py-4 border-b border-gray-100">
           <h2 className="text-[20px] font-semibold font-['Raleway']">
             {/* Sessions */}

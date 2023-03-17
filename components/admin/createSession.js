@@ -103,7 +103,7 @@ const CreateSession = (users) => {
       <div className=" mt-5 bg-slate-50  ">
         <div className="w-11/12 ml-12 m-5 ">
           <h3 className="text-lg font-medium leading-6 text-gray-900">
-            SessionForm
+            Session Form
           </h3>
           <div className="md:grid md:grid-cols-3 md:gap-6">
             <div className="mt-5 md:col-span-2 md:mt-0">
@@ -137,7 +137,7 @@ const CreateSession = (users) => {
                           htmlFor="startTime"
                           className="block text-sm font-medium text-gray-700"
                         >
-                          StartTime
+                          Start Time
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
                           <input
@@ -158,7 +158,7 @@ const CreateSession = (users) => {
                           htmlFor="endTime"
                           className="block text-sm font-medium text-gray-700"
                         >
-                          EndTime
+                          End Time
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
                           <input

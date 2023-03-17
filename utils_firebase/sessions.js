@@ -82,6 +82,7 @@ export const getAllSessions = async (cond) => {
   }
   return allSessions;
 };
+
 // -----get all past sessions without link-----
 export const getAllPastSessionsWOLink = async () => {
   // console.log(firebase.firestore.Timestamp.fromDate(new Date()), "date");
@@ -144,6 +145,7 @@ export const getSessionById = async (id) => {
     return "No such document!";
   }
 };
+
 //  filter session by user intrest
 export const getSessionByUserSkills = async (data) => {
   try {
@@ -197,4 +199,53 @@ export const getSessionInUserRegister = async (id) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+// -----Create New Past Session--------
+export const createNewPastSession = (data, id) => {
+  fireStore.collection("sessions").add({
+    isPast: true,
+    instructor: id,
+    tags: data.tags,
+    title: data.title,
+    description: data.description,
+    // instructor: data.instructor,
+    videoUrl: data.videoUrl,
+  });
+};
+
+// -----Create Past Session by updating existing session--------
+export const createPastSessionByUpdate = (data, id, router) => {
+  const ref = fireStore.collection("sessions").doc(id);
+  return ref
+    .update(
+      {
+        isPast: true,
+        videoUrl: data.videoUrl,
+      }
+      // { merge: true }
+    )
+    .then(() => {
+      console.log("Document successfully updated!");
+      router.push("/admin");
+    });
+};
+
+// -----get all past sessions with link (display on home page)-----
+export const getAllPastSessionsWithLink = async () => {
+  const allSessions = [];
+  const session = await fireStore
+    .collection("sessions")
+    .where("isPast", "==", true)
+    .get();
+  // console.log(session, "session");
+  for (const doc of session.docs) {
+    const user = await getSingleUser(doc.data().instructor);
+    allSessions.push({
+      id: doc.id,
+      ...doc.data(),
+      instructor: user,
+    });
+  }
+  return allSessions;
 };

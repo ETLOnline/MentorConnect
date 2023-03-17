@@ -49,8 +49,10 @@ export default async function handler(req, res) {
     var hangoutLink = result.data.hangoutLink;
     console.log(hangoutLink);
     await clipboardy.write(hangoutLink);
-    res.write("<script>window.close();</script>");
-    res.end();
-    // res.redirect(`/link?hanoutLink=${hangoutLink}`);
+    //res.redirect(`/link?hanoutLink=${hangoutLink}`);
+    res.write(
+      "<script>window.close();alert('Meeting link successfully copied to clipboard!');</script>"
+    );
+    // res.end();
   }
 }

@@ -15,6 +15,7 @@ function SessionForm() {
   const [skills, setskills] = useState([]);
   const [intrest, setintrest] = useState([]);
   const [Url, setURL] = useState("");
+  const [link, setLink] = useState();
   const inputStartTime = useRef();
   const inputEndTime = useRef();
   const inputPoints = useRef();
@@ -88,6 +89,10 @@ function SessionForm() {
     // console.log(formData, id, router.push("/admin"));
     updateSessionMeeting(formData, id, router);
   };
+  // const handlePaste = async () => {
+  //   const clipboardText = await navigator.clipboard.readText();
+  //   setClipboardData(clipboardText);
+  // };
 
   const handleSelectedChange = (seleteditem) => {
     // console.log(fillterSkills(seleteditem));
@@ -277,6 +282,7 @@ function SessionForm() {
                               className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                               placeholder="Please enter the Meeting Url"
                               ref={inputMeetingUrl}
+                              // onChange={(e) => setClipboardData(e.target.value)}
                             />
                             {/* <button
                               onClick={window.open(
@@ -287,6 +293,7 @@ function SessionForm() {
                               Generate
                             </button> */}
                             <Link
+                              // onClick={pasteHandler}
                               href={`http://localhost:3000/api/calendar/google?title=${inputTitle.current?.value}&start=${inputStartTime.current?.value}&end=${inputEndTime.current?.value}`}
                               target="_blank"
                             >
@@ -295,77 +302,6 @@ function SessionForm() {
                           </div>
                         </div>
                       </div>
-
-                      {/* Here is photo and coverphoto Start */}
-                      {/* <div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700">
-                            Upload photo
-                          </label>
-                          <div className="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
-                            {!Url ? (
-                              <div className="space-y-1 text-center">
-                                <svg
-                                  className="mx-auto h-12 w-12 text-gray-400"
-                                  stroke="currentColor"
-                                  fill="none"
-                                  viewBox="0 0 48 48"
-                                  aria-hidden="true"
-                                >
-                                  <path
-                                    d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                                    strokeWidth={2}
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                                <div className="flex text-sm text-gray-600">
-                                  <label
-                                    htmlFor="file-upload"
-                                    className="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
-                                  >
-                                    {fileSelect ? (
-                                      <span onClick={handleUpload}>
-                                        Click to Upload file
-                                      </span>
-                                    ) : (
-                                      <>
-                                        <span>Select a file</span>
-                                        <input
-                                          id="file-upload"
-                                          name="file-upload"
-                                          type="file"
-                                          className="sr-only"
-                                          onChange={handleChange}
-                                        />
-                                      </>
-                                    )}
-                                  </label>
-                                  <p className="pl-1">or drag and drop</p>
-                                </div>
-                                <p className="text-xs text-gray-500">
-                                  PNG, JPG, GIF up to 10MB
-                                </p>
-                              </div>
-                            ) : (
-                              <Image src={Url} alt="" height={48} width={48} />
-                            )}
-                          </div>
-                        </div>
-                      </div> */}
-                      {/*  Here is photo and coverphoto End */}
-                      {/* <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                        {Url ? (
-                          <button
-                            type="submit"
-                            className="inline-flex justify-center rounded-md  border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                          >
-                            Create Session
-                          </button>
-                        ) : (
-                          <p>Please Upload file First</p>
-                        )}
-                      </div> */}
 
                       <div>
                         <div>

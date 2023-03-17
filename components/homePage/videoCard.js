@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import Image from "next/image";
 import VideoCardItem from "./videoCardItem";
+import { getAllPastSessionsWithLink } from "../../utils_firebase/sessions";
 
 const VideoCard = () => {
+  const [pastSessions, setPastSessions] = useState([]);
+  useEffect(() => {
+    getAllPastSessionsWithLink().then((data) => {
+      setPastSessions(data);
+      console.log(data);
+    });
+  }, []);
   return (
     <div className="mx-[32px] mt-[32px]">
       <div className="flex justify-between ml-3 mb-[32px] ">
@@ -16,10 +24,21 @@ const VideoCard = () => {
 
       <div className=" w-full">
         <div className="flex flex-wrap gap-[2.42%] justify-center ">
+          {pastSessions.length > 0 &&
+            pastSessions
+              .slice(0, 4)
+              .map((pastSession) => (
+                <VideoCardItem
+                  link={pastSession.videoUrl}
+                  title={pastSession.title}
+                  instructorName={pastSession.instructor.summry.displayName}
+                  instructorImage={pastSession.instructor.summry.image}
+                />
+              ))}
+          {/* <VideoCardItem />
           <VideoCardItem />
           <VideoCardItem />
-          <VideoCardItem />
-          <VideoCardItem />
+          <VideoCardItem /> */}
           {/* <div className="w-[90%] xs:w-[80%] sm:w-[45%]  lg:w-[30.2%] xl:w-[23.18%]">
             <div className=" flex flex-col gap-4 mb-8  bg-[#F4F4F4] rounded-[12px] overflow-hidden ">
               <div className="relative mx-auto w-[100%] h-[200px] ">
