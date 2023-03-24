@@ -12,11 +12,11 @@ body {
   margin: auto;
 }
 .fc-day-past {
-  background-color: rgb(227, 83, 83);
+  background-color: rgba(240, 240, 240, 0.10);
 }
-.fc-day-future {
+/* .fc-day-future {
   background-color: azure;
-}
+} */
 
 ** {
   margin: 0;

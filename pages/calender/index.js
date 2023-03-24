@@ -3,7 +3,10 @@ import interactionPlugin from "@fullcalendar/interaction";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import { useEffect, useState } from "react";
-import { getAllSessions } from "../../utils_firebase/sessions";
+import {
+  getAllSessions,
+  getAllSessionsCalendar,
+} from "../../utils_firebase/sessions";
 import Spinner from "../../components/spinner";
 
 export default function Home() {
@@ -11,7 +14,9 @@ export default function Home() {
   // const Mentors = getAllMentors();
   useEffect(() => {
     async function name() {
-      const seasion = await getAllSessions(true);
+      // const seasion = await getAllSessions(true);
+      const seasion = await getAllSessionsCalendar();
+
       // console.log(seasion, ">>>>>>>>>>><<<LLLLLLLLKKKKKKKKKKK");
       const filtersession = seasion.map((doc) => {
         // console.log(

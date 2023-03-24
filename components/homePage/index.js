@@ -60,7 +60,13 @@ const HomePage = () => {
       <FeatureMentor />
       <FindMentor />
       <VideoCard />
-      <SkillCard onClickSkills={onClickSkills} skills={skills} />
+      <div className="ml-[32px]">
+        <SkillCard
+          onClickSkills={onClickSkills}
+          skills={skills}
+          page={"home"}
+        />
+      </div>
       {sessions == undefined || sessions.length == 0 ? (
         <h2 className="flex justify-center text-[50px]">
           No Upcoming Sessions On this Skill

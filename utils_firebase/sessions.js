@@ -249,3 +249,47 @@ export const getAllPastSessionsWithLink = async () => {
   }
   return allSessions;
 };
+
+//  -----filter past session by user intrest----
+export const getPastSessionByUserSkills = async (data) => {
+  try {
+    const allfilterSession = [];
+    console.log(data, "skillfilter");
+    const doc = await fireStore
+      .collection("sessions")
+      .where("isPast", "==", true)
+      .where("tags", "array-contains-any", data)
+      .get();
+    for (const element of doc.docs) {
+      const user = await getSingleUser(element.data().instructor);
+      allfilterSession.push({
+        id: element.id,
+        ...element.data(),
+        instructor: user,
+      });
+    }
+    console.log(allfilterSession);
+    return allfilterSession;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// -----get all sessions for calendar-----
+export const getAllSessionsCalendar = async () => {
+  const allSessions = [];
+  const session = await fireStore
+    .collection("sessions")
+    .where("approve", "!=", null)
+    .get();
+  // console.log(session, "session");
+  for (const doc of session.docs) {
+    const user = await getSingleUser(doc.data().instructor);
+    allSessions.push({
+      id: doc.id,
+      ...doc.data(),
+      instructor: user,
+    });
+  }
+  return allSessions;
+};

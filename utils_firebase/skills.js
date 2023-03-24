@@ -159,6 +159,7 @@ export const getSkillsByUserIntrest = async (data) => {
     console.log(error);
   }
 };
+
 export const updateIndemandSkill = (data) => {
   const ref = fireStore.collection("skills").doc(data.id);
 

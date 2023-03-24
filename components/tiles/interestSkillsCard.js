@@ -24,7 +24,7 @@ const InterestSkillsCard = ({ skill, click }) => {
       <div
         className={
           selectSkill
-            ? "min-w-[21.53%] mb-[15px] rounded-[12px] flex items-center shadow-md gap-2 px-2 cursor-pointer scale-105 shadow-2xl bg-[rgba(157,213,200,0.14)]"
+            ? "min-w-[21.53%] mb-[15px] rounded-[12px] flex items-center gap-2 px-2 cursor-pointer scale-105 shadow-2xl bg-[rgba(157,213,200,0.14)]"
             : "min-w-[21.53%] mb-[15px] rounded-[12px] flex items-center shadow-md gap-2 px-2 cursor-pointer"
         }
       >

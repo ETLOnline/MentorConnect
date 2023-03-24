@@ -3,6 +3,7 @@ import ReactPlayer from "react-player";
 import Image from "next/image";
 import VideoCardItem from "./videoCardItem";
 import { getAllPastSessionsWithLink } from "../../utils_firebase/sessions";
+import Link from "next/link";
 
 const VideoCard = () => {
   const [pastSessions, setPastSessions] = useState([]);
@@ -16,10 +17,14 @@ const VideoCard = () => {
     <div className="mx-[32px] mt-[32px]">
       <div className="flex justify-between ml-3 mb-[32px] ">
         <h2 className="text-3xl font-bold">Past Sessions</h2>
-        <div className="flex gap-2 justify-between items-center ">
-          <p className="text-[20px] text-[#909090] leading-[23px] ">Explore</p>
-          <div className="bg-[url('/img/Arrow.png')] w-6 h-6 bg-no-repeat hover:bg-[url('/img/Group.svg')] bg-center hover:transition-all hover:translate-x-1 hover:duration-200"></div>
-        </div>
+        <Link href={"/pastSessions"} className="flex items-center ">
+          <div className="flex gap-2 justify-between items-center ">
+            <p className="text-[20px] text-[#909090] leading-[23px] ">
+              Explore
+            </p>
+            <div className="bg-[url('/img/Arrow.png')] w-6 h-6 bg-no-repeat hover:bg-[url('/img/Group.svg')] bg-center hover:transition-all hover:translate-x-1 hover:duration-200"></div>
+          </div>
+        </Link>
       </div>
 
       <div className=" w-full">

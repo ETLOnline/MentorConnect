@@ -7,11 +7,16 @@ import { AuthContext } from "../../contexts/auth_context";
 import Image from "next/image";
 import { getAllSkillsOnly } from "../../utils_firebase/skills";
 import SkillTag from "../../components/tiles/skillTag";
+import firebase from "firebase";
+import { getAllSessionsCalendar } from "../../utils_firebase/sessions";
+import ErrorModal from "../../components/tiles/errorModal";
 
 export default function Profile() {
   const { user } = useContext(AuthContext);
+  const [error, setError] = useState();
   const [skills, setskills] = useState([]);
   const [intrest, setintrest] = useState([]);
+  const [sessions, setSessions] = useState([]);
 
   const router = useRouter();
 
@@ -48,6 +53,9 @@ export default function Profile() {
     return data.map((ele) => ele.value);
   };
   useEffect(() => {
+    getAllSessionsCalendar().then((session) => {
+      setSessions(session);
+    });
     getAllSkillsOnly().then((data) => {
       setskills(data);
       // console.log(data);
@@ -73,14 +81,46 @@ export default function Profile() {
       Image: Url,
     };
     console.log(formData);
-    createSession(formData, user?.user.uid, router);
+    const start = new firebase.firestore.Timestamp.fromDate(
+      new Date(formData.StartTime)
+    );
+    const end = new firebase.firestore.Timestamp.fromDate(
+      new Date(formData.EndTime)
+    );
+    let match;
+    sessions.forEach((session) => {
+      if (
+        (start >= session.startTime && start <= session.endTime) ||
+        (end >= session.startTime && end <= session.endTime)
+      ) {
+        match = true;
+      }
+    });
+    if (match == true) {
+      setError({
+        title: "Invalid Time",
+        message: "This time slot is already reserved by another session",
+      });
+    } else {
+      createSession(formData, user?.user.uid, router);
+    }
   }
+  const errorHandler = () => {
+    setError(null);
+  };
 
   // console.log(user.user.summry.displayName);
 
   return (
     <Fragment>
       <div className=" mt-5 bg-slate-50  ">
+        {error && (
+          <ErrorModal
+            title={error.title}
+            message={error.message}
+            onConfirm={errorHandler}
+          />
+        )}
         <div className="w-11/12 ml-12 m-5 ">
           <div className="md:grid md:grid-cols-3 md:gap-6">
             <div className="md:col-span-1">
