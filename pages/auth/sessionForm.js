@@ -136,7 +136,7 @@ export default function Profile() {
                 <div className="w-[100%] mt-[50px] bg-white rounded-[20px] h-[500px]">
                   <div className="relative h-[200px]  mx-auto w-[200px]">
                     <Image
-                      src={Url ? Url : user?.user?.summry.image}
+                      src={user?.user?.summry.image}
                       fill
                       className="rounded-full my-[20px]"
                       alt="img"

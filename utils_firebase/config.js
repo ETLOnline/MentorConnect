@@ -24,12 +24,19 @@ if (process.env.NODE_ENV === "development") {
   };
 } else if (process.env.NODE_ENV === "production") {
   firebaseConfig = {
-    apiKey: "AIzaSyDdC4or6Fde87crqMCb37r2WTP1g0-RFTU",
-    authDomain: "dao-app-f170b.firebaseapp.com",
-    projectId: "dao-app-f170b",
-    storageBucket: "dao-app-f170b.appspot.com",
-    messagingSenderId: "729053054019",
-    appId: "1:729053054019:web:be6e3bb5b3e58d20d9c0f6",
+    // apiKey: "AIzaSyDdC4or6Fde87crqMCb37r2WTP1g0-RFTU",
+    // authDomain: "dao-app-f170b.firebaseapp.com",
+    // projectId: "dao-app-f170b",
+    // storageBucket: "dao-app-f170b.appspot.com",
+    // messagingSenderId: "729053054019",
+    // appId: "1:729053054019:web:be6e3bb5b3e58d20d9c0f6",
+
+    apiKey: "AIzaSyDLTVghMhpGtXg9laD2Q9vxYLSE4PnZUdk",
+    authDomain: "tldweb-dev.firebaseapp.com",
+    projectId: "tldweb-dev",
+    storageBucket: "tldweb-dev.appspot.com",
+    messagingSenderId: "765270106882",
+    appId: "1:765270106882:web:e2189c047ae7299b52581b",
 
     // apiKey: "AIzaSyD1U3a0aKscQzTY1y40YqVZ-8FeFqVnmeE",
     // authDomain: "users-337f1.firebaseapp.com",

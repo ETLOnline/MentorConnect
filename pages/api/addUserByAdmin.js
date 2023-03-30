@@ -52,7 +52,8 @@ export default (req, res) => {
         })
         .then(() => {
           console.log("Successfully created new user:", userRecord.uid);
-          res.redirect("/admin");
+          // res.redirect("/admin");
+          res.status(302).setHeader("Location", "/admin").send();
         });
       // See the UserRecord reference doc for the contents of userRecord.
       // console.log("Successfully created new user:", userRecord.uid);
