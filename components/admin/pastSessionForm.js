@@ -195,7 +195,7 @@ const PastSessionForm = (users) => {
                               {users.users.map((data) => (
                                 <option
                                   value={JSON.stringify({
-                                    image: data.summry.image,
+                                    image: data.summry?.image,
                                     displayName: data.summry.displayName,
                                     instructorId: data.uid,
                                   })}

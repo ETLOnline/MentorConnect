@@ -34,6 +34,7 @@ const VideoCard = () => {
               .slice(0, 4)
               .map((pastSession) => (
                 <VideoCardItem
+                  key={Math.random()}
                   link={pastSession.videoUrl}
                   title={pastSession.title}
                   instructorName={pastSession.instructor.summry.displayName}
