@@ -12,10 +12,14 @@ import admin from "firebase-admin";
 //     // databaseURL:
 //   });
 // }
-var serviceAccount = require("./secret.json");
+const firebaseConfig = {
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  privateKey: process.env.NEXT_PUBLIC_PRIVATE_KEY.replace(/\\n/g, "\n"),
+  clientEmail: process.env.NEXT_PUBLIC_CLIENT_EMAIL,
+};
 if (!admin.apps.length) {
   admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
+    credential: admin.credential.cert(firebaseConfig),
   });
 }
 const auth = admin.auth();

@@ -2,13 +2,13 @@ import clipboardy from "clipboardy";
 const { google } = require("googleapis");
 const calendar = google.calendar({
   version: "v3",
-  auth: "AIzaSyAX0cdNr8lF_5Mfmut9YUCQEc5cmPk1K2A",
+  auth: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
 });
 
 const oauth2Client = new google.auth.OAuth2(
-  "500830928651-k7elbsakk11v6ofk5iprgrs8ifaef3j6.apps.googleusercontent.com",
-  "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",
-  "http://localhost:3000/api/calendar/google/redirect"
+  process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+  process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET,
+  process.env.NEXT_PUBLIC_GOOGLE_REDIRECT_URI
 );
 const scopes = ["https://www.googleapis.com/auth/calendar"];
 
