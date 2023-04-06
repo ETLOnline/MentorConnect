@@ -2,15 +2,26 @@ import FullCalendar from "@fullcalendar/react";
 import interactionPlugin from "@fullcalendar/interaction";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import {
   getAllSessions,
   getAllSessionsCalendar,
 } from "../../utils_firebase/sessions";
 import Spinner from "../../components/spinner";
+import { AuthContext } from "../../contexts/auth_context";
 
 export default function Home() {
+  const { user } = useContext(AuthContext);
   const [sessions, setSessions] = useState(false);
+
+  if (!user.user) {
+    return (
+      <div className=" text-center h-[30vh]  items-center  text-5xl mb-20 mt-20">
+        <p>First Login Please</p>
+        <p>Loading.... </p>
+      </div>
+    );
+  }
   // const Mentors = getAllMentors();
   useEffect(() => {
     async function name() {

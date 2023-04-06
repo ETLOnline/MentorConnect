@@ -10,7 +10,7 @@ export const createSession = (data, id, router) => {
       approve: false,
       image: data.Image,
       instructor: id,
-      students: ["HID06ysBc8cYx2rtsxvOAtOJT9o1"],
+      students: [],
       tags: data.Tags,
       title: data.Title,
       startTime: new firebase.firestore.Timestamp.fromDate(

@@ -18,6 +18,14 @@ const SessionDetail = () => {
   const router = useRouter();
   const id = router.query.sessionDetail;
 
+  if (!user.user) {
+    return (
+      <div className=" text-center items-center h-[30vh] text-5xl mb-20 mt-20">
+        <p>First Login Please</p>
+        <p>Loading.... </p>
+      </div>
+    );
+  }
   useEffect(() => {
     getSessionById(id).then((user) => {
       setIsLoaded(user);
@@ -52,7 +60,7 @@ const SessionDetail = () => {
       <div className="flex">
         <div className="w-[40%] h-[110vh] ">
           <div className="border-[2px] m-[40px] rounded-[20px]">
-            <div className="relative h-[80vh] w-[80%] m-auto ">
+            <div className="relative h-[60vh]  m-auto ">
               <Image
                 src={isLoaded.image}
                 alt="img"

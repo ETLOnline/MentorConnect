@@ -1,14 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import VideoCardItem from "../../components/homePage/videoCardItem";
 import { getAllPastSessionsWithLink } from "../../utils_firebase/sessions";
 import SkillCard from "../../components/homePage/skillCard";
 import { getAllSkillsWithImage } from "../../utils_firebase/skills";
 import { getPastSessionByUserSkills } from "../../utils_firebase/sessions";
+import { AuthContext } from "../../contexts/auth_context";
 
 const PastSessions = () => {
+  const { user } = useContext(AuthContext);
   const [pastSessions, setPastSessions] = useState([]);
   const [skills, setSkills] = useState([]);
   const [selectedSkill, setSelectedSkill] = useState([]);
+  if (!user.user) {
+    return (
+      <div className=" text-center h-[30vh] items-center text-5xl mb-20 mt-20">
+        <p>First Login Please</p>
+        <p>Loading.... </p>
+      </div>
+    );
+  }
   useEffect(() => {
     getAllPastSessionsWithLink().then((data) => {
       setPastSessions(data);
