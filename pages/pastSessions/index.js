@@ -11,14 +11,6 @@ const PastSessions = () => {
   const [pastSessions, setPastSessions] = useState([]);
   const [skills, setSkills] = useState([]);
   const [selectedSkill, setSelectedSkill] = useState([]);
-  if (!user.user) {
-    return (
-      <div className=" text-center h-[30vh] items-center text-5xl mb-20 mt-20">
-        <p>First Login Please</p>
-        <p>Loading.... </p>
-      </div>
-    );
-  }
   useEffect(() => {
     getAllPastSessionsWithLink().then((data) => {
       setPastSessions(data);
@@ -28,6 +20,15 @@ const PastSessions = () => {
       setSkills(data);
     });
   }, []);
+
+  if (!user.user) {
+    return (
+      <div className=" text-center h-[30vh] items-center text-5xl mb-20 mt-20">
+        <p>First Login Please</p>
+        <p>Loading.... </p>
+      </div>
+    );
+  }
   const onClickSkills = (ele, exist) => {
     let arr = [...selectedSkill];
     // if (arr.find((data) => data == ele) == ele) {

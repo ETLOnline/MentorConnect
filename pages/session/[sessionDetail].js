@@ -17,6 +17,12 @@ const SessionDetail = () => {
   const [isLoaded, setIsLoaded] = useState([]);
   const router = useRouter();
   const id = router.query.sessionDetail;
+  useEffect(() => {
+    getSessionById(id).then((user) => {
+      setIsLoaded(user);
+    });
+    // declare the async data fetching function
+  }, [id]);
 
   if (!user.user) {
     return (
@@ -26,12 +32,6 @@ const SessionDetail = () => {
       </div>
     );
   }
-  useEffect(() => {
-    getSessionById(id).then((user) => {
-      setIsLoaded(user);
-    });
-    // declare the async data fetching function
-  }, [id]);
 
   const onFollowHenddler = (id, name) => {
     console.log(id, "foll", user.user.uid);

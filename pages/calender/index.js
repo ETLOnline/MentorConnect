@@ -13,16 +13,6 @@ import { AuthContext } from "../../contexts/auth_context";
 export default function Home() {
   const { user } = useContext(AuthContext);
   const [sessions, setSessions] = useState(false);
-
-  if (!user.user) {
-    return (
-      <div className=" text-center h-[30vh]  items-center  text-5xl mb-20 mt-20">
-        <p>First Login Please</p>
-        <p>Loading.... </p>
-      </div>
-    );
-  }
-  // const Mentors = getAllMentors();
   useEffect(() => {
     async function name() {
       // const seasion = await getAllSessions(true);
@@ -52,6 +42,15 @@ export default function Home() {
     }
     name();
   }, []);
+
+  if (!user.user) {
+    return (
+      <div className=" text-center h-[30vh]  items-center  text-5xl mb-20 mt-20">
+        <p>First Login Please</p>
+        <p>Loading.... </p>
+      </div>
+    );
+  }
 
   if (!sessions) {
     return <Spinner />;
