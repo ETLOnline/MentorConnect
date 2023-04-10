@@ -242,7 +242,7 @@ export default function NavBar() {
                                 href={`/admin`}
                                 className="hover:text-[#1C2D56] px-3"
                               >
-                                Admin Penal
+                                Admin Panel
                               </Link>
                             </div>
                           )}
