@@ -74,6 +74,11 @@ export default function NavBar() {
                         <Link href="/auth/sessionForm">Create Session</Link>
                       </p>
                     </div>
+                    <div className=" text-[16px] md:w-auto mx-auto  md:border-0">
+                      <p className="text-center hover:font-medium font-['Raleway'] text-[16px] md:text-[15px] lg:text-[16px] leading-5 md:m-[10px] m-[16px] cursor-pointer">
+                        <Link href="/calender">Calendar</Link>
+                      </p>
+                    </div>
                     {/* --------- */}
                     {/* Nav DropDown Comming Soon */}
                     <div className="relative group">
@@ -125,6 +130,7 @@ export default function NavBar() {
                         </div>
                       </div>
                     </div>
+
                     {/* ----End DropDown Cooming Soon---- */}
 
                     {/* <div className=" text-[16px] md:w-auto mx-auto md:border-0">
