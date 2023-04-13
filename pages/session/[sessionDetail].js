@@ -95,14 +95,14 @@ const SessionDetail = () => {
                   <div className="flex items-center">
                     <div className="relative w-[32px] h-[32px]">
                       <Image
-                        src={isLoaded.instructor.summry.image}
+                        src={isLoaded.instructor.summry?.image}
                         alt=""
                         fill
                         className="object-cover rounded-full"
                       />
                     </div>
                     <h1 className="font-bold ml-[15px] text-[#1C2D56]">
-                      {isLoaded.instructor.summry.displayName}
+                      {isLoaded.instructor.summry?.displayName}
                     </h1>
                   </div>
                 </Link>
