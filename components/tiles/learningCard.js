@@ -12,7 +12,7 @@ const LearningCard = ({ data }) => {
         <div className="flex flex-col mx-auto xs:flex-row w-[100%] gap-4 xs:ml-[12px] my-[12px]">
           <div className="relative mx-auto max-w-[200px] max-h-[200px] min-w-[200px] min-h-[200px] xs:min-w-[96px] xs:min-h-[96px]  my-auto ">
             <Image
-              src={data.image}
+              src={data?.image}
               alt="img"
               fill
               className=" rounded-[12px]"
@@ -40,7 +40,7 @@ const LearningCard = ({ data }) => {
             <div className="w-[65%] h-auto flex gap-2">
               <div className="relative h-[24px] w-[24px]">
                 <Image
-                  src={data.instructor.summry.image}
+                  src={data.instructor.summry?.image}
                   alt="img"
                   fill
                   className="object-cover rounded-[20px]"
@@ -52,7 +52,7 @@ const LearningCard = ({ data }) => {
               </div>
 
               <p className="sm:text-[16px] md:text-[16px] leading-[19px] overflow-hidden ... font-medium text-[#8B8B8B] group-hover:text-[#1C2D56]">
-                {data.instructor.summry.displayName}
+                {data.instructor.summry?.displayName}
               </p>
             </div>
           </div>
