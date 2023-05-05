@@ -33,7 +33,7 @@ const CreateSession = (users) => {
     // console.log(instructor);
   };
   function handleChange(e) {
-    console.log(e.target.files[0]);
+    // console.log(e.target.files[0]);
     const file = e.target.files[0];
     setFile(file);
     setFileSelect(true);
@@ -45,7 +45,7 @@ const CreateSession = (users) => {
       await ref.put(file);
       const url = await ref.getDownloadURL();
       setURL(url);
-      console.log(url, "sasasa", Url);
+      // console.log(url, "sasasa", Url);
     }
   }
 
@@ -85,7 +85,7 @@ const CreateSession = (users) => {
       // instructor: enteredInstructor,
       Image: Url,
     };
-    console.log(formData);
+    // console.log(formData);
     createSession(formData, enteredInstructor);
     /*
     inputStartTime.current.value = "";

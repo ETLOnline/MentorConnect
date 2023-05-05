@@ -20,15 +20,15 @@ const Index = () => {
   const path = router.query.userId;
 
   const onFollowHenddler = (id) => {
-    console.log(id, "foll", user.user.uid);
+    // console.log(id, "foll", user.user.uid);
     followUser(id, user.user.uid);
   };
 
-  console.log(path, "path.................");
+  // console.log(path, "path.................");
   useEffect(() => {
     if (user.user.uid === path) {
       getSingleUser(user.user.uid).then((users) => {
-        console.log(users, "useeffect");
+        // console.log(users, "useeffect");
         setUser(users);
       });
     } else {
@@ -40,7 +40,7 @@ const Index = () => {
 
   // Taking data from child component to rerender the component to increase follower😎
   function Rerender(data) {
-    console.log(data, "data is from child");
+    // console.log(data, "data is from child");
     setFollower(data);
   }
 
@@ -50,14 +50,14 @@ const Index = () => {
   const [schdule, setschdule] = useState(false);
 
   function abouthandler() {
-    console.log("about");
+    // console.log("about");
     setabout(true);
     setactivity(false);
     setschdule(false);
     setreward(false);
   }
   function activityhandler() {
-    console.log("Activity");
+    // console.log("Activity");
 
     setactivity(true);
     setabout(false);
@@ -66,7 +66,7 @@ const Index = () => {
   }
 
   function rewardhandler() {
-    console.log("RewardsHandler");
+    // console.log("RewardsHandler");
 
     setreward(true);
     setabout(false);
@@ -74,7 +74,7 @@ const Index = () => {
     setactivity(false);
   }
   function schdulehandler() {
-    console.log("schdulehandler");
+    // console.log("schdulehandler");
 
     setschdule(true);
     setreward(false);

@@ -29,7 +29,7 @@ export default function Profile() {
   const inputPoints = useRef();
   const inputTitle = useRef();
   function handleChange(e) {
-    console.log(e.target.files[0]);
+    // console.log(e.target.files[0]);
     const file = e.target.files[0];
     setFile(file);
     setFileSelect(true);
@@ -41,7 +41,7 @@ export default function Profile() {
       await ref.put(file);
       const url = await ref.getDownloadURL();
       setURL(url);
-      console.log(url, "sasasa", Url);
+      // console.log(url, "sasasa", Url);
     }
   }
 
@@ -80,7 +80,7 @@ export default function Profile() {
       Points: enteredPoints,
       Image: Url,
     };
-    console.log(formData);
+    // console.log(formData);
     const start = new firebase.firestore.Timestamp.fromDate(
       new Date(formData.StartTime)
     );

@@ -28,7 +28,7 @@ const PastSessionForm = (users) => {
   useEffect(() => {
     getAllSkillsOnly().then((data) => {
       setskills(data);
-      console.log(data);
+      // console.log(data);
     });
   }, []);
 
@@ -46,7 +46,7 @@ const PastSessionForm = (users) => {
     const enteredInstructor = inputInstructor.current.value;
     // const enteredInstructor = event.target.instructor.value;
 
-    console.log(enteredInstructor);
+    // console.log(enteredInstructor);
     const instructor = JSON.parse(enteredInstructor);
     const instructorId = instructor.instructorId;
     formData = {
@@ -58,7 +58,7 @@ const PastSessionForm = (users) => {
       // instructor: enteredInstructor,
     };
     createNewPastSession(formData, instructorId);
-    console.log(formData, instructorId);
+    // console.log(formData, instructorId);
     inputTitle.current.value = "";
     inputDescription.current.value = "";
     inputUrl.current.value = "";

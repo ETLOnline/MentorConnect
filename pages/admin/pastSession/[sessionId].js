@@ -1,14 +1,22 @@
 import { useRouter } from "next/router";
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, {
+  Fragment,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { getSessionById } from "../../../utils_firebase/sessions";
 import SkillTag from "../../../components/tiles/skillTag";
 import { getAllSkillsOnly } from "../../../utils_firebase/skills";
 import Image from "next/image";
 import { createPastSessionByUpdate } from "../../../utils_firebase/sessions";
+import { AuthContext } from "../../../contexts/auth_context";
 
 const PastSessionForm = () => {
   const router = useRouter();
   const id = router.query.sessionId;
+  const { user } = useContext(AuthContext);
   const [skills, setskills] = useState([]);
   const [intrest, setintrest] = useState([]);
   const [Url, setURL] = useState("");
@@ -23,25 +31,30 @@ const PastSessionForm = () => {
     // getAllSkillsOnly().then((data) => {
     //   setskills(data);
     // });
-    const dateConverter = (now) => {
-      now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-      return now.toISOString().slice(0, 16);
-    };
-    getSessionById(id).then((data) => {
-      console.log(data.instructor.summry.displayName);
-      inputTitle.current.value = data.title;
-      inputInstructor.current.value = data.instructor.summry.displayName;
-      inputPoints.current.value = data.poins;
-      setURL(data.image);
-      setintrest(data.tags);
-      inputStartTime.current.value = dateConverter(
-        new Date(data.startTime.seconds * 1000)
-      );
-      inputEndTime.current.value = dateConverter(
-        new Date(data.endTime.seconds * 1000)
-      );
-    });
+    if (user.user.role == "superAdmin" || user.user.role == "admin") {
+      const dateConverter = (now) => {
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        return now.toISOString().slice(0, 16);
+      };
+      getSessionById(id).then((data) => {
+        // console.log(data.instructor.summry.displayName);
+        inputTitle.current.value = data.title;
+        inputInstructor.current.value = data.instructor.summry?.displayName;
+        inputPoints.current.value = data.poins;
+        setURL(data.image);
+        setintrest(data.tags);
+        inputStartTime.current.value = dateConverter(
+          new Date(data.startTime.seconds * 1000)
+        );
+        inputEndTime.current.value = dateConverter(
+          new Date(data.endTime.seconds * 1000)
+        );
+      });
+    }
   }, []);
+  if (user.user.role != "superAdmin" && user.user.role != "admin") {
+    router.push("/");
+  }
 
   let formData = {};
   const submitHandler = (event) => {
@@ -251,7 +264,7 @@ const PastSessionForm = () => {
                           type="submit"
                           className="inline-flex justify-center rounded-md  border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         >
-                          Create Session
+                          Update Session
                         </button>
                       </div>
                     </div>

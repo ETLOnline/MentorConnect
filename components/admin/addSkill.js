@@ -20,7 +20,7 @@ const AddSkill = () => {
   // }, []);
 
   function handleChange(e) {
-    console.log(e.target.files[0]);
+    // console.log(e.target.files[0]);
     const file = e.target.files[0];
     setFile(file);
     setFileSelect(true);
@@ -32,7 +32,7 @@ const AddSkill = () => {
       await ref.put(file);
       const url = await ref.getDownloadURL();
       setURL(url);
-      console.log(url, "sasasa", Url);
+      // console.log(url, "sasasa", Url);
     }
   }
   let formData;
@@ -48,7 +48,7 @@ const AddSkill = () => {
       name: enteredSkill,
       image: imageUrl,
     };
-    console.log(formData);
+    // console.log(formData);
 
     createSkills(formData);
     inputSkill.current.value = "";

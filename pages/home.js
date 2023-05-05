@@ -16,14 +16,14 @@ const Home = () => {
   const [RecommendedSession, setRecommendedSession] = useState();
   const [skill, setskill] = useState([]);
   const [allSkill, setAllSkill] = useState([]);
-  console.log(user, "userHome");
+  // console.log(user, "userHome");
 
   const generalSkills = ["Node JS", "MongoDB"];
-  console.log(user.user, "userHome...");
+  // console.log(user.user, "userHome...");
 
   useEffect(() => {
     if (user.user) {
-      console.log(user.user);
+      // console.log(user.user);
       getAllSkillsWithImage().then((data) => setAllSkill(data));
       getSkillsByUserIntrest(
         user.user?.interest?.length === 0 ? generalSkills : user.user.interest
@@ -47,7 +47,7 @@ const Home = () => {
     );
   }
 
-  console.log(RecommendedSession, "RecommendedSession....");
+  // console.log(RecommendedSession, "RecommendedSession....");
   return (
     <>
       {/* <Header /> */}

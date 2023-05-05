@@ -34,7 +34,7 @@ const SessionDetail = () => {
   }
 
   const onFollowHenddler = (id, name) => {
-    console.log(id, "foll", user.user.uid);
+    // console.log(id, "foll", user.user.uid);
 
     followUser(id, user.user.uid);
     const resolveAfter3Sec = new Promise((resolve) =>
@@ -50,7 +50,7 @@ const SessionDetail = () => {
   if (isLoaded.length === 0) {
     return <Spinner />;
   }
-  console.log(isLoaded.instructor.uid, "id in dinamic");
+  // console.log(isLoaded.instructor.uid, "id in dinamic");
   // const [A, B] =
   // console.log(A, B, "data");
   // console.log(isLoaded, "loaded.....", id);

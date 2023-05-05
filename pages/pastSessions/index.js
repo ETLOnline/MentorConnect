@@ -14,7 +14,7 @@ const PastSessions = () => {
   useEffect(() => {
     getAllPastSessionsWithLink().then((data) => {
       setPastSessions(data);
-      console.log(data, "past sessions");
+      // console.log(data, "past sessions");
     });
     getAllSkillsWithImage().then((data) => {
       setSkills(data);
@@ -49,7 +49,7 @@ const PastSessions = () => {
         setPastSessions(data);
       });
     }
-    console.log(ele, selectedSkill, exist, arr);
+    // console.log(ele, selectedSkill, exist, arr);
   };
 
   return (

@@ -37,7 +37,7 @@ export default function Home() {
           end,
         };
       });
-      console.log(filtersession, ">>>>>>>>>>>>><<<<SSS<S<<S<S");
+      // console.log(filtersession, ">>>>>>>>>>>>><<<<SSS<S<<S<S");
       setSessions(filtersession);
     }
     name();
@@ -56,7 +56,7 @@ export default function Home() {
     return <Spinner />;
   }
 
-  console.log(sessions);
+  // console.log(sessions);
   return (
     <FullCalendar
       plugins={[interactionPlugin, timeGridPlugin, dayGridPlugin]}

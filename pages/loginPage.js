@@ -70,7 +70,7 @@ const Index = () => {
         password: enteredPassword,
       };
 
-      console.log(formData);
+      // console.log(formData);
       signin(formData, router);
     }
 

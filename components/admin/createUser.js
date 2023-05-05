@@ -16,12 +16,12 @@ const CreateUser = () => {
     const enteredLastName = inputLastName.current.value;
     const enteredEmail = inputEmail.current.value;
     const enteredPassword = inputPassword.current.value;
-    console.log(
-      enteredFirstName,
-      enteredLastName,
-      enteredEmail,
-      enteredPassword
-    );
+    // console.log(
+    //   enteredFirstName,
+    //   enteredLastName,
+    //   enteredEmail,
+    //   enteredPassword
+    // );
     let formData = {
       firstName: enteredFirstName,
       lastName: enteredLastName,

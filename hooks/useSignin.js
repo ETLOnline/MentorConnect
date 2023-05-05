@@ -37,7 +37,7 @@ export const useSinin = () => {
       router.push("/home");
       // Signed in
       var user = userCredential.user;
-      console.log(user, "login");
+      // console.log(user, "login");
     } catch (error) {
       toast.error(error.message);
 

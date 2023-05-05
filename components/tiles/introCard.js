@@ -29,7 +29,7 @@ const IntroCard = ({ data }) => {
   const [Url, setURL] = useState("");
 
   function handleChange(e) {
-    console.log(e.target.files[0]);
+    // console.log(e.target.files[0]);
     const file = e.target.files[0];
     setFile(file);
     setFileSelect(true);
@@ -42,7 +42,7 @@ const IntroCard = ({ data }) => {
       await ref.put(file);
       const url = await ref.getDownloadURL();
       setURL(url);
-      console.log(url, "sasasa", Url);
+      // console.log(url, "sasasa", Url);
       updateImage(url, data.uid);
       setFile(null);
       setFileSelect(false);

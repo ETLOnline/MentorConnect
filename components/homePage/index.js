@@ -30,7 +30,7 @@ const HomePage = () => {
     }
     name();
   }, []);
-  console.log(sessions, "sesasas");
+  // console.log(sessions, "sesasas");
   const onClickSkills = (ele, exist) => {
     let arr = [...selectedSkill];
     // if (arr.find((data) => data == ele) == ele) {
@@ -51,7 +51,7 @@ const HomePage = () => {
         setSessions(data);
       });
     }
-    console.log(ele, selectedSkill, exist, arr);
+    // console.log(ele, selectedSkill, exist, arr);
   };
 
   return (

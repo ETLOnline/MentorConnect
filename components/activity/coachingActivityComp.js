@@ -11,7 +11,7 @@ const CoachingActivityBlock = () => {
 
   useEffect(() => {
     getSingleUser(user.user.uid).then((userData) => {
-      console.log(userData.interest, "jjjj");
+      // console.log(userData.interest, "jjjj");
 
       getSessionByUserSkills(userData.interest).then((data) => {
         setSession(data);

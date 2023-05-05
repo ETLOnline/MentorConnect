@@ -12,6 +12,7 @@ import Link from "next/link";
 function SessionForm() {
   const router = useRouter();
   const id = router.query.sessionId;
+  const { user } = useContext(AuthContext);
   const [skills, setskills] = useState([]);
   const [intrest, setintrest] = useState([]);
   const [Url, setURL] = useState("");
@@ -25,34 +26,39 @@ function SessionForm() {
   const [file, setFile] = useState(null);
   const [fileSelect, setFileSelect] = useState(false);
   useEffect(() => {
-    getAllSkillsOnly().then((data) => {
-      setskills(data);
-    });
-    const dateConverter = (now) => {
-      now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-      return now.toISOString().slice(0, 16);
-    };
-    getSessionById(id).then((data) => {
-      inputTitle.current.value = data.title;
-      inputPoints.current.value = data.poins;
-      setURL(data.image);
-      inputStartTime.current.value = dateConverter(
-        new Date(data.startTime.seconds * 1000)
-      );
-      inputEndTime.current.value = dateConverter(
-        new Date(data.endTime.seconds * 1000)
-      );
-      setintrest(data.tags);
-      if (data.meetingLink) {
-        inputMeetingUrl.current.value = data.meetingLink;
-      }
+    if (user.user.role == "superAdmin" || user.user.role == "admin") {
+      getAllSkillsOnly().then((data) => {
+        setskills(data);
+      });
+      const dateConverter = (now) => {
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        return now.toISOString().slice(0, 16);
+      };
+      getSessionById(id).then((data) => {
+        inputTitle.current.value = data.title;
+        inputPoints.current.value = data.poins;
+        setURL(data.image);
+        inputStartTime.current.value = dateConverter(
+          new Date(data.startTime.seconds * 1000)
+        );
+        inputEndTime.current.value = dateConverter(
+          new Date(data.endTime.seconds * 1000)
+        );
+        setintrest(data.tags);
+        if (data.meetingLink) {
+          inputMeetingUrl.current.value = data.meetingLink;
+        }
 
-      console.log(data, new Date(data.startTime.seconds * 1000));
-    });
+        // console.log(data, new Date(data.startTime.seconds * 1000));
+      });
+    }
   }, []);
+  if (user.user.role != "superAdmin" && user.user.role != "admin") {
+    router.push("/");
+  }
 
   function handleChange(e) {
-    console.log(e.target.files[0]);
+    // console.log(e.target.files[0]);
     const file = e.target.files[0];
     setFile(file);
     setFileSelect(true);
@@ -64,7 +70,7 @@ function SessionForm() {
       await ref.put(file);
       const url = await ref.getDownloadURL();
       setURL(url);
-      console.log(url, "sasasa", Url);
+      // console.log(url, "sasasa", Url);
     }
   }
   let formData = {};

@@ -29,7 +29,7 @@ function AllSkills(skills) {
       Cell: (row) => (
         <select
           onChange={(e) => {
-            console.log(e.target.value, row.row.original.id);
+            // console.log(e.target.value, row.row.original.id);
             updateIndemandSkill({
               id: row.row.original.id,
               indemand: JSON.parse(e.target.value.toLowerCase()),
@@ -53,7 +53,7 @@ function AllSkills(skills) {
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => MOCK_DATA, []);
 
-  console.log(MOCK_DATA, "table");
+  // console.log(MOCK_DATA, "table");
 
   const tableInstance = useTable(
     {

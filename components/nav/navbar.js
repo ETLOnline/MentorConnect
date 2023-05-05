@@ -13,7 +13,7 @@ export default function NavBar() {
 
   const { signout, error, isPanding } = useSignout();
   const router = useRouter();
-  console.log(user.user);
+  // console.log(user.user);
 
   let admin;
 

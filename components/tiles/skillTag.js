@@ -29,7 +29,7 @@ export default function SkillTag({
     }
   };
 
-  console.log(selectedItems, "fffffffffffffffff");
+  // console.log(selectedItems, "fffffffffffffffff");
   return (
     <ChakraProvider>
       <Box maxW="xl">

@@ -43,7 +43,7 @@ export const loginWithGoogle = (router, setUser) => {
       // });
 
       const userData = await getSingleUser(user.uid);
-      console.log(userData, "userdata");
+      // console.log(userData, "userdata");
       if (!userData.uid) {
         await fireStore
           .collection("users")
@@ -72,7 +72,7 @@ export const loginWithGoogle = (router, setUser) => {
         setUser((prev) => {
           return { ...prev, user: userData, authIsValide: true };
         });
-        console.log("Document successfully written!");
+        // console.log("Document successfully written!");
         router.push("/home");
         // toast.success("Successfully Sigin In");
       } else {
@@ -88,7 +88,7 @@ export const loginWithGoogle = (router, setUser) => {
     .catch((error) => {
       // toast.error(error.message);
       // Handle Errors here.
-      console.log(error);
+      // console.log(error);
       const errorCode = error.code;
       const errorMessage = error.message;
       // The email of the user's account used.
@@ -153,7 +153,7 @@ export const getSingleUser = (id) => {
 };
 
 export const updateProfile = (data, uid) => {
-  console.log(data, "update data");
+  // console.log(data, "update data");
   var Ref = fireStore.collection("users").doc(uid);
   return Ref.update({
     ...data,
@@ -236,7 +236,7 @@ export const updatePassword = (email, currentPassword, newPassword, router) => {
         console.error("Error reauthenticating user:", error);
       });
   } else {
-    console.log("blabalablalablaalbalalbal");
+    // console.log("blabalablalablaalbalalbal");
   }
 };
 
@@ -249,7 +249,7 @@ export const createNewUser = (data) => {
     .createUserWithEmailAndPassword(data.email, data.password)
     .then((credential) => {
       const uid = credential.user.uid;
-      console.log(uid);
+      // console.log(uid);
       fireStore
         .collection("users")
         .doc(uid)

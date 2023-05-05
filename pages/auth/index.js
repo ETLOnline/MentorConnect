@@ -82,7 +82,7 @@ const Index = () => {
         gmail: enteredGmail,
         password: enteredPassword,
       };
-      console.log(formData);
+      // console.log(formData);
       // LoginWithEmailPassword(formData, router);
       signin(formData, router);
     }
@@ -112,7 +112,7 @@ const Index = () => {
           confirmPassword: enteredConfirmPassword,
         };
         // SignupWithEmailPassword(formData, router);
-        console.log(formData);
+        // console.log(formData);
         signup(formData, router);
       }
     }

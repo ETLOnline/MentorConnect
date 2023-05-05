@@ -22,13 +22,13 @@ export const createSession = (data, id, router) => {
       poins: data.Points,
     })
     .then((docRef) => {
-      console.log("Document written with ID: ", docRef.id);
+      // console.log("Document written with ID: ", docRef.id);
       if (router) {
         router.push("/");
       }
     })
     .catch((error) => {
-      console.error("Error adding document: ", error);
+      // console.error("Error adding document: ", error);
     });
 };
 
@@ -43,7 +43,7 @@ export const updateSessionMeeting = (data, id, router) => {
       // { merge: true }
     )
     .then(() => {
-      console.log("Document successfully updated!");
+      // console.log("Document successfully updated!");
       router.push("/admin");
     });
 };
@@ -56,7 +56,7 @@ export const registorSession = (sessionId, uid) => {
     Ref.update({
       students: firebase.firestore.FieldValue.arrayUnion(uid),
     });
-    console.log("update ho gya he");
+    // console.log("update ho gya he");
     return "You are Register this Session";
   } else {
     return "Do not have enough points...";
@@ -150,7 +150,7 @@ export const getSessionById = async (id) => {
 export const getSessionByUserSkills = async (data) => {
   try {
     const allfilterSession = [];
-    console.log(data, "skillfilter");
+    // console.log(data, "skillfilter");
     const doc = await fireStore
       .collection("sessions")
       .where(
@@ -169,10 +169,10 @@ export const getSessionByUserSkills = async (data) => {
         instructor: user,
       });
     }
-    console.log(allfilterSession);
+    // console.log(allfilterSession);
     return allfilterSession;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -185,19 +185,19 @@ export const getSessionInUserRegister = async (id) => {
       .where("approve", "==", true)
       .where("students", "array-contains", id)
       .get();
-    console.log(doc);
+    // console.log(doc);
     if (!doc.empty) {
       for (const element of doc.docs) {
         const user = await getSingleUser(element.data().instructor);
         allfilterSession.push({ ...element.data(), instructor: user });
       }
-      console.log(allfilterSession);
+      // console.log(allfilterSession);
       return allfilterSession;
     } else {
       return "You are not register any Sessions";
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -226,7 +226,7 @@ export const createPastSessionByUpdate = (data, id, router) => {
       // { merge: true }
     )
     .then(() => {
-      console.log("Document successfully updated!");
+      // console.log("Document successfully updated!");
       router.push("/admin");
     });
 };
@@ -254,7 +254,7 @@ export const getAllPastSessionsWithLink = async () => {
 export const getPastSessionByUserSkills = async (data) => {
   try {
     const allfilterSession = [];
-    console.log(data, "skillfilter");
+    // console.log(data, "skillfilter");
     const doc = await fireStore
       .collection("sessions")
       .where("isPast", "==", true)
@@ -268,10 +268,10 @@ export const getPastSessionByUserSkills = async (data) => {
         instructor: user,
       });
     }
-    console.log(allfilterSession);
+    // console.log(allfilterSession);
     return allfilterSession;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 

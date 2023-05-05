@@ -53,7 +53,7 @@ function SessionTable({ sessions, select }) {
   // save session props data in mock data
   // const MOCK_DATA = sessions.sessions;
   const MOCK_DATA = sessions;
-  console.log(MOCK_DATA, "tav");
+  // console.log(MOCK_DATA, "tav");
   const convertDate = (datetime) => {
     // functin to convert start and end session date time form seconds to datetime formate
     const date = new Date(datetime.seconds * 1000).toLocaleDateString();
@@ -76,7 +76,7 @@ function SessionTable({ sessions, select }) {
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => mockdata, []);
 
-  console.log(MOCK_DATA, "table");
+  // console.log(MOCK_DATA, "table");
 
   const tableInstance = useTable(
     {

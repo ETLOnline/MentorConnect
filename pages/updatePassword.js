@@ -22,7 +22,7 @@ const UpdatePassword = () => {
     const enteredEmail = inputEmail.current.value;
     const enteredOldPassword = inputOldPassword.current.value;
     const enteredNewPassword = inputNewPassword.current.value;
-    console.log(enteredEmail, enteredOldPassword, enteredNewPassword);
+    // console.log(enteredEmail, enteredOldPassword, enteredNewPassword);
     updatePassword(
       enteredEmail,
       enteredOldPassword,

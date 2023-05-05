@@ -10,7 +10,7 @@ import { makeOrRemoveAdmin } from "../../utils_firebase/users";
 
 function Table(users) {
   const { user } = useContext(AuthContext);
-  console.log(user.user.role);
+  // console.log(user.user.role);
   const COLUMNS = [
     {
       Header: "Image",
@@ -41,7 +41,7 @@ function Table(users) {
       Cell: (row) => (
         <select
           onChange={(e) => {
-            console.log(e.target.value, row.row.original.id);
+            // console.log(e.target.value, row.row.original.id);
             makeOrRemoveAdmin({
               id: row.row.original.id,
               role: e.target.value.toLowerCase(),
@@ -58,7 +58,7 @@ function Table(users) {
         </select>
       ),
     });
-    console.log(COLUMNS);
+    // console.log(COLUMNS);
   }
 
   // COLUMNS = [
@@ -143,7 +143,7 @@ function Table(users) {
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => MOCK_DATA, []);
 
-  console.log(MOCK_DATA, "table");
+  // console.log(MOCK_DATA, "table");
 
   const tableInstance = useTable(
     {

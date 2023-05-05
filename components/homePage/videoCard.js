@@ -10,7 +10,7 @@ const VideoCard = () => {
   useEffect(() => {
     getAllPastSessionsWithLink().then((data) => {
       setPastSessions(data);
-      console.log(data);
+      // console.log(data);
     });
   }, []);
   return (

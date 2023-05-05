@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   const code = req.query.code;
   const state = JSON.parse(req.query.state);
   const { tokens } = await oauth2Client.getToken(code);
-  console.log(code, tokens);
+  // console.log(code, tokens);
   const eventData = state.eventData;
   oauth2Client.setCredentials(tokens);
   if (tokens) {
@@ -47,7 +47,7 @@ export default async function handler(req, res) {
       },
     });
     var hangoutLink = result.data.hangoutLink;
-    console.log(hangoutLink);
+    // console.log(hangoutLink);
     await clipboardy.write(hangoutLink);
     //res.redirect(`/link?hanoutLink=${hangoutLink}`);
     res.write(

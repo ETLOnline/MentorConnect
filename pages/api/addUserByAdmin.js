@@ -16,7 +16,7 @@ export default (req, res) => {
   const lastName = req.body.lastName;
   const email = req.body.email;
   const password = req.body.Password;
-  console.log(firstName, lastName, email, password);
+  // console.log(firstName, lastName, email, password);
   // console.log(db);
 
   auth

@@ -11,7 +11,7 @@ export default function Profile() {
   const { user, triggerAuthEffect } = useContext(AuthContext);
   const [skills, setskills] = useState([]);
   const handleSelectedChange = (seleteditem) => {
-    console.log(fillterSkills(seleteditem));
+    // console.log(fillterSkills(seleteditem));
     setintrest(fillterSkills(seleteditem));
   };
   const fillterSkills = (data) => {
@@ -66,7 +66,7 @@ export default function Profile() {
       interest: intrest == undefined ? user.user.interest : intrest,
       learning: intrest == undefined ? user.user.interest : intrest,
     };
-    console.log(formData, " data");
+    // console.log(formData, " data");
     updateProfile(formData, user.user.uid);
     triggerAuthEffect();
     router.push(`/auth/${user.user.uid}`);

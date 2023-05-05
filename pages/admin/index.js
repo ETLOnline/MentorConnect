@@ -27,15 +27,10 @@ function Index() {
   const { user } = useContext(AuthContext);
   const router = useRouter();
 
-  if (user.user.role != "superAdmin" && user.user.role != "admin") {
-    router.push("/");
-  }
-  console.log(user.user.role);
-
   useEffect(() => {
     if (select == "user") {
       getUsers().then((data) => {
-        console.log(data, "admin");
+        // console.log(data, "admin");
         setUserData(data);
       });
     } else if (select == "session") {
@@ -53,10 +48,14 @@ function Index() {
     } else if (select == "allSkills") {
       getAllSkillsWithImage().then((skill) => {
         setSkillData(skill);
-        console.log(skill);
+        // console.log(skill);
       });
     }
   }, [select]);
+  if (user.user.role != "superAdmin" && user.user.role != "admin") {
+    router.push("/");
+  }
+  // console.log(user.user.role);
   const selectHandler = (str) => {
     setSelect(str);
   };
