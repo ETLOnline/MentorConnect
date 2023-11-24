@@ -2,24 +2,30 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 import "firebase/storage";
-//const firebaseConfigDev = {
-  // apiKey: "AIzaSyD7rnsdx2jSiHFArTSDU3HfW3ZWakY_IeA",
-  // authDomain: "blogs-e8354.firebaseapp.com",
-  // projectId: "blogs-e8354",
-  // storageBucket: "blogs-e8354.appspot.com",
-  // messagingSenderId: "138709189791",
-  // appId: "1:138709189791:web:b6289f9518f47eeb444eaa",
-  // Your web app's Firebase configuration
-//};
-const firebaseConfig = {
-  apiKey: "AIzaSyD4c3wQosE51f5HCMLiV4PATMcrAMgbMg8",
-  authDomain: "tldweb-001.firebaseapp.com",
-  projectId: "tldweb-001",
-  storageBucket: "tldweb-001.appspot.com",
-  messagingSenderId: "814819599787",
-  appId: "1:814819599787:web:a066fc8d32a57bd04c9eee"
-};
 
+let firebaseConfig;
+if (process.env.NODE_ENV === "development") {
+  // tldweb-dev
+  firebaseConfig = {
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  };
+} else if (process.env.NODE_ENV === "production") {
+  firebaseConfig = {
+    // apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    apiKey: "AIzaSyDLTVghMhpGtXg9laD2Q9vxYLSE4PnZUdk",
+    // authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    authDomain: "tldweb-dev.firebaseapp.com",
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  };
+}
 // init firebase
 !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 //  init firestore
