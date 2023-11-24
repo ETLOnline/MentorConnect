@@ -6,7 +6,7 @@ import Followbtn from "../tiles/followbtn";
 import { BsCheckLg } from "react-icons/bs";
 
 const Students = ({ student, onFollowHenddler }) => {
-  console.log(student.uid, "StudentData");
+  // console.log(student.uid, "StudentData");
   return (
     <Fragment>
       <div>

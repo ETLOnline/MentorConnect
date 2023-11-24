@@ -13,13 +13,13 @@ const UpCommingSection = ({ sessions, title, dis }) => {
   return (
     <Fragment>
       <div className="flex flex-col gap-6 mt-[28px] ">
-        <div className="m-auto">
-          <p className="text-[32px] text-center font-semibold font-['Raleway'] leading-[38px] text-[#242424]">
+        <div className="ml-[32px]">
+          <p className="text-[32px]  font-semibold font-['Raleway'] leading-[38px] text-[#242424]">
             {title}
           </p>
         </div>
-        <div className="m-auto">
-          <p className="text-[20px] px-2 text-center font-medium leading-[23px] text-[#242424] font-['Raleway']">
+        <div className="ml-[32px]">
+          <p className="text-[20px] px-2  font-medium leading-[23px] text-[#242424] font-['Raleway']">
             {dis}
           </p>
         </div>

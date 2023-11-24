@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const COLUMNS = [
   // {
   //   Header: "Image",
@@ -7,7 +9,12 @@ export const COLUMNS = [
     Header: "Image",
     Cell: (row) => (
       <div>
-        <img className="img-responsive" src={"user.user.summry.image"} />
+        <Image
+          alt="img"
+          className="img-responsive"
+          src={"user.user.summry.image"}
+          fill
+        />
       </div>
     ),
   },

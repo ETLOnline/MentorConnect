@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unSub = auth.onAuthStateChanged((userCredential) => {
-      console.log(userCredential, "on auth state change");
+      // console.log(userCredential, "on auth state change");
       getSingleUser(userCredential?.uid).then((userData) => {
         setUser((prev) => {
           return {
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
       unSub();
     });
   }, [trigger]);
-  console.log(user, "auth user");
+  // console.log(user, "auth user");
 
   return (
     <AuthContext.Provider value={{ user, setUser, triggerAuthEffect }}>

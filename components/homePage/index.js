@@ -10,7 +10,10 @@ import {
 } from "../../utils_firebase/sessions";
 import Link from "next/link";
 import Videos from "./videos";
-import { getAllSkillsWithImage } from "../../utils_firebase/skills";
+import {
+  getAllSkillsWithImage,
+  getAllIndemandSkillsWithImage,
+} from "../../utils_firebase/skills";
 import VideoCard from "./videoCard";
 
 const HomePage = () => {
@@ -19,14 +22,15 @@ const HomePage = () => {
   const [selectedSkill, setSelectedSkill] = useState([]);
   useEffect(() => {
     async function name() {
-      const skill = await getAllSkillsWithImage();
+      // const skill = await getAllSkillsWithImage();
+      const skill = await getAllIndemandSkillsWithImage();
       const seasion = await getAllSessions(true);
       setSkills(skill);
       setSessions(seasion);
     }
     name();
   }, []);
-  console.log(sessions, "sesasas");
+  // console.log(sessions, "sesasas");
   const onClickSkills = (ele, exist) => {
     let arr = [...selectedSkill];
     // if (arr.find((data) => data == ele) == ele) {
@@ -47,16 +51,22 @@ const HomePage = () => {
         setSessions(data);
       });
     }
-    console.log(ele, selectedSkill, exist, arr);
+    // console.log(ele, selectedSkill, exist, arr);
   };
 
   return (
     <Fragment>
       <Header />
       <FeatureMentor />
-      <VideoCard />
       <FindMentor />
-      <SkillCard onClickSkills={onClickSkills} skills={skills} />
+      <VideoCard />
+      <div className="ml-[32px]">
+        <SkillCard
+          onClickSkills={onClickSkills}
+          skills={skills}
+          page={"home"}
+        />
+      </div>
       {sessions == undefined || sessions.length == 0 ? (
         <h2 className="flex justify-center text-[50px]">
           No Upcoming Sessions On this Skill

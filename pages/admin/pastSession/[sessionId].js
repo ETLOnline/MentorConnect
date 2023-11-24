@@ -1,55 +1,54 @@
-import { Fragment, useContext, useState, useEffect, useRef } from "react";
-import { AuthContext } from "../../../contexts/auth_context";
+import { useRouter } from "next/router";
+import React, {
+  Fragment,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { getSessionById } from "../../../utils_firebase/sessions";
 import SkillTag from "../../../components/tiles/skillTag";
 import { getAllSkillsOnly } from "../../../utils_firebase/skills";
 import Image from "next/image";
-import { useRouter } from "next/router";
-import { getSessionById } from "../../../utils_firebase/sessions";
-import { data } from "jquery";
-import { updateSessionMeeting } from "../../../utils_firebase/sessions";
-import Link from "next/link";
+import { createPastSessionByUpdate } from "../../../utils_firebase/sessions";
+import { AuthContext } from "../../../contexts/auth_context";
 
-function SessionForm() {
+const PastSessionForm = () => {
   const router = useRouter();
   const id = router.query.sessionId;
   const { user } = useContext(AuthContext);
   const [skills, setskills] = useState([]);
   const [intrest, setintrest] = useState([]);
   const [Url, setURL] = useState("");
-  const [link, setLink] = useState();
   const inputStartTime = useRef();
   const inputEndTime = useRef();
   const inputPoints = useRef();
   const inputTitle = useRef();
-  const inputMeetingUrl = useRef();
-  const inputStatus = useRef();
-  const [file, setFile] = useState(null);
-  const [fileSelect, setFileSelect] = useState(false);
+  const inputInstructor = useRef();
+  const inputVideoLink = useRef();
+
   useEffect(() => {
+    // getAllSkillsOnly().then((data) => {
+    //   setskills(data);
+    // });
     if (user.user.role == "superAdmin" || user.user.role == "admin") {
-      getAllSkillsOnly().then((data) => {
-        setskills(data);
-      });
       const dateConverter = (now) => {
         now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
         return now.toISOString().slice(0, 16);
       };
       getSessionById(id).then((data) => {
+        // console.log(data.instructor.summry.displayName);
         inputTitle.current.value = data.title;
+        inputInstructor.current.value = data.instructor.summry?.displayName;
         inputPoints.current.value = data.poins;
         setURL(data.image);
+        setintrest(data.tags);
         inputStartTime.current.value = dateConverter(
           new Date(data.startTime.seconds * 1000)
         );
         inputEndTime.current.value = dateConverter(
           new Date(data.endTime.seconds * 1000)
         );
-        setintrest(data.tags);
-        if (data.meetingLink) {
-          inputMeetingUrl.current.value = data.meetingLink;
-        }
-
-        // console.log(data, new Date(data.startTime.seconds * 1000));
       });
     }
   }, []);
@@ -57,49 +56,16 @@ function SessionForm() {
     router.push("/");
   }
 
-  function handleChange(e) {
-    // console.log(e.target.files[0]);
-    const file = e.target.files[0];
-    setFile(file);
-    setFileSelect(true);
-  }
-  async function handleUpload() {
-    if (file) {
-      const path = `/images/${file.name}`;
-      const ref = storage.ref(path);
-      await ref.put(file);
-      const url = await ref.getDownloadURL();
-      setURL(url);
-      // console.log(url, "sasasa", Url);
-    }
-  }
   let formData = {};
   const submitHandler = (event) => {
     event.preventDefault();
-    const enteredTitle = inputTitle.current.value;
-    const enteredStartTime = inputStartTime.current.value;
-    const enteredEndTime = inputEndTime.current.value;
-    const enteredPoints = inputPoints.current.value;
-    const enteredMeetingUrl = inputMeetingUrl.current.value;
-    const enteredStatus = inputStatus.current.value;
+    const enteredVideoLink = inputVideoLink.current.value;
     formData = {
-      Title: enteredTitle,
-      StartTime: enteredStartTime,
-      EndTime: enteredEndTime,
-      Tags: intrest,
-      Points: enteredPoints,
-      Meeting: enteredMeetingUrl,
-      Status: enteredStatus,
-      Image: Url,
+      videoUrl: enteredVideoLink,
     };
-    // console.log(formData, id, router.push("/admin"));
-    updateSessionMeeting(formData, id, router);
+    createPastSessionByUpdate(formData, id, router);
+    // console.log(formData);
   };
-  // const handlePaste = async () => {
-  //   const clipboardText = await navigator.clipboard.readText();
-  //   setClipboardData(clipboardText);
-  // };
-
   const handleSelectedChange = (seleteditem) => {
     // console.log(fillterSkills(seleteditem));
     setintrest(fillterSkills(seleteditem));
@@ -107,7 +73,6 @@ function SessionForm() {
   const fillterSkills = (data) => {
     return data.map((ele) => ele.value);
   };
-
   const fillterSkillsforautocomplete = (data) => {
     return data.map((ele) => {
       return {
@@ -125,7 +90,7 @@ function SessionForm() {
             <div className="md:col-span-1">
               <div className="px-4 sm:px-0 mt-5">
                 <h3 className="text-lg font-medium leading-6 text-gray-900">
-                  Admin Session Form
+                  Past Session Form
                 </h3>
               </div>
               {/* form */}
@@ -149,6 +114,28 @@ function SessionForm() {
                               className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                               placeholder="Please entered the Title"
                               ref={inputTitle}
+                              disabled
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-3 ml-[20%] gap-6">
+                        <div className="col-span-3 sm:col-span-2">
+                          <label
+                            htmlFor="instructor"
+                            className="block text-sm font-medium text-gray-700"
+                          >
+                            Instructor
+                          </label>
+                          <div className="mt-1 flex rounded-md shadow-sm">
+                            <input
+                              type="text"
+                              name="instructor"
+                              id="instructor"
+                              className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                              placeholder="Please entered the Title"
+                              ref={inputInstructor}
+                              disabled
                             />
                           </div>
                         </div>
@@ -169,6 +156,7 @@ function SessionForm() {
                               className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                               placeholder="Please intered the Start time"
                               ref={inputStartTime}
+                              disabled
                             />
                           </div>
                         </div>
@@ -189,6 +177,7 @@ function SessionForm() {
                               ref={inputEndTime}
                               className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                               placeholder="Please enter End Time"
+                              disabled
                             />
                           </div>
                         </div>
@@ -202,7 +191,7 @@ function SessionForm() {
                           >
                             Tags
                           </label>
-                          {skills.length > 0 && intrest.length > 0 ? (
+                          {intrest.length > 0 ? (
                             <SkillTag
                               handleSelectedChange={handleSelectedChange}
                               skills={skills}
@@ -231,6 +220,7 @@ function SessionForm() {
                             <select
                               name="points"
                               id="points"
+                              disabled
                               ref={inputPoints}
                               className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 lg:text-lg pl-5 sm:text-sm"
                             >
@@ -248,88 +238,34 @@ function SessionForm() {
                           </div>
                         </div>
                       </div>
-
                       <div className="grid grid-cols-3 ml-[20%] gap-6">
                         <div className="col-span-3 sm:col-span-2">
                           <label
-                            htmlFor="status"
+                            htmlFor="videoLink"
                             className="block text-sm font-medium text-gray-700"
                           >
-                            Status
-                          </label>
-
-                          <div className="mt-1 flex rounded-md shadow-sm">
-                            <select
-                              name="status"
-                              id="status"
-                              ref={inputStatus}
-                              className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 lg:text-lg pl-5 sm:text-sm"
-                            >
-                              <option value="true">Approve</option>
-                              <option value="false">Reject</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-3 ml-[20%] gap-6">
-                        <div className="col-span-3 sm:col-span-2">
-                          <label
-                            htmlFor="meeting-url"
-                            className="block text-sm font-medium text-gray-700"
-                          >
-                            Meeting Url
+                            Video Link
                           </label>
                           <div className="mt-1 flex rounded-md shadow-sm">
                             <input
                               type="text"
-                              name="meeting-url"
-                              id="meeting-url"
+                              name="videoLink"
+                              id="videoLink"
                               className="block w-full h-9 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                              placeholder="Please enter the Meeting Url"
-                              ref={inputMeetingUrl}
-                              // onChange={(e) => setClipboardData(e.target.value)}
+                              placeholder="Please enter video Link"
+                              ref={inputVideoLink}
                             />
-                            {/* <button
-                              onClick={window.open(
-                                `http://localhost:8000/google`,
-                                "_blank"
-                              )}
-                            >
-                              Generate
-                            </button> */}
-                            <Link
-                              // onClick={pasteHandler}
-                              href={`/api/calendar/google?title=${inputTitle.current?.value}&start=${inputStartTime.current?.value}&end=${inputEndTime.current?.value}`}
-                              target="_blank"
-                            >
-                              Generate
-                            </Link>
                           </div>
                         </div>
                       </div>
 
-                      <div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700">
-                            Upload photo
-                          </label>
-                          <div className="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
-                            <Image src={Url} alt="" height={150} width={150} />
-                          </div>
-                        </div>
-                      </div>
                       <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                        {Url ? (
-                          <button
-                            type="submit"
-                            className="inline-flex justify-center rounded-md  border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                          >
-                            Create Session
-                          </button>
-                        ) : (
-                          <p>Please Upload file First</p>
-                        )}
+                        <button
+                          type="submit"
+                          className="inline-flex justify-center rounded-md  border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        >
+                          Update Session
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -341,5 +277,6 @@ function SessionForm() {
       </div>
     </Fragment>
   );
-}
-export default SessionForm;
+};
+
+export default PastSessionForm;

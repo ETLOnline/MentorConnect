@@ -12,7 +12,7 @@ const LearningActivityBlock = () => {
 
   useEffect(() => {
     getSingleUser(user.user.uid).then((userData) => {
-      console.log(userData.interest, "jjjj");
+      // console.log(userData.interest, "jjjj");
 
       getSessionByUserSkills(userData.interest).then((data) => {
         setSession(data);
@@ -24,7 +24,7 @@ const LearningActivityBlock = () => {
     return <Spinner />;
   }
 
-  console.log(session, "LearningActivityBlock");
+  // console.log(session, "LearningActivityBlock");
   return (
     <>
       <div className="mt-[64px]">

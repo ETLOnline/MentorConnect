@@ -2,10 +2,13 @@ import React from "react";
 import Link from "next/link";
 import { BsFilePerson } from "react-icons/bs";
 import { SiGooglemeet } from "react-icons/si";
+import { GiSkills } from "react-icons/gi";
+import { MdSelectAll } from "react-icons/md";
+import { GrDocumentTime } from "react-icons/gr";
 
 function Aside({ selectHandler }) {
   return (
-    <aside className="absolute inset-y-0 left-0 bg-black text-white shadow-md  w-60">
+    <aside className="absolute inset-y-0 left-0 bg-black text-white shadow-md w-70">
       <div className="flex flex-col justify-between h-full">
         <div className="flex-grow">
           <div className="px-4 py-6 text-center border-b">
@@ -32,7 +35,7 @@ function Aside({ selectHandler }) {
                   className="flex items-center bg-white gap-2 hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
                 >
                   <SiGooglemeet className="w-[25px] h-[25px]" />
-                  Sessions
+                  Approved Sessions
                 </Link>
               </li>
               <li>
@@ -43,6 +46,66 @@ function Aside({ selectHandler }) {
                 >
                   <SiGooglemeet className="w-[25px] h-[25px]" />
                   Requested Sessions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href=""
+                  onClick={() => selectHandler("skill")}
+                  className="flex items-center bg-white gap-2 hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
+                >
+                  <GiSkills className="w-[25px] h-[25px]" />
+                  Add Skill
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href=""
+                  onClick={() => selectHandler("allSkills")}
+                  className="flex items-center bg-white gap-2 hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
+                >
+                  <MdSelectAll className="w-[25px] h-[25px]" />
+                  All Skills
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href=""
+                  onClick={() => selectHandler("pastSessionForm")}
+                  className="flex items-center bg-white gap-2 hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
+                >
+                  <GrDocumentTime className="w-[25px] h-[25px]" />
+                  Create Past Session
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href=""
+                  onClick={() => selectHandler("createSessionForm")}
+                  className="flex items-center bg-white gap-2 hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
+                >
+                  <GrDocumentTime className="w-[25px] h-[25px]" />
+                  Create Session
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href=""
+                  onClick={() => selectHandler("pastSession")}
+                  className="flex items-center bg-white gap-2 hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
+                >
+                  <GrDocumentTime className="w-[25px] h-[25px]" />
+                  All Past Session
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href=""
+                  onClick={() => selectHandler("addUser")}
+                  className="flex items-center bg-white gap-2 hover:bg-yellow-50 rounded-xl font-bold text-lg text-gray-900 py-3 px-4"
+                >
+                  <GrDocumentTime className="w-[25px] h-[25px]" />
+                  Add User
                 </Link>
               </li>
             </ul>

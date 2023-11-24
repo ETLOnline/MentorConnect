@@ -17,7 +17,6 @@ const SessionDetail = () => {
   const [isLoaded, setIsLoaded] = useState([]);
   const router = useRouter();
   const id = router.query.sessionDetail;
-
   useEffect(() => {
     getSessionById(id).then((user) => {
       setIsLoaded(user);
@@ -25,8 +24,17 @@ const SessionDetail = () => {
     // declare the async data fetching function
   }, [id]);
 
+  if (!user.user) {
+    return (
+      <div className=" text-center items-center h-[30vh] text-5xl mb-20 mt-20">
+        <p>First Login Please</p>
+        <p>Loading.... </p>
+      </div>
+    );
+  }
+
   const onFollowHenddler = (id, name) => {
-    console.log(id, "foll", user.user.uid);
+    // console.log(id, "foll", user.user.uid);
 
     followUser(id, user.user.uid);
     const resolveAfter3Sec = new Promise((resolve) =>
@@ -42,7 +50,7 @@ const SessionDetail = () => {
   if (isLoaded.length === 0) {
     return <Spinner />;
   }
-  console.log(isLoaded.instructor.uid, "id in dinamic");
+  // console.log(isLoaded.instructor.uid, "id in dinamic");
   // const [A, B] =
   // console.log(A, B, "data");
   // console.log(isLoaded, "loaded.....", id);
@@ -52,7 +60,7 @@ const SessionDetail = () => {
       <div className="flex">
         <div className="w-[40%] h-[110vh] ">
           <div className="border-[2px] m-[40px] rounded-[20px]">
-            <div className="relative h-[80vh] w-[80%] m-auto ">
+            <div className="relative h-[60vh]  m-auto ">
               <Image
                 src={isLoaded.image}
                 alt="img"
@@ -87,14 +95,14 @@ const SessionDetail = () => {
                   <div className="flex items-center">
                     <div className="relative w-[32px] h-[32px]">
                       <Image
-                        src={isLoaded.instructor.summry.image}
+                        src={isLoaded.instructor.summry?.image}
                         alt=""
                         fill
                         className="object-cover rounded-full"
                       />
                     </div>
                     <h1 className="font-bold ml-[15px] text-[#1C2D56]">
-                      {isLoaded.instructor.summry.displayName}
+                      {isLoaded.instructor.summry?.displayName}
                     </h1>
                   </div>
                 </Link>
