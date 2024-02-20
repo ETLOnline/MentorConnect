@@ -5,6 +5,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import Card from "./card";
 import { getUsers } from "../../utils_firebase/users";
 import { useEffect, useState } from "react";
+import { BsArrowRight } from "react-icons/bs";
 import Spinner from "../spinner";
 
 var $ = require("jquery");
@@ -22,7 +23,7 @@ const FeatureMentor = () => {
   // const Mentors = getAllMentors();
   useEffect(() => {
     async function name() {
-      const users = await getUsers(true);
+      const users = await getUsers();
       // console.log(users);
       setMentors(users);
     }
@@ -66,25 +67,20 @@ const FeatureMentor = () => {
       },
     },
   };
+
   return (
     <Fragment>
-      <div className=" xs:ml-[32px] mt-[32px]">
-        <div className="flex justify-between mr-[32px]">
-          <h2 className="text-3xl font-bold">Featured Mentors</h2>
-          <div className="flex gap-2 justify-between items-center ">
-            <p className="text-[20px] text-[#909090] leading-[23px] ">
-              Explore
-            </p>
-            <div className="bg-[url('/img/Arrow.png')] w-6 h-6 bg-no-repeat hover:bg-[url('/img/Group.svg')] bg-center hover:transition-all hover:translate-x-1 hover:duration-200"></div>
-            {/* <img
-              src="/img/Arrow.png"
-              alt="Arrow Image"
-              className="object-cover "
-            /> */}
-          </div>
+      <div className="px-6">
+        <div className="flex justify-between items-center py-10">
+          <h2 className="text-lg md:text-xl xl:text-3xl font-bold">Featured Mentors</h2>
+
+          <button className="flex items-center gap-2 primary-button">
+            Explore <span><BsArrowRight /></span>
+          </button>
+
         </div>
         <OwlCarousel
-          className="owl-theme  "
+          className="owl-theme"
           loop
           dots={false}
           animateIn={true}
