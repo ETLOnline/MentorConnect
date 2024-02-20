@@ -20,6 +20,7 @@ const HomePage = () => {
   const [sessions, setSessions] = useState([]);
   const [skills, setSkills] = useState([]);
   const [selectedSkill, setSelectedSkill] = useState([]);
+
   useEffect(() => {
     async function name() {
       // const skill = await getAllSkillsWithImage();
@@ -30,7 +31,7 @@ const HomePage = () => {
     }
     name();
   }, []);
-  // console.log(sessions, "sesasas");
+
   const onClickSkills = (ele, exist) => {
     let arr = [...selectedSkill];
     // if (arr.find((data) => data == ele) == ele) {

@@ -9,18 +9,18 @@ const Header = () => {
           <div className="text-center xs:text-left">
             <div className=" ">
               <div className="xs:w-[88.52%] mt-[16.03%]">
-                <p className="text-[40px] xs:text-[48px] sm:text-[64px] font-['Raleway'] text-[#1C2D56] leading-[75px] sm:leading-[60px] md:leading-[75px] font-bold sm:font-[700]">
+                <p className="text-[40px] xs:text-[48px] sm:text-[64px]  text-[#1C2D56] leading-[75px] sm:leading-[60px] md:leading-[75px] font-bold sm:font-[700]">
                   Find and Book a Mentor for your 1:1 help today!
                 </p>
               </div>
 
-              <p className="font-['Raleway'] text-[20px] sm:text-[24px] mt-[20px] text-[#1C2D56] xs:w-[88%]">
+              <p className=" text-[20px] sm:text-[24px] mt-[20px] text-[#1C2D56] xs:w-[88%]">
                 We have over 200 Mentors available, qualified in over 300
                 subjects
               </p>
 
-              <button className=" xs:mb-[50px] h-[39px] w-[40%] xs:w-[25.91%] md:w-[40%] lg:w-[25.91%] border-[#1C2D56] hover:bg-[#1C2D56] rounded-[8px] border-[2px] mt-6">
-                <a className="hover:text-white">Find a Mentor</a>
+              <button className=" xs:mb-[50px] h-[39px] w-[40%] xs:w-[25.91%] md:w-[40%] lg:w-[25.91%] border-[#1C2D56] hover:bg-[#1C2D56] rounded-[8px] border-[2px] mt-6 hover:text-white">
+                Find a Mentor
               </button>
             </div>
           </div>

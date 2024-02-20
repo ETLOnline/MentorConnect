@@ -6,11 +6,17 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      montserrat: ['Montserrat', 'sans-serif'],
+    },
     screens: {
       xs: "480px",
       ...defaultTheme.screens,
     },
     extend: {
+      colors: {
+				primary: '#1C2D56',
+			},
       spacing: {
         540: "540 px",
       },

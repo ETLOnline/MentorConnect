@@ -10,7 +10,7 @@ export default function Layout({ children }) {
   return (
     <div>
       {user.authIsValide ? (
-        <div>
+        <div className="relative">
           <Navbar />
           <main>{children}</main>
           {/* <Footer /> */}
