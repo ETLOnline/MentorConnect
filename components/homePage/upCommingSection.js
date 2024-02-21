@@ -5,24 +5,16 @@ import Spinner from "../spinner";
 import SessionItem from "./upCommingSessionItem";
 
 const UpCommingSection = ({ sessions, title, dis }) => {
-  // console.log(sessions, " UpCommingSection");
   if (!sessions) {
     return <Spinner />;
   }
 
   return (
     <Fragment>
-      <div className="flex flex-col gap-6 mt-[28px] ">
-        <div className="ml-[32px]">
-          <p className="text-[32px]  font-semibold font-['Raleway'] leading-[38px] text-[#242424]">
-            {title}
-          </p>
-        </div>
-        <div className="ml-[32px]">
-          <p className="text-[20px] px-2  font-medium leading-[23px] text-[#242424] font-['Raleway']">
-            {dis}
-          </p>
-        </div>
+
+      <div className="py-10">
+        <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-primary text-center">{title}</h2>
+        <p className="text-center text-primary text-base">{dis}</p>
       </div>
 
       <div className="mx-[16px] xs:mx-[32px] ">
@@ -31,12 +23,12 @@ const UpCommingSection = ({ sessions, title, dis }) => {
             {sessions.length === 0
               ? "We have no Recommended sessions for you"
               : sessions.map((session) => {
-                  return (
-                    <Fragment key={Math.random()}>
-                      <SessionItem session={session} />
-                    </Fragment>
-                  );
-                })}
+                return (
+                  <Fragment key={Math.random()}>
+                    <SessionItem session={session} />
+                  </Fragment>
+                );
+              })}
           </div>
         </div>
       </div>

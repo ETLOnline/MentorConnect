@@ -7,6 +7,7 @@ import { getUsers } from "../../utils_firebase/users";
 import { useEffect, useState } from "react";
 import Spinner from "../spinner";
 import MyMentorsCard from "./myMentorsCard";
+import { BsArrowRight } from "react-icons/bs";
 
 var $ = require("jquery");
 if (typeof window !== "undefined") {
@@ -51,17 +52,17 @@ const MyMentor = () => {
   };
   return (
     <>
-      <div className="my-[64px]">
-        <div className="flex justify-between  mb-[30px] mx-[5%] xs:mx-[10%] lg:mx-[15%]">
-          <h2 className="text-3xl   font-bold"> MyMentors</h2>
-          <div className="flex gap-2 justify-between items-center ">
-            <p className="text-[20px] text-[#909090] leading-[23px] ">
-              Explore
-            </p>
-            <div className="bg-[url('/img/Arrow.png')] w-6 h-6 bg-no-repeat hover:bg-[url('/img/Group.svg')] bg-center hover:transition-all hover:translate-x-1 hover:duration-200"></div>
-          </div>
+      <div className="px-6 lg:px-10">
+        <div className="flex justify-between items-center py-10">
+          <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-primary">My Mentors</h2>
+
+          <button className="flex items-center gap-2 primary-button">
+            Explore <span><BsArrowRight /></span>
+          </button>
         </div>
-        <div className="flex flex-wrap justify-start  xs:justify-center mx-[5%] md:mx-[10%] lg:mx-[15%] md:gap-[4%] lg:gap-[2.5%]">
+
+        <div className="grid md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <MyMentorsCard />
           <MyMentorsCard />
           <MyMentorsCard />
           <MyMentorsCard />

@@ -1,24 +1,27 @@
 import React from "react";
 import Image from "next/image";
 import SessionTile from "./sessionTile";
+
 const MyMentorsCard = () => {
   return (
     <>
-      <div className="bg-[#F4F4F4] xs:w-[70%] sm:w-[62%] md:w-[48%] lg:w-[31.6%] mb-[20px] px-6 py-4 rounded-xl">
+      <div className="bg-[#F4F4F4] px-6 py-4 rounded-xl">
         <div className="border-b-[0.5px] border-black">
-          <div className="flex justify-between">
-            <div>
+          <div className="flex">
+            <div className="w-[75%] ">
               <p className="font-bold text-[#1C2D56] ">Alya S.</p>
-              <p className="text-[grey]">Top-rated marketing expert</p>
+              <p className="text-[grey] capitalize line-clamp-2 text-sm ">Top-rated marketing expert</p>
             </div>
-            <div className="min-w-[62px] mx-h-[62px] rounded-[50px]">
-              <Image
-                src="/img/Image (7).png"
-                alt=""
-                width={64}
-                height={64}
-                className="rounded-[50px]"
-              />
+            <div className="w-[25%] flex justify-end">
+              <span className="h-12 w-12 rounded-full overflow-hidden" >
+                <Image
+                  src="/img/Image (7).png"
+                  alt=""
+                  width={100}
+                  height={100}
+                  className="object-cover rounded-full"
+                />
+              </span>
             </div>
           </div>
           <div className="py-4">
