@@ -6,36 +6,38 @@ const VideoCardItem = ({ link, title, instructorName, instructorImage }) => {
   // console.log(data);
   return (
     <Fragment>
-      <div className="w-[90%] xs:w-[80%] sm:w-[45%]  lg:w-[30.2%] xl:w-[23.18%]">
-        <div className=" flex flex-col gap-4 mb-8  bg-[#F4F4F4] rounded-[12px] overflow-hidden ">
-          <div className="relative mx-auto w-[100%] h-[200px] ">
-            <ReactPlayer
-              url={link}
-              width="100%"
-              height="100%"
-              pip={true}
-              controls={true}
-              playing={false}
-              className="absolute top-0 left-0 "
-            />
-          </div>
-          <div className="flex flex-col  mx-3">
-            <div className=" mb-4 max-h-[30px] ">
-              <p className="text-[20px] hover:text-clip overflow-hidden ... truncate xs:text-[24px] leading-[28px] font-normal font-['Raleway'] text-black">
-                {title}
-              </p>
+      <div className="w-full flex flex-col bg-[#F4F4F4] rounded-[12px] overflow-hidden font-montserrat">
+        <div className="relative mx-auto w-[100%] h-[200px] ">
+          <ReactPlayer
+            url={link}
+            width="100%"
+            height="100%"
+            pip={true}
+            controls={true}
+            playing={false}
+            className="absolute top-0 left-0 "
+          />
+        </div>
+
+        <div className="flex flex-col py-4 px-2 min-h-[96px]">
+          <div className="flex gap-2" >
+            <div className="w-[15%] pt-1" >
+              <span className="h-10 w-10 border rounded-full flex justify-center items-center p-1 bg-primary/10" >
+                <Image
+                  src={instructorImage}
+                  alt=""
+                  height={100}
+                  width={100}
+                  className="rounded-full"
+                />
+              </span>
             </div>
 
-            <div className="flex  gap-2 mb-4 h-[32px]">
-              <Image
-                src={instructorImage}
-                alt=""
-                height={32}
-                width={32}
-                className="rounded-[50px] object-cover"
-              />
-
-              <p className="text-[16px] font-['Raleway'] leading-[19px] font-medium text-[#8B8B8B] pt-2">
+            <div className="w-[85%]">
+              <p className="text-primary font-semibold line-clamp-2 leading-5 capitalize">
+                {title}
+              </p>
+              <p className="text-sm text-primary/75 mt-1 capitalize">
                 {instructorName}
               </p>
             </div>

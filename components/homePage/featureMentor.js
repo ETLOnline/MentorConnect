@@ -34,8 +34,6 @@ const FeatureMentor = () => {
     return <Spinner />;
   }
 
-  // console.log(Mentors, "Mentorssssssssssssssssssssssssssssssssssss");
-
   const options = {
     margin: 10,
     responsiveClass: true,
@@ -70,14 +68,13 @@ const FeatureMentor = () => {
 
   return (
     <Fragment>
-      <div className="px-6">
+      <div className="px-6 lg:px-10">
         <div className="flex justify-between items-center py-10">
-          <h2 className="text-lg md:text-xl xl:text-3xl font-bold">Featured Mentors</h2>
+          <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-primary">Featured Mentors</h2>
 
           <button className="flex items-center gap-2 primary-button">
             Explore <span><BsArrowRight /></span>
           </button>
-
         </div>
         <OwlCarousel
           className="owl-theme"

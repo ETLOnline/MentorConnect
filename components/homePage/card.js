@@ -27,7 +27,7 @@ const Card = ({ mentors }) => {
                       <div className="absolute w-full rounded-xl top-0 right-0 bottom-0 left-0 h-full overflow-hidden bg-fixed bg-gradient-to-t from-[rgba(0,0,0,0.8)] to-[rgba(36,36,36,0)] opacity-50 "></div>
                       <div className="font-montserrat flex flex-col w-[90%] ml-4 absolute group-hover:-translate-y-16 group-hover:duration-1000 transition-all duration-1000 top-[286px] hover:duration-1000">
                         <div className="flex justify-between mt-[8px] ">
-                          <p className="text-base text-[#FFFFFF] leading-[23px] line-clamp-1 h-6 w-[70%] font-semibold">
+                          <p className="text-base text-[#FFFFFF] leading-[23px] line-clamp-1 h-6 w-[70%] font-semibold capitalize">
                             {mentor.summry?.displayName}
                           </p>
                           <p className="text-base  text-[#FFFFFF] leading-[23px] w-[30%] font-semibold">
@@ -38,7 +38,7 @@ const Card = ({ mentors }) => {
                           <div className="h-6 w-6 pt-1" >
                             <BsChat />
                           </div>
-                          <p className="text-sm line-clamp-2">
+                          <p className="text-sm line-clamp-2 capitalize">
                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
                           </p>
                         </div>
