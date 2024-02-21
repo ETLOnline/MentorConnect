@@ -35,11 +35,11 @@ const Card = ({ mentors }) => {
                           </p>
                         </div>
                         <div className="flex gap-2 text-[16px] text-[#FFFFFF] mt-2">
-                          <div className="h-6 w-6 pt-1" >
+                          <div className="h-6 w-6 pt-0.5" >
                             <BsChat />
                           </div>
                           <p className="text-sm line-clamp-2 capitalize">
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
+                            {mentor.about || mentor.summry?.displayName}
                           </p>
                         </div>
                       </div>

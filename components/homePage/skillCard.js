@@ -1,20 +1,20 @@
 import InterestSkillsCard from "../tiles/interestSkillsCard";
 
 const SkillCard = ({ onClickSkills, skills, page }) => {
-  // console.log(skills.sort((a, b) => (a.name > b.name ? 1 : -1)));
   skills = skills.sort((a, b) => (a.name > b.name ? 1 : -1));
 
   return (
     <div>
-      <div className="bg-white">
-        <div className="flex ml-[32px] pt-[32px]">
-          <p className=" text-[32px] font-semibold leading-[38px] font-[Raleway]">
+      <div className="bg-white mx-6 md:mx-10 ">
+        <div className="flex justify-between pt-10">
+          <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-primary">
             {page == "home" && "In-Demand Skills"}
             {page == "pastSession" && "All Skills"}
-          </p>
+          </h2>
         </div>
-        <div className=" mx-[11%] my-[32px]">
-          <div className="flex flex-row flex-wrap justify-between">
+
+        <div className="my-8">
+          <div className="flex flex-col md:flex-row justify-center flex-wrap gap-4">
             {skills.map((element) => {
               return (
                 <div key={element.name}>

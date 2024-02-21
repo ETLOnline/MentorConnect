@@ -23,11 +23,11 @@ const HomePage = () => {
 
   useEffect(() => {
     async function name() {
-      // const skill = await getAllSkillsWithImage();
-      const skill = await getAllIndemandSkillsWithImage();
-      const seasion = await getAllSessions(true);
+      const skill = await getAllSkillsWithImage();
+      // const skill = await getAllIndemandSkillsWithImage();
+      const sessions = await getAllSessions(true);
       setSkills(skill);
-      setSessions(seasion);
+      setSessions(sessions);
     }
     name();
   }, []);
@@ -61,23 +61,22 @@ const HomePage = () => {
       <FeatureMentor />
       <FindMentor />
       <VideoCard />
-      <div className="ml-[32px]">
-        <SkillCard
-          onClickSkills={onClickSkills}
-          skills={skills}
-          page={"home"}
-        />
-      </div>
+      <SkillCard
+        onClickSkills={onClickSkills}
+        skills={skills}
+        page={"home"}
+      />
+
       {sessions == undefined || sessions.length == 0 ? (
-        <h2 className="flex justify-center text-[50px]">
+        <h2 className="flex justify-center mb-2">
           No Upcoming Sessions On this Skill
         </h2>
       ) : (
         <div>
           <UpCommingSection
             sessions={sessions}
-            title="Upcomming Session"
-            dis=" Sign Up to one of our sessions and start your journey"
+            title="Upcoming Session"
+            dis="Sign Up to one of our sessions and start your journey"
           />
         </div>
       )}
