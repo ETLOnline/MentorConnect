@@ -52,4 +52,5 @@
   .nav-item.active:hover::after {
     @apply opacity-0 w-0 transition-all duration-[ease] bottom-0 left-0;
   }
+
 }

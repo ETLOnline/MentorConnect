@@ -18,9 +18,6 @@ export default function SkillTag({
     setPickerItems((curr) => [...curr, item]);
     setSelectedItems((curr) => [...curr, item]);
   };
-  // if(){
-  //   setSelectedItems([]);
-  // }
 
   const handleSelectedItemsChange = (selectedItems) => {
     if (selectedItems) {
@@ -29,27 +26,33 @@ export default function SkillTag({
     }
   };
 
-  // console.log(selectedItems, "fffffffffffffffff");
   return (
     <ChakraProvider>
-      <Box maxW="xl">
+      <Box className="min-w-full">
         <CUIAutoComplete
           // label="Select Skills"
           placeholder="Type a Skills"
           onCreateItem={handleCreateItem}
           items={pickerItems}
+          labelStyleProps={{
+            margin: '0.5',
+          }}
+          inputStyleProps={{
+            width: 'full',
+            borderWidth: 'thin',
+            borderStart: 'solid',
+            borderColor: 'gray.200',
+            focusBorderColor: 'indigo'
+          }}
           tagStyleProps={{
             rounded: "full",
             bgColor: "#1C2D56",
             color: "white",
-            pt: 1,
-            pb: 2,
-            px: 2,
+            py: 2,
+            px: 4,
             fontSize: "1rem",
           }}
           selectedItems={selectedItems}
-          // Here selected skills comes as argument in changes and send to handleSelectedItmsChange
-
           onSelectedItemsChange={(changes) =>
             handleSelectedItemsChange(changes.selectedItems)
           }
