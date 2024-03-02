@@ -5,6 +5,7 @@ import { AuthContext } from "../../contexts/auth_context";
 import { useContext, useState } from "react";
 import Image from "next/image";
 import { GrUserSettings } from "react-icons/gr";
+import ThemeModeToggle from "../ui/custom/theme-mode-toggle.tsx";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -89,7 +90,10 @@ export default function NavBar() {
             <Link className="nav-item" href="/">Find a Mentor</Link>
           </div>
 
-          <div className="hidden md:flex">
+          <div className="hidden md:flex gap-4">
+
+            <ThemeModeToggle />
+
             <div className="flex gap-9 ">
               {!user.user && (
                 <div className="">
