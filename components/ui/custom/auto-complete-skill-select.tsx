@@ -20,9 +20,10 @@ interface IProp {
   openSkillAutoComplete: boolean;
   skills: ISkill[];
   handleAutoCompleteSkills: (selectedItems: any) => void;
+  className?: string;
 }
 
-const AutoCompleteSkillSelect = ({ openSkillAutoComplete, skills, handleAutoCompleteSkills }: IProp) => {
+const AutoCompleteSkillSelect = ({ openSkillAutoComplete, skills, handleAutoCompleteSkills, className }: IProp) => {
   const [open, setOpen] = React.useState(false);
   const [selectedSkills, setSelectedSkills] = React.useState<ISkill[]>([]);
 
@@ -47,8 +48,8 @@ const AutoCompleteSkillSelect = ({ openSkillAutoComplete, skills, handleAutoComp
 
   return (
 
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
+    <Popover open={open} onOpenChange={setOpen} >
+      <PopoverTrigger asChild className={className} >
         <Button variant="outline" role="combobox" aria-expanded={open} className="w-full h-auto justify-between items-center">
 
           <div className="w-full h-auto flex justify-start gap-2 flex-wrap font-normal" >

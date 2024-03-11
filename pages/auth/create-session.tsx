@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import dayjs from 'dayjs';
 
 import { getAllSkillsOnly } from "../../utils_firebase/skills";
 
@@ -20,16 +21,30 @@ interface ISkills {
   label: any;
 }
 
+interface IFormData {
+  sessionTitle: string;
+  startTime: string;
+  endTime: string;
+  points: string;
+  sessionSkills: string[];
+  sessionImage: string;
+}
 
+const datetimeStringSchema = z.string().nonempty({ message: 'Required!' }).refine((value) => {
+  return dayjs(value).isValid();
+}, 'Invalid datetime string');
 
 const formSchema = z.object({
   sessionTitle: z.string().min(5, { message: "Session title must be at least 5 chars.", }),
-  startTime: z.string().min(1, { message: "Start time is required." }),
-  endTime: z.string().min(1, { message: "End time is required." }),
+  startTime: datetimeStringSchema.refine((startTime) => {
+    return dayjs(startTime).isAfter(dayjs(), 'day');
+  }, 'Start time cannot be before today'),
+  endTime: datetimeStringSchema,
   points: z.string().min(1, { message: 'Points required to create this session.' }),
-  sessionSkills: z.string().array().nonempty({ message: "select at least 1 skill." }),
+  sessionSkills: z.string().array().nonempty({ message: "Select at least 1 skill." }),
   sessionImage: z.string().min(1, { message: 'Please select image for the session.' })
 });
+
 
 const createSession = () => {
   const [skills, setSkills] = useState<ISkills[] | null>(null);
@@ -47,8 +62,14 @@ const createSession = () => {
     },
   });
 
+  const { formState: { errors } } = form;
+
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    const { startTime, endTime } = values;
+
+    if (dayjs(endTime).isBefore(dayjs(startTime), 'minute')) {
+      form.setError("endTime", { message: "End time can't be before start time!" });
+    }
   };
 
   const handleSelectImage = (event: any) => {
@@ -148,40 +169,49 @@ const createSession = () => {
                     <FormItem>
                       <FormLabel>Session Title:</FormLabel>
                       <FormControl>
-                        <Input placeholder="Input session title" {...field} />
+                        <Input
+                          className={errors.sessionTitle ? 'border-destructive focus-visible:ring-destructive' : ''}
+                          placeholder="Input session title" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
 
-                <FormField
-                  control={form.control}
-                  name="startTime"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Start Time:</FormLabel>
-                      <FormControl>
-                        <Input type='datetime-local' placeholder="Input start time" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <div className='grid gap-2 md:grid-cols-2 md:gap-4' >
+                  <FormField
+                    control={form.control}
+                    name="startTime"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Start Time:</FormLabel>
+                        <FormControl>
+                          <Input
+                            className={errors.startTime ? 'border-destructive focus-visible:ring-destructive' : ''}
+                            type='datetime-local' placeholder="Input start time" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-                <FormField
-                  control={form.control}
-                  name="endTime"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>End Time:</FormLabel>
-                      <FormControl>
-                        <Input type='datetime-local' placeholder="Input end time" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                  <FormField
+                    control={form.control}
+                    name="endTime"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>End Time:</FormLabel>
+                        <FormControl>
+                          <Input
+                            className={errors.endTime ? 'border-destructive focus-visible:ring-destructive' : ''}
+                            type='datetime-local' placeholder="Input end time" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
 
                 <FormField
                   control={form.control}
@@ -191,7 +221,7 @@ const createSession = () => {
                       <FormLabel>Points:</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
-                          <SelectTrigger>
+                          <SelectTrigger className={errors.points ? 'border-destructive focus-visible:ring-1 focus-visible:ring-destructive' : ''} >
                             <SelectValue placeholder="Select points for this session." />
                           </SelectTrigger>
                         </FormControl>
@@ -212,7 +242,11 @@ const createSession = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel onClick={() => { setOpenSkillsAutoComplete(prev => !prev); }}>Skills:</FormLabel>
-                      {skills && <AutoCompleteSkillSelect openSkillAutoComplete={openSkillsAutoComplete} skills={skills} handleAutoCompleteSkills={handleAutoCompleteSkills} {...field} />}
+                      {skills &&
+                        <AutoCompleteSkillSelect
+                          className={errors.sessionSkills ? 'border-destructive focus-visible:ring-destructive' : ''}
+                          openSkillAutoComplete={openSkillsAutoComplete} skills={skills} handleAutoCompleteSkills={handleAutoCompleteSkills} {...field} />
+                      }
                       <FormMessage />
                     </FormItem>
                   )}
