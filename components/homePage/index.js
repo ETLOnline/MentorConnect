@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import Header from "./header";
+import Header from "./header.tsx";
 import FeatureMentor from "./featureMentor";
 import FindMentor from "./findMentor";
 import SkillCard from "./skillCard";
@@ -58,14 +58,16 @@ const HomePage = () => {
   return (
     <Fragment>
       <Header />
-      <FeatureMentor />
-      <FindMentor />
-      <VideoCard />
-      <SkillCard
-        onClickSkills={onClickSkills}
-        skills={skills}
-        page={"home"}
-      />
+      <div className="px-6 lg:px-10" >
+        <FeatureMentor />
+        <FindMentor />
+        <VideoCard />
+        <SkillCard
+          onClickSkills={onClickSkills}
+          skills={skills}
+          page={"home"}
+        />
+      </div>
 
       {sessions == undefined || sessions.length == 0 ? (
         <h2 className="flex justify-center mb-2">

@@ -18,11 +18,9 @@ export default function NavBar() {
   if (user.user.role === "superAdmin" || user.user.role === "admin") {
     admin = true;
   }
-
-  // if(user)
   return (
-    <header className="sticky top-0 shadow-sm z-10" >
-      <div className="bg-[#fff] w-full">
+    <header className="sticky bg-background top-0 shadow-sm z-10 text-primary" >
+      <div className="w-full">
         <div className="lg:mx-[60px] py-1 flex items-center justify-between">
           <Link href="/" className="min-w-[100px]">
             <div className="relative h-16 flex">
@@ -62,16 +60,16 @@ export default function NavBar() {
                   <div className="hidden group-hover:block group-hover:absolute group-hover:top-7 group-hover:left-0">
                     <div className="px-2 pt-2 pb-4 bg-gray-50 rounded-[5px] shadow-lg">
                       <div className="flex flex-col gap-4">
-                        <div className="hover:text-primary hover:bg-blue-50 px-3 cursor-pointer">
+                        <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
                           Recommendations
                         </div>
-                        <div className="hover:text-primary hover:bg-blue-50 px-3 cursor-pointer">
+                        <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
                           Find Learning
                         </div>
-                        <div className="hover:text-primary hover:bg-blue-50 px-3 cursor-pointer">
+                        <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
                           Request a Session
                         </div>
-                        <div className="hover:text-primary hover:bg-blue-50 px-3 cursor-pointer">
+                        <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
                           Invite
                         </div>
                       </div>
@@ -100,7 +98,7 @@ export default function NavBar() {
                   <div className=" flex justify-center items-center">
                     <button className=" hover:font-bold text-center h-[36px] w-32 md:w-24  rounded group  hover:bg-[#fff]">
                       <Link
-                        className="text-[#909090] group-hover:text-primary"
+                        className="text-[#909090] group-hover:text-text"
                         href="/auth"
                       >
                         Sign Up
@@ -111,7 +109,7 @@ export default function NavBar() {
               )}
               {!user.user && (
                 <Link
-                  className="text-[#fff] hover:text-primary  "
+                  className="text-[#fff] hover:text-text  "
                   href="/loginPage"
                 >
                   <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:font-bold hover:bg-[#E6E5E5]">
@@ -124,7 +122,7 @@ export default function NavBar() {
             {user.user && (
               <div className="flex justify-center gap-[10px] items-center">
                 <div className="relative group">
-                  <div className="border-[1.5px] border-primary rounded-full flex justify-center items-center p-2" >
+                  <div className="border-[1.5px] text-border rounded-full flex justify-center items-center p-2" >
                     <GrUserSettings className="w-4 h-4 font-bold" />
                   </div>
 
@@ -134,7 +132,7 @@ export default function NavBar() {
                         <div className="font-medium leading-7  text-[#919191]">
                           <Link
                             href={`/auth/${user.user.uid}`}
-                            className="hover:text-primary px-3"
+                            className="hover:text-text px-3"
                           >
                             Porfile
                           </Link>
@@ -143,7 +141,7 @@ export default function NavBar() {
                         <div className="font-medium leading-7 text-[#919191]">
                           <Link
                             href={`/updatePassword`}
-                            className="hover:text-primary px-3"
+                            className="hover:text-text px-3"
                           >
                             change password
                           </Link>
@@ -153,7 +151,7 @@ export default function NavBar() {
                           <div className="font-medium leading-7 text-[#919191]">
                             <Link
                               href={`/admin`}
-                              className="hover:text-primary px-3"
+                              className="hover:text-text px-3"
                             >
                               Admin Panel
                             </Link>
@@ -163,7 +161,7 @@ export default function NavBar() {
                         <div className="flex justify-end" >
                           <button
                             onClick={() => { signout(router); router.push('/loginPage'); }}
-                            className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:border hover:bg-[#E6E5E5] text-white hover:text-primary"
+                            className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:border hover:bg-[#E6E5E5] text-white hover:text-text"
                           >
                             Log Out
                           </button>
@@ -214,16 +212,16 @@ export default function NavBar() {
                     <div className="hidden group-hover:block group-hover:absolute group-hover:top-7 group-hover:right-2">
                       <div className="px-2 pt-2 pb-4 bg-gray-50 rounded-[5px] shadow-lg">
                         <div className="flex flex-col gap-4">
-                          <div className="hover:text-primary hover:bg-blue-50 px-3 cursor-pointer">
+                          <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
                             Recommendations
                           </div>
-                          <div className="hover:text-primary hover:bg-blue-50 px-3 cursor-pointer">
+                          <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
                             Find Learning
                           </div>
-                          <div className="hover:text-primary hover:bg-blue-50 px-3 cursor-pointer">
+                          <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
                             Request a Session
                           </div>
-                          <div className="hover:text-primary hover:bg-blue-50 px-3 cursor-pointer">
+                          <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
                             Invite
                           </div>
                         </div>
@@ -248,7 +246,7 @@ export default function NavBar() {
               <div className="flex justify-center items-center gap-9">
                 <button className=" hover:font-bold text-center h-[36px] w-32 md:w-24  rounded group  hover:bg-[#fff]">
                   <Link
-                    className="text-[#909090] group-hover:text-primary"
+                    className="text-[#909090] group-hover:text-text"
                     href="/auth"
                     onClick={() => setOpen(false)}
                   >
@@ -257,7 +255,7 @@ export default function NavBar() {
                 </button>
 
                 <Link
-                  className="text-[#fff] hover:text-primary "
+                  className="text-[#fff] hover:text-text "
                   href="/loginPage"
                   onClick={() => setOpen(false)}
                 >
@@ -271,7 +269,7 @@ export default function NavBar() {
             {user.user && (
               <div className="flex gap-[10px] items-center">
                 <div className="relative group">
-                  <div className="border-[1.5px] border-primary rounded-full flex justify-center items-center p-4" >
+                  <div className="border-[1.5px] text-border rounded-full flex justify-center items-center p-4" >
                     <GrUserSettings className="w-7 h-7" />
                   </div>
 
@@ -281,7 +279,7 @@ export default function NavBar() {
                         <div className="font-medium leading-7  text-[#919191]">
                           <Link
                             href={`/auth/${user.user.uid}`}
-                            className="hover:text-primary px-3"
+                            className="hover:text-text px-3"
                           >
                             Porfile
                           </Link>
@@ -290,7 +288,7 @@ export default function NavBar() {
                         <div className="font-medium leading-7 text-[#919191]">
                           <Link
                             href={`/updatePassword`}
-                            className="hover:text-primary px-3"
+                            className="hover:text-text px-3"
                           >
                             change password
                           </Link>
@@ -300,7 +298,7 @@ export default function NavBar() {
                           <div className="font-medium leading-7 text-[#919191]">
                             <Link
                               href={`/admin`}
-                              className="hover:text-primary px-3"
+                              className="hover:text-text px-3"
                             >
                               Admin Panel
                             </Link>
@@ -310,7 +308,7 @@ export default function NavBar() {
                         <div className="flex justify-end" >
                           <button
                             onClick={() => { signout(router); router.push('/loginPage'); }}
-                            className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:border hover:bg-[#E6E5E5] text-white hover:text-primary"
+                            className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:border hover:bg-[#E6E5E5] text-white hover:text-text"
                           >
                             Log Out
                           </button>

@@ -5,9 +5,9 @@ const SkillCard = ({ onClickSkills, skills, page }) => {
 
   return (
     <div>
-      <div className="bg-white mx-6 md:mx-10 ">
+      <div className="">
         <div className="flex justify-between pt-10">
-          <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-primary">
+          <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-text">
             {page == "home" && "In-Demand Skills"}
             {page == "pastSession" && "All Skills"}
           </h2>

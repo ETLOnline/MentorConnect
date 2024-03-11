@@ -1,89 +1,74 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { FaInstagram, FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <>
-      <footer>
-        <div className="w-full md:h-[254px] md:flex flex-col bg-[#1C2D56]">
-          <div className="w-full flex-col flex md:flex-row ">
-            <div className="md:w-[24.44%] w-[50%] mx-auto md:flex md:items-center">
-              <div className="w-[63.63%] py-5 bg-[#E6E5E5] my-[18px] md:my-[72px] mx-auto flex items-center justify-center">
-                <Link
-                  href="/"
-                  className="text-[16px] leading-[18px] text-[#1C2D56] m-auto cursor-pointer"
-                >
-                  Logo
-                </Link>
-              </div>
-            </div>
+      <footer className="text-primary gradient-bg p-6 md:px-10" >
 
-            <div className=" sm:flex gap-[10px] items-center mx-auto w-[80%] md:w-[50%] justify-between">
-              <div className="text-[20px] sm:text-[20px] md:text-[18px] lg:text-[20px] font-medium text-center text-[#FFFFFF] cursor-pointer      ">
-                Find a Mentor
-              </div>
-              <div className="text-[20px] sm:text-[20px] md:text-[18px] lg:text-[20px] font-medium text-center text-[#FFFFFF] cursor-pointer     ">
-                About Us
-              </div>
-              <div className="text-[20px] sm:text-[20px] md:px-1 md:text-[18px] lg:text-[20px] font-medium text-center text-[#FFFFFF] cursor-pointer      ">
-                Pricing
-              </div>
-              <div className="text-[20px] sm:text-[20px] md:text-[18px] lg:text-[20px] font-medium text-center text-[#FFFFFF] cursor-pointer     ">
-                Become a Member
-              </div>
-            </div>
+        <div className="md:min-h-[150px] grid gap-6 md:gap-0 md:grid-cols-9 py-4">
 
-            <div className="sm:w-[30%] md:w-[19.44%] mx-auto md:mr-[1rem] lg:ml-auto lg:mr-[2%]">
-              <div className="w-[70%] md:w-[54.88%] lg:w-[60%] gap-[10px] md:gap-[5px] flex md:justify-between lg:ml-auto lg:mr-auto my-[15px] md:my-[89px]">
+          <div className="md:col-span-2 flex justify-center items-center" >
+            <Link href="/" className="min-w-[100px]">
+              <div className="h-20">
                 <Image
-                  src="/img/LinKedIn (2).png"
-                  className="cursor-pointer"
-                  width={32}
-                  height={32}
-                  alt="img"
+                  src="/img/logo.png"
+                  alt="logo image"
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="w-auto h-full"
                 />
-                <Image
-                  src="/img/Facebook (1).png"
-                  className="cursor-pointer"
-                  width={32}
-                  height={32}
-                  alt="img"
-                />
-                <Image
-                  src="/img/Instagram (1).png"
-                  className="cursor-pointer"
-                  width={32}
-                  height={32}
-                  alt="img"
-                />
-                <Image
-                  src="/img/Twitter (3).png"
-                  className="cursor-pointer"
-                  width={32}
-                  height={32}
-                  alt="img"
-                />
-                {/* <img src="/img/LinKedIn (2).png" className="cursor-pointer" />
-                <img src="/img/Facebook (1).png" className="cursor-pointer" />
-                <img src="/img/Instagram (1).png" className="cursor-pointer" />
-                <img src="/img/Twitter (3).png" className="cursor-pointer" /> */}
               </div>
-            </div>
+            </Link>
           </div>
-          <div className="w-full h-[18.11%] ">
-            <div className="w-[91.11%] border-t-[1px] border-[white] mx-auto flex justify-between pt-2">
-              <p className="text-[12px] leading-[14px] font-light text-white">
-                @2022 TheLearningDao. All Rights Reserved
-              </p>
-              <div className="flex ">
-                <p className="text-[12px] leading-[14px] font-medium text-white mr-4">
-                  Terms & Conditions
-                </p>
-                <p className="text-[12px] leading-[14px] font-medium text-white">
-                  Privacy Policy
-                </p>
-              </div>
+
+          <div className="md:col-span-5 flex justify-center items-center gap-4" >
+            <Link href={'/'} className="text-xs md:text-base hover:underline" >
+              Find a Mentor
+            </Link>
+            <Link href={'/'} className="text-xs md:text-base hover:underline" >
+              About Us
+            </Link>
+            <Link href={'/'} className="text-xs md:text-base hover:underline" >
+              Pricing
+            </Link>
+            <Link href={'/'} className="text-xs md:text-base hover:underline" >
+              Become a Member
+            </Link>
+          </div>
+
+          <div className="flex justify-center items-center gap-2 md:col-span-2">
+            <span className="w-9 h-9 flex justify-center items-center hover:cursor-pointer rounded-md p-2 bg-primary/10" >
+              <FaTwitter />
+            </span>
+            <span className="w-9 h-9 flex justify-center items-center hover:cursor-pointer rounded-md p-2 bg-primary/10" >
+              <FaLinkedinIn />
+            </span>
+            <span className="w-9 h-9 flex justify-center items-center hover:cursor-pointer rounded-md p-2 bg-primary/10" >
+              <FaInstagram />
+            </span>
+            <span className="w-9 h-9 flex justify-center items-center hover:cursor-pointer rounded-md p-2 bg-primary/10" >
+              <FaFacebookF />
+            </span>
+          </div>
+        </div>
+
+        <div className="w-full">
+          <div className="border-t-[1px] border-foreground mx-auto flex flex-col items-center md:flex-row md:justify-between pt-2">
+            <p className="text-xs ">
+              @2024 TheLearningDao. All Rights Reserved
+            </p>
+
+            <div className="flex gap-4 ">
+              <Link href={'/'} className="text-xs md:text-base hover:underline" >
+                Terms & Conditions
+              </Link>
+              <Link href={'/'} className="text-xs md:text-base hover:underline" >
+                Privacy Policy
+              </Link>
             </div>
           </div>
         </div>

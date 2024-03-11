@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import Card from "./card";
+import Card from "./mentorCard";
 import { getUsers } from "../../utils_firebase/users";
 import { useEffect, useState } from "react";
 import Spinner from "../spinner";

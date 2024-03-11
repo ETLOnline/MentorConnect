@@ -1,25 +1,28 @@
 import React, { Fragment } from "react";
+import { ArrowRightIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
+import { Button } from "../ui/button";
 
 const FindMentor = () => {
   return (
-    <div className="text-center flex flex-col bg-gradient-to-l from-[#F8FBFE] to-[rgba(157,213,200,0.9)] w-full px-6">
+    <div className="gradient-bg text-primary text-center flex flex-col w-full px-6">
       <div className="mx-auto pt-[32px] xs:pt-[64px]">
-        <h1 className="text-[32px] xs:text-[40px] leading-[47px] text-[#1C2D56] font-bold">
+        <h1 className="text-[32px] xs:text-[40px] leading-[47px] font-bold">
           Helping the world one Mentor at a time
         </h1>
       </div>
       <div className="mx-auto pt-[24px] xs:pt-[42px]">
-        <p className="text-[18px] xs:text-[24px] leading-[28px] text-[#1C2D56] text-center ">
+        <p className="text-[18px] xs:text-[24px] leading-[28px] text-center ">
           Sifting through the overwhelming content on the internet will slow you
           down. Break through the
           <br />
           noise and get specific advice directly from the experts
         </p>
       </div>
-      <div className="mx-auto py-[32px] xs:py-[45px] ">
-        <button className="primary-button">
-          Lets Find a Mentor
-        </button>
+
+      <div className="flex justify-center py-20" >
+        <Button variant="outline">
+          Find a Mentor <ArrowRightIcon className="ml-2" />
+        </Button>
       </div>
     </div>
   );

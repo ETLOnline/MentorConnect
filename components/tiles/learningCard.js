@@ -22,7 +22,7 @@ const LearningCard = ({ data }) => {
           </div>
 
           <div className="w-[76.93%] flex flex-col mx-auto gap-2 my-auto">
-            <p className="text-xs text-primary/75 flex items-center gap-4">
+            <p className="text-xs text-text/75 flex items-center gap-4">
               <span className="font-semibold" >Registered:</span>  {getTimeAgo(new Date(data.startTime.seconds * 1000))}
             </p>
             <div className="flex gap-3">
@@ -37,10 +37,10 @@ const LearningCard = ({ data }) => {
               </span>
 
               <div className="flex flex-col" >
-                <p className="text-base font-semibold line-clamp-1 text-primary">
+                <p className="text-base font-semibold line-clamp-1 text-text">
                   {data.title}
                 </p>
-                <p className="text-sm text-primary/90">
+                <p className="text-sm text-text/90">
                   {data.instructor.summry?.displayName}
                 </p>
               </div>

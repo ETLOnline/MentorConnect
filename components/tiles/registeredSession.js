@@ -20,8 +20,8 @@ const RegisteredSession = () => {
     <div className="px-6 lg:px-10">
 
       <div className="py-10">
-        <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-primary text-center">Registered Sessions</h2>
-        <p className="text-center text-primary text-base">Sessions that you have Registered</p>
+        <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-text text-center">Registered Sessions</h2>
+        <p className="text-center text-text text-base">Sessions that you have Registered</p>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">

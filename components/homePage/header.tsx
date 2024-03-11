@@ -1,27 +1,29 @@
 import React, { Fragment } from "react";
 import Image from "next/image";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { Button } from "../ui/button";
 
 const Header = () => {
   return (
     <Fragment>
-      <div className="bg-gradient-to-l from-[#F8FBFE] to-[rgba(157,213,200,0.9)] w-full px-2 font-montserrat">
+      <div className="gradient-bg w-full px-2 font-montserrat text-primary">
         <div className="ml-0 xs:ml-[5.44%] grid md:grid-cols-2">
           <div className="text-center xs:text-left">
             <div className=" ">
               <div className="xs:w-[88.52%] mt-[16.03%]">
-                <p className="text-[40px] xs:text-[48px] sm:text-[64px] text-primary leading-[50px] sm:leading-[60px] md:leading-[75px] font-bold sm:font-[700]">
+                <p className="text-[40px] xs:text-[48px] sm:text-[64px] text-text leading-[50px] sm:leading-[60px] md:leading-[75px] font-bold sm:font-[700]">
                   Find and Book a Mentor for your 1:1 help today!
                 </p>
               </div>
 
-              <p className=" text-[20px] sm:text-[24px] mt-[20px] text-primary xs:w-[88%]">
+              <p className="text-[20px] sm:text-[24px] mt-[20px] text-text xs:w-[88%] mb-8">
                 We have over 200 Mentors available, qualified in over 300
                 subjects.
               </p>
 
-              <button className="xs:mb-[50px] mt-6 primary-button">
-                Find a Mentor
-              </button>
+              <Button variant="outline">
+                Find a Mentor <ArrowRightIcon className="ml-2" />
+              </Button>
             </div>
           </div>
           <div className="hidden md:block">
@@ -65,8 +67,8 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className="min-h-[140.99px] relative w-full">
-          <Image src="/img/Vector 1.png" alt="img" fill />
+        <div className="min-h-[140.99px] w-full relative">
+          <Image src="/img/Vector 1.png" alt="img" width={0} height={0} sizes="100vw" className="w-full h-full absolute -left-2" />
         </div>
       </div>
     </Fragment>

@@ -2,11 +2,13 @@ import React, { Fragment } from "react";
 import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import Card from "./card";
+import MentorCard from "./mentorCard";
 import { getUsers } from "../../utils_firebase/users";
 import { useEffect, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import Spinner from "../spinner";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { Button } from "../ui/button";
 
 var $ = require("jquery");
 if (typeof window !== "undefined") {
@@ -19,18 +21,17 @@ const OwlCarousel = dynamic(() => import("react-owl-carousel"), {
 });
 
 const FeatureMentor = () => {
-  const [Mentors, setMentors] = useState(false);
-  // const Mentors = getAllMentors();
+  const [mentors, setMentors] = useState(false);
+
   useEffect(() => {
     async function name() {
       const users = await getUsers();
-      // console.log(users);
       setMentors(users);
     }
     name();
   }, []);
 
-  if (!Mentors) {
+  if (!mentors) {
     return <Spinner />;
   }
 
@@ -38,14 +39,14 @@ const FeatureMentor = () => {
     margin: 10,
     responsiveClass: true,
     // nav: true,
-    // dots: true,
-    autoplay: true,
-    smartSpeed: 1000,
+    dots: true,
+    // autoplay: true,
+    // smartSpeed: 1000,
     // navClass: ["owl-prev", "owl-next"],
-    // navText: [
-    //   '<i class="fas fa-angle-left"></i>',
-    //   '<i class="fas fa-angle-right"></i>',
-    // ],
+    // // navText: [
+    // //   '<i class="fas fa-angle-left"></i>',
+    // //   '<i class="fas fa-angle-right"></i>',
+    // // ],
 
     responsive: {
       0: {
@@ -61,29 +62,29 @@ const FeatureMentor = () => {
         items: 3,
       },
       1200: {
-        items: 4,
+        items: 5,
       },
     },
   };
 
   return (
     <Fragment>
-      <div className="px-6 lg:px-10">
+      <div className="text-primary" >
         <div className="flex justify-between items-center py-10">
-          <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-primary">Featured Mentors</h2>
-
-          <button className="flex items-center gap-2 primary-button">
-            Explore <span><BsArrowRight /></span>
-          </button>
+          <h2 className="text-lg md:text-xl xl:text-3xl font-bold">Featured Mentors</h2>
+          <Button variant="outline">
+            Find a Mentor <ArrowRightIcon className="ml-2" />
+          </Button>
         </div>
+
         <OwlCarousel
-          className="owl-theme"
+          className="owl-theme my-10"
           loop
-          dots={false}
+          dots={true}
           animateIn={true}
           {...options}
         >
-          <Card mentors={Mentors} />
+          <MentorCard mentors={mentors} />
         </OwlCarousel>
       </div>
     </Fragment>

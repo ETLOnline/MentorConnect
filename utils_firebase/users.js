@@ -242,9 +242,9 @@ export const updatePassword = (email, currentPassword, newPassword, router) => {
 
 // ---------Create New User---------
 export const createNewUser = (data) => {
-  const image = data.image
-    ? data.image
-    : "https://www.iconpacks.net/icons/1/free-user-icon-295-thumb.png";
+  const image = data.image;
+  // ? data.image
+  // : "https://www.iconpacks.net/icons/1/free-user-icon-295-thumb.png";
   auth
     .createUserWithEmailAndPassword(data.email, data.password)
     .then((credential) => {

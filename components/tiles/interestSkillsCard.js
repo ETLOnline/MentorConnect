@@ -25,7 +25,7 @@ const InterestSkillsCard = ({ skill, click }) => {
         className={
           selectSkill
             ? "min-w-[21.53%] mb-[15px] rounded-[12px] flex items-center gap-2 px-2 cursor-pointer scale-105 shadow-2xl bg-[rgba(157,213,200,0.14)]"
-            : "min-w-[21.53%] mb-[15px] rounded-[12px] flex items-center shadow-md gap-2 px-2 cursor-pointer"
+            : "min-w-[21.53%] mb-[15px] rounded-[12px] flex items-center shadow-md gap-2 px-2 cursor-pointer bg-primary/5"
         }
       >
         <div className="flex w-[42px] h-[42px] m-2 ">
@@ -38,7 +38,7 @@ const InterestSkillsCard = ({ skill, click }) => {
           />
         </div>
         <div className="flex">
-          <p className="text-[24px] font-bold text-[#1C2D56] font['Raleway'] leading-[28px]">
+          <p className="text-[24px] font-bold text-primary font['Raleway'] leading-[28px]">
             {skill.name}
           </p>
         </div>

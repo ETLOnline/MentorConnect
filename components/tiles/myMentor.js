@@ -54,7 +54,7 @@ const MyMentor = () => {
     <>
       <div className="px-6 lg:px-10">
         <div className="flex justify-between items-center py-10">
-          <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-primary">My Mentors</h2>
+          <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-text">My Mentors</h2>
 
           <button className="flex items-center gap-2 primary-button">
             Explore <span><BsArrowRight /></span>

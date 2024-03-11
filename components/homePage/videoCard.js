@@ -8,6 +8,8 @@ import { BsArrowRight } from "react-icons/bs";
 import VideoCardItem from "./videoCardItem";
 import { getAllPastSessionsWithLink } from "../../utils_firebase/sessions";
 import Link from "next/link";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { Button } from "../ui/button";
 
 const VideoCard = () => {
   const [pastSessions, setPastSessions] = useState([]);
@@ -20,7 +22,7 @@ const VideoCard = () => {
     margin: 10,
     responsiveClass: true,
     // nav: true,
-    // dots: true,
+    dots: true,
     autoplay: true,
     smartSpeed: 1000,
     // navClass: ["owl-prev", "owl-next"],
@@ -54,13 +56,13 @@ const VideoCard = () => {
     });
   }, []);
   return (
-    <div className="px-6 lg:px-10">
+    <div className="text-primary">
       <div className="flex justify-between items-center py-10">
-        <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-primary">Past Sessions</h2>
+        <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-text">Past Sessions</h2>
         <Link href={"/pastSessions"} >
-          <button className="flex items-center gap-2 primary-button">
-            Explore <span><BsArrowRight /></span>
-          </button>
+          <Button variant="outline">
+            Explore <ArrowRightIcon className="ml-2" />
+          </Button>
         </Link>
       </div>
 

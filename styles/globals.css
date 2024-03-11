@@ -97,4 +97,12 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .gradient-bg{
+    @apply bg-gradient-to-l from-[#F8FBFE] to-[rgba(157,213,200,0.9)] dark:from-black dark:to-sky-400
+  }
+
+  .debug{
+    @apply border border-red-500
+  }
 }

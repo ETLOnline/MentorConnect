@@ -13,8 +13,8 @@ const UpCommingSection = ({ sessions, title, dis }) => {
     <Fragment>
 
       <div className="py-10">
-        <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-primary text-center">{title}</h2>
-        <p className="text-center text-primary text-base">{dis}</p>
+        <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-text text-center">{title}</h2>
+        <p className="text-center text-text text-base">{dis}</p>
       </div>
 
       <div className="mx-[16px] xs:mx-[32px] ">

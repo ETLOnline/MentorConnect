@@ -34,7 +34,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "pages/auth/myForm.jsx"
+    "pages/auth/myForm.jsx",
+    "components/homePage/featureMentor.js",
+    "components/homePage/card.jsx"
   ],
   "exclude": [
     "node_modules"
