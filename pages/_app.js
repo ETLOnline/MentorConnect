@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
       defaultTheme="system"
       enableSystem
       disableTransitionOnChange
-      themes={['orange', 'light', 'dark']}
+      themes={['light', 'dark']}
     >
       <AuthProvider>
         <Layout>

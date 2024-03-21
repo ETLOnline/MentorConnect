@@ -8,7 +8,7 @@ export default function Layout({ children }) {
   const { user } = useContext(AuthContext);
 
   return (
-    <div>
+    <div className="max-w-screen-2xl 2xl:mx-auto">
       {user.authIsValide ? (
         <div className="relative">
           <Navbar />

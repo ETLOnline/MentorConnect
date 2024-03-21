@@ -59,7 +59,7 @@ const VideoCard = () => {
     <div className="text-primary">
       <div className="flex justify-between items-center py-10">
         <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-text">Past Sessions</h2>
-        <Link href={"/pastSessions"} >
+        <Link href={"/past-sessions"} >
           <Button variant="outline">
             Explore <ArrowRightIcon className="ml-2" />
           </Button>

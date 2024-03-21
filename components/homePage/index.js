@@ -1,19 +1,13 @@
 import React, { Fragment, useEffect, useState } from "react";
-import Header from "./header.tsx";
+import Header from "./header";
 import FeatureMentor from "./featureMentor";
 import FindMentor from "./findMentor";
 import SkillCard from "./skillCard";
 import UpCommingSection from "./upCommingSection";
-import {
-  getAllSessions,
-  getSessionByUserSkills,
-} from "../../utils_firebase/sessions";
+import { getAllSessions, getSessionByUserSkills, } from "../../utils_firebase/sessions";
 import Link from "next/link";
 import Videos from "./videos";
-import {
-  getAllSkillsWithImage,
-  getAllIndemandSkillsWithImage,
-} from "../../utils_firebase/skills";
+import { getAllSkillsWithImage, getAllIndemandSkillsWithImage, } from "../../utils_firebase/skills";
 import VideoCard from "./videoCard";
 
 const HomePage = () => {
@@ -67,21 +61,24 @@ const HomePage = () => {
           skills={skills}
           page={"home"}
         />
-      </div>
 
-      {sessions == undefined || sessions.length == 0 ? (
-        <h2 className="flex justify-center mb-2">
-          No Upcoming Sessions On this Skill
-        </h2>
-      ) : (
-        <div>
-          <UpCommingSection
-            sessions={sessions}
-            title="Upcoming Session"
-            dis="Sign Up to one of our sessions and start your journey"
-          />
-        </div>
-      )}
+        {sessions == undefined || sessions.length == 0 ?
+          (
+            <h2 className="flex justify-center mb-2">
+              No Upcoming Sessions On this Skill
+            </h2>
+          )
+          :
+          (
+
+            <UpCommingSection
+              sessions={sessions}
+              title="Upcoming Session"
+              dis="Sign Up to one of our sessions and start your journey"
+            />
+
+          )}
+      </div>
     </Fragment>
   );
 };

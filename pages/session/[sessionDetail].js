@@ -50,10 +50,6 @@ const SessionDetail = () => {
   if (isLoaded.length === 0) {
     return <Spinner />;
   }
-  // console.log(isLoaded.instructor.uid, "id in dinamic");
-  // const [A, B] =
-  // console.log(A, B, "data");
-  // console.log(isLoaded, "loaded.....", id);
 
   return (
     <>
@@ -79,7 +75,7 @@ const SessionDetail = () => {
               </h1>
             </div>
             <div className="flex flex-wrap gap-5 my-4 pb-5 border-b-[2px]">
-              {isLoaded.tags.map((tag) => {
+              {isLoaded.tags?.map((tag) => {
                 return (
                   <Fragment key={Math.random()}>
                     <IntrestsTile data={tag} />
@@ -91,18 +87,18 @@ const SessionDetail = () => {
             <div className="border-b-[2px]">
               Instructor
               <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
-                <Link href={`/auth/${isLoaded.instructor.uid}`}>
+                <Link href={`/auth/${isLoaded.instructor?.uid}`}>
                   <div className="flex items-center">
                     <div className="relative w-[32px] h-[32px]">
                       <Image
-                        src={isLoaded.instructor.summry?.image}
+                        src={isLoaded.instructor?.summry.image}
                         alt=""
                         fill
                         className="object-cover rounded-full"
                       />
                     </div>
                     <h1 className="font-bold ml-[15px] text-[#1C2D56]">
-                      {isLoaded.instructor.summry?.displayName}
+                      {isLoaded.instructor?.summry.displayName}
                     </h1>
                   </div>
                 </Link>
@@ -132,11 +128,11 @@ const SessionDetail = () => {
               <div className="flex justify-between ">
                 <p className="text-[12px] leading-[14px] font-medium text-[#8B8B8B] group-hover:text-green-800">
                   Start:
-                  {new Date(isLoaded.startTime.seconds * 1000).toLocaleString()}
+                  {new Date(isLoaded.startTime?.seconds * 1000).toLocaleString()}
                 </p>
                 <p className="text-[12px] leading-[14px] font-medium text-[#8B8B8B] group-hover:text-green-800">
                   End:
-                  {new Date(isLoaded.endTime.seconds * 1000).toLocaleString()}
+                  {new Date(isLoaded.endTime?.seconds * 1000).toLocaleString()}
                 </p>
               </div>
             </div>
@@ -172,7 +168,7 @@ const SessionDetail = () => {
             </h1>
           </div>
           <div className="flex flex-col w-[90%] mx-auto my-[10px] px-[10px] border-[2px] rounded-[10px] pt-4 ">
-            {isLoaded.students.map((student) => {
+            {isLoaded.students?.map((student) => {
               return (
                 <Fragment key={Math.random()}>
                   <Students

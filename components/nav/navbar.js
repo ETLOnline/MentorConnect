@@ -5,7 +5,13 @@ import { AuthContext } from "../../contexts/auth_context";
 import { useContext, useState } from "react";
 import Image from "next/image";
 import { GrUserSettings } from "react-icons/gr";
+import { ExitIcon, HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
 import ThemeModeToggle from "../ui/custom/theme-mode-toggle.tsx";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { HoverCard, HoverCardContent, HoverCardTrigger, } from '../ui/hover-card';
+import { Button } from '../ui/button';
+import { Card } from '../ui/card';
+import { getNameInitials } from "../../helpers";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -13,11 +19,93 @@ export default function NavBar() {
   const { signout, error, isPanding } = useSignout();
   const router = useRouter();
 
-  let admin;
+  let admin = false;
 
   if (user.user.role === "superAdmin" || user.user.role === "admin") {
     admin = true;
   }
+
+  const contextMenuData = [
+    {
+      id: 1,
+      path: `/auth/${user.user.uid}`,
+      title: 'Profile'
+    },
+    {
+      id: 2,
+      path: `/updatePassword`,
+      title: 'Change Password'
+    },
+    {
+      id: 3,
+      path: `/admin`,
+      title: 'Admin Panel'
+    }
+  ].filter(item => ((!admin && item.path !== "/admin") || (admin && item)));
+
+  const navLinks = [
+    {
+      id: 1,
+      path: `/home`,
+      title: "Home",
+      criteria: 'auth'
+    },
+    {
+      id: 2,
+      path: `/auth/sessionForm`,
+      title: "Create Session",
+      criteria: 'auth'
+    },
+    {
+      id: 3,
+      path: `/calender`,
+      title: "Calender",
+      criteria: 'auth'
+    },
+    {
+      id: 4,
+      path: `/`,
+      title: "Coming Soon",
+      criteria: 'auth'
+    },
+    {
+      id: 5,
+      path: `/`,
+      title: "About us",
+      criteria: 'un-auth'
+    },
+    {
+      id: 6,
+      path: `/`,
+      title: "Pricing",
+      criteria: 'un-auth'
+    },
+    {
+      id: 7,
+      path: `/`,
+      title: "Become a member",
+      criteria: 'un-auth'
+    },
+    {
+      id: 8,
+      path: `/`,
+      title: "Contact",
+      criteria: 'un-auth'
+    },
+    {
+      id: 9,
+      path: `/`,
+      title: "Find a Mentor",
+      criteria: 'all'
+    },
+
+  ].filter(item => (
+    (user.user && (item.criteria === 'auth' || item.criteria === 'all'))
+    ||
+    (!user.user && (item.criteria === 'un-auth' || item.criteria === 'all'))
+  ));
+
+
   return (
     <header className="sticky bg-background top-0 shadow-sm z-10 text-primary" >
       <div className="w-full">
@@ -35,148 +123,89 @@ export default function NavBar() {
 
           <div
             onClick={() => setOpen(!open)}
-            className="absolute text-3xl right-8 top-6 cursor-pointer md:hidden"
+            className="cursor-pointer md:hidden mr-6 flex items-center gap-4"
           >
-            <Image
-              src={"/img/menu.png"}
-              alt="img"
-              height={30}
-              width={30}
-            />
+            <ThemeModeToggle /> <HamburgerMenuIcon className="h-8 w-8 text-primary" />
           </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex md:flex-row gap-4">
-            {user.user ? (
-              <div className="flex items-center gap-4">
-                {/* Home Button */}
-                <Link className="nav-item" href="/home" >Home</Link>
-                <Link className="nav-item" href="/auth/sessionForm">Create Session</Link>
-                <Link className="nav-item" href="/calender">Calendar</Link>
+            {
+              navLinks.map(item => {
+                return (
+                  <Link className="nav-item" key={item.id} href={item.path}>{item.title}</Link>
+                );
+              })
+            }
 
-                {/* Nav DropDown Comming Soon */}
-                <div className="relative group">
-                  <p className="nav-item after:!bg-transparent" >Coming Soon</p>
-                  <div className="hidden group-hover:block group-hover:absolute group-hover:top-7 group-hover:left-0">
-                    <div className="px-2 pt-2 pb-4 bg-gray-50 rounded-[5px] shadow-lg">
-                      <div className="flex flex-col gap-4">
-                        <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
-                          Recommendations
-                        </div>
-                        <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
-                          Find Learning
-                        </div>
-                        <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
-                          Request a Session
-                        </div>
-                        <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
-                          Invite
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <>
-                <Link className="nav-item" href="/" >About us</Link>
-                <Link className="nav-item" href="/" >Pricing</Link>
-                <Link className="nav-item" href="/" >Become a Mentor</Link>
-                <Link className="nav-item" href="/" >Contact</Link>
-              </>
-            )}
-            <Link className="nav-item" href="/">Find a Mentor</Link>
           </div>
 
           <div className="hidden md:flex gap-4">
 
             <ThemeModeToggle />
 
-            <div className="flex gap-9 ">
-              {!user.user && (
-                <div className="">
-                  <div className=" flex justify-center items-center">
-                    <button className=" hover:font-bold text-center h-[36px] w-32 md:w-24  rounded group  hover:bg-[#fff]">
-                      <Link
-                        className="text-[#909090] group-hover:text-text"
-                        href="/auth"
-                      >
-                        Sign Up
-                      </Link>
-                    </button>
-                  </div>
-                </div>
-              )}
-              {!user.user && (
-                <Link
-                  className="text-[#fff] hover:text-text  "
-                  href="/loginPage"
+            {!user.user &&
+              <div className="flex items-center gap-6 ">
+                <Button
+                  onClick={() => { router.push('/auth'); }}
+                  variant="outline"
+                  className="text-primary"
                 >
-                  <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:font-bold hover:bg-[#E6E5E5]">
-                    Log In
-                  </button>
-                </Link>
-              )}
-            </div>
+                  Sign Up
+                </Button>
+
+                <Button
+                  onClick={() => { router.push('/loginPage'); }}
+                  variant="outline"
+                  className="text-background bg-primary"
+                >
+                  Sign In
+                </Button>
+              </div>
+            }
 
             {user.user && (
               <div className="flex justify-center gap-[10px] items-center">
-                <div className="relative group">
-                  <div className="border-[1.5px] text-border rounded-full flex justify-center items-center p-2" >
-                    <GrUserSettings className="w-4 h-4 font-bold" />
-                  </div>
-
-                  <div className="hidden group-hover:block group-hover:absolute group-hover:-bottom-36 group-hover:right-0">
-                    <div className="px-2 pt-2 pb-4 bg-gray-50 rounded-[5px] shadow-lg">
-                      <div className="flex w-[175px] flex-col gap-3">
-                        <div className="font-medium leading-7  text-[#919191]">
+                <HoverCard>
+                  <HoverCardTrigger asChild>
+                    <Avatar className='h-9 w-9'>
+                      <AvatarImage className='' src={user.user.summry?.image} />
+                      <AvatarFallback className="text-xs font-semibold uppercase">{getNameInitials(user.user.summry?.displayName)}</AvatarFallback>
+                    </Avatar>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-60 mr-4">
+                    <div className="flex flex-col gap-2" >
+                      {
+                        contextMenuData.map(item => (
                           <Link
-                            href={`/auth/${user.user.uid}`}
-                            className="hover:text-text px-3"
+                            key={item.id}
+                            href={item.path}
+                            className="text-primary hover:underline"
                           >
-                            Porfile
+                            {item.title}
                           </Link>
-                        </div>
+                        ))
+                      }
 
-                        <div className="font-medium leading-7 text-[#919191]">
-                          <Link
-                            href={`/updatePassword`}
-                            className="hover:text-text px-3"
-                          >
-                            change password
-                          </Link>
-                        </div>
-
-                        {admin && (
-                          <div className="font-medium leading-7 text-[#919191]">
-                            <Link
-                              href={`/admin`}
-                              className="hover:text-text px-3"
-                            >
-                              Admin Panel
-                            </Link>
-                          </div>
-                        )}
-
-                        <div className="flex justify-end" >
-                          <button
-                            onClick={() => { signout(router); router.push('/loginPage'); }}
-                            className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:border hover:bg-[#E6E5E5] text-white hover:text-text"
-                          >
-                            Log Out
-                          </button>
-                        </div>
+                      <div className="flex justify-end" >
+                        <Button
+                          onClick={() => { signout(router); router.push('/loginPage'); }}
+                          variant="outline"
+                          className="text-primary"
+                        >
+                          Log Out <ExitIcon className="ml-2" />
+                        </Button>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </HoverCardContent>
+                </HoverCard>
               </div>
             )}
           </div>
         </div>
 
         {/* Mobile Nav */}
-        <div className={`fixed z-50 bg-white w-full min-h-screen top-0 flex flex-col justify-between p-6 ${open ? "left-0 transition-all ease-in" : "-left-full transition-all ease-out"}`}>
+        <div className={`fixed z-50 bg-background w-full min-h-screen top-0 flex flex-col justify-between p-6 ${open ? "left-0 transition-all ease-in" : "-left-full transition-all ease-out"}`}>
           <div>
             <div className="flex justify-between items-center mb-6" >
               <Link href="/" onClick={() => setOpen(false)}>
@@ -189,133 +218,77 @@ export default function NavBar() {
                 />
               </Link>
 
-              <Image
-                onClick={() => setOpen(false)}
-                src={"/img/X.png"}
-                alt="img"
-                height={30}
-                width={30}
-              />
+              <Cross1Icon className="w-8 h-8 text-primary" onClick={() => setOpen(false)} />
             </div>
 
             <div className="flex flex-col gap-4 px-4" >
-              {user.user ? (
-                <div className="flex flex-col gap-4">
-                  {/* Home Button */}
-                  <Link className="nav-item text-lg " onClick={() => setOpen(false)} href="/home" >Home</Link>
-                  <Link className="nav-item text-lg " onClick={() => setOpen(false)} href="/auth/sessionForm">Create Session</Link>
-                  <Link className="nav-item text-lg " onClick={() => setOpen(false)} href="/calender">Calendar</Link>
-
-                  {/* Nav DropDown Comming Soon */}
-                  <div className="relative group">
-                    <p className="nav-item text-lg ">Coming Soon</p>
-                    <div className="hidden group-hover:block group-hover:absolute group-hover:top-7 group-hover:right-2">
-                      <div className="px-2 pt-2 pb-4 bg-gray-50 rounded-[5px] shadow-lg">
-                        <div className="flex flex-col gap-4">
-                          <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
-                            Recommendations
-                          </div>
-                          <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
-                            Find Learning
-                          </div>
-                          <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
-                            Request a Session
-                          </div>
-                          <div className="hover:text-text hover:bg-blue-50 px-3 cursor-pointer">
-                            Invite
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <>
-                  <Link className="nav-item text-lg " onClick={() => setOpen(false)} href="/" >About us</Link>
-                  <Link className="nav-item text-lg " onClick={() => setOpen(false)} href="/" >Pricing</Link>
-                  <Link className="nav-item text-lg " onClick={() => setOpen(false)} href="/" >Become a Mentor</Link>
-                  <Link className="nav-item text-lg " onClick={() => setOpen(false)} href="/" >Contact</Link>
-                </>
-              )}
-              <Link className="nav-item text-lg " onClick={() => setOpen(false)} href="/">Find a Mentor</Link>
+              <div className="flex flex-col gap-4">
+                {
+                  navLinks.map(item => {
+                    return (
+                      <Link className="nav-item" key={item.id} href={item.path} onClick={() => setOpen(false)}>{item.title}</Link>
+                    );
+                  })
+                }
+              </div>
             </div>
           </div>
 
           <div>
             {!user.user && (
               <div className="flex justify-center items-center gap-9">
-                <button className=" hover:font-bold text-center h-[36px] w-32 md:w-24  rounded group  hover:bg-[#fff]">
-                  <Link
-                    className="text-[#909090] group-hover:text-text"
-                    href="/auth"
-                    onClick={() => setOpen(false)}
-                  >
-                    Sign Up
-                  </Link>
-                </button>
-
-                <Link
-                  className="text-[#fff] hover:text-text "
-                  href="/loginPage"
-                  onClick={() => setOpen(false)}
+                <Button
+                  onClick={() => { router.push('/auth'); setOpen(false); }}
+                  variant="outline"
+                  className="text-primary"
                 >
-                  <button className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:font-bold hover:bg-[#E6E5E5]">
-                    Log In
-                  </button>
-                </Link>
+                  Sign Up
+                </Button>
+
+                <Button
+                  onClick={() => { router.push('/loginPage'); setOpen(false); }}
+                  variant="outline"
+                  className="text-background bg-primary"
+                >
+                  Sign In
+                </Button>
               </div>
             )}
 
             {user.user && (
               <div className="flex gap-[10px] items-center">
                 <div className="relative group">
-                  <div className="border-[1.5px] text-border rounded-full flex justify-center items-center p-4" >
-                    <GrUserSettings className="w-7 h-7" />
-                  </div>
+                  <Avatar className='h-10 w-10'>
+                    <AvatarImage className='' src={user.user.summry?.image} />
+                    <AvatarFallback className="text-xs uppercase">{getNameInitials(user.user.summry?.displayName)}</AvatarFallback>
+                  </Avatar>
 
-                  <div className="hidden group-hover:block group-hover:absolute group-hover:-top-36 group-hover:left-10">
-                    <div className="px-2 pt-2 pb-4 bg-gray-50 rounded-[5px] shadow-lg">
-                      <div className="flex w-[175px] flex-col gap-3">
-                        <div className="font-medium leading-7  text-[#919191]">
+                  <Card className="p-4 hidden group-hover:block group-hover:absolute group-hover:-top-36 group-hover:left-10">
+                    <div className="flex w-[175px] flex-col gap-3">
+                      {
+                        contextMenuData.map(item => (
                           <Link
-                            href={`/auth/${user.user.uid}`}
-                            className="hover:text-text px-3"
+                            onClick={() => { setOpen(false); }}
+                            key={item.id}
+                            href={item.path}
+                            className="text-primary hover:underline"
                           >
-                            Porfile
+                            {item.title}
                           </Link>
-                        </div>
+                        ))
+                      }
 
-                        <div className="font-medium leading-7 text-[#919191]">
-                          <Link
-                            href={`/updatePassword`}
-                            className="hover:text-text px-3"
-                          >
-                            change password
-                          </Link>
-                        </div>
-
-                        {admin && (
-                          <div className="font-medium leading-7 text-[#919191]">
-                            <Link
-                              href={`/admin`}
-                              className="hover:text-text px-3"
-                            >
-                              Admin Panel
-                            </Link>
-                          </div>
-                        )}
-
-                        <div className="flex justify-end" >
-                          <button
-                            onClick={() => { signout(router); router.push('/loginPage'); }}
-                            className=" h-[36px] w-24 bg-[#1C2D56] rounded group hover:border hover:bg-[#E6E5E5] text-white hover:text-text"
-                          >
-                            Log Out
-                          </button>
-                        </div>
+                      <div className="flex justify-end" >
+                        <Button
+                          onClick={() => { signout(router); router.push('/loginPage'); }}
+                          variant="outline"
+                          className="text-primary"
+                        >
+                          Log Out <ExitIcon className="ml-2" />
+                        </Button>
                       </div>
                     </div>
-                  </div>
+                  </Card>
                 </div>
               </div>
             )}

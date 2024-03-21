@@ -1,14 +1,10 @@
 export const getTimeAgo = (eventDate) => {
-  // Get the current date and time
   const now = new Date();
 
-  // Calculate the time difference in milliseconds
   const timeDiff = now - eventDate;
 
-  // Convert milliseconds to seconds
   const secondsDiff = Math.floor(timeDiff / 1000);
 
-  // Define time intervals in seconds
   const intervals = {
     year: 31536000,
     month: 2592000,
@@ -18,7 +14,6 @@ export const getTimeAgo = (eventDate) => {
     minute: 60,
   };
 
-  // Iterate through intervals to find the largest one that fits the time difference
   for (const [unit, interval] of Object.entries(intervals)) {
     const diff = Math.floor(secondsDiff / interval);
     if (diff >= 1) {
@@ -26,6 +21,27 @@ export const getTimeAgo = (eventDate) => {
     }
   }
 
-  // If the time difference is less than a minute, show 'just now'
   return 'just now';
+};
+
+export const getUsersCountFormat = (count, type = 'user') => {
+  const formatter = new Intl.NumberFormat('en-US');
+  const countString = formatter.format(count);
+
+  if (count === 1) {
+    return `${countString} ${type}`;
+  } else if (count < 1000) {
+    return `${countString} ${type}s`;
+  } else if (count < 1000000) {
+    return `${(count / 1000).toFixed(1)}K+ ${type}s`;
+  } else if (count < 1000000000) {
+    return `${(count / 1000000).toFixed(1)}M+ ${type}s`;
+  } else {
+    return `${(count / 1000000000).toFixed(1)}B+ ${type}s`;
+  }
+};
+
+export const getNameInitials = (name) => {
+  const nameWords = name.split(' ');
+  return `${nameWords[0].charAt(0)}${nameWords[nameWords.length - 1].charAt(0)}`;
 };

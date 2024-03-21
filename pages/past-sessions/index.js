@@ -14,7 +14,6 @@ const PastSessions = () => {
   useEffect(() => {
     getAllPastSessionsWithLink().then((data) => {
       setPastSessions(data);
-      // console.log(data, "past sessions");
     });
     getAllSkillsWithImage().then((data) => {
       setSkills(data);
@@ -30,9 +29,6 @@ const PastSessions = () => {
     );
   }
   const onClickSkills = (ele, exist) => {
-    let arr = [...selectedSkill];
-    // if (arr.find((data) => data == ele) == ele) {
-    // }
 
     if (exist) {
       setSelectedSkill((prev) => {
@@ -49,7 +45,7 @@ const PastSessions = () => {
         setPastSessions(data);
       });
     }
-    // console.log(ele, selectedSkill, exist, arr);
+
   };
 
   return (
@@ -65,21 +61,27 @@ const PastSessions = () => {
 
       <div className=" w-full">
         <div className="flex flex-wrap gap-[2.42%] justify-center ">
-          {pastSessions == undefined || pastSessions.length == 0 ? (
+          {pastSessions == undefined || pastSessions.length == 0
+            ?
             <h2 className="flex justify-center text-[50px]">
               No Past Session On this Skill
             </h2>
-          ) : (
-            pastSessions.map((pastSession) => (
-              <VideoCardItem
-                key={pastSession.id}
-                link={pastSession.videoUrl}
-                title={pastSession.title}
-                instructorName={pastSession.instructor.summry.displayName}
-                instructorImage={pastSession.instructor.summry.image}
-              />
-            ))
-          )}
+            :
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 my-10" >
+              {
+                pastSessions.map((pastSession) => (
+                  <VideoCardItem
+                    key={pastSession.id}
+                    link={pastSession.videoUrl}
+                    title={pastSession.title}
+                    instructorName={pastSession.instructor.summry.displayName}
+                    instructorImage={pastSession.instructor.summry.image}
+                  />
+                ))
+              }
+            </div>
+
+          }
           {/* {pastSessions.length > 0 &&
             pastSessions.map((pastSession) => (
               <VideoCardItem
