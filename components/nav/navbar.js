@@ -28,7 +28,7 @@ export default function NavBar() {
   const contextMenuData = [
     {
       id: 1,
-      path: `/auth/${user.user.uid}`,
+      path: `/auth/user/${user.user.uid}`,
       title: 'Profile'
     },
     {

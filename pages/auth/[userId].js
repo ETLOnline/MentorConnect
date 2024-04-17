@@ -136,7 +136,7 @@ const Index = () => {
               {reward && <Rewards />}
               {schdule && <Schdule />}
               {/* <br></br>
-              <IntrestsTile />
+              <InterestsTile />
               <br></br>
               <LearningTile />
               <br></br>
