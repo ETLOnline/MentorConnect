@@ -1,5 +1,5 @@
 import React from "react";
-import IntrestsTile from "../tiles/intrestsTile";
+import InterestsTile from "../tiles/InterestsTile";
 
 const InterestsBlock = ({ data }) => {
   return (
@@ -13,8 +13,8 @@ const InterestsBlock = ({ data }) => {
         <div className="flex flex-wrap gap-4">
           {data
             ? data?.map((elemant) => (
-                <IntrestsTile key={elemant} data={elemant} />
-              ))
+              <InterestsTile key={elemant} data={elemant} />
+            ))
             : "Please Update Profile"}
         </div>
       </div>

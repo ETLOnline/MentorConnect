@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{js,ts,jsx,tsx}',
     './app/**/*.{js,ts,jsx,tsx}',
     './src/**/*.{js,ts,jsx,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     fontFamily: {
@@ -80,7 +80,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/line-clamp")],
-} satisfies Config
+  plugins: [require("tailwindcss-animate")],
+} satisfies Config;
 
-export default config
+export default config;

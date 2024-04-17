@@ -29,7 +29,7 @@ const PastSessions = () => {
     );
   }
   const onClickSkills = (ele, exist) => {
-
+    let arr = [...selectedSkill];
     if (exist) {
       setSelectedSkill((prev) => {
         arr.push(ele);

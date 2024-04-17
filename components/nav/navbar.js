@@ -21,7 +21,7 @@ export default function NavBar() {
 
   let admin = false;
 
-  if (user.user.role === "superAdmin" || user.user.role === "admin") {
+  if (user.user?.role === "superAdmin" || user.user?.role === "admin") {
     admin = true;
   }
 

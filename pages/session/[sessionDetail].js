@@ -1,27 +1,45 @@
-import React, { Fragment, useContext, useEffect } from "react";
-import IntrestsTile from "../../components/tiles/intrestsTile";
-import { getSessionById, registorSession } from "../../utils_firebase/sessions";
-import { useRouter } from "next/router";
 import { useState } from "react";
-import Students from "../../components/sessionDetail/students";
-import Spinner from "../../components/spinner";
-import { AuthContext } from "../../contexts/auth_context";
-import { followUser } from "../../utils_firebase/users";
 import Image from "next/image";
-import Link from "next/link";
-import Followbtn from "../../components/tiles/followbtn";
+import { useRouter } from "next/router";
+import React, { useContext, useEffect } from "react";
 import { toast } from "react-toastify";
+import dayjs from "dayjs";
+
+
+import InterestsTile from "../../components/tiles/InterestsTile";
+import { getSessionById, registorSession } from "../../utils_firebase/sessions";
+
+import Spinner from "../../components/spinner";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import CustomButton from "@/components/ui/custom/custom-button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, } from "@/components/ui/tooltip";
+
+import { AuthContext } from "../../contexts/auth_context";
+import { getNameInitials, getUsersCountFormat } from "../../helpers";
+import { followUser } from "../../utils_firebase/users";
+
+import { FaBookmark } from "react-icons/fa";
+import { WidthIcon } from "@radix-ui/react-icons";
+import Divider from "../../components/tiles/divider";
 
 const SessionDetail = () => {
   const { user } = useContext(AuthContext);
-  const [isLoaded, setIsLoaded] = useState([]);
+  const [session, setSession] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [disableButtonCriteria, setDisableButtonCriteria] = useState(false);
   const router = useRouter();
   const id = router.query.sessionDetail;
+
   useEffect(() => {
-    getSessionById(id).then((user) => {
-      setIsLoaded(user);
-    });
-    // declare the async data fetching function
+    setLoading(true);
+    getSessionById(id)
+      .then((res) => {
+        setSession(res);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
   }, [id]);
 
   if (!user.user) {
@@ -33,8 +51,7 @@ const SessionDetail = () => {
     );
   }
 
-  const onFollowHenddler = (id, name) => {
-    // console.log(id, "foll", user.user.uid);
+  const onFollowHandler = (id, name) => {
 
     followUser(id, user.user.uid);
     const resolveAfter3Sec = new Promise((resolve) =>
@@ -47,141 +64,156 @@ const SessionDetail = () => {
       error: "Error 🤯",
     });
   };
-  if (isLoaded.length === 0) {
-    return <Spinner />;
-  }
+
+
+  console.log("Session: ", session);
+
+  useEffect(() => {
+    if (user.user.uid && session.students) {
+      const currentUserId = user.user.uid;
+      const criteria = session.students.find(student => student.uid === currentUserId) ? true : false;
+      setDisableButtonCriteria(criteria);
+    }
+  }, [user.user.uid, session.students]);
 
   return (
-    <>
-      <div className="flex">
-        <div className="w-[40%] h-[110vh] ">
-          <div className="border-[2px] m-[40px] rounded-[20px]">
-            <div className="relative h-[60vh]  m-auto ">
-              <Image
-                src={isLoaded.image}
-                alt="img"
-                fill
-                className="p-3 object-inherit rounded-[30px]"
-              />
+    loading ? <Spinner /> :
+      <div className="px-6 lg:px-10 my-4 grid gap-4 lg:gap-8 lg:grid-cols-10" >
+        <div className="lg:col-span-3 flex flex-col gap-3" >
+          <Image
+            src={session.image}
+            alt="img"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-full object-cover"
+          />
+
+          <div className="grid grid-cols-10" >
+            <div className="col-span-2 flex justify-center items-center">
+              <Avatar className='h-10 w-10'>
+                <AvatarImage src={session.instructor?.image} />
+                <AvatarFallback className="text-xs font-semibold uppercase">
+                  {getNameInitials(session.instructor?.summry.displayName)}
+                </AvatarFallback>
+              </Avatar>
+            </div>
+            <div className="col-span-8" >
+              <h2 className="text-text text-base lg:text-lg leading-tight capitalize font-bold">
+                {session.instructor?.summry.displayName}
+              </h2>
+              <div className="flex items-center justify-between text-xs lg:text-sm" >
+                <p>{getUsersCountFormat((session.instructor?.followers || []).length, 'Follower')}</p>
+                <p>{getUsersCountFormat((session?.students || []).length, 'Attendee')}</p>
+              </div>
             </div>
           </div>
         </div>
-        <div className="w-[55%] mx-4 py-5">
+
+        <div className="lg:col-span-7 flex flex-col gap-2">
           <div>
-            <div className="border-b-[2px]  flex ">
-              {/* <h1 className=" font-bold text-[#1C2D56] text-[25px]">Title:</h1> */}
-              <h1 className="font-bold text-[25px] text-[#1C2D56]">
-                {isLoaded.title}
-              </h1>
-            </div>
-            <div className="flex flex-wrap gap-5 my-4 pb-5 border-b-[2px]">
-              {isLoaded.tags?.map((tag) => {
+            <h1 className="font-bold text-2xl ">
+              {session.title}
+            </h1>
+
+            <div className="m-4 flex flex-wrap gap-3">
+              {session.tags?.map((tag, index) => {
                 return (
-                  <Fragment key={Math.random()}>
-                    <IntrestsTile data={tag} />
-                  </Fragment>
+                  <InterestsTile key={index} data={tag} />
                 );
               })}
             </div>
-
-            <div className="border-b-[2px]">
-              Instructor
-              <div className="flex justify-between border-[2px] rounded-[10px] mb-[20px] p-[10px]">
-                <Link href={`/auth/${isLoaded.instructor?.uid}`}>
-                  <div className="flex items-center">
-                    <div className="relative w-[32px] h-[32px]">
-                      <Image
-                        src={isLoaded.instructor?.summry.image}
-                        alt=""
-                        fill
-                        className="object-cover rounded-full"
-                      />
-                    </div>
-                    <h1 className="font-bold ml-[15px] text-[#1C2D56]">
-                      {isLoaded.instructor?.summry.displayName}
-                    </h1>
-                  </div>
-                </Link>
-
-                <div>
-                  <Followbtn />
-                </div>
-              </div>
-            </div>
-            <div className="border-b-[2px] p-5 flex justify-around ">
-              <div className="flex flex-col">
-                <h1 className="font-bold text-[20px]">CoachingPoints</h1>
-                <h1 className="font-bold m-auto text-[30px]">
-                  {isLoaded.poins}
-                </h1>
-              </div>
-              <div className="flex flex-col">
-                <h1 className="font-bold text-[20px]">LearningPoints</h1>
-                <h1 className="font-bold m-auto text-[30px]">
-                  {isLoaded.poins}
-                </h1>
-              </div>
-            </div>
-
-            <div className="border-b-[2px] p-5 ">
-              <p>Timing</p>
-              <div className="flex justify-between ">
-                <p className="text-[12px] leading-[14px] font-medium text-[#8B8B8B] group-hover:text-green-800">
-                  Start:
-                  {new Date(isLoaded.startTime?.seconds * 1000).toLocaleString()}
-                </p>
-                <p className="text-[12px] leading-[14px] font-medium text-[#8B8B8B] group-hover:text-green-800">
-                  End:
-                  {new Date(isLoaded.endTime?.seconds * 1000).toLocaleString()}
-                </p>
-              </div>
-            </div>
-
-            <div className="p-5">
-              <div
-                onClick={() => {
-                  const data = registorSession(id, user.user.uid);
-                  const resolveAfter3Sec = new Promise((resolve) =>
-                    setTimeout(resolve, 1000)
-                  );
-                  toast.promise(resolveAfter3Sec, {
-                    pending: "please wait ",
-                    success: data,
-                    error: "Error 🤯",
-                  });
-                }}
-                className="w-[63.63%] cursor-pointer bg-[#E6E5E5] p-[30px]  mx-auto  flex justify-center"
-              >
-                <p className="text-[40px] leading-[18px] text-[#1C2D56] m-auto">
-                  Register Now
-                </p>
-              </div>
-            </div>
           </div>
-        </div>
-      </div>
-      <div>
-        <div className="w-[60%] m-auto">
-          <div className="w-[90] flex justify-center">
-            <h1 className="font-semibold text-[30px] text-[#1C2D56] ">
-              Attendees
+
+          <Divider />
+
+          <div>
+            <h1 className="font-semibold text-xl">
+              Points required:
             </h1>
+
+            <div className="m-4 flex justify-between md:justify-start md:gap-6 xl:gap-8">
+              <div className="flex flex-col gap-1 items-center">
+                <Avatar className='h-16 w-16'>
+                  <AvatarFallback className="text-3xl font-semibold uppercase bg-foreground/20 text-background">
+                    {session.poins < 10 ? '0' + session.poins : session.poins}
+                  </AvatarFallback>
+                </Avatar>
+                <h1 className="text-sm">Coaching Points</h1>
+              </div>
+
+              <div className="flex flex-col gap-1 items-center">
+                <Avatar className='h-16 w-16'>
+                  <AvatarFallback className="text-3xl font-semibold uppercase bg-foreground/20 text-background">
+                    {session.poins < 10 ? '0' + session.poins : session.poins}
+                  </AvatarFallback>
+                </Avatar>
+                <h1 className="text-sm">Learning Points</h1>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col w-[90%] mx-auto my-[10px] px-[10px] border-[2px] rounded-[10px] pt-4 ">
-            {isLoaded.students?.map((student) => {
-              return (
-                <Fragment key={Math.random()}>
-                  <Students
-                    onFollowHenddler={onFollowHenddler}
-                    student={student}
-                  />
-                </Fragment>
-              );
-            })}
+
+          <Divider />
+
+          <div>
+            <h1 className="font-semibold text-xl">
+              Session Timings:
+            </h1>
+
+            <div className="mx-4 py-2 flex justify-between md:justify-start items-center gap-6 text-primary text-sm" >
+              <p className="flex gap-1 md:gap-2">
+                <span>{dayjs((session.startTime?.seconds + session.startTime?.nanoseconds) * 1000).format('hh:mm A')}</span>
+                <span>{dayjs((session.startTime?.seconds + session.startTime?.nanoseconds) * 1000).format('DD MMM YY')}</span>
+              </p>
+              <WidthIcon />
+              <p className="flex gap-1 md:gap-2">
+                <span>{dayjs((session.endTime?.seconds + session.endTime?.nanoseconds) * 1000).format('hh:mm A')}</span>
+                <span>{dayjs((session.endTime?.seconds + session.endTime?.nanoseconds) * 1000).format('DD MMM YY')}</span>
+              </p>
+            </div>
           </div>
+
+          <Divider />
+
+          <div className="m-4 flex justify-center">
+
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+
+                  <CustomButton
+                    onClick={() => {
+                      if (!disableButtonCriteria) {
+                        const data = registorSession(id, user.user.uid);
+                        const resolveAfter3Sec = new Promise((resolve) =>
+                          setTimeout(resolve, 1000)
+                        );
+                        toast.promise(resolveAfter3Sec, {
+                          pending: "please wait ",
+                          success: data,
+                          error: "Error 🤯",
+                        });
+                      }
+                    }}
+                    variant={"outline"}
+                    icon={<FaBookmark />}
+                    iconPosition="start"
+                    disabled={disableButtonCriteria ? true : false}
+                  >
+                    Register Session
+                  </CustomButton>
+
+                </TooltipTrigger>
+                <TooltipContent>
+                  {disableButtonCriteria && <p>Already registered to this session.</p>}
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
+
         </div>
       </div>
-    </>
+
   );
 };
 

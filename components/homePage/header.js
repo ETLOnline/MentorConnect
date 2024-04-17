@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import Image from "next/image";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
-import { Button } from "../ui/button";
+import CustomButton from "../ui/custom/custom-button";
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
       <div className="gradient-bg w-full px-2 font-montserrat text-primary">
         <div className="ml-0 xs:ml-[5.44%] grid md:grid-cols-2">
           <div className="text-center xs:text-left">
-            <div className=" ">
+            <div>
               <div className="xs:w-[88.52%] mt-[16.03%]">
                 <p className="text-[40px] xs:text-[48px] sm:text-[64px] text-text leading-[50px] sm:leading-[60px] md:leading-[75px] font-bold sm:font-[700]">
                   Find and Book a Mentor for your 1:1 help today!
@@ -20,10 +20,11 @@ const Header = () => {
                 We have over 200 Mentors available, qualified in over 300
                 subjects.
               </p>
-
-              <Button variant="outline">
-                Find a Mentor <ArrowRightIcon className="ml-2" />
-              </Button>
+              <div className="flex justify-center" >
+                <CustomButton variant="outline" icon={<ArrowRightIcon />} >
+                  Find a Mentor
+                </CustomButton>
+              </div>
             </div>
           </div>
           <div className="hidden md:block">

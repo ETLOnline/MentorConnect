@@ -129,19 +129,14 @@ export const getSessionById = async (id) => {
   const allStudents = [];
 
   const doc = await fireStore.collection("sessions").doc(id).get();
-  // console.log(doc);
   if (doc.exists) {
-    // console.log("datasasas", doc.data());
     const instructor = await getSingleUser(doc.data().instructor);
     for (const element of doc.data().students) {
       const user = await getSingleUser(element);
       allStudents.push(user);
     }
     return { ...doc.data(), students: allStudents, instructor };
-    // return doc.data();
   } else {
-    // doc.data() will be undefined in this case
-    // console.log("No such document!");
     return "No such document!";
   }
 };

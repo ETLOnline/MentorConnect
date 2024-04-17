@@ -10,6 +10,7 @@ import { getAllPastSessionsWithLink } from "../../utils_firebase/sessions";
 import Link from "next/link";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { Button } from "../ui/button";
+import CustomButton from "../ui/custom/custom-button";
 
 const VideoCard = () => {
   const [pastSessions, setPastSessions] = useState([]);
@@ -60,9 +61,9 @@ const VideoCard = () => {
       <div className="flex justify-between items-center py-10">
         <h2 className="text-lg md:text-xl xl:text-3xl font-bold text-text">Past Sessions</h2>
         <Link href={"/past-sessions"} >
-          <Button variant="outline">
-            Explore <ArrowRightIcon className="ml-2" />
-          </Button>
+          <CustomButton variant="outline" icon={<ArrowRightIcon />}>
+            Explore
+          </CustomButton>
         </Link>
       </div>
 

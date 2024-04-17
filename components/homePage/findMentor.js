@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
 import { Button } from "../ui/button";
+import CustomButton from "../ui/custom/custom-button";
 
 const FindMentor = () => {
   return (
@@ -20,9 +21,9 @@ const FindMentor = () => {
       </div>
 
       <div className="flex justify-center py-20" >
-        <Button variant="outline">
-          Find a Mentor <ArrowRightIcon className="ml-2" />
-        </Button>
+        <CustomButton variant="outline" icon={<ArrowRightIcon />}>
+          Find a Mentor
+        </CustomButton>
       </div>
     </div>
   );

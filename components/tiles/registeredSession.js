@@ -10,7 +10,11 @@ const RegisteredSession = () => {
   const [session, setSession] = useState(null);
 
   useEffect(() => {
-    getSessionInUserRegister(user.user.uid).then((data) => setSession(data));
+    getSessionInUserRegister(user.user.uid).then((data) => {
+      setSession(data);
+      console.log("Registered sessions: ", data);
+    });
+
   }, []);
 
   if (!session) {

@@ -22,9 +22,8 @@ const SessionItem = ({ session }) => {
           height={0}
           sizes="100vw"
           className="w-full h-52 object-cover cursor-pointer"
-          onClick={() => { router.push('/session/${session.id}'); }}
+          onClick={() => { router.push(`/session/${session.id}`); }}
         />
-        {/* <div className="absolute left-0 bottom-0 bg-green-400 px-2 py-1" >{getUsersCountFormat(session.students.length, 'Attendee')}</div> */}
       </CardHeader>
       <CardContent className="p-3 grid gap-2">
         <div className="grid grid-cols-10 gap-2" >

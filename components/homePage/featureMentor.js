@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import Spinner from "../spinner";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
-import { Button } from "../ui/button";
+import CustomButton from "../ui/custom/custom-button";
 
 var $ = require("jquery");
 if (typeof window !== "undefined") {
@@ -72,9 +72,9 @@ const FeatureMentor = () => {
       <div className="text-primary" >
         <div className="flex justify-between items-center py-10">
           <h2 className="text-lg md:text-xl xl:text-3xl font-bold">Featured Mentors</h2>
-          <Button variant="outline">
-            Find a Mentor <ArrowRightIcon className="ml-2" />
-          </Button>
+          <CustomButton variant="outline" icon={<ArrowRightIcon />}>
+            Find a Mentor
+          </CustomButton>
         </div>
 
         <OwlCarousel

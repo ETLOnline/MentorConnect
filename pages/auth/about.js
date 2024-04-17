@@ -1,5 +1,5 @@
 import React from "react";
-import IntrestsTile from "../../components/tiles/intrestsTile";
+import InterestsTile from "../../components/tiles/InterestsTile";
 import LearningCard from "../../components/tiles/learningCard";
 import CoachingCard from "../../components/tiles/coachingCard";
 import AboutBlock from "../../components/about/aboutComp";

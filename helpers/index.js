@@ -41,7 +41,7 @@ export const getUsersCountFormat = (count, type = 'user') => {
   }
 };
 
-export const getNameInitials = (name) => {
+export const getNameInitials = (name = '') => {
   const nameWords = name.split(' ');
   return `${nameWords[0].charAt(0)}${nameWords[nameWords.length - 1].charAt(0)}`;
 };
